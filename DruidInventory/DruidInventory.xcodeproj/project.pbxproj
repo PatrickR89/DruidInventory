@@ -17,6 +17,7 @@
 		CDF89E3B2864C47300F083A9 /* symbolList.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDF89E3A2864C47300F083A9 /* symbolList.txt */; };
 		CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E3E2864D43700F083A9 /* Potion.swift */; };
 		CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E402864D5B000F083A9 /* PotionCell.swift */; };
+		CDF89E432864E82000F083A9 /* PotionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E422864E82000F083A9 /* PotionDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CDF89E3A2864C47300F083A9 /* symbolList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbolList.txt; sourceTree = "<group>"; };
 		CDF89E3E2864D43700F083A9 /* Potion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
 		CDF89E402864D5B000F083A9 /* PotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionCell.swift; sourceTree = "<group>"; };
+		CDF89E422864E82000F083A9 /* PotionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CDF89E362864438700F083A9 /* HomeTabBarController.swift */,
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
+				CDF89E422864E82000F083A9 /* PotionDetailView.swift */,
 				CDF89E3E2864D43700F083A9 /* Potion.swift */,
 				CDF89E382864448000F083A9 /* RecipesTableViewController.swift */,
 				CDF89E3A2864C47300F083A9 /* symbolList.txt */,
@@ -172,6 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF89E432864E82000F083A9 /* PotionDetailView.swift in Sources */,
 				CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */,
 				CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */,
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
