@@ -15,9 +15,12 @@ class HomeTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
-
         configDelegate()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addItem))
 
         let potionsTab = potionsTableController
         let recipesTab = recipesTableController
@@ -48,4 +51,10 @@ extension HomeTabBarController: UITabBarControllerDelegate {
                tabBarController.present(recipesTableViewController, animated: true)
            }
        }
+}
+
+extension HomeTabBarController {
+    @objc func addItem() {
+
+    }
 }
