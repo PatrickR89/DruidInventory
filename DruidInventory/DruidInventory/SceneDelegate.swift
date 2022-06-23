@@ -17,11 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions) {
 
             guard let windowScene: UIWindowScene = (scene as? UIWindowScene) else {return}
-            let viewController = ViewController()
+            let navController = UINavigationController()
+            let homeTabBarController = HomeTabBarController()
+
+            navController.viewControllers = [homeTabBarController]
+            navController.view.backgroundColor = .cyan
 
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
-            window?.rootViewController = viewController
+            window?.rootViewController = navController
             window?.makeKeyAndVisible()
     }
 }
