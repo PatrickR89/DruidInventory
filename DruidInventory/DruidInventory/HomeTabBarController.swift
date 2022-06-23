@@ -25,7 +25,7 @@ class HomeTabBarController: UITabBarController {
         let potionsTab = potionsTableController
         let recipesTab = recipesTableController
 
-        let potionsBarItem = UITabBarItem(title: "Potions", image: UIImage(systemName: "drop.circle"), tag: 0)
+        let potionsBarItem = UITabBarItem(title: "Potions", image: UIImage(systemName: "testtube.2"), tag: 0)
         let recipesBarItem = UITabBarItem(title: "Recipes", image: UIImage(systemName: "book"), tag: 1)
 
         potionsTab.tabBarItem = potionsBarItem
