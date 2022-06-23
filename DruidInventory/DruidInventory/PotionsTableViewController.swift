@@ -9,16 +9,20 @@ import UIKit
 
 class PotionsTableViewController: UITableViewController {
 
+    var potions = [Potion]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
+
+        potions.append(Potion(name: "Fast walk", image: "figure.walk", amount: 3))
     }
 }
 
 extension PotionsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        potions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
