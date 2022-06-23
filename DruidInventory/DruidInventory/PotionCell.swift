@@ -25,6 +25,9 @@ class PotionCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+extension PotionCell {
 
     func configImageLayout() {
         contentView.addSubview(image)
