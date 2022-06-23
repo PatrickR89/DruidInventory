@@ -36,4 +36,16 @@ extension HomeTabBarController: UITabBarControllerDelegate {
     func configDelegate() {
         self.delegate = self
     }
+
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+           if viewController is PotionsTableViewController {
+               let potionsTableViewController = PotionsTableViewController()
+               tabBarController.present(potionsTableViewController, animated: true)
+           }
+
+           if viewController is RecipesTableViewController {
+               let recipesTableViewController = RecipesTableViewController()
+               tabBarController.present(recipesTableViewController, animated: true)
+           }
+       }
 }
