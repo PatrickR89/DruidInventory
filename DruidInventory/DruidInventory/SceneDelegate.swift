@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let homeTabBarController = HomeTabBarController()
 
             navController.viewControllers = [homeTabBarController]
+            navController.view.backgroundColor = .white
 
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
