@@ -26,7 +26,8 @@ extension PotionsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Potion") else {fatalError("Error loading cell")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Potion", for: indexPath) as? PotionCell else {fatalError("Error loading cell")}
+        cell.setupCell(with: potions[indexPath.row])
         return cell
     }
 
@@ -35,7 +36,7 @@ extension PotionsTableViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Potion")
+        tableView.register(PotionCell.self, forCellReuseIdentifier: "Potion")
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
