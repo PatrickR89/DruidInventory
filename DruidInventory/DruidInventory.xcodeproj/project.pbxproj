@@ -66,20 +66,36 @@
 		CDF89E2028643AFF00F083A9 /* DruidInventory */ = {
 			isa = PBXGroup;
 			children = (
+				CDF89E4528663A8500F083A9 /* Source */,
+				CDF89E4428663A4600F083A9 /* Potions */,
 				CDF89E2128643AFF00F083A9 /* AppDelegate.swift */,
 				CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */,
 				CDF89E362864438700F083A9 /* HomeTabBarController.swift */,
-				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
-				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
-				CDF89E422864E82000F083A9 /* PotionDetailView.swift */,
-				CDF89E3E2864D43700F083A9 /* Potion.swift */,
 				CDF89E382864448000F083A9 /* RecipesTableViewController.swift */,
-				CDF89E3A2864C47300F083A9 /* symbolList.txt */,
 				CDF89E2A28643B0100F083A9 /* Assets.xcassets */,
 				CDF89E2C28643B0100F083A9 /* LaunchScreen.storyboard */,
 				CDF89E2F28643B0100F083A9 /* Info.plist */,
 			);
 			path = DruidInventory;
+			sourceTree = "<group>";
+		};
+		CDF89E4428663A4600F083A9 /* Potions */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
+				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
+				CDF89E422864E82000F083A9 /* PotionDetailView.swift */,
+				CDF89E3E2864D43700F083A9 /* Potion.swift */,
+			);
+			path = Potions;
+			sourceTree = "<group>";
+		};
+		CDF89E4528663A8500F083A9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E3A2864C47300F083A9 /* symbolList.txt */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
