@@ -29,7 +29,7 @@ class PotionDetailView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .gray
+        view.backgroundColor = .white
         configTextFieldLayout()
         configImageLayout()
         configAmountLayout()
@@ -44,7 +44,7 @@ extension PotionDetailView {
         nameTextField.text = potion.name
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.font = UIFont.systemFont(ofSize: 30)
-        nameTextField.layer.borderColor = UIColor.white.cgColor
+        nameTextField.layer.borderColor = UIColor.black.cgColor
         nameTextField.layer.borderWidth = 1.5
         nameTextField.layer.cornerRadius = 3
         nameTextField.textAlignment = .center
@@ -60,7 +60,7 @@ extension PotionDetailView {
         view.addSubview(image)
         image.image = UIImage(systemName: potion.image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderColor = UIColor.white.cgColor
+        image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 1.5
         image.layer.cornerRadius = 3
 
@@ -78,7 +78,7 @@ extension PotionDetailView {
         amountTextField.text = String(potion.amount)
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
-        amountTextField.layer.borderColor = UIColor.white.cgColor
+        amountTextField.layer.borderColor = UIColor.black.cgColor
         amountTextField.layer.borderWidth = 1.5
         amountTextField.layer.cornerRadius = 3
         amountTextField.textAlignment = .center
@@ -94,15 +94,13 @@ extension PotionDetailView {
     func configButtonsLayout(button: UIButton) {
         view.addSubview(button)
 
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
-
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalTo: amountTextField.widthAnchor),
             button.heightAnchor.constraint(equalTo: button.widthAnchor),
             button.centerYAnchor.constraint(equalTo: amountTextField.centerYAnchor)
         ])
+        button.contentMode = .scaleAspectFill
 
         switch button {
         case buttonPlus:
