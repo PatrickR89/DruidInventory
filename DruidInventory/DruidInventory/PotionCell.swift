@@ -73,5 +73,8 @@ extension PotionCell {
         image.image = UIImage(systemName: potion.image)
         label.text = potion.name
         amount.text = "Qty: \(potion.amount)"
+        if potion.amount == 0 {
+            contentView.backgroundColor = .lightGray
+        }
     }
 }
