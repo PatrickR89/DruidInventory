@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PotionsTableViewController.swift
 //  DruidInventory
 //
 //  Created by Patrick on 23.06.2022..
