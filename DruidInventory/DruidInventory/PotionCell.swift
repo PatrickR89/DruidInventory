@@ -9,9 +9,20 @@ import UIKit
 
 class PotionCell: UITableViewCell {
 
-    var label = UILabel()
+    var nameLabel = UILabel()
     var image = UIImageView()
-    var amount = UILabel()
+    var amountLabel = UILabel()
+    var amount = 0 {
+        didSet {
+            amountLabel.text = "Qty: \(amount)"
+            if amount < 0 {
+                amount = 0
+            }
+            if amount == 0 {
+                contentView.backgroundColor = .lightGray
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,35 +57,32 @@ extension PotionCell {
     }
 
     func configLabelLayout() {
-        contentView.addSubview(label)
+        contentView.addSubview(nameLabel)
 
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Potion"
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.text = "Potion"
 
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            label.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20)
+            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20)
         ])
     }
 
     func configAmountLayout() {
-        contentView.addSubview(amount)
+        contentView.addSubview(amountLabel)
 
-        amount.translatesAutoresizingMaskIntoConstraints = false
-        amount.text = "Qty: 0"
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
+        amountLabel.text = "Qty: 0"
 
         NSLayoutConstraint.activate([
-            amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            amount.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+            amountLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            amountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
     }
 
     func setupCell(with potion: Potion) {
         image.image = UIImage(systemName: potion.image)
-        label.text = potion.name
-        amount.text = "Qty: \(potion.amount)"
-        if potion.amount == 0 {
-            contentView.backgroundColor = .lightGray
-        }
+        nameLabel.text = potion.name
+        amount = potion.amount
     }
 }

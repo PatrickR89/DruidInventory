@@ -39,6 +39,22 @@ extension PotionsTableViewController {
 
         self.present(potionDetailView, animated: true)
     }
+
+    override func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        potions[indexPath.row].amount -= 1
+        tableView.reloadRows(at: [indexPath], with: .none)
+        return nil
+    }
+
+    override func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        potions[indexPath.row].amount += 1
+        tableView.reloadRows(at: [indexPath], with: .none)
+        return nil
+    }
 }
 
 extension PotionsTableViewController {
