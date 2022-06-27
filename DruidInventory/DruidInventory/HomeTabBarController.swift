@@ -12,7 +12,7 @@ class HomeTabBarController: UITabBarController {
     let potionsTableController = PotionsTableViewController()
     let recipesTableController = RecipesTableViewController()
 
-    var sfSymbols = [String]()
+    var potionSymbolNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +64,12 @@ extension HomeTabBarController {
     func fetchSymbols() {
         if let symbolURL = Bundle.main.url(forResource: "symbolList", withExtension: ".txt") {
             if let symbols = try? String(contentsOf: symbolURL) {
-                sfSymbols = symbols.components(separatedBy: "\n")
+                potionSymbolNames = symbols.components(separatedBy: "\n")
             }
         }
 
-        if sfSymbols.isEmpty {
-            sfSymbols = ["Words not loaded"]
+        if potionSymbolNames.isEmpty {
+            potionSymbolNames = ["Words not loaded"]
             let alertController = UIAlertController(
                 title: "Error",
                 message: "Symbols were not loaded",
@@ -78,6 +78,6 @@ extension HomeTabBarController {
             present(alertController, animated: true)
         }
 
-        print(sfSymbols)
+        print(potionSymbolNames)
     }
 }
