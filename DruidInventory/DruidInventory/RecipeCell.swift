@@ -17,7 +17,7 @@ class RecipeCell: UITableViewCell {
     var ingredient3Image = UIImageView()
     var ingredient4Amount = UILabel()
     var ingredient4Image = UIImageView()
-    var ingredientsAmount = 3
+    var ingredientsAmount = 4
 
     var resultsIn = UIImageView()
 
@@ -25,7 +25,7 @@ class RecipeCell: UITableViewCell {
     var potion1Image = UIImageView()
     var potion2Amount = UILabel()
     var potion2Image = UIImageView()
-    var potionsAmount = 1
+    var potionsAmount = 2
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
