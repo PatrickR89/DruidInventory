@@ -69,7 +69,7 @@ extension HomeTabBarController {
         }
 
         if potionSymbolNames.isEmpty {
-            potionSymbolNames = ["Words not loaded"]
+            potionSymbolNames = ["xmark.octagon"]
             let alertController = UIAlertController(
                 title: "Error",
                 message: "Symbols were not loaded",
