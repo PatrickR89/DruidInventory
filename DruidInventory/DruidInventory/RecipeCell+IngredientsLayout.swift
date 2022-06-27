@@ -10,131 +10,195 @@ import UIKit
 extension RecipeCell {
 
     func configIngredientsLayoutIfOne() {
-        contentView.addSubview(ingredientImage1)
-        ingredientImage1.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage1.layer.borderColor = UIColor.black.cgColor
-        ingredientImage1.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient1Image)
+        ingredient1Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Image.layer.borderColor = UIColor.black.cgColor
+        ingredient1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient1Amount)
+        ingredient1Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage1.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage1.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60)
+            ingredient1Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60),
+            ingredient1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Amount.trailingAnchor.constraint(equalTo: ingredient1Image.leadingAnchor, constant: -5),
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 
     func configIngredientsLayoutIfTwo() {
-        contentView.addSubview(ingredientImage1)
-        ingredientImage1.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage1.layer.borderColor = UIColor.black.cgColor
-        ingredientImage1.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient1Image)
+        ingredient1Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Image.layer.borderColor = UIColor.black.cgColor
+        ingredient1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient1Amount)
+        ingredient1Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage1.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage1.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -45)
+            ingredient1Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -45),
+            ingredient1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Amount.trailingAnchor.constraint(equalTo: ingredient1Image.leadingAnchor, constant: -5),
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
 
-        contentView.addSubview(ingredientImage2)
-        ingredientImage2.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage2.layer.borderColor = UIColor.black.cgColor
-        ingredientImage2.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient2Image)
+        ingredient2Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Image.layer.borderColor = UIColor.black.cgColor
+        ingredient2Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient2Amount)
+        ingredient2Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage2.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage2.trailingAnchor.constraint(equalTo: ingredientImage1.leadingAnchor, constant: -15)
+            ingredient2Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Image.trailingAnchor.constraint(equalTo: ingredient1Amount.leadingAnchor, constant: -10),
+            ingredient2Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Amount.trailingAnchor.constraint(equalTo: ingredient2Image.leadingAnchor, constant: -5)
         ])
     }
 
     func configIngredientsLayoutIfThree() {
-        contentView.addSubview(ingredientImage1)
-        ingredientImage1.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage1.layer.borderColor = UIColor.black.cgColor
-        ingredientImage1.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient1Image)
+        ingredient1Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Image.layer.borderColor = UIColor.black.cgColor
+        ingredient1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient1Amount)
+        ingredient1Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage1.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage1.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -25)
+            ingredient1Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -25),
+            ingredient1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Amount.trailingAnchor.constraint(equalTo: ingredient1Image.leadingAnchor, constant: -5),
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 20)
         ])
 
-        contentView.addSubview(ingredientImage2)
-        ingredientImage2.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage2.layer.borderColor = UIColor.black.cgColor
-        ingredientImage2.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient2Image)
+        ingredient2Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Image.layer.borderColor = UIColor.black.cgColor
+        ingredient2Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient2Amount)
+        ingredient2Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage2.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage2.trailingAnchor.constraint(equalTo: ingredientImage1.leadingAnchor, constant: -15)
+            ingredient2Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Image.trailingAnchor.constraint(equalTo: ingredient1Amount.leadingAnchor, constant: -10),
+            ingredient2Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Amount.trailingAnchor.constraint(equalTo: ingredient2Image.leadingAnchor, constant: -5)
         ])
 
-        contentView.addSubview(ingredientImage3)
-        ingredientImage3.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage3.layer.borderColor = UIColor.black.cgColor
-        ingredientImage3.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient3Image)
+        ingredient3Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient3Image.layer.borderColor = UIColor.black.cgColor
+        ingredient3Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient3Amount)
+        ingredient3Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient3Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage3.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage3.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage3.trailingAnchor.constraint(equalTo: ingredientImage2.leadingAnchor, constant: -15)
+            ingredient3Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient3Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient3Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient3Image.trailingAnchor.constraint(equalTo: ingredient2Amount.leadingAnchor, constant: -10),
+            ingredient3Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient3Amount.trailingAnchor.constraint(equalTo: ingredient3Image.leadingAnchor, constant: -5)
         ])
 
     }
 
     func configIngredientsLayoutIfFour() {
-        contentView.addSubview(ingredientImage1)
-        ingredientImage1.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage1.layer.borderColor = UIColor.black.cgColor
-        ingredientImage1.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient1Image)
+        ingredient1Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Image.layer.borderColor = UIColor.black.cgColor
+        ingredient1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient1Amount)
+        ingredient1Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient1Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage1.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage1.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -15)
+            ingredient1Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5),
+            ingredient1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient1Amount.trailingAnchor.constraint(equalTo: ingredient1Image.leadingAnchor, constant: -3),
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60)
         ])
 
-        contentView.addSubview(ingredientImage2)
-        ingredientImage2.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage2.layer.borderColor = UIColor.black.cgColor
-        ingredientImage2.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient2Image)
+        ingredient2Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Image.layer.borderColor = UIColor.black.cgColor
+        ingredient2Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient2Amount)
+        ingredient2Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient2Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage2.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage2.trailingAnchor.constraint(equalTo: ingredientImage1.leadingAnchor, constant: -15)
+            ingredient2Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient2Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Image.trailingAnchor.constraint(equalTo: ingredient1Amount.leadingAnchor, constant: -10),
+            ingredient2Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient2Amount.trailingAnchor.constraint(equalTo: ingredient2Image.leadingAnchor, constant: -3)
         ])
 
-        contentView.addSubview(ingredientImage3)
-        ingredientImage3.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage3.layer.borderColor = UIColor.black.cgColor
-        ingredientImage3.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient3Image)
+        ingredient3Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient3Image.layer.borderColor = UIColor.black.cgColor
+        ingredient3Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient3Amount)
+        ingredient3Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient3Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage3.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage3.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage3.trailingAnchor.constraint(equalTo: ingredientImage2.leadingAnchor, constant: -15)
+            ingredient3Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient3Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient3Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient3Image.trailingAnchor.constraint(equalTo: ingredient2Amount.leadingAnchor, constant: -10),
+            ingredient3Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient3Amount.trailingAnchor.constraint(equalTo: ingredient3Image.leadingAnchor, constant: -3)
         ])
 
-        contentView.addSubview(ingredientImage4)
-        ingredientImage4.translatesAutoresizingMaskIntoConstraints = false
-        ingredientImage4.layer.borderColor = UIColor.black.cgColor
-        ingredientImage4.layer.borderWidth = 0.5
+        contentView.addSubview(ingredient4Image)
+        ingredient4Image.translatesAutoresizingMaskIntoConstraints = false
+        ingredient4Image.layer.borderColor = UIColor.black.cgColor
+        ingredient4Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(ingredient4Amount)
+        ingredient4Amount.translatesAutoresizingMaskIntoConstraints = false
+        ingredient4Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            ingredientImage4.widthAnchor.constraint(equalToConstant: 25),
-            ingredientImage4.heightAnchor.constraint(equalToConstant: 25),
-            ingredientImage4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientImage4.trailingAnchor.constraint(equalTo: ingredientImage3.leadingAnchor, constant: -15)
+            ingredient4Image.widthAnchor.constraint(equalToConstant: 25),
+            ingredient4Image.heightAnchor.constraint(equalToConstant: 25),
+            ingredient4Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient4Image.trailingAnchor.constraint(equalTo: ingredient3Amount.leadingAnchor, constant: -10),
+            ingredient4Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            ingredient4Amount.trailingAnchor.constraint(equalTo: ingredient4Image.leadingAnchor, constant: -3)
         ])
 
     }
