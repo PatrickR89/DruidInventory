@@ -9,24 +9,24 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    var ingredients = [Ingredient]()
     var ingredientImage1 = UIImageView()
     var ingredientImage2 = UIImageView()
     var ingredientImage3 = UIImageView()
     var ingredientImage4 = UIImageView()
-    var ingredientsAmount = 1
+    var ingredientsAmount = 4
 
     var resultsIn = UIImageView()
 
-    var potions = [Potion]()
     var potionImage1 = UIImageView()
     var potionImage2 = UIImageView()
+    var potionsAmount = 2
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configLayoutResultsIn()
         configIngredientsLayout()
+        configPotionsLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -35,18 +35,26 @@ class RecipeCell: UITableViewCell {
 
     func configIngredientsLayout() {
         switch ingredientsAmount {
-        default:
-            contentView.addSubview(ingredientImage1)
-            ingredientImage1.translatesAutoresizingMaskIntoConstraints = false
-            ingredientImage1.layer.borderColor = UIColor.black.cgColor
-            ingredientImage1.layer.borderWidth = 0.5
+        case 2:
+            configIngredientsLayoutIfTwo()
 
-            NSLayoutConstraint.activate([
-                ingredientImage1.widthAnchor.constraint(equalToConstant: 25),
-                ingredientImage1.heightAnchor.constraint(equalToConstant: 25),
-                ingredientImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                ingredientImage1.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -55)
-            ])
+        case 3:
+            configIngredientsLayoutIfThree()
+
+        case 4:
+            configIngredientsLayoutIfFour()
+
+        default:
+            configIngredientsLayoutIfOne()
+        }
+    }
+
+    func configPotionsLayout() {
+        switch potionsAmount {
+        case 2:
+            configPotionsLayoutIfTwo()
+        default:
+            configPotionsLayoutIfOne()
         }
     }
     func configLayoutResultsIn() {
