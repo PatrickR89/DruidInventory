@@ -60,18 +60,9 @@ extension PotionsTableViewController {
 extension PotionsTableViewController {
 
     func setupTableView() {
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PotionCell.self, forCellReuseIdentifier: "Potion")
-
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
-        ])
-
     }
 }
