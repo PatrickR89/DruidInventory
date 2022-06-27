@@ -9,6 +9,11 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
+    var ingredientsCount = 4 {
+        didSet {
+            configIngredientsLayout()
+        }
+    }
     var ingredient1Amount = UILabel()
     var ingredient1Image = UIImageView()
     var ingredient2Amount = UILabel()
@@ -17,22 +22,23 @@ class RecipeCell: UITableViewCell {
     var ingredient3Image = UIImageView()
     var ingredient4Amount = UILabel()
     var ingredient4Image = UIImageView()
-    var ingredientsAmount = 4
 
     var resultsIn = UIImageView()
 
+    var potionsCount = 2 {
+        didSet {
+            configPotionsLayout()
+        }
+    }
     var potion1Amount = UILabel()
     var potion1Image = UIImageView()
     var potion2Amount = UILabel()
     var potion2Image = UIImageView()
-    var potionsAmount = 2
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configLayoutResultsIn()
-        configIngredientsLayout()
-        configPotionsLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -40,7 +46,7 @@ class RecipeCell: UITableViewCell {
     }
 
     func configIngredientsLayout() {
-        switch ingredientsAmount {
+        switch ingredientsCount {
         case 2:
             configIngredientsLayoutIfTwo()
 
@@ -56,7 +62,7 @@ class RecipeCell: UITableViewCell {
     }
 
     func configPotionsLayout() {
-        switch potionsAmount {
+        switch potionsCount {
         case 2:
             configPotionsLayoutIfTwo()
         default:
@@ -73,5 +79,22 @@ class RecipeCell: UITableViewCell {
             resultsIn.heightAnchor.constraint(equalToConstant: 25),
             resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
+    }
+
+    func initializeCell(recipe: Recipe) {
+
+        ingredientsCount = recipe.ingredientsInRecipe.count
+
+        ingredient1Amount.text = "\(recipe.ingredientsInRecipe[0].amount)x"
+        ingredient1Image.image = UIImage(systemName: recipe.ingredientsInRecipe[0].image)
+        ingredient2Amount.text = "\(recipe.ingredientsInRecipe[1].amount)x"
+        ingredient2Image.image = UIImage(systemName: recipe.ingredientsInRecipe[1].image)
+        ingredient3Amount.text = "\(recipe.ingredientsInRecipe[2].amount)x"
+        ingredient3Image.image = UIImage(systemName: recipe.ingredientsInRecipe[2].image)
+
+        potionsCount = recipe.potionsInRecipe.count
+
+        potion1Image.image = UIImage(systemName: recipe.potionsInRecipe[0].image)
+        potion1Amount.text = "\(recipe.potionsInRecipe[0].amount)"
     }
 }
