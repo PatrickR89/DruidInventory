@@ -9,31 +9,22 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    var ingredientsCount = 4 {
+    var ingredientsCount = 0 {
         didSet {
             configIngredientsLayout()
         }
     }
-    var ingredient1Amount = UILabel()
-    var ingredient1Image = UIImageView()
-    var ingredient2Amount = UILabel()
-    var ingredient2Image = UIImageView()
-    var ingredient3Amount = UILabel()
-    var ingredient3Image = UIImageView()
-    var ingredient4Amount = UILabel()
-    var ingredient4Image = UIImageView()
 
-    var resultsIn = UIImageView()
-
-    var potionsCount = 2 {
+    var potionsCount = 0 {
         didSet {
             configPotionsLayout()
         }
     }
-    var potion1Amount = UILabel()
-    var potion1Image = UIImageView()
-    var potion2Amount = UILabel()
-    var potion2Image = UIImageView()
+
+    var ingredients = [RecipeLayout]()
+    var potions = [RecipeLayout]()
+
+    var resultsIn = UIImageView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -83,20 +74,22 @@ class RecipeCell: UITableViewCell {
 
     func initializeCell(recipe: Recipe) {
 
-        ingredientsCount = recipe.ingredientsInRecipe.count
+        for index in 0...recipe.ingredientsInRecipe.count - 1 {
+            ingredients.append(
+                RecipeLayout(
+                    amount: "\(recipe.ingredientsInRecipe[index].amount)x",
+                    image: recipe.ingredientsInRecipe[index].image))
+        }
 
-        ingredient1Amount.text = "\(recipe.ingredientsInRecipe[0].amount)x"
-        ingredient1Image.image = UIImage(systemName: recipe.ingredientsInRecipe[0].image)
-        ingredient2Amount.text = "\(recipe.ingredientsInRecipe[1].amount)x"
-        ingredient2Image.image = UIImage(systemName: recipe.ingredientsInRecipe[1].image)
-        ingredient3Amount.text = "\(recipe.ingredientsInRecipe[2].amount)x"
-        ingredient3Image.image = UIImage(systemName: recipe.ingredientsInRecipe[2].image)
-//        ingredient4Amount.text = "\(recipe.ingredientsInRecipe[3].amount)x"
-//        ingredient4Image.image = UIImage(systemName: recipe.ingredientsInRecipe[3].image)
+        ingredientsCount = ingredients.count
 
-        potionsCount = recipe.potionsInRecipe.count
+        for index in 0...recipe.potionsInRecipe.count - 1 {
+            potions.append(
+                RecipeLayout(
+                    amount: "\(recipe.potionsInRecipe[index].amount)x",
+                    image: recipe.potionsInRecipe[index].image))
+        }
 
-        potion1Image.image = UIImage(systemName: recipe.potionsInRecipe[0].image)
-        potion1Amount.text = "\(recipe.potionsInRecipe[0].amount)x"
+        potionsCount = potions.count
     }
 }
