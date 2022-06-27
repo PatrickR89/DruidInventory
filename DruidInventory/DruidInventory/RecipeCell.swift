@@ -91,10 +91,12 @@ class RecipeCell: UITableViewCell {
         ingredient2Image.image = UIImage(systemName: recipe.ingredientsInRecipe[1].image)
         ingredient3Amount.text = "\(recipe.ingredientsInRecipe[2].amount)x"
         ingredient3Image.image = UIImage(systemName: recipe.ingredientsInRecipe[2].image)
+//        ingredient4Amount.text = "\(recipe.ingredientsInRecipe[3].amount)x"
+//        ingredient4Image.image = UIImage(systemName: recipe.ingredientsInRecipe[3].image)
 
         potionsCount = recipe.potionsInRecipe.count
 
         potion1Image.image = UIImage(systemName: recipe.potionsInRecipe[0].image)
-        potion1Amount.text = "\(recipe.potionsInRecipe[0].amount)"
+        potion1Amount.text = "\(recipe.potionsInRecipe[0].amount)x"
     }
 }
