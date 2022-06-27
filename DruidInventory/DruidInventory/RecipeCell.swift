@@ -9,17 +9,23 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    var ingredientImage1 = UIImageView()
-    var ingredientImage2 = UIImageView()
-    var ingredientImage3 = UIImageView()
-    var ingredientImage4 = UIImageView()
-    var ingredientsAmount = 4
+    var ingredient1Amount = UILabel()
+    var ingredient1Image = UIImageView()
+    var ingredient2Amount = UILabel()
+    var ingredient2Image = UIImageView()
+    var ingredient3Amount = UILabel()
+    var ingredient3Image = UIImageView()
+    var ingredient4Amount = UILabel()
+    var ingredient4Image = UIImageView()
+    var ingredientsAmount = 3
 
     var resultsIn = UIImageView()
 
-    var potionImage1 = UIImageView()
-    var potionImage2 = UIImageView()
-    var potionsAmount = 2
+    var potion1Amount = UILabel()
+    var potion1Image = UIImageView()
+    var potion2Amount = UILabel()
+    var potion2Image = UIImageView()
+    var potionsAmount = 1
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -65,8 +71,7 @@ class RecipeCell: UITableViewCell {
         NSLayoutConstraint.activate([
             resultsIn.widthAnchor.constraint(equalToConstant: 25),
             resultsIn.heightAnchor.constraint(equalToConstant: 25),
-            resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
+            resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }

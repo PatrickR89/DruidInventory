@@ -10,42 +10,57 @@ import UIKit
 extension RecipeCell {
 
     func configPotionsLayoutIfOne() {
-        contentView.addSubview(potionImage1)
-        potionImage1.translatesAutoresizingMaskIntoConstraints = false
-        potionImage1.layer.borderColor = UIColor.black.cgColor
-        potionImage1.layer.borderWidth = 0.5
+        contentView.addSubview(potion1Image)
+        potion1Image.translatesAutoresizingMaskIntoConstraints = false
+        potion1Image.layer.borderColor = UIColor.black.cgColor
+        potion1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(potion1Amount)
+        potion1Amount.translatesAutoresizingMaskIntoConstraints = false
+        potion1Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            potionImage1.widthAnchor.constraint(equalToConstant: 25),
-            potionImage1.heightAnchor.constraint(equalToConstant: 25),
-            potionImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            potionImage1.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 60)
+            potion1Image.widthAnchor.constraint(equalToConstant: 25),
+            potion1Image.heightAnchor.constraint(equalToConstant: 25),
+            potion1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion1Image.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 60),
+            potion1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion1Amount.trailingAnchor.constraint(equalTo: potion1Image.leadingAnchor, constant: -5)
         ])
     }
 
     func configPotionsLayoutIfTwo() {
-        contentView.addSubview(potionImage1)
-        potionImage1.translatesAutoresizingMaskIntoConstraints = false
-        potionImage1.layer.borderColor = UIColor.black.cgColor
-        potionImage1.layer.borderWidth = 0.5
+        contentView.addSubview(potion1Image)
+        potion1Image.translatesAutoresizingMaskIntoConstraints = false
+        potion1Image.layer.borderColor = UIColor.black.cgColor
+        potion1Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(potion1Amount)
+        potion1Amount.translatesAutoresizingMaskIntoConstraints = false
+        potion1Amount.text = "1x"
+
+        contentView.addSubview(potion2Image)
+        potion2Image.translatesAutoresizingMaskIntoConstraints = false
+        potion2Image.layer.borderColor = UIColor.black.cgColor
+        potion2Image.layer.borderWidth = 0.5
+
+        contentView.addSubview(potion2Amount)
+        potion2Amount.translatesAutoresizingMaskIntoConstraints = false
+        potion2Amount.text = "1x"
 
         NSLayoutConstraint.activate([
-            potionImage1.widthAnchor.constraint(equalToConstant: 25),
-            potionImage1.heightAnchor.constraint(equalToConstant: 25),
-            potionImage1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            potionImage1.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 50)
-        ])
-
-        contentView.addSubview(potionImage2)
-        potionImage2.translatesAutoresizingMaskIntoConstraints = false
-        potionImage2.layer.borderColor = UIColor.black.cgColor
-        potionImage2.layer.borderWidth = 0.5
-
-        NSLayoutConstraint.activate([
-            potionImage2.widthAnchor.constraint(equalToConstant: 25),
-            potionImage2.heightAnchor.constraint(equalToConstant: 25),
-            potionImage2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            potionImage2.leadingAnchor.constraint(equalTo: potionImage1.trailingAnchor, constant: 30)
+            potion2Image.widthAnchor.constraint(equalToConstant: 25),
+            potion2Image.heightAnchor.constraint(equalToConstant: 25),
+            potion2Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion2Image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
+            potion2Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion2Amount.trailingAnchor.constraint(equalTo: potion2Image.leadingAnchor, constant: -5),
+            potion1Image.widthAnchor.constraint(equalToConstant: 25),
+            potion1Image.heightAnchor.constraint(equalToConstant: 25),
+            potion1Image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion1Image.trailingAnchor.constraint(equalTo: potion2Image.leadingAnchor, constant: -30),
+            potion1Amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potion1Amount.trailingAnchor.constraint(equalTo: potion1Image.leadingAnchor, constant: -5)
         ])
     }
 }
