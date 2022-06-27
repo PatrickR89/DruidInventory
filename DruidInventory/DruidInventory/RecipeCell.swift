@@ -36,30 +36,6 @@ class RecipeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configIngredientsLayout() {
-        switch ingredientsCount {
-        case 2:
-            configIngredientsLayoutIfTwo()
-
-        case 3:
-            configIngredientsLayoutIfThree()
-
-        case 4:
-            configIngredientsLayoutIfFour()
-
-        default:
-            configIngredientsLayoutIfOne()
-        }
-    }
-
-    func configPotionsLayout() {
-        switch potionsCount {
-        case 2:
-            configPotionsLayoutIfTwo()
-        default:
-            configPotionsLayoutIfOne()
-        }
-    }
     func configLayoutResultsIn() {
         contentView.addSubview(resultsIn)
         resultsIn.image = UIImage(systemName: "arrow.right")

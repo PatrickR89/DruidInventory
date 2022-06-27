@@ -9,79 +9,70 @@ import UIKit
 
 extension RecipeCell {
 
-    func configIngredientsLayoutIfOne() {
+    func configIngredientsLayout() {
 
         setupIngredientsLayout()
         setupIngredientsConstraints()
 
-        NSLayoutConstraint.activate([
-            ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-    }
+        if ingredients.count == 1 {
+            NSLayoutConstraint.activate([
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60),
+                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
+            ])
+        }
 
-    func configIngredientsLayoutIfTwo() {
+        if ingredients.count == 2 {
+            NSLayoutConstraint.activate([
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -45),
+                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
+            ])
+        }
 
-        setupIngredientsLayout()
-        setupIngredientsConstraints()
+        if ingredients.count == 3 {
+            NSLayoutConstraint.activate([
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -25),
+                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 30)
+            ])
+        }
 
-        NSLayoutConstraint.activate([
-            ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -45),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-    }
+        if ingredients.count == 4 {
+            NSLayoutConstraint.activate([
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5),
+                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60)
+            ])
+        }
 
-    func configIngredientsLayoutIfThree() {
-
-        setupIngredientsLayout()
-        setupIngredientsConstraints()
-
-        NSLayoutConstraint.activate([
-            ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -25),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 20)
-        ])
-    }
-
-    func configIngredientsLayoutIfFour() {
-
-        setupIngredientsLayout()
-        setupIngredientsConstraints()
-
-        NSLayoutConstraint.activate([
-            ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60)
-        ])
     }
 
     func setupIngredientsLayout() {
 
-        for index in 0...ingredients.count - 1 {
-            contentView.addSubview(ingredients[index].image)
-            ingredients[index].image.translatesAutoresizingMaskIntoConstraints = false
+        for ingredient in ingredients {
+            contentView.addSubview(ingredient.image)
+            ingredient.image.translatesAutoresizingMaskIntoConstraints = false
 
-            contentView.addSubview(ingredients[index].amount)
-            ingredients[index].amount.translatesAutoresizingMaskIntoConstraints = false
-            ingredients[index].amount.text = "1x"
+            contentView.addSubview(ingredient.amount)
+            ingredient.amount.translatesAutoresizingMaskIntoConstraints = false
+            ingredient.amount.text = "1x"
         }
     }
 
     func setupIngredientsConstraints() {
 
-        for index in 0...ingredients.count - 1 {
+        for ingredient in ingredients {
             NSLayoutConstraint.activate([
-                ingredients[index].image.widthAnchor.constraint(equalToConstant: 25),
-                ingredients[index].image.heightAnchor.constraint(equalToConstant: 25),
-                ingredients[index].image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                ingredients[index].amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                ingredients[index].amount.trailingAnchor.constraint(
-                    equalTo: ingredients[index].image.leadingAnchor, constant: -3)
+                ingredient.image.widthAnchor.constraint(equalToConstant: 25),
+                ingredient.image.heightAnchor.constraint(equalToConstant: 25),
+                ingredient.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                ingredient.amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                ingredient.amount.trailingAnchor.constraint(
+                    equalTo: ingredient.image.leadingAnchor, constant: -3)
             ])
+        }
 
-            if index > 0 {
+        for index in 1...ingredients.count - 1 {
                 ingredients[index].image.trailingAnchor.constraint(
                     equalTo: ingredients[index - 1].amount.leadingAnchor,
                     constant: -10).isActive = true
-            }
         }
     }
 }
