@@ -79,7 +79,7 @@ extension PotionDetailViewController {
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
         amountTextField.layer.borderColor = UIColor.black.cgColor
-        amountTextField.layer.borderWidth = 1.5
+        amountTextField.layer.borderWidth = 2
         amountTextField.layer.cornerRadius = 3
         amountTextField.textAlignment = .center
 

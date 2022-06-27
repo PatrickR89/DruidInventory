@@ -71,8 +71,6 @@ extension RecipeCell {
     func configIngredient1Layout() {
         contentView.addSubview(ingredient1Image)
         ingredient1Image.translatesAutoresizingMaskIntoConstraints = false
-        ingredient1Image.layer.borderColor = UIColor.black.cgColor
-        ingredient1Image.layer.borderWidth = 0.5
 
         contentView.addSubview(ingredient1Amount)
         ingredient1Amount.translatesAutoresizingMaskIntoConstraints = false
@@ -82,8 +80,6 @@ extension RecipeCell {
     func configIngredient2Layout() {
         contentView.addSubview(ingredient2Image)
         ingredient2Image.translatesAutoresizingMaskIntoConstraints = false
-        ingredient2Image.layer.borderColor = UIColor.black.cgColor
-        ingredient2Image.layer.borderWidth = 0.5
 
         contentView.addSubview(ingredient2Amount)
         ingredient2Amount.translatesAutoresizingMaskIntoConstraints = false
@@ -93,8 +89,6 @@ extension RecipeCell {
     func configIngredient3Layout() {
         contentView.addSubview(ingredient3Image)
         ingredient3Image.translatesAutoresizingMaskIntoConstraints = false
-        ingredient3Image.layer.borderColor = UIColor.black.cgColor
-        ingredient3Image.layer.borderWidth = 0.5
 
         contentView.addSubview(ingredient3Amount)
         ingredient3Amount.translatesAutoresizingMaskIntoConstraints = false
@@ -104,8 +98,6 @@ extension RecipeCell {
     func configIngredient4Layout() {
         contentView.addSubview(ingredient4Image)
         ingredient4Image.translatesAutoresizingMaskIntoConstraints = false
-        ingredient4Image.layer.borderColor = UIColor.black.cgColor
-        ingredient4Image.layer.borderWidth = 0.5
 
         contentView.addSubview(ingredient4Amount)
         ingredient4Amount.translatesAutoresizingMaskIntoConstraints = false

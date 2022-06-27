@@ -37,9 +37,6 @@ extension PotionCell {
     func configImageLayout() {
         contentView.addSubview(image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderWidth = 1
-        image.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
-        image.layer.cornerRadius = 1.5
 
         NSLayoutConstraint.activate([
             image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),

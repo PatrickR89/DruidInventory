@@ -46,8 +46,6 @@ extension RecipeCell {
     func configPotion1Layout() {
         contentView.addSubview(potion1Image)
         potion1Image.translatesAutoresizingMaskIntoConstraints = false
-        potion1Image.layer.borderColor = UIColor.black.cgColor
-        potion1Image.layer.borderWidth = 0.5
 
         contentView.addSubview(potion1Amount)
         potion1Amount.translatesAutoresizingMaskIntoConstraints = false
@@ -57,8 +55,6 @@ extension RecipeCell {
     func configPotion2Layout() {
         contentView.addSubview(potion2Image)
         potion2Image.translatesAutoresizingMaskIntoConstraints = false
-        potion2Image.layer.borderColor = UIColor.black.cgColor
-        potion2Image.layer.borderWidth = 0.5
 
         contentView.addSubview(potion2Amount)
         potion2Amount.translatesAutoresizingMaskIntoConstraints = false
