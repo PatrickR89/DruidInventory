@@ -9,15 +9,17 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-    var recipes = [String]()
-    var ingredients = [String]()
+    var recipes = [Recipe]()
+    var ingredients = [Ingredient]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configTableViewLayout()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        10
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,5 +28,11 @@ class RecipesTableViewController: UITableViewController {
             for: indexPath) as? RecipeCell else {fatalError("Issue loading cell")}
 
         return cell
+    }
+
+    func configTableViewLayout() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(RecipeCell.self, forCellReuseIdentifier: "recipe")
     }
 }

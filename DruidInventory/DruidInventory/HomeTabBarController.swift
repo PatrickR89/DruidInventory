@@ -62,7 +62,5 @@ extension HomeTabBarController {
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertController, animated: true)
         }
-
-        print(potionSymbolNames)
     }
 }
