@@ -1,5 +1,5 @@
 //
-//  PotionDetailView.swift
+//  PotionDetailViewController.swift
 //  DruidInventory
 //
 //  Created by Patrick on 23.06.2022..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PotionDetailView: UIViewController {
+class PotionDetailViewController: UIViewController {
 
     var potion: Potion
     var indexPath: IndexPath
@@ -38,7 +38,7 @@ class PotionDetailView: UIViewController {
     }
 }
 
-extension PotionDetailView {
+extension PotionDetailViewController {
     func configTextFieldLayout() {
         view.addSubview(nameTextField)
         nameTextField.text = potion.name

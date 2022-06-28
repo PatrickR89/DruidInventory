@@ -35,7 +35,7 @@ extension PotionsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let potionDetailView = PotionDetailView(potion: potions[indexPath.row], indexPath: indexPath)
+        let potionDetailView = PotionDetailViewController(potion: potions[indexPath.row], indexPath: indexPath)
 
         self.present(potionDetailView, animated: true)
     }
