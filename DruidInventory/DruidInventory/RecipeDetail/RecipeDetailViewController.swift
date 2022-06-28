@@ -12,6 +12,7 @@ class RecipeDetailViewController: UITableViewController {
     var recipe: Recipe
     var recipeIndexPath: IndexPath
     var viewOrder = [RecipeDetailLayout]()
+    var makeButton = UIButton()
 
     required init(recipe: Recipe, recipeIndexPath: IndexPath) {
         self.recipe = recipe
@@ -27,8 +28,7 @@ class RecipeDetailViewController: UITableViewController {
         super.viewDidLoad()
         configTableViewLayout()
         appendItemsToView()
-
-        print(viewOrder)
+        configMakeButtonLayout()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +41,10 @@ class RecipeDetailViewController: UITableViewController {
             for: indexPath) as? RecipeDetailCell else {fatalError("Issue loading cell")}
         cell.initializeCell(itemInView: viewOrder[indexPath.row])
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 
     func configTableViewLayout() {
@@ -71,5 +75,19 @@ class RecipeDetailViewController: UITableViewController {
         if recipe.potionsInRecipe.count < 2 {
             viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addPotion"))
         }
+    }
+
+    func configMakeButtonLayout() {
+        view.addSubview(makeButton)
+        makeButton.translatesAutoresizingMaskIntoConstraints = false
+        makeButton.setTitle("MAKE", for: .normal)
+        makeButton.backgroundColor = .systemBlue
+        let numOfCells = viewOrder.count + 1
+
+        NSLayoutConstraint.activate([
+            makeButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
+            makeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(50 * numOfCells))
+        ])
+
     }
 }
