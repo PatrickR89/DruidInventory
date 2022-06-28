@@ -15,9 +15,9 @@ class PotionsTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
-
-        potions.append(Potion(name: "Fast walk", image: "figure.walk", amount: 3))
-        potions.append(Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0))
+        potions = [
+            Potion(name: "Fast walk", image: "figure.walk", amount: 3),
+            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0)]
     }
 }
 
