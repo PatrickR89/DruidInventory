@@ -33,7 +33,7 @@ class RecipesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipeDetailView = RecipeDetailViewController()
+        let recipeDetailView = RecipeDetailViewController(recipe: recipes[indexPath.row], recipeIndexPath: indexPath)
 
         self.present(recipeDetailView, animated: true)
 
