@@ -11,6 +11,8 @@ class RecipeDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .red
+        configTableViewLayout()
 
     }
 
@@ -18,6 +20,20 @@ class RecipeDetailViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "detailRecipe",
+            for: indexPath) as? RecipeDetailCell else {fatalError("Issue loading cell")}
+
+        return cell
+    }
+
+    func configTableViewLayout() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(RecipeDetailCell.self, forCellReuseIdentifier: "detailRecipe")
     }
 }
