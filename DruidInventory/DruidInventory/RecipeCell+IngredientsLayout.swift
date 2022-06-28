@@ -16,29 +16,25 @@ extension RecipeCell {
 
         if ingredients.count == 1 {
             NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60),
-                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60)
             ])
         }
 
         if ingredients.count == 2 {
             NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -45),
-                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor)
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -55)
             ])
         }
 
         if ingredients.count == 3 {
             NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -25),
-                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 30)
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -40)
             ])
         }
 
         if ingredients.count == 4 {
             NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5),
-                resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60)
+                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5)
             ])
         }
 

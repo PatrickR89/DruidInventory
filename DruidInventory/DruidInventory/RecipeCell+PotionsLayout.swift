@@ -42,7 +42,7 @@ extension RecipeCell {
             ])
         } else if potions.count == 2 {
             NSLayoutConstraint.activate([
-                potions[1].image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                potions[1].image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
                 potions[0].image.trailingAnchor.constraint(equalTo: potions[1].image.leadingAnchor, constant: -30)
             ])
         }
