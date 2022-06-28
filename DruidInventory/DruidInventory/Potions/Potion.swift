@@ -10,7 +10,13 @@ import UIKit
 struct Potion {
     var name: String
     var image: String
-    var amount: Int
+    var amount: Int {
+        didSet {
+            if amount <= 0 {
+                amount = 0
+            }
+        }
+    }
 
     init ( name: String, image: String, amount: Int) {
         self.name = name
