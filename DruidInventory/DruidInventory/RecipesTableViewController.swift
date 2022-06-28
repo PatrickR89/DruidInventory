@@ -32,6 +32,13 @@ class RecipesTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeDetailView = RecipeDetailViewController()
+
+        self.present(recipeDetailView, animated: true)
+
+    }
+
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
