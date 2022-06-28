@@ -29,6 +29,7 @@
 		CDF89E70286B1C2C00F083A9 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */; };
 		CDF89E75286B1DF900F083A9 /* RecipeDetailCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E74286B1DF900F083A9 /* RecipeDetailCell+Layout.swift */; };
 		CDF89E79286B200C00F083A9 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */; };
+		CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		CDF89E74286B1DF900F083A9 /* RecipeDetailCell+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailCell+Layout.swift"; sourceTree = "<group>"; };
 		CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
+		CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+Methods.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				CDF89E5E286B1C2B00F083A9 /* RecipeDetailViewController.swift */,
 				CDF89E5F286B1C2B00F083A9 /* RecipeDetailCell.swift */,
 				CDF89E74286B1DF900F083A9 /* RecipeDetailCell+Layout.swift */,
+				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
 				CDF89E6B286B1C2C00F083A9 /* RecipeDetailLayout.swift in Sources */,
 				CDF89E6A286B1C2C00F083A9 /* RecipeDetailCell.swift in Sources */,
+				CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */,
 				CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,
 				CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */,
