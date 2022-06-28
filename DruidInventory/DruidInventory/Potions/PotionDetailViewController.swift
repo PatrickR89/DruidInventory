@@ -11,9 +11,9 @@ class PotionDetailViewController: UIViewController {
 
     var potion: Potion
     var indexPath: IndexPath
-    var nameTextField = UITextField()
-    var image = UIImageView()
-    var amountTextField = UITextField()
+    lazy var nameTextField = UITextField()
+    lazy var image = UIImageView()
+    lazy var amountTextField = UITextField()
     var buttonPlus = UIButton(type: .custom)
     var buttonMinus = UIButton(type: .custom)
 
