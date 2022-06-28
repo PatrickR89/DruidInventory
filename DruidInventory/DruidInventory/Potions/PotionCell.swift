@@ -15,12 +15,6 @@ class PotionCell: UITableViewCell {
     var amount = 0 {
         didSet {
             amountLabel.text = "Qty: \(amount)"
-            if amount < 0 {
-                amount = 0
-            }
-            if amount == 0 {
-                contentView.backgroundColor = .lightGray
-            }
         }
     }
 
@@ -84,5 +78,10 @@ extension PotionCell {
         image.image = UIImage(systemName: potion.image)
         nameLabel.text = potion.name
         amount = potion.amount
+        if potion.amount == 0 {
+            contentView.backgroundColor = .lightGray
+        } else {
+            contentView.backgroundColor = .white
+        }
     }
 }
