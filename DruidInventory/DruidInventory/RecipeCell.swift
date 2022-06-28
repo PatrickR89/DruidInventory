@@ -44,7 +44,8 @@ class RecipeCell: UITableViewCell {
         NSLayoutConstraint.activate([
             resultsIn.widthAnchor.constraint(equalToConstant: 25),
             resultsIn.heightAnchor.constraint(equalToConstant: 25),
-            resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60 )
         ])
     }
 

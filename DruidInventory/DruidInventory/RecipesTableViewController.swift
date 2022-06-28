@@ -52,5 +52,7 @@ class RecipesTableViewController: UITableViewController {
         let potionAa = Potion(name: "Night Walk", image: "eye", amount: 1)
         let potionAb = Potion(name: "Bear Poison", image: "exclamationmark.octagon.fill", amount: 1)
         recipes.append(Recipe(ingredientsInRecipe: [ingredientAa, ingredientAb, ingredientAc, ingredientAd], potionsInRecipe: [potionAa, potionAb]))
+        recipes.append(Recipe(ingredientsInRecipe: [ingredientAa, ingredientAb], potionsInRecipe: [potionAa, potionAb]))
+        recipes.append(Recipe(ingredientsInRecipe: [ ingredientAc, ingredientAd], potionsInRecipe: [potionAb]))
     }
 }
