@@ -11,7 +11,7 @@ struct RecipeDetailLayout {
     var amount = UILabel()
     var image = UIImageView()
     var name: String
-
+    
     init( amount: String, image: String, name: String) {
         self.amount.text = amount
         self.image.image = UIImage(systemName: image)

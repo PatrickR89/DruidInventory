@@ -66,9 +66,9 @@ extension RecipeCell {
         }
 
         for index in 1...ingredients.count - 1 {
-                ingredients[index].image.trailingAnchor.constraint(
-                    equalTo: ingredients[index - 1].amount.leadingAnchor,
-                    constant: -10).isActive = true
+            ingredients[index].image.trailingAnchor.constraint(
+                equalTo: ingredients[index - 1].amount.leadingAnchor,
+                constant: -10).isActive = true
         }
     }
 }
