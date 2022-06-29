@@ -15,6 +15,9 @@
 		CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E362864438700F083A9 /* HomeTabBarController.swift */; };
 		CDF89E392864448000F083A9 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E382864448000F083A9 /* RecipesTableViewController.swift */; };
 		CDF89E3B2864C47300F083A9 /* symbolList.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDF89E3A2864C47300F083A9 /* symbolList.txt */; };
+		CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E3E2864D43700F083A9 /* Potion.swift */; };
+		CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E402864D5B000F083A9 /* PotionCell.swift */; };
+		CDF89E432864E82000F083A9 /* PotionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		CDF89E362864438700F083A9 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		CDF89E382864448000F083A9 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
 		CDF89E3A2864C47300F083A9 /* symbolList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = symbolList.txt; sourceTree = "<group>"; };
+		CDF89E3E2864D43700F083A9 /* Potion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
+		CDF89E402864D5B000F083A9 /* PotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionCell.swift; sourceTree = "<group>"; };
+		CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +66,36 @@
 		CDF89E2028643AFF00F083A9 /* DruidInventory */ = {
 			isa = PBXGroup;
 			children = (
+				CDF89E4528663A8500F083A9 /* Source */,
+				CDF89E4428663A4600F083A9 /* Potions */,
 				CDF89E2128643AFF00F083A9 /* AppDelegate.swift */,
 				CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */,
 				CDF89E362864438700F083A9 /* HomeTabBarController.swift */,
-				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
 				CDF89E382864448000F083A9 /* RecipesTableViewController.swift */,
-				CDF89E3A2864C47300F083A9 /* symbolList.txt */,
 				CDF89E2A28643B0100F083A9 /* Assets.xcassets */,
 				CDF89E2C28643B0100F083A9 /* LaunchScreen.storyboard */,
 				CDF89E2F28643B0100F083A9 /* Info.plist */,
 			);
 			path = DruidInventory;
+			sourceTree = "<group>";
+		};
+		CDF89E4428663A4600F083A9 /* Potions */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
+				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
+				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
+				CDF89E3E2864D43700F083A9 /* Potion.swift */,
+			);
+			path = Potions;
+			sourceTree = "<group>";
+		};
+		CDF89E4528663A8500F083A9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E3A2864C47300F083A9 /* symbolList.txt */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDF89E432864E82000F083A9 /* PotionDetailViewController.swift in Sources */,
+				CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */,
 				CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */,
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
+				CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,
 				CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */,
 				CDF89E392864448000F083A9 /* RecipesTableViewController.swift in Sources */,
