@@ -80,7 +80,6 @@
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
-				CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */,
 				CDF89E2028643AFF00F083A9 /* DruidInventory */,
 				CDF89E1F28643AFF00F083A9 /* Products */,
 			);
@@ -134,6 +133,7 @@
 		CDF89E72286B1D1D00F083A9 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */,
 				CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */,
 				CDF89E62286B1C2B00F083A9 /* RecipeCell+PotionsLayout.swift */,
 				CDF89E63286B1C2B00F083A9 /* RecipeCell+IngredientsLayout.swift */,
