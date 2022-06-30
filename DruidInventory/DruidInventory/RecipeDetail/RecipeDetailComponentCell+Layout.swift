@@ -24,9 +24,9 @@ extension RecipeDetailComponentCell {
     }
 }
 
-extension RecipeDetailAddCell {
+extension RecipeDetailPlusCell {
 
-    func configAddViewLayout() {
+    func configPlusViewLayout() {
         contentView.addSubview(imageDisplay)
         imageDisplay.translatesAutoresizingMaskIntoConstraints = false
 

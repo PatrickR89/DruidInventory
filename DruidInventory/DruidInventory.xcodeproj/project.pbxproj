@@ -30,8 +30,9 @@
 		CDF89E75286B1DF900F083A9 /* RecipeDetailComponentCell+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E74286B1DF900F083A9 /* RecipeDetailComponentCell+Layout.swift */; };
 		CDF89E79286B200C00F083A9 /* RecipesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */; };
 		CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */; };
-		CDF89E90286DA2D900F083A9 /* RecipeDetailAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E8F286DA2D900F083A9 /* RecipeDetailAddCell.swift */; };
+		CDF89E90286DA2D900F083A9 /* RecipeDetailPlusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */; };
 		CDF89E92286DA32A00F083A9 /* RecipeDetailResultsInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */; };
+		CDF89E94286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +61,9 @@
 		CDF89E74286B1DF900F083A9 /* RecipeDetailComponentCell+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailComponentCell+Layout.swift"; sourceTree = "<group>"; };
 		CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTableViewController.swift; sourceTree = "<group>"; };
 		CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+Methods.swift"; sourceTree = "<group>"; };
-		CDF89E8F286DA2D900F083A9 /* RecipeDetailAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailAddCell.swift; sourceTree = "<group>"; };
+		CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailPlusCell.swift; sourceTree = "<group>"; };
 		CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailResultsInCell.swift; sourceTree = "<group>"; };
+		CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailMakeButtonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 				CDF89E74286B1DF900F083A9 /* RecipeDetailComponentCell+Layout.swift */,
 				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
 				CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */,
-				CDF89E8F286DA2D900F083A9 /* RecipeDetailAddCell.swift */,
+				CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */,
+				CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				CDF89E79286B200C00F083A9 /* RecipesTableViewController.swift in Sources */,
 				CDF89E432864E82000F083A9 /* PotionDetailViewController.swift in Sources */,
+				CDF89E94286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift in Sources */,
 				CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */,
 				CDF89E6E286B1C2C00F083A9 /* RecipeCell+IngredientsLayout.swift in Sources */,
 				CDF89E75286B1DF900F083A9 /* RecipeDetailComponentCell+Layout.swift in Sources */,
@@ -262,7 +266,7 @@
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
 				CDF89E6B286B1C2C00F083A9 /* RecipeDetailLayout.swift in Sources */,
 				CDF89E6A286B1C2C00F083A9 /* RecipeDetailComponentCell.swift in Sources */,
-				CDF89E90286DA2D900F083A9 /* RecipeDetailAddCell.swift in Sources */,
+				CDF89E90286DA2D900F083A9 /* RecipeDetailPlusCell.swift in Sources */,
 				CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */,
 				CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,

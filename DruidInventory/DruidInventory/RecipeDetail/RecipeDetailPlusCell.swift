@@ -1,5 +1,5 @@
 //
-//  RecipeDetailResultsInCell.swift
+//  RecipeDetailPlusCell.swift
 //  DruidInventory
 //
 //  Created by Patrick on 30.06.2022..
@@ -7,16 +7,15 @@
 
 import UIKit
 
-class RecipeDetailResultsInCell: UITableViewCell {
+class RecipeDetailPlusCell: UITableViewCell {
 
-    var image1Display = UIImageView()
-    var image2Display = UIImageView()
+    var imageDisplay = UIImageView()
     var name = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        configResultsInView()
+        configPlusViewLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -24,10 +23,9 @@ class RecipeDetailResultsInCell: UITableViewCell {
     }
 }
 
-extension RecipeDetailResultsInCell {
+extension RecipeDetailPlusCell {
 
     func initializeCell() {
-            image1Display.image = UIImage(systemName: "arrow.down")
-            image2Display.image = UIImage(systemName: "arrow.down")
+            imageDisplay.image = UIImage(systemName: "plus")
     }
 }
