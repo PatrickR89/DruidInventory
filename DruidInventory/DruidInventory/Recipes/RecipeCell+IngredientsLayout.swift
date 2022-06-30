@@ -18,13 +18,13 @@ extension RecipeCell {
 
         switch ingredients.count {
         case 1:
-            leadConstant = -60
+            leadConstant = -90
         case 2:
-            leadConstant = -55
+            leadConstant = -70
         case 3:
-            leadConstant = -40
+            leadConstant = -50
         default:
-            leadConstant = -5
+            leadConstant = -30
         }
 
         NSLayoutConstraint.activate([
@@ -39,10 +39,6 @@ extension RecipeCell {
         for ingredient in ingredients {
             contentView.addSubview(ingredient.image)
             ingredient.image.translatesAutoresizingMaskIntoConstraints = false
-
-            contentView.addSubview(ingredient.amount)
-            ingredient.amount.translatesAutoresizingMaskIntoConstraints = false
-            ingredient.amount.text = "1x"
         }
     }
 
@@ -52,17 +48,14 @@ extension RecipeCell {
             NSLayoutConstraint.activate([
                 ingredient.image.widthAnchor.constraint(equalToConstant: 25),
                 ingredient.image.heightAnchor.constraint(equalToConstant: 25),
-                ingredient.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                ingredient.amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                ingredient.amount.trailingAnchor.constraint(
-                    equalTo: ingredient.image.leadingAnchor, constant: -3)
+                ingredient.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         }
 
         for index in 1...ingredients.count - 1 {
             ingredients[index].image.trailingAnchor.constraint(
-                equalTo: ingredients[index - 1].amount.leadingAnchor,
-                constant: -10).isActive = true
+                equalTo: ingredients[index - 1].image.leadingAnchor,
+                constant: -20).isActive = true
         }
     }
 }

@@ -33,7 +33,7 @@ class RecipeCell: UITableViewCell {
             resultsIn.widthAnchor.constraint(equalToConstant: 25),
             resultsIn.heightAnchor.constraint(equalToConstant: 25),
             resultsIn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60 )
+            resultsIn.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 50 )
         ])
     }
 

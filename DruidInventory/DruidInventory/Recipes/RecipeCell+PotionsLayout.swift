@@ -19,10 +19,6 @@ extension RecipeCell {
         for potion in potions {
             contentView.addSubview(potion.image)
             potion.image.translatesAutoresizingMaskIntoConstraints = false
-
-            contentView.addSubview(potion.amount)
-            potion.amount.translatesAutoresizingMaskIntoConstraints = false
-            potion.amount.text = "1x"
         }
     }
 
@@ -31,18 +27,16 @@ extension RecipeCell {
             NSLayoutConstraint.activate([
                 potion.image.widthAnchor.constraint(equalToConstant: 25),
                 potion.image.heightAnchor.constraint(equalToConstant: 25),
-                potion.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                potion.amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                potion.amount.trailingAnchor.constraint(equalTo: potion.image.leadingAnchor, constant: -5)
+                potion.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         }
         if potions.count == 1 {
             NSLayoutConstraint.activate([
-                potions[0].image.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 60)
+                potions[0].image.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 50)
             ])
         } else if potions.count == 2 {
             NSLayoutConstraint.activate([
-                potions[1].image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+                potions[1].image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
                 potions[0].image.trailingAnchor.constraint(equalTo: potions[1].image.leadingAnchor, constant: -30)
             ])
         }
