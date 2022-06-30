@@ -109,16 +109,4 @@ extension UITableViewCell {
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
-    static func == (
-        lhs: RecipeDetailViewController.TableRowContent,
-        rhs: RecipeDetailViewController.TableRowContent) -> Bool {
-        switch (lhs, rhs) {
-        case (.downArrow, .downArrow):
-            return true
-        case (.makeButton, .makeButton):
-            return true
-        default:
-            return false
-        }
-    }
 }
