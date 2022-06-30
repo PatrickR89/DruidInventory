@@ -9,18 +9,6 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    var ingredientsCount = 0 {
-        didSet {
-            configIngredientsLayout()
-        }
-    }
-
-    var potionsCount = 0 {
-        didSet {
-            configPotionsLayout()
-        }
-    }
-
     var ingredients = [RecipeLayout]()
     var potions = [RecipeLayout]()
 
@@ -52,11 +40,9 @@ class RecipeCell: UITableViewCell {
     func initializeCell(recipe: Recipe) {
 
         ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
-
-        ingredientsCount = ingredients.count
+        configIngredientsLayout()
 
         potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
-
-        potionsCount = potions.count
+        configPotionsLayout()
     }
 }
