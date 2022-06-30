@@ -51,21 +51,11 @@ class RecipeCell: UITableViewCell {
 
     func initializeCell(recipe: Recipe) {
 
-        for index in 0...recipe.ingredientsInRecipe.count - 1 {
-            ingredients.append(
-                RecipeLayout(
-                    amount: "\(recipe.ingredientsInRecipe[index].amount)x",
-                    image: recipe.ingredientsInRecipe[index].image))
-        }
+        ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
 
         ingredientsCount = ingredients.count
 
-        for index in 0...recipe.potionsInRecipe.count - 1 {
-            potions.append(
-                RecipeLayout(
-                    amount: "\(recipe.potionsInRecipe[index].amount)x",
-                    image: recipe.potionsInRecipe[index].image))
-        }
+        potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
 
         potionsCount = potions.count
     }
