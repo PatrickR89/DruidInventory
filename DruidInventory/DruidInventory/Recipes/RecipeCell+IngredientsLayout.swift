@@ -14,30 +14,24 @@ extension RecipeCell {
         setupIngredientsLayout()
         setupIngredientsConstraints()
 
-        if ingredients.count == 1 {
-            NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -60)
-            ])
+        var leadConstant = -5
+
+        switch ingredients.count {
+        case 1:
+            leadConstant = -60
+        case 2:
+            leadConstant = -55
+        case 3:
+            leadConstant = -40
+        default:
+            leadConstant = -5
         }
 
-        if ingredients.count == 2 {
-            NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -55)
-            ])
-        }
-
-        if ingredients.count == 3 {
-            NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -40)
-            ])
-        }
-
-        if ingredients.count == 4 {
-            NSLayoutConstraint.activate([
-                ingredients[0].image.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -5)
-            ])
-        }
-
+        NSLayoutConstraint.activate([
+            ingredients[0].image.trailingAnchor.constraint(
+                equalTo: resultsIn.leadingAnchor,
+                constant: CGFloat(leadConstant))
+        ])
     }
 
     func setupIngredientsLayout() {
