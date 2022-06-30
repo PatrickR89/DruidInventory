@@ -36,7 +36,7 @@ class RecipeDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableViewLayout()
-//        appendItemsToView()
+        appendItemsToView()
 //        configMakeButtonLayout()
     }
 }

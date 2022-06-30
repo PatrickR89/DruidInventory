@@ -11,5 +11,4 @@ struct Ingredient {
     var name: String
     var image: String
     var amount: Int
-
 }

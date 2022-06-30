@@ -12,22 +12,18 @@ extension RecipeDetailViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(RecipeDetailComponentCell.self, forCellReuseIdentifier: "detailRecipe")
+
         RecipeDetailComponentCell.register(in: tableView)
         RecipeDetailPlusCell.register(in: tableView)
         RecipeDetailResultsInCell.register(in: tableView)
         RecipeDetailMakeButtonCell.register(in: tableView)
     }
 
-//    func appendItemsToView() {
-//
-//        for ingredient in recipe.ingredientsInRecipe {
-//            viewOrder.append(
-//                RecipeDetailLayout(
-//                    amount: "\(ingredient.amount)x",
-//                    image: ingredient.image,
-//                    name: ingredient.name))
-//        }
+    func appendItemsToView() {
+
+        for ingredient in recipe.ingredientsInRecipe {
+            tableContents.insert(RecipeDetailViewController.TableRowContent.component(ingredient: ingredient, count: ingredient.amount), at: 0)
+        }
 //        if recipe.ingredientsInRecipe.count < 4 {
 //            viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addIngredient"))
 //        }
@@ -43,7 +39,7 @@ extension RecipeDetailViewController {
 //        if recipe.potionsInRecipe.count < 2 {
 //            viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addPotion"))
 //        }
-//    }
+    }
 //
 //    func configMakeButtonLayout() {
 //        view.addSubview(makeButton)
