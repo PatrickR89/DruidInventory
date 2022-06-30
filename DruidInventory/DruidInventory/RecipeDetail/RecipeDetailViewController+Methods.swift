@@ -12,7 +12,7 @@ extension RecipeDetailViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(RecipeDetailCell.self, forCellReuseIdentifier: "detailRecipe")
+        tableView.register(RecipeDetailComponentCell.self, forCellReuseIdentifier: "detailRecipe")
     }
 
     func appendItemsToView() {

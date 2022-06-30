@@ -41,7 +41,7 @@ extension RecipeDetailViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "detailRecipe",
-            for: indexPath) as? RecipeDetailCell else {fatalError("Issue loading cell")}
+            for: indexPath) as? RecipeDetailComponentCell else {fatalError("Issue loading cell")}
         cell.initializeCell(itemInView: viewOrder[indexPath.row])
         return cell
     }
