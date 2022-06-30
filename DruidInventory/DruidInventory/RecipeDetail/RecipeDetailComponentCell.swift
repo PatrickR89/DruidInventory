@@ -27,8 +27,8 @@ class RecipeDetailComponentCell: UITableViewCell {
 
 extension RecipeDetailComponentCell {
 
-    func initializeCell(component: Ingredient, count: Int) {
+    func initializeCell(name: String, image: String, count: Int) {
             amount.text = "\(count)x"
-        imageDisplay.image = UIImage(systemName: component.image)
+        imageDisplay.image = UIImage(systemName: image)
     }
 }

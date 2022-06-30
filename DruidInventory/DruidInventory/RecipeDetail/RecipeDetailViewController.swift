@@ -17,7 +17,7 @@ class RecipeDetailViewController: UITableViewController {
         case plusButton
         case downArrow
         case makeButton
-        case component(component: Ingredient, count: Int)
+        case component(name: String, image: String, count: Int)
     }
 
     var tableContents: [TableRowContent] = [.plusButton, .downArrow, .plusButton, .makeButton]
@@ -76,13 +76,13 @@ extension RecipeDetailViewController {
             }
             return cell
 
-        case .component(let component, let count):
+        case .component(let name, let image, let count):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "RecipeDetailComponentCell",
                 for: indexPath) as? RecipeDetailComponentCell else {
                 fatalError("Loading component cell error")
             }
-            cell.initializeCell(component: component, count: count)
+            cell.initializeCell(name: name, image: image, count: count)
             return cell
         }
     }
@@ -105,5 +105,20 @@ extension UITableViewCell {
             for: indexPath) as? Self else {fatalError("Cell loading error")}
 
         return cell
+    }
+}
+
+extension RecipeDetailViewController.TableRowContent: Equatable {
+    static func == (
+        lhs: RecipeDetailViewController.TableRowContent,
+        rhs: RecipeDetailViewController.TableRowContent) -> Bool {
+        switch (lhs, rhs) {
+        case (.downArrow, .downArrow):
+            return true
+        case (.makeButton, .makeButton):
+            return true
+        default:
+            return false
+        }
     }
 }

@@ -22,7 +22,24 @@ extension RecipeDetailViewController {
     func appendItemsToContent() {
 
         for ingredient in recipe.ingredientsInRecipe {
-            tableContents.insert(RecipeDetailViewController.TableRowContent.component(component: ingredient, count: ingredient.amount), at: 0)
+            tableContents.insert(
+                RecipeDetailViewController.TableRowContent.component(
+                    name: ingredient.name,
+                    image: ingredient.image,
+                    count: ingredient.amount),
+                at: 0)
+        }
+
+        if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+            for potion in recipe.potionsInRecipe {
+                tableContents.insert(
+                    RecipeDetailViewController.TableRowContent.component(
+                        name: potion.name,
+                        image: potion.image,
+                        count: potion.amount),
+                    at: index + 1)
+            }
+
         }
 
 //        viewOrder.append(RecipeDetailLayout(amount: "", image: "arrow.down", name: "resultsIn"))
