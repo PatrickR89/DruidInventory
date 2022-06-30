@@ -11,14 +11,13 @@ class RecipeDetailViewController: UITableViewController {
 
     var recipe: Recipe
     var recipeIndexPath: IndexPath
-    var ingredients = [Ingredient]()
-    var makeButton = UIButton()
 
     enum TableRowContent {
+
         case plusButton
         case downArrow
         case makeButton
-        case component(ingredient: Ingredient, count: Int)
+        case component(component: Ingredient, count: Int)
     }
 
     var tableContents: [TableRowContent] = [.plusButton, .downArrow, .plusButton, .makeButton]
@@ -36,8 +35,7 @@ class RecipeDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableViewLayout()
-        appendItemsToView()
-//        configMakeButtonLayout()
+        appendItemsToContent()
     }
 }
 
@@ -78,22 +76,15 @@ extension RecipeDetailViewController {
             }
             return cell
 
-        case .component(let ingredient, let count):
+        case .component(let component, let count):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "RecipeDetailComponentCell",
                 for: indexPath) as? RecipeDetailComponentCell else {
                 fatalError("Loading component cell error")
             }
-            cell.initializeCell(ingredient: ingredient, count: count)
+            cell.initializeCell(component: component, count: count)
             return cell
         }
-//
-//        guard let cell = tableView.dequeueReusableCell(
-//            withIdentifier: "detailRecipe",
-//            for: indexPath) as? RecipeDetailComponentCell else {fatalError("Issue loading cell")}
-//        cell.initializeCell(itemInView: viewOrder[indexPath.row])
-//        return cell
-
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

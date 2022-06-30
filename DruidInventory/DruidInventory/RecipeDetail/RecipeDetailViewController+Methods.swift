@@ -19,15 +19,12 @@ extension RecipeDetailViewController {
         RecipeDetailMakeButtonCell.register(in: tableView)
     }
 
-    func appendItemsToView() {
+    func appendItemsToContent() {
 
         for ingredient in recipe.ingredientsInRecipe {
-            tableContents.insert(RecipeDetailViewController.TableRowContent.component(ingredient: ingredient, count: ingredient.amount), at: 0)
+            tableContents.insert(RecipeDetailViewController.TableRowContent.component(component: ingredient, count: ingredient.amount), at: 0)
         }
-//        if recipe.ingredientsInRecipe.count < 4 {
-//            viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addIngredient"))
-//        }
-//
+
 //        viewOrder.append(RecipeDetailLayout(amount: "", image: "arrow.down", name: "resultsIn"))
 //        for potion in recipe.potionsInRecipe {
 //            viewOrder.append(RecipeDetailLayout(
@@ -35,9 +32,6 @@ extension RecipeDetailViewController {
 //                image: potion.image,
 //                name: potion.name))
 //        }
-//
-//        if recipe.potionsInRecipe.count < 2 {
-//            viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addPotion"))
-//        }
+
     }
 }
