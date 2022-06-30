@@ -40,18 +40,4 @@ extension RecipeDetailViewController {
 //            viewOrder.append(RecipeDetailLayout(amount: "", image: "plus", name: "addPotion"))
 //        }
     }
-//
-//    func configMakeButtonLayout() {
-//        view.addSubview(makeButton)
-//        makeButton.translatesAutoresizingMaskIntoConstraints = false
-//        makeButton.setTitle("MAKE", for: .normal)
-//        makeButton.backgroundColor = .systemBlue
-//        let numOfCells = viewOrder.count + 1
-//
-//        NSLayoutConstraint.activate([
-//            makeButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor),
-//            makeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: CGFloat(50 * numOfCells))
-//        ])
-//
-//    }
 }
