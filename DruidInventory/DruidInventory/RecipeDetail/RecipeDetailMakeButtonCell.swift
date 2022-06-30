@@ -24,17 +24,16 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
 
 extension RecipeDetailMakeButtonCell {
 
-        func configMakeButtonLayout() {
-            contentView.addSubview(makeButton)
-            makeButton.translatesAutoresizingMaskIntoConstraints = false
-            makeButton.setTitle("MAKE", for: .normal)
-            makeButton.backgroundColor = .systemBlue
+    func configMakeButtonLayout() {
+        contentView.addSubview(makeButton)
+        makeButton.translatesAutoresizingMaskIntoConstraints = false
+        makeButton.setTitle("MAKE", for: .normal)
+        makeButton.backgroundColor = .systemBlue
 
-            NSLayoutConstraint.activate([
-                makeButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                makeButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                makeButton.widthAnchor.constraint(equalToConstant: 100)
-            ])
-
-        }
+        NSLayoutConstraint.activate([
+            makeButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            makeButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            makeButton.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
 }

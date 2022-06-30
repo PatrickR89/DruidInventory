@@ -39,16 +39,6 @@ extension RecipeDetailViewController {
                         count: potion.amount),
                     at: index + 1)
             }
-
         }
-
-//        viewOrder.append(RecipeDetailLayout(amount: "", image: "arrow.down", name: "resultsIn"))
-//        for potion in recipe.potionsInRecipe {
-//            viewOrder.append(RecipeDetailLayout(
-//                amount: "\(potion.amount)x",
-//                image: potion.image,
-//                name: potion.name))
-//        }
-
     }
 }

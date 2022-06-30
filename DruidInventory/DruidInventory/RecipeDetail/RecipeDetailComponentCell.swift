@@ -17,7 +17,6 @@ class RecipeDetailComponentCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configItemViewLayout()
-
     }
 
     required init?(coder: NSCoder) {
