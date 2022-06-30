@@ -12,9 +12,4 @@ struct Ingredient {
     var image: String
     var amount: Int
 
-    init ( name: String, image: String, amount: Int) {
-        self.name = name
-        self.image = image
-        self.amount = amount
-    }
 }
