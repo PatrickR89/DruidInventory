@@ -8,13 +8,13 @@
 import UIKit
 
 extension RecipeDetailCell {
-    
+
     func configItemViewLayout() {
         contentView.addSubview(amount)
         amount.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(image1)
         image1.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             amount.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -15),
@@ -22,24 +22,24 @@ extension RecipeDetailCell {
             image1.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 15)
         ])
     }
-    
+
     func configAddViewLayout() {
         contentView.addSubview(image1)
         image1.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             image1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             image1.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
-    
+
     func configResultsInView() {
         contentView.addSubview(image1)
         contentView.addSubview(image2)
-        
+
         image1.translatesAutoresizingMaskIntoConstraints = false
         image2.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             image1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             image1.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -30),
