@@ -14,18 +14,7 @@ extension RecipeCell {
         setupIngredientsLayout()
         setupIngredientsConstraints()
 
-        var leadConstant = -5
-
-        switch ingredients.count {
-        case 1:
-            leadConstant = -90
-        case 2:
-            leadConstant = -70
-        case 3:
-            leadConstant = -50
-        default:
-            leadConstant = -30
-        }
+        let leadConstant = -110 + 20 * ingredients.count
 
         NSLayoutConstraint.activate([
             ingredients[0].image.trailingAnchor.constraint(
