@@ -11,7 +11,6 @@ class RecipeDetailComponentCell: UITableViewCell {
 
     var amount = UILabel()
     var imageDisplay = UIImageView()
-    var name = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +26,7 @@ class RecipeDetailComponentCell: UITableViewCell {
 extension RecipeDetailComponentCell {
 
     func initializeCell(name: String, image: String, count: Int) {
-            amount.text = "\(count)x"
+        amount.text = "\(count)x"
         imageDisplay.image = UIImage(systemName: image)
     }
 }
