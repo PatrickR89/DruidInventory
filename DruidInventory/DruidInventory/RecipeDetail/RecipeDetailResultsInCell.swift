@@ -11,7 +11,6 @@ class RecipeDetailResultsInCell: UITableViewCell {
 
     var image1Display = UIImageView()
     var image2Display = UIImageView()
-    var name = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,7 +26,7 @@ class RecipeDetailResultsInCell: UITableViewCell {
 extension RecipeDetailResultsInCell {
 
     func initializeCell() {
-            image1Display.image = UIImage(systemName: "arrow.down")
-            image2Display.image = UIImage(systemName: "arrow.down")
+        image1Display.image = UIImage(systemName: "arrow.down")
+        image2Display.image = UIImage(systemName: "arrow.down")
     }
 }
