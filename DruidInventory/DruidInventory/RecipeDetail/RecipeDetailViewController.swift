@@ -20,7 +20,7 @@ class RecipeDetailViewController: UITableViewController {
         case component(name: String, image: String, count: Int)
     }
 
-    var tableContents: [TableRowContent] = [.plusButton, .downArrow, .plusButton, .makeButton]
+    var tableContents: [TableRowContent] = [.downArrow, .makeButton]
 
     required init(recipe: Recipe, recipeIndexPath: IndexPath) {
         self.recipe = recipe
@@ -34,6 +34,7 @@ class RecipeDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        appendPlusButtons()
         configTableViewLayout()
         appendItemsToContent()
     }
@@ -109,4 +110,18 @@ extension UITableViewCell {
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
+}
+
+extension RecipeDetailViewController {
+    func appendPlusButtons() {
+        if recipe.ingredientsInRecipe.count < 4 {
+            tableContents.insert(.plusButton, at: 0)
+        }
+
+        if recipe.potionsInRecipe.count < 2 {
+            if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+                tableContents.insert(.plusButton, at: index + 1)
+            }
+        }
+    }
 }
