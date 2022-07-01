@@ -25,7 +25,7 @@ class RecipesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "recipe",
+            withIdentifier: "RecipeCell",
             for: indexPath) as? RecipeCell else {fatalError("Issue loading cell")}
         cell.initializeCell(recipe: recipes[indexPath.row])
 
@@ -42,6 +42,6 @@ class RecipesTableViewController: UITableViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(RecipeCell.self, forCellReuseIdentifier: "recipe")
+        RecipeCell.register(in: tableView)
     }
 }

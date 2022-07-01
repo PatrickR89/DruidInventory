@@ -28,7 +28,7 @@ extension PotionsTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "Potion",
+            withIdentifier: "PotionCell",
             for: indexPath) as? PotionCell else {fatalError("Error loading cell")}
         cell.setupCell(with: potions[indexPath.row])
         return cell
@@ -63,6 +63,6 @@ extension PotionsTableViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(PotionCell.self, forCellReuseIdentifier: "Potion")
+        PotionCell.register(in: tableView)
     }
 }
