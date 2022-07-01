@@ -17,59 +17,28 @@ extension RecipeCell {
         ingredientsStack.axis = .horizontal
         ingredientsStack.distribution = .equalSpacing
         ingredientsStack.alignment = .center
+        ingredientsStack.spacing = CGFloat(20)
+
+        let leadConstant = -110 + 20 * ingredients.count
 
         NSLayoutConstraint.activate([
             ingredientsStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            ingredientsStack.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: -20)
+            ingredientsStack.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: CGFloat(leadConstant))
         ])
 
         setupIngredientsLayout()
-    }
-
-    func configIngredientsLayout() {
-
-//        setupIngredientsLayout()
-//        setupIngredientsConstraints()
-
-//        let leadConstant = -110 + 20 * ingredients.count
-//        let ingredientView = RecipeContentView(image: ingredients[0].image)
-//        NSLayoutConstraint.activate([
-//            ingredientView.trailingAnchor.constraint(
-//                equalTo: resultsIn.leadingAnchor,
-//                constant: CGFloat(leadConstant))
-//        ])
     }
 
     func setupIngredientsLayout() {
 
         for ingredient in ingredients {
             let ingredientView = RecipeContentView(image: ingredient.image)
-            ingredientsStack.addArrangedSubview(ingredientView)
-            ingredientView.imageView.translatesAutoresizingMaskIntoConstraints = false
+            ingredientsStack.addArrangedSubview(ingredientView.imageView)
+            ingredientView.configImageViewLayout()
 
             NSLayoutConstraint.activate([
-                ingredientView.imageView.widthAnchor.constraint(equalToConstant: 25),
-                ingredientView.imageView.heightAnchor.constraint(equalToConstant: 25)
-//                ingredientView.imageView.centerYAnchor.constraint(equalTo: ingredientsStack.centerYAnchor)
+                ingredientView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         }
     }
-
-//    func setupIngredientsConstraints() {
-//
-//        for ingredient in ingredients {
-//            let ingredientView = RecipeContentView(image: ingredient.image)
-//            NSLayoutConstraint.activate([
-//                ingredientView.imageView.widthAnchor.constraint(equalToConstant: 25),
-//                ingredientView.imageView.heightAnchor.constraint(equalToConstant: 25),
-//                ingredientView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-//            ])
-//        }
-//
-//        for index in 1...ingredients.count - 1 {
-//            ingredients[index].image.trailingAnchor.constraint(
-//                equalTo: ingredients[index - 1].image.leadingAnchor,
-//                constant: -20).isActive = true
-//        }
-//    }
 }

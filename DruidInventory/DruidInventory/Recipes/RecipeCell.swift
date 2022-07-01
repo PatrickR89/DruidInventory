@@ -43,8 +43,7 @@ class RecipeCell: UITableViewCell {
     func setupCell(recipe: Recipe) {
 
         ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
-//        configIngredientsLayout()
-//        configIngredientsStack()
+        configIngredientsStack()
 
         potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
         configPotionsStack()

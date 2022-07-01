@@ -36,7 +36,6 @@ extension RecipeCell {
         for potion in potions {
             let potionView = RecipeContentView(image: potion.image)
             potionsStack.addArrangedSubview(potionView.imageView)
-            potionView.imageView.translatesAutoresizingMaskIntoConstraints = false
             potionView.configImageViewLayout()
             NSLayoutConstraint.activate([
                 potionView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
