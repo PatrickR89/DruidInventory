@@ -10,9 +10,4 @@ import UIKit
 struct Recipe {
     var ingredientsInRecipe: [Ingredient]
     var potionsInRecipe: [Potion]
-
-    init(ingredientsInRecipe: [Ingredient], potionsInRecipe: [Potion]) {
-        self.ingredientsInRecipe = ingredientsInRecipe
-        self.potionsInRecipe = potionsInRecipe
-    }
 }
