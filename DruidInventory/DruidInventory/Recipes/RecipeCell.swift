@@ -14,6 +14,9 @@ class RecipeCell: UITableViewCell {
 
     var resultsIn = UIImageView()
 
+    var ingredientsStack = UIStackView()
+    var potionsStack = UIStackView()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -39,10 +42,11 @@ class RecipeCell: UITableViewCell {
 
     func setupCell(recipe: Recipe) {
 
-        ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
-        configIngredientsLayout()
+        ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
+//        configIngredientsLayout()
+//        configIngredientsStack()
 
-        potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
-        configPotionsLayout()
+        potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
+        configPotionsStack()
     }
 }

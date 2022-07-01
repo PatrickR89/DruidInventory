@@ -9,35 +9,37 @@ import UIKit
 
 extension RecipeCell {
 
-    func configPotionsLayout() {
+    func configPotionsStack() {
+
+        contentView.addSubview(potionsStack)
+        potionsStack.translatesAutoresizingMaskIntoConstraints = false
+
+        potionsStack.axis = .horizontal
+        potionsStack.distribution = .equalSpacing
+        potionsStack.alignment = .center
+        potionsStack.spacing = CGFloat(30)
+
+        let trailingConstant = 60 - 30 * (potions.count - 1)
+
+        NSLayoutConstraint.activate([
+            potionsStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            potionsStack.leadingAnchor.constraint(
+                equalTo: resultsIn.trailingAnchor,
+                constant: CGFloat(trailingConstant))
+        ])
+
         setupPotionsLayout()
-        setupPotionsConstraints()
     }
 
     func setupPotionsLayout() {
 
         for potion in potions {
-            contentView.addSubview(potion.image)
-            potion.image.translatesAutoresizingMaskIntoConstraints = false
-        }
-    }
-
-    func setupPotionsConstraints() {
-        for potion in potions {
+            let potionView = RecipeContentView(image: potion.image)
+            potionsStack.addArrangedSubview(potionView.imageView)
+            potionView.imageView.translatesAutoresizingMaskIntoConstraints = false
+            potionView.configImageViewLayout()
             NSLayoutConstraint.activate([
-                potion.image.widthAnchor.constraint(equalToConstant: 25),
-                potion.image.heightAnchor.constraint(equalToConstant: 25),
-                potion.image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-            ])
-        }
-        if potions.count == 1 {
-            NSLayoutConstraint.activate([
-                potions[0].image.leadingAnchor.constraint(equalTo: resultsIn.trailingAnchor, constant: 50)
-            ])
-        } else if potions.count == 2 {
-            NSLayoutConstraint.activate([
-                potions[1].image.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
-                potions[0].image.trailingAnchor.constraint(equalTo: potions[1].image.leadingAnchor, constant: -30)
+                potionView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         }
     }
