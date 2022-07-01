@@ -10,7 +10,6 @@ import UIKit
 class RecipeDetailPlusCell: UITableViewCell {
 
     var imageDisplay = UIImageView()
-    var name = ""
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,6 +25,6 @@ class RecipeDetailPlusCell: UITableViewCell {
 extension RecipeDetailPlusCell {
 
     func initializeCell() {
-            imageDisplay.image = UIImage(systemName: "plus")
+        imageDisplay.image = UIImage(systemName: "plus")
     }
 }
