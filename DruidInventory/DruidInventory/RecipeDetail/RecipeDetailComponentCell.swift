@@ -29,4 +29,18 @@ extension RecipeDetailComponentCell {
         amount.text = "\(count)x"
         imageDisplay.image = UIImage(systemName: image)
     }
+
+    func configItemViewLayout() {
+        contentView.addSubview(amount)
+        amount.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(imageDisplay)
+        imageDisplay.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            amount.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -15),
+            imageDisplay.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageDisplay.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 15)
+        ])
+    }
 }

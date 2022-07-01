@@ -29,4 +29,19 @@ extension RecipeDetailResultsInCell {
         image1Display.image = UIImage(systemName: "arrow.down")
         image2Display.image = UIImage(systemName: "arrow.down")
     }
+
+    func configResultsInView() {
+        contentView.addSubview(image1Display)
+        contentView.addSubview(image2Display)
+
+        image1Display.translatesAutoresizingMaskIntoConstraints = false
+        image2Display.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            image1Display.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image1Display.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -30),
+            image2Display.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            image2Display.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 30)
+        ])
+    }
 }

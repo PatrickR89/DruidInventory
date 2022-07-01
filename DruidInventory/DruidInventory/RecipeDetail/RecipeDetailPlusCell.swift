@@ -27,4 +27,14 @@ extension RecipeDetailPlusCell {
     func initializeCell() {
         imageDisplay.image = UIImage(systemName: "plus")
     }
+
+    func configPlusViewLayout() {
+        contentView.addSubview(imageDisplay)
+        imageDisplay.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            imageDisplay.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageDisplay.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ])
+    }
 }
