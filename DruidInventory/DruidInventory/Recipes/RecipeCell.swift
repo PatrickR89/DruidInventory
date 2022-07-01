@@ -37,7 +37,7 @@ class RecipeCell: UITableViewCell {
         ])
     }
 
-    func initializeCell(recipe: Recipe) {
+    func setupCell(recipe: Recipe) {
 
         ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: "\($0.amount)x", image: $0.image) }
         configIngredientsLayout()

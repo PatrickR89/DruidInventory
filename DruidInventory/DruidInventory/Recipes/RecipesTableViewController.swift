@@ -27,7 +27,7 @@ class RecipesTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "RecipeCell",
             for: indexPath) as? RecipeCell else {fatalError("Issue loading cell")}
-        cell.initializeCell(recipe: recipes[indexPath.row])
+        cell.setupCell(recipe: recipes[indexPath.row])
 
         return cell
     }
