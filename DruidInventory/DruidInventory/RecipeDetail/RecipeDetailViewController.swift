@@ -10,7 +10,6 @@ import UIKit
 class RecipeDetailViewController: UITableViewController {
 
     var recipe: Recipe
-    var recipeIndexPath: IndexPath
 
     enum TableRowContent {
 
