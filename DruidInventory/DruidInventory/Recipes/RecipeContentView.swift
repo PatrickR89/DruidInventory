@@ -8,7 +8,7 @@
 import UIKit
 
 class RecipeContentView: UIView {
-    var imageView = UIImageView()
+    private var imageView = UIImageView()
 
     required init (image: String) {
         self.imageView.image = UIImage(systemName: image)
