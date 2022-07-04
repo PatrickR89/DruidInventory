@@ -20,11 +20,14 @@ class RecipeContentView: UIView {
     }
 
     func configImageViewLayout() {
+        self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: 25),
-            imageView.widthAnchor.constraint(equalToConstant: 25)
+            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.widthAnchor.constraint(equalToConstant: 25),
+            self.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
 }

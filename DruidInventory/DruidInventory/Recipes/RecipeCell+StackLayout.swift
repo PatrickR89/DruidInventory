@@ -22,7 +22,7 @@ extension RecipeCell {
         switch stackView {
 
         case potionsStack:
-            let trailingConstant = 60 - 30 * (potions.count - 1)
+            let trailingConstant = 60 - 25 * (potions.count - 1)
 
             NSLayoutConstraint.activate([
                 stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -45,10 +45,10 @@ extension RecipeCell {
 
         for component in array {
             let itemView = RecipeContentView(image: component.image)
-            stackView.addArrangedSubview(itemView.imageView)
             itemView.configImageViewLayout()
+            stackView.addArrangedSubview(itemView)
             NSLayoutConstraint.activate([
-                itemView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+                itemView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
         }
     }
