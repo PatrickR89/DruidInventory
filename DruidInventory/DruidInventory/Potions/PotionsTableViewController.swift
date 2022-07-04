@@ -27,7 +27,7 @@ extension PotionsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+
         let cell = PotionCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(with: potions[indexPath.row])
         return cell
