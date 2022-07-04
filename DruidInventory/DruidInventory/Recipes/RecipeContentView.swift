@@ -11,7 +11,7 @@ class RecipeContentView: UIView {
     var imageView = UIImageView()
 
     required init (image: String) {
-            self.imageView.image = UIImage(systemName: image)
+        self.imageView.image = UIImage(systemName: image)
         super.init(frame: .zero)
     }
 
