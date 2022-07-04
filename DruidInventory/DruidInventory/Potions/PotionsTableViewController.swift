@@ -27,9 +27,8 @@ extension PotionsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "PotionCell",
-            for: indexPath) as? PotionCell else {fatalError("Error loading cell")}
+        
+        let cell = PotionCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(with: potions[indexPath.row])
         return cell
     }

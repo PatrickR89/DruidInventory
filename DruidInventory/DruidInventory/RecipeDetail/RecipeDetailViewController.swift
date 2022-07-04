@@ -50,37 +50,24 @@ extension RecipeDetailViewController {
 
         switch content {
         case .plusButton:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "RecipeDetailPlusCell",
-                for: indexPath) as? RecipeDetailPlusCell else {
-                fatalError("Loading plus cell error")
-            }
+            let cell = RecipeDetailPlusCell.dequeue(in: tableView, for: indexPath)
             cell.setupCell()
             return cell
 
         case .downArrow:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "RecipeDetailResultsInCell",
-                for: indexPath) as? RecipeDetailResultsInCell else {
-                fatalError("Loading downArrow cell error")
-            }
+            let cell = RecipeDetailResultsInCell.dequeue(in: tableView, for: indexPath)
+
             cell.setupCell()
             return cell
 
         case .makeButton:
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "RecipeDetailMakeButtonCell",
-                for: indexPath) as? RecipeDetailMakeButtonCell else {
-                fatalError("Loading makeButton cell error")
-            }
+            let cell = RecipeDetailMakeButtonCell.dequeue(in: tableView, for: indexPath)
+
             return cell
 
         case .component(let name, let image, let count):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "RecipeDetailComponentCell",
-                for: indexPath) as? RecipeDetailComponentCell else {
-                fatalError("Loading component cell error")
-            }
+            let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
+
             cell.setupCell(name: name, image: image, count: count)
             return cell
         }
