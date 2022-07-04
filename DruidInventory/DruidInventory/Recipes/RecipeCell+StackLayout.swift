@@ -9,24 +9,24 @@ import UIKit
 
 extension RecipeCell {
 
-    func configStackView(stack: UIStackView, array: [RecipeDetails]) {
+    func configStackView(stackView: UIStackView, array: [RecipeDetails]) {
 
-        contentView.addSubview(stack)
-        stack.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
 
-        stack.axis = .horizontal
-        stack.distribution = .equalSpacing
-        stack.alignment = .center
-        stack.spacing = CGFloat(20)
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = CGFloat(20)
 
-        switch stack {
+        switch stackView {
 
         case potionsStack:
             let trailingConstant = 60 - 30 * (potions.count - 1)
 
             NSLayoutConstraint.activate([
-                stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                stack.leadingAnchor.constraint(
+                stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                stackView.leadingAnchor.constraint(
                     equalTo: resultsIn.trailingAnchor,
                     constant: CGFloat(trailingConstant))
             ])
@@ -35,8 +35,8 @@ extension RecipeCell {
             let leadConstant = -110 + 20 * ingredients.count
 
             NSLayoutConstraint.activate([
-                stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                stack.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: CGFloat(leadConstant))
+                stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                stackView.trailingAnchor.constraint(equalTo: resultsIn.leadingAnchor, constant: CGFloat(leadConstant))
             ])
 
         default:
@@ -45,7 +45,7 @@ extension RecipeCell {
 
         for component in array {
             let itemView = RecipeContentView(image: component.image)
-            stack.addArrangedSubview(itemView.imageView)
+            stackView.addArrangedSubview(itemView.imageView)
             itemView.configImageViewLayout()
             NSLayoutConstraint.activate([
                 itemView.imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
