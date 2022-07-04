@@ -23,7 +23,6 @@ class RecipeDetailViewController: UITableViewController {
 
     required init(recipe: Recipe, recipeIndexPath: IndexPath) {
         self.recipe = recipe
-        self.recipeIndexPath = recipeIndexPath
         super.init(nibName: nil, bundle: nil)
     }
 
