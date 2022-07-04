@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct RecipeLayout {
+struct RecipeDetails {
     var amount: Int
     var image: String
 }

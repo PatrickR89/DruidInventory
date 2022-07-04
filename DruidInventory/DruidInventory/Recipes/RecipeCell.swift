@@ -9,8 +9,8 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    var ingredients = [RecipeLayout]()
-    var potions = [RecipeLayout]()
+    var ingredients = [RecipeDetails]()
+    var potions = [RecipeDetails]()
 
     var resultsIn = UIImageView()
 
@@ -42,10 +42,10 @@ class RecipeCell: UITableViewCell {
 
     func setupCell(recipe: Recipe) {
 
-        ingredients = recipe.ingredientsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
+        ingredients = recipe.ingredientsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image) }
         configIngredientsStack()
 
-        potions  = recipe.potionsInRecipe.map { RecipeLayout(amount: $0.amount, image: $0.image) }
+        potions  = recipe.potionsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image) }
         configPotionsStack()
     }
 }
