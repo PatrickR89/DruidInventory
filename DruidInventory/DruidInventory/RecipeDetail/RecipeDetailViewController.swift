@@ -56,7 +56,7 @@ extension RecipeDetailViewController {
                 for: indexPath) as? RecipeDetailPlusCell else {
                 fatalError("Loading plus cell error")
             }
-            cell.initializeCell()
+            cell.setupCell()
             return cell
 
         case .downArrow:
@@ -65,7 +65,7 @@ extension RecipeDetailViewController {
                 for: indexPath) as? RecipeDetailResultsInCell else {
                 fatalError("Loading downArrow cell error")
             }
-            cell.initializeCell()
+            cell.setupCell()
             return cell
 
         case .makeButton:
@@ -82,7 +82,7 @@ extension RecipeDetailViewController {
                 for: indexPath) as? RecipeDetailComponentCell else {
                 fatalError("Loading component cell error")
             }
-            cell.initializeCell(name: name, image: image, count: count)
+            cell.setupCell(name: name, image: image, count: count)
             return cell
         }
     }

@@ -24,7 +24,7 @@ class RecipeDetailPlusCell: UITableViewCell {
 
 extension RecipeDetailPlusCell {
 
-    func initializeCell() {
+    func setupCell() {
         imageDisplay.image = UIImage(systemName: "plus")
     }
 

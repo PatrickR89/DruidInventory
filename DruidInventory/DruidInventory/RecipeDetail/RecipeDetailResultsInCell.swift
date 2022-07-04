@@ -25,7 +25,7 @@ class RecipeDetailResultsInCell: UITableViewCell {
 
 extension RecipeDetailResultsInCell {
 
-    func initializeCell() {
+    func setupCell() {
         image1Display.image = UIImage(systemName: "arrow.down")
         image2Display.image = UIImage(systemName: "arrow.down")
     }
