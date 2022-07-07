@@ -136,9 +136,13 @@ extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
         tableContents.insert( RecipeDetailViewController.TableRowContent.component(
             name: newIngredient.name,
             image: newIngredient.image,
-            count: newIngredient.amount),
-        at: ingredientIndexPath.row)
+            count: newIngredient.amount), at: ingredientIndexPath.row)
         tableView.insertRows(at: [ingredientIndexPath], with: .none)
-        print(recipe)
+
+        if recipe.ingredientsInRecipe.count >= 4 {
+            let tempIndexPath = IndexPath(row: ingredientIndexPath.row + 1, section: ingredientIndexPath.section)
+            tableContents.remove(at: tempIndexPath.row)
+            tableView.deleteRows(at: [tempIndexPath], with: .none)
+        }
     }
 }
