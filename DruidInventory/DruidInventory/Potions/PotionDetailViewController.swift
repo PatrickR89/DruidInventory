@@ -18,11 +18,14 @@ class PotionDetailViewController: UIViewController {
     }
 
     var indexPath: IndexPath
+    var newPotion = false
+
     lazy var nameTextField = UITextField()
     lazy var imageView = UIImageView()
     lazy var amountTextField = UITextField()
     var buttonPlus = UIButton(type: .custom)
     var buttonMinus = UIButton(type: .custom)
+    var buttonAdd = UIButton(type: .custom)
 
     required init (potion: Potion, indexPath: IndexPath) {
         self.potion = potion
@@ -42,18 +45,25 @@ class PotionDetailViewController: UIViewController {
         configAmountLayout()
         configButtonsLayout(button: buttonPlus)
         configButtonsLayout(button: buttonMinus)
+        if newPotion {
+            configAddButtonLayout()
+        }
     }
 }
 
 extension PotionDetailViewController {
     @objc func addOnTap() {
         potion.amount += 1
-        PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+        if !newPotion {
+            PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+        }
     }
 
     @objc func removeOnTap() {
         potion.amount -= 1
-        PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+        if !newPotion {
+            PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+        }
     }
 
     @objc func imageTapped() {
@@ -69,14 +79,18 @@ extension PotionDetailViewController: UITextFieldDelegate {
         if textField == self.nameTextField {
             guard let nameText = nameTextField.text else {return}
             potion.name = nameText
-            PotionSingleton.shared.changePotionName(name: nameText, indexPath: indexPath)
+            if !newPotion {
+                PotionSingleton.shared.changePotionName(name: nameText, indexPath: indexPath)
+            }
         }
 
         if textField == self.amountTextField {
             guard let amountText = amountTextField.text else {return}
             guard let amount = Int(amountText) else {return}
             potion.amount = amount
-            PotionSingleton.shared.changePotionAmount(amount: amount, indexPath: indexPath)
+            if !newPotion {
+                PotionSingleton.shared.changePotionAmount(amount: amount, indexPath: indexPath)
+            }
         }
     }
 
@@ -84,22 +98,24 @@ extension PotionDetailViewController: UITextFieldDelegate {
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String) -> Bool {
-        if textField == self.amountTextField {
-            guard let currentAmount = amountTextField.text else {return false}
-            guard let stringRange = Range(range, in: currentAmount) else {return false}
-            let updatedString = currentAmount.replacingCharacters(in: stringRange, with: string)
+            if textField == self.amountTextField {
+                guard let currentAmount = amountTextField.text else {return false}
+                guard let stringRange = Range(range, in: currentAmount) else {return false}
+                let updatedString = currentAmount.replacingCharacters(in: stringRange, with: string)
 
-            return (
-                updatedString.count <= 2 &&
-                string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
+                return (
+                    updatedString.count <= 2 &&
+                    string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
+            }
+            return true
         }
-        return true
-    }
 }
 
 extension PotionDetailViewController: ImageSelectorDelegate {
     func changeImage(image: String) {
         potion.image = image
-        PotionSingleton.shared.changePotionImage(image: image, indexPath: indexPath)
+        if !newPotion {
+            PotionSingleton.shared.changePotionImage(image: image, indexPath: indexPath)
+        }
     }
 }

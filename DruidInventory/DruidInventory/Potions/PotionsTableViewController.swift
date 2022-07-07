@@ -72,3 +72,13 @@ extension PotionsTableViewController: PotionDelegate {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
+
+extension PotionsTableViewController: HomeTabBarNavActionProvider {
+    func addNew() {
+        let potion = Potion(name: "", image: "", amount: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        let potionDetailViewController = PotionDetailViewController(potion: potion, indexPath: indexPath)
+        potionDetailViewController.newPotion = true
+        present(potionDetailViewController, animated: true)
+    }
+}

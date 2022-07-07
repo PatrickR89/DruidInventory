@@ -90,4 +90,17 @@ extension PotionDetailViewController {
             button.titleLabel?.text = "default"
         }
     }
+
+    func configAddButtonLayout() {
+        view.addSubview(buttonAdd)
+        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
+        buttonAdd.setTitle("ADD", for: .normal)
+        buttonAdd.backgroundColor = .systemBlue
+
+        NSLayoutConstraint.activate([
+            buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonAdd.topAnchor.constraint(equalTo: amountTextField.bottomAnchor, constant: 30),
+            buttonAdd.widthAnchor.constraint(equalToConstant: 100)
+        ])
+    }
 }
