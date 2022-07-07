@@ -117,13 +117,13 @@
 			path = ImageSelector;
 			sourceTree = "<group>";
 		};
-		CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */ = {
+		CD963DD32876CAE600CBB25B /* PotionsTableViewControllerExtensions */ = {
 			isa = PBXGroup;
 			children = (
 				CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */,
 				CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */,
 			);
-			path = PotionsTableViewExtensions;
+			path = PotionsTableViewControllerExtensions;
 			sourceTree = "<group>";
 		};
 		CD963DD42876CC9500CBB25B /* PotionsData */ = {
@@ -189,7 +189,7 @@
 			children = (
 				CD963DDB2876CDE700CBB25B /* PotionDetailViewControllerExtensions */,
 				CD963DD42876CC9500CBB25B /* PotionsData */,
-				CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */,
+				CD963DD32876CAE600CBB25B /* PotionsTableViewControllerExtensions */,
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
 				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
