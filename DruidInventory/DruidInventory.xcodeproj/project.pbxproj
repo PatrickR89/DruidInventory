@@ -16,6 +16,8 @@
 		CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */; };
 		CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */; };
 		CD963DCD2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCC2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift */; };
+		CD963DD02876C9C300CBB25B /* PotionsTableViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */; };
+		CD963DD22876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -51,6 +53,8 @@
 		CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorCell.swift; sourceTree = "<group>"; };
 		CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorDelegate.swift; sourceTree = "<group>"; };
 		CD963DCC2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarNavActionProvide.swift; sourceTree = "<group>"; };
+		CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionsTableViewController+Delegates.swift"; sourceTree = "<group>"; };
+		CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionsTableViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,15 @@
 			path = ImageSelector;
 			sourceTree = "<group>";
 		};
+		CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */,
+				CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */,
+			);
+			path = PotionsTableViewExtensions;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -147,10 +160,11 @@
 		CDF89E4428663A4600F083A9 /* Potions */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */,
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
+				CDF89E3E2864D43700F083A9 /* Potion.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
 				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
-				CDF89E3E2864D43700F083A9 /* Potion.swift */,
 				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
 				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
 				CD963DC428769FD700CBB25B /* PotionSingleton.swift */,
@@ -297,6 +311,7 @@
 				CDF89E6F286B1C2C00F083A9 /* RecipeDetails.swift in Sources */,
 				CDF89E92286DA32A00F083A9 /* RecipeDetailResultsInCell.swift in Sources */,
 				CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */,
+				CD963DD22876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift in Sources */,
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
 				CDF89E6A286B1C2C00F083A9 /* RecipeDetailComponentCell.swift in Sources */,
 				CDF89E90286DA2D900F083A9 /* RecipeDetailPlusCell.swift in Sources */,
@@ -305,6 +320,7 @@
 				CD9200BF286F332F009E6499 /* TableViewCell+Dequeue.swift in Sources */,
 				CD963DC72876A75800CBB25B /* ImageSelectorViewController.swift in Sources */,
 				CD963DCD2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift in Sources */,
+				CD963DD02876C9C300CBB25B /* PotionsTableViewController+Delegates.swift in Sources */,
 				CD963DC128769E6500CBB25B /* PotionDelegate.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,
 				CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */,
