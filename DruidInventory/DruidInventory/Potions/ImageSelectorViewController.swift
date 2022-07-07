@@ -10,6 +10,7 @@ import UIKit
 class ImageSelectorViewController: UIViewController {
 
     var images = [String]()
+    var usedImages = [String]()
 
     weak var delegate: ImageSelectorDelegate?
 
@@ -31,14 +32,18 @@ class ImageSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initializeImages()
+        filterUsedImages()
         configCollectionViewLayout()
 
     }
 
-    func initializeImages() {
+    func filterUsedImages() {
+        for potion in PotionSingleton.shared.potions {
+            usedImages.append(potion.image)
+        }
+
         let homeTabBar = HomeTabBarController()
-        images = homeTabBar.potionSymbolNames
+        images = homeTabBar.potionSymbolNames.filter {!usedImages.contains($0)}
     }
 
     func configCollectionViewLayout() {
