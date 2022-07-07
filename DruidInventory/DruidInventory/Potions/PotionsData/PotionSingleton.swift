@@ -45,4 +45,14 @@ class PotionSingleton {
         PotionSingleton.shared.potions.append(potion)
         delegate?.appendToTableView()
     }
+
+    func addToPotionAmount(indexPath: IndexPath) {
+        PotionSingleton.shared.potions[indexPath.row].amount += 1
+        delegate?.reloadTableViewRow(indexPath: indexPath)
+    }
+
+    func reduceFromPotionAmount(indexPath: IndexPath) {
+        PotionSingleton.shared.potions[indexPath.row].amount -= 1
+        delegate?.reloadTableViewRow(indexPath: indexPath)
+    }
 }

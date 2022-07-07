@@ -33,16 +33,14 @@ extension PotionsTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionSingleton.shared.potions[indexPath.row].amount -= 1
-            tableView.reloadRows(at: [indexPath], with: .none)
+            PotionSingleton.shared.reduceFromPotionAmount(indexPath: indexPath)
             return nil
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionSingleton.shared.potions[indexPath.row].amount += 1
-            tableView.reloadRows(at: [indexPath], with: .none)
+            PotionSingleton.shared.addToPotionAmount(indexPath: indexPath)
             return nil
         }
 }
