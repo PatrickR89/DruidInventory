@@ -120,6 +120,16 @@
 			path = PotionsTableViewExtensions;
 			sourceTree = "<group>";
 		};
+		CD963DD42876CC9500CBB25B /* PotionsData */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E3E2864D43700F083A9 /* Potion.swift */,
+				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
+				CD963DC428769FD700CBB25B /* PotionSingleton.swift */,
+			);
+			path = PotionsData;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -160,14 +170,12 @@
 		CDF89E4428663A4600F083A9 /* Potions */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DD42876CC9500CBB25B /* PotionsData */,
 				CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */,
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
-				CDF89E3E2864D43700F083A9 /* Potion.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
 				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
-				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
 				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
-				CD963DC428769FD700CBB25B /* PotionSingleton.swift */,
 			);
 			path = Potions;
 			sourceTree = "<group>";
