@@ -14,17 +14,18 @@ class ImageSelectorViewController: UIViewController {
     lazy var collectionLayout: UICollectionViewFlowLayout = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .vertical
-        collectionLayout.estimatedItemSize.height = 100
-        collectionLayout.estimatedItemSize.width = 100
+        collectionLayout.itemSize = CGSize(width: view.frame.width / 3.33, height: view.frame.width / 3.33)
+        collectionLayout.minimumInteritemSpacing = 0
+        collectionLayout.minimumLineSpacing = 0
+
 
         return collectionLayout
     }()
 
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: collectionLayout)
+        let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionLayout)
         return collectionView
     }()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,7 @@ extension ImageSelectorViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "image",
                 for: indexPath) as? ImageSelectorCell else {fatalError("No cell!")}
-
+            cell.configCellImage(images[indexPath.row])
             return cell
         }
 }
