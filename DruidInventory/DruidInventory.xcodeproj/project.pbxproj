@@ -161,6 +161,37 @@
 			path = PotionDetailViewControllerExtensions;
 			sourceTree = "<group>";
 		};
+		CD963DEC28773A6100CBB25B /* RecipeDetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */,
+				CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */,
+				CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */,
+				CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */,
+			);
+			path = RecipeDetailCells;
+			sourceTree = "<group>";
+		};
+		CD963DED28773AE700CBB25B /* RecipeComponentSelectorExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */,
+				CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */,
+				CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */,
+			);
+			path = RecipeComponentSelectorExtensions;
+			sourceTree = "<group>";
+		};
+		CD963DEE28773BD400CBB25B /* RecipeDetailViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */,
+				CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */,
+				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
+			);
+			path = RecipeDetailViewControllerExtensions;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -236,19 +267,12 @@
 		CDF89E73286B1D8800F083A9 /* RecipeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DEE28773BD400CBB25B /* RecipeDetailViewControllerExtensions */,
+				CD963DED28773AE700CBB25B /* RecipeComponentSelectorExtensions */,
+				CD963DEC28773A6100CBB25B /* RecipeDetailCells */,
 				CDF89E5E286B1C2B00F083A9 /* RecipeDetailViewController.swift */,
-				CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */,
-				CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */,
-				CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */,
-				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
-				CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */,
-				CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */,
-				CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */,
 				CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */,
 				CD963DE02876EFA100CBB25B /* RecipeComponentSelectorController.swift */,
-				CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */,
-				CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */,
-				CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
