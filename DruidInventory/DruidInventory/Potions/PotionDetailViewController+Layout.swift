@@ -96,6 +96,7 @@ extension PotionDetailViewController {
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setTitle("ADD", for: .normal)
         buttonAdd.backgroundColor = .systemBlue
+        buttonAdd.addTarget(self, action: #selector(addNewOnTap), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),

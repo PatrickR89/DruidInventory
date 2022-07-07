@@ -71,6 +71,13 @@ extension PotionsTableViewController: PotionDelegate {
     func reloadTableViewRow(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
+
+    func appendToTableView() {
+        let section = tableView.numberOfSections - 1
+        let row = tableView.numberOfRows(inSection: section)
+        let indexPath = IndexPath(row: row, section: section)
+        tableView.insertRows(at: [indexPath], with: .none)
+    }
 }
 
 extension PotionsTableViewController: HomeTabBarNavActionProvider {

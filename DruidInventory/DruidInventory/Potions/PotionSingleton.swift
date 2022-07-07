@@ -40,4 +40,9 @@ class PotionSingleton {
         PotionSingleton.shared.potions[indexPath.row].image = image
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
+
+    func addNewPotion(potion: Potion) {
+        PotionSingleton.shared.potions.append(potion)
+        delegate?.appendToTableView()
+    }
 }

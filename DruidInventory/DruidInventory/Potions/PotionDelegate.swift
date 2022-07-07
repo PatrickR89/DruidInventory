@@ -9,4 +9,5 @@ import UIKit
 
 protocol PotionDelegate: AnyObject {
     func reloadTableViewRow(indexPath: IndexPath)
+    func appendToTableView()
 }

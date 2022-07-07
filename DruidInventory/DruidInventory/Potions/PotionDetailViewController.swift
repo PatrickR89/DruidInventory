@@ -52,6 +52,14 @@ class PotionDetailViewController: UIViewController {
 }
 
 extension PotionDetailViewController {
+
+    @objc func addNewOnTap() {
+        if newPotion {
+            PotionSingleton.shared.addNewPotion(potion: potion)
+        }
+        self.dismiss(animated: true)
+    }
+
     @objc func addOnTap() {
         potion.amount += 1
         if !newPotion {
