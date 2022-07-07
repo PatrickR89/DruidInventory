@@ -10,6 +10,7 @@ import UIKit
 class RecipeDetailViewController: UITableViewController {
 
     var recipe: Recipe
+    var recipeIndexPath: IndexPath
 
     enum TableRowContent {
 
@@ -23,6 +24,8 @@ class RecipeDetailViewController: UITableViewController {
 
     required init(recipe: Recipe, recipeIndexPath: IndexPath) {
         self.recipe = recipe
+        self.recipeIndexPath = recipeIndexPath
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -83,7 +86,7 @@ extension RecipeDetailViewController {
         switch content {
         case .plusButton(let type):
             print("add \(type) at \(indexPath)")
-            addNewItem(type: type, recipe: recipe)
+            addNewItem(type: type, recipe: recipe, ingredientIndexPath: indexPath)
         case .downArrow:
             print("down arrow \(indexPath)")
         case .makeButton:
@@ -111,10 +114,11 @@ extension RecipeDetailViewController {
         }
     }
 
-    func addNewItem(type: RecipeComponentType, recipe: Recipe) {
+    func addNewItem(type: RecipeComponentType, recipe: Recipe, ingredientIndexPath: IndexPath) {
         switch type {
         case .inputNew:
-            let recipeComponentSelector = RecipeComponentSelectorController()
+            let recipeComponentSelector = RecipeComponentSelectorController(ingredientIndexPath: ingredientIndexPath)
+            recipeComponentSelector.delegate = self
             present(recipeComponentSelector, animated: true)
         case .outputNew:
             print("output items")
@@ -123,4 +127,18 @@ extension RecipeDetailViewController {
         }
     }
 
+}
+
+extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
+    func appendNewIngredient(name: String, image: String, amount: Int, ingredientIndexPath: IndexPath) {
+        let newIngredient = Ingredient(name: name, image: image, amount: amount)
+        recipe.ingredientsInRecipe.append(newIngredient)
+        tableContents.insert( RecipeDetailViewController.TableRowContent.component(
+            name: newIngredient.name,
+            image: newIngredient.image,
+            count: newIngredient.amount),
+        at: ingredientIndexPath.row)
+        tableView.insertRows(at: [ingredientIndexPath], with: .none)
+        print(recipe)
+    }
 }

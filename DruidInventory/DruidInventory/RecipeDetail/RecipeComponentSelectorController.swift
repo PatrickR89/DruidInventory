@@ -17,20 +17,34 @@ class RecipeComponentSelectorController: UIViewController {
         }
     }
 
-    lazy var nameLabel = UILabel()
-    lazy var image = UIImageView()
-    lazy var amountTextField = UITextField()
     var amount = 0 {
         didSet {
             amountTextField.text = String(amount)
         }
     }
 
+    var ingredientIndexPath: IndexPath
+
+    weak var delegate: RecipeComponentSelectorDelegate?
+
+    lazy var nameLabel = UILabel()
+    lazy var image = UIImageView()
+    lazy var amountTextField = UITextField()
+
     lazy var buttonNext = UIButton(type: .custom)
     lazy var buttonPrevious = UIButton(type: .custom)
     lazy var buttonPlus = UIButton(type: .custom)
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
+
+    required init(ingredientIndexPath: IndexPath) {
+        self.ingredientIndexPath = ingredientIndexPath
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +134,11 @@ extension RecipeComponentSelectorController {
     }
 
     @objc func addNewOnTap() {
-
+        delegate?.appendNewIngredient(
+            name: potion.name,
+            image: potion.image,
+            amount: amount,
+            ingredientIndexPath: ingredientIndexPath)
         self.dismiss(animated: true)
     }
 }
