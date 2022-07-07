@@ -10,7 +10,7 @@ import UIKit
 class PotionCell: UITableViewCell {
 
     lazy var nameLabel = UILabel()
-    lazy var image = UIImageView()
+    lazy var cellImageView = UIImageView()
     lazy var amountLabel = UILabel()
     var amount = 0 {
         didSet {
@@ -35,15 +35,15 @@ class PotionCell: UITableViewCell {
 extension PotionCell {
 
     func configImageLayout() {
-        contentView.addSubview(image)
-        image.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(cellImageView)
+        cellImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            image.widthAnchor.constraint(equalToConstant: 30),
-            image.heightAnchor.constraint(equalToConstant: 30)
+            cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            cellImageView.widthAnchor.constraint(equalToConstant: 30),
+            cellImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 
@@ -56,7 +56,7 @@ extension PotionCell {
 
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20)
+            nameLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 20)
         ])
     }
 
@@ -74,7 +74,7 @@ extension PotionCell {
     }
 
     func setupCell(with potion: Potion) {
-        image.image = UIImage(systemName: potion.image)
+        cellImageView.image = UIImage(systemName: potion.image)
         nameLabel.text = potion.name
         amount = potion.amount
         if potion.amount == 0 {
