@@ -102,6 +102,7 @@
 			children = (
 				CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */,
 				CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */,
+				CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */,
 			);
 			path = ImageSelector;
 			sourceTree = "<group>";
@@ -153,7 +154,6 @@
 				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
 				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
 				CD963DC428769FD700CBB25B /* PotionSingleton.swift */,
-				CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */,
 			);
 			path = Potions;
 			sourceTree = "<group>";
