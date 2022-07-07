@@ -115,34 +115,43 @@ extension RecipeDetailViewController {
     }
 
     func addNewItem(type: RecipeComponentType, recipe: Recipe, ingredientIndexPath: IndexPath) {
-        switch type {
-        case .inputNew:
-            let recipeComponentSelector = RecipeComponentSelectorController(
-                ingredientIndexPath: ingredientIndexPath,
-                type: type)
-            recipeComponentSelector.delegate = self
-            present(recipeComponentSelector, animated: true)
-        case .outputNew:
-            print("output items")
-        default:
-            print("no other type")
-        }
+
+        let recipeComponentSelector = RecipeComponentSelectorController(
+            ingredientIndexPath: ingredientIndexPath,
+            type: type)
+        recipeComponentSelector.delegate = self
+        present(recipeComponentSelector, animated: true)
     }
 }
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
     func appendNewIngredient(component: Potion, componentType: RecipeComponentType, componentIndexPath: IndexPath) {
-        recipe.ingredientsInRecipe.append(component)
+
+        switch componentType {
+        case .inputNew:
+            recipe.ingredientsInRecipe.append(component)
+
+            if recipe.ingredientsInRecipe.count >= 4 {
+                tableContents.remove(at: componentIndexPath.row)
+                tableView.deleteRows(at: [componentIndexPath], with: .none)
+            }
+
+        case .outputNew:
+            recipe.potionsInRecipe.append(component)
+
+            if recipe.potionsInRecipe.count >= 2 {
+                tableContents.remove(at: componentIndexPath.row)
+                tableView.deleteRows(at: [componentIndexPath], with: .none)
+            }
+
+        default:
+            print("error, unknown component type")
+        }
+
         tableContents.insert( RecipeDetailViewController.TableRowContent.component(
             name: component.name,
             image: component.image,
             count: component.amount), at: componentIndexPath.row)
         tableView.insertRows(at: [componentIndexPath], with: .none)
-
-        if recipe.ingredientsInRecipe.count >= 4 {
-            let tempIndexPath = IndexPath(row: componentIndexPath.row + 1, section: componentIndexPath.section)
-            tableContents.remove(at: tempIndexPath.row)
-            tableView.deleteRows(at: [tempIndexPath], with: .none)
-        }
     }
 }
