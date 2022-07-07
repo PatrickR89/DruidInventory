@@ -9,30 +9,31 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-    var recipes = [Recipe]()
+//    var RecipesSingleton.shared.recipes = [Recipe]()
     var ingredients = [Ingredient]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configTableViewLayout()
-        testArray()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        recipes.count
+        RecipesSingleton.shared.recipes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
-        cell.setupCell(recipe: recipes[indexPath.row])
+        cell.setupCell(recipe: RecipesSingleton.shared.recipes[indexPath.row])
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipeDetailView = RecipeDetailViewController(recipe: recipes[indexPath.row], recipeIndexPath: indexPath)
+        let recipeDetailView = RecipeDetailViewController(
+            recipe: RecipesSingleton.shared.recipes[indexPath.row],
+            recipeIndexPath: indexPath)
 
         self.present(recipeDetailView, animated: true)
 

@@ -7,9 +7,10 @@
 
 import UIKit
 
-extension RecipesTableViewController {
+extension RecipesSingleton {
+    func testArray() -> [Recipe] {
+        var recipes = [Recipe]()
 
-    func testArray() {
         let ingredient1 = Ingredient(name: "Cocoa", image: "hourglass.bottomhalf.filled", amount: 5)
         let ingredient2 = Ingredient(name: "Saw Dust", image: "paperplane.circle", amount: 2)
         let ingredient3 = Ingredient(name: "Fairy blood", image: "drop.triangle", amount: 1)
@@ -31,5 +32,7 @@ extension RecipesTableViewController {
                 potionsInRecipe: [potionAa, potionAb]))
         recipes.append(Recipe(ingredientsInRecipe: [ingredientAa, ingredientAb], potionsInRecipe: [potionAa, potionAb]))
         recipes.append(Recipe(ingredientsInRecipe: [ ingredientAc, ingredientAd], potionsInRecipe: [potionAb]))
+
+        return recipes
     }
 }
