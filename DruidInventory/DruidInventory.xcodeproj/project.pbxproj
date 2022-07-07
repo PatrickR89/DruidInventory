@@ -18,6 +18,9 @@
 		CD963DCD2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCC2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift */; };
 		CD963DD02876C9C300CBB25B /* PotionsTableViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */; };
 		CD963DD22876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */; };
+		CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD52876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift */; };
+		CD963DD82876CD6600CBB25B /* PotionDetailViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */; };
+		CD963DDA2876CDB000CBB25B /* PotionDetailViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -55,6 +58,9 @@
 		CD963DCC2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarNavActionProvide.swift; sourceTree = "<group>"; };
 		CD963DCF2876C9C300CBB25B /* PotionsTableViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionsTableViewController+Delegates.swift"; sourceTree = "<group>"; };
 		CD963DD12876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionsTableViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
+		CD963DD52876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Delegates.swift"; sourceTree = "<group>"; };
+		CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Methods.swift"; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,17 @@
 			path = PotionsData;
 			sourceTree = "<group>";
 		};
+		CD963DDB2876CDE700CBB25B /* PotionDetailViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */,
+				CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */,
+				CD963DD52876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift */,
+				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
+			);
+			path = PotionDetailViewControllerExtensions;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -170,12 +187,12 @@
 		CDF89E4428663A4600F083A9 /* Potions */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DDB2876CDE700CBB25B /* PotionDetailViewControllerExtensions */,
 				CD963DD42876CC9500CBB25B /* PotionsData */,
 				CD963DD32876CAE600CBB25B /* PotionsTableViewExtensions */,
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
 				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
-				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
 			);
 			path = Potions;
 			sourceTree = "<group>";
@@ -324,6 +341,7 @@
 				CDF89E6A286B1C2C00F083A9 /* RecipeDetailComponentCell.swift in Sources */,
 				CDF89E90286DA2D900F083A9 /* RecipeDetailPlusCell.swift in Sources */,
 				CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */,
+				CD963DD82876CD6600CBB25B /* PotionDetailViewController+Delegates.swift in Sources */,
 				CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */,
 				CD9200BF286F332F009E6499 /* TableViewCell+Dequeue.swift in Sources */,
 				CD963DC72876A75800CBB25B /* ImageSelectorViewController.swift in Sources */,
@@ -332,6 +350,7 @@
 				CD963DC128769E6500CBB25B /* PotionDelegate.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,
 				CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */,
+				CD963DDA2876CDB000CBB25B /* PotionDetailViewController+Methods.swift in Sources */,
 				CD963DC528769FD700CBB25B /* PotionSingleton.swift in Sources */,
 				CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */,
 				CDF89E69286B1C2C00F083A9 /* RecipeDetailViewController.swift in Sources */,
@@ -339,6 +358,7 @@
 				CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */,
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
+				CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
