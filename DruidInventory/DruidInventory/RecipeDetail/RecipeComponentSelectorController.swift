@@ -206,9 +206,17 @@ extension RecipeComponentSelectorController {
     func configAddButtonLayout() {
         view.addSubview(buttonAdd)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
-        buttonAdd.setTitle("ADD INGREDIENT", for: .normal)
         buttonAdd.backgroundColor = .systemBlue
         buttonAdd.addTarget(self, action: #selector(addNewOnTap), for: .touchUpInside)
+
+        switch componentType {
+        case .inputNew:
+            buttonAdd.setTitle("ADD INGREDIENT", for: .normal)
+        case .outputNew:
+            buttonAdd.setTitle("ADD POTION", for: .normal)
+        default:
+            print("unknown component type")
+        }
 
         NSLayoutConstraint.activate([
             buttonAdd.centerXAnchor.constraint(equalTo: view.centerXAnchor),
