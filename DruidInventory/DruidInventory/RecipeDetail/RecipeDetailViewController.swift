@@ -13,7 +13,7 @@ class RecipeDetailViewController: UITableViewController {
 
     enum TableRowContent {
 
-        case plusButton
+        case plusButton(type: RecipeComponentType)
         case downArrow
         case makeButton
         case component(name: String, image: String, count: Int)
@@ -49,9 +49,9 @@ extension RecipeDetailViewController {
         let content = tableContents[indexPath.row]
 
         switch content {
-        case .plusButton:
+        case .plusButton(let type):
             let cell = RecipeDetailPlusCell.dequeue(in: tableView, for: indexPath)
-            cell.setupCell()
+            cell.setupCell(typeOfComponent: type)
             return cell
 
         case .downArrow:
@@ -84,12 +84,12 @@ extension RecipeDetailViewController.TableRowContent: Equatable {
 extension RecipeDetailViewController {
     func appendPlusButtons() {
         if recipe.ingredientsInRecipe.count < 4 {
-            tableContents.insert(.plusButton, at: 0)
+            tableContents.insert(.plusButton(type: .inputNew), at: 0)
         }
 
         if recipe.potionsInRecipe.count < 2 {
             if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
-                tableContents.insert(.plusButton, at: index + 1)
+                tableContents.insert(.plusButton(type: .outputNew), at: index + 1)
             }
         }
     }

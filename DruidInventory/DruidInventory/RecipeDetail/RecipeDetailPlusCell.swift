@@ -10,6 +10,7 @@ import UIKit
 class RecipeDetailPlusCell: UITableViewCell {
 
     var imageDisplay = UIImageView()
+    var componentType: RecipeComponentType = .inputNew
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,8 +25,9 @@ class RecipeDetailPlusCell: UITableViewCell {
 
 extension RecipeDetailPlusCell {
 
-    func setupCell() {
+    func setupCell(typeOfComponent: RecipeComponentType) {
         imageDisplay.image = UIImage(systemName: "plus")
+        componentType = typeOfComponent
     }
 
     func configPlusViewLayout() {
