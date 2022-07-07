@@ -9,32 +9,34 @@ import UIKit
 
 class PotionsTableViewController: UITableViewController {
 
-    var potions = [Potion]()
+//    var potions = [Potion]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
-        potions = [
-            Potion(name: "Fast walk", image: "figure.walk", amount: 3),
-            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0)]
+//        potions = [
+//            Potion(name: "Fast walk", image: "figure.walk", amount: 3),
+//            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0)]
     }
 }
 
 extension PotionsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        potions.count
+        PotionSingleton.shared.potions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = PotionCell.dequeue(in: tableView, for: indexPath)
-        cell.setupCell(with: potions[indexPath.row])
+        cell.setupCell(with: PotionSingleton.shared.potions[indexPath.row])
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let potionDetailView = PotionDetailViewController(potion: potions[indexPath.row], indexPath: indexPath)
+        let potionDetailView = PotionDetailViewController(
+            potion: PotionSingleton.shared.potions[indexPath.row],
+            indexPath: indexPath)
 
         self.present(potionDetailView, animated: true)
     }
@@ -42,7 +44,7 @@ extension PotionsTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        potions[indexPath.row].amount -= 1
+            PotionSingleton.shared.potions[indexPath.row].amount -= 1
         tableView.reloadRows(at: [indexPath], with: .none)
         return nil
     }
@@ -50,7 +52,7 @@ extension PotionsTableViewController {
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        potions[indexPath.row].amount += 1
+            PotionSingleton.shared.potions[indexPath.row].amount += 1
         tableView.reloadRows(at: [indexPath], with: .none)
         return nil
     }

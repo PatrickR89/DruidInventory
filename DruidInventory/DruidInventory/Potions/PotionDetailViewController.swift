@@ -17,8 +17,6 @@ class PotionDetailViewController: UIViewController {
     var buttonPlus = UIButton(type: .custom)
     var buttonMinus = UIButton(type: .custom)
 
-    weak var delegate: PotionDelegate?
-
     required init (potion: Potion, indexPath: IndexPath) {
         self.potion = potion
         self.indexPath = indexPath
