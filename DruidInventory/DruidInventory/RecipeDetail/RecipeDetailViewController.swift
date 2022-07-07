@@ -117,7 +117,9 @@ extension RecipeDetailViewController {
     func addNewItem(type: RecipeComponentType, recipe: Recipe, ingredientIndexPath: IndexPath) {
         switch type {
         case .inputNew:
-            let recipeComponentSelector = RecipeComponentSelectorController(ingredientIndexPath: ingredientIndexPath)
+            let recipeComponentSelector = RecipeComponentSelectorController(
+                ingredientIndexPath: ingredientIndexPath,
+                type: type)
             recipeComponentSelector.delegate = self
             present(recipeComponentSelector, animated: true)
         case .outputNew:
@@ -126,7 +128,6 @@ extension RecipeDetailViewController {
             print("no other type")
         }
     }
-
 }
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {

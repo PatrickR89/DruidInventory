@@ -12,14 +12,21 @@ class RecipeComponentSelectorController: UIViewController {
     var potionIndex = 0
     var potion = PotionSingleton.shared.potions[0] {
         didSet {
-            image.image = UIImage(systemName: potion.image)
-            nameLabel.text = potion.name
+            newPotion.image = potion.image
+            newPotion.name = potion.name
         }
     }
 
-    var amount = 0 {
+    var type: RecipeComponentType
+    
+    var newPotion = Potion(name: "", image: "", amount: 1) {
         didSet {
-            amountTextField.text = String(amount)
+            if newPotion.amount <= 1 {
+                newPotion.amount = 1
+            }
+            image.image = UIImage(systemName: newPotion.image)
+            nameLabel.text = newPotion.name
+            amountTextField.text = String(newPotion.amount)
         }
     }
 
@@ -37,8 +44,9 @@ class RecipeComponentSelectorController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
-    required init(ingredientIndexPath: IndexPath) {
+    required init(ingredientIndexPath: IndexPath, type: RecipeComponentType) {
         self.ingredientIndexPath = ingredientIndexPath
+        self.type = type
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -58,6 +66,8 @@ class RecipeComponentSelectorController: UIViewController {
         configAmountButtonsLayout(button: buttonMinus)
         configAddButtonLayout()
 
+        newPotion.name = potion.name
+        newPotion.image = potion.image
     }
 }
 
@@ -126,18 +136,18 @@ extension RecipeComponentSelectorController {
     }
 
     @objc func addOnTap() {
-        amount += 1
+        newPotion.amount += 1
     }
 
     @objc func removeOnTap() {
-        amount -= 1
+        newPotion.amount -= 1
     }
 
     @objc func addNewOnTap() {
         delegate?.appendNewIngredient(
             name: potion.name,
             image: potion.image,
-            amount: amount,
+            amount: newPotion.amount,
             ingredientIndexPath: ingredientIndexPath)
         self.dismiss(animated: true)
     }
@@ -179,7 +189,7 @@ extension RecipeComponentSelectorController {
     func configAmountLayout() {
         view.addSubview(amountTextField)
 
-        amountTextField.text = String(amount)
+        amountTextField.text = String(newPotion.amount)
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
         amountTextField.textAlignment = .center
@@ -215,7 +225,7 @@ extension RecipeComponentSelectorController: UITextFieldDelegate {
         if textField == self.amountTextField {
             guard let amountText = amountTextField.text else {return}
             guard let tempAmount = Int(amountText) else {return}
-            amount = tempAmount
+            newPotion.amount = tempAmount
         }
     }
 
