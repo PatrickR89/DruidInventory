@@ -11,13 +11,14 @@ class ImageSelectorViewController: UIViewController {
 
     var images = [String]()
 
+    weak var delegate: ImageSelectorDelegate?
+
     lazy var collectionLayout: UICollectionViewFlowLayout = {
         let collectionLayout = UICollectionViewFlowLayout()
         collectionLayout.scrollDirection = .vertical
         collectionLayout.itemSize = CGSize(width: view.frame.width / 3.33, height: view.frame.width / 3.33)
         collectionLayout.minimumInteritemSpacing = 0
         collectionLayout.minimumLineSpacing = 0
-
 
         return collectionLayout
     }()
@@ -75,6 +76,7 @@ extension ImageSelectorViewController: UICollectionViewDataSource {
 
 extension ImageSelectorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        delegate?.changeImage(image: images[indexPath.item])
+        self.dismiss(animated: true)
     }
 }

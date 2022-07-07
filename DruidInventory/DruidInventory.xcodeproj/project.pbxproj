@@ -14,6 +14,7 @@
 		CD963DC528769FD700CBB25B /* PotionSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC428769FD700CBB25B /* PotionSingleton.swift */; };
 		CD963DC72876A75800CBB25B /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */; };
 		CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */; };
+		CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -47,6 +48,7 @@
 		CD963DC428769FD700CBB25B /* PotionSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionSingleton.swift; sourceTree = "<group>"; };
 		CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
 		CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorCell.swift; sourceTree = "<group>"; };
+		CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorDelegate.swift; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
 				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
 				CD963DC428769FD700CBB25B /* PotionSingleton.swift */,
+				CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */,
 			);
 			path = Potions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */,
 				CDF89E69286B1C2C00F083A9 /* RecipeDetailViewController.swift in Sources */,
 				CDF89E67286B1C2C00F083A9 /* RecipeTableView+Test.swift in Sources */,
+				CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */,
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
 			);

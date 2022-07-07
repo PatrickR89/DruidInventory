@@ -27,22 +27,22 @@ extension PotionDetailViewController {
     }
 
     func configImageLayout() {
-        view.addSubview(image)
+        view.addSubview(imageView)
         let tapImage = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
 
-        image.image = UIImage(systemName: potion.image)
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.borderWidth = 1.5
-        image.layer.cornerRadius = 3
-        image.isUserInteractionEnabled = true
-        image.addGestureRecognizer(tapImage)
+        imageView.image = UIImage(systemName: potion.image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderWidth = 1.5
+        imageView.layer.cornerRadius = 3
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapImage)
 
         NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 200),
-            image.widthAnchor.constraint(equalToConstant: 200),
-            image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            image.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: -50)
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: -50)
         ])
 
     }

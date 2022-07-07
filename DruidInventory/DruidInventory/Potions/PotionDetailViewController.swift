@@ -12,12 +12,14 @@ class PotionDetailViewController: UIViewController {
     var potion: Potion {
         didSet {
             amountTextField.text = String(potion.amount)
+            imageView.image = UIImage(systemName: potion.image)
+
         }
     }
 
     var indexPath: IndexPath
     lazy var nameTextField = UITextField()
-    lazy var image = UIImageView()
+    lazy var imageView = UIImageView()
     lazy var amountTextField = UITextField()
     var buttonPlus = UIButton(type: .custom)
     var buttonMinus = UIButton(type: .custom)
@@ -56,6 +58,7 @@ extension PotionDetailViewController {
 
     @objc func imageTapped() {
         let imageSelectorView = ImageSelectorViewController()
+        imageSelectorView.delegate = self
         present(imageSelectorView, animated: true)
     }
 }
@@ -91,5 +94,12 @@ extension PotionDetailViewController: UITextFieldDelegate {
                 string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
         }
         return true
+    }
+}
+
+extension PotionDetailViewController: ImageSelectorDelegate {
+    func changeImage(image: String) {
+        potion.image = image
+        PotionSingleton.shared.changePotionImage(image: image, indexPath: indexPath)
     }
 }
