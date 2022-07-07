@@ -20,11 +20,13 @@ extension PotionDetailViewController {
     }
 
     func enableKeyboardObserver() {
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
             name: UIResponder.keyboardWillShowNotification,
             object: nil)
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide),
@@ -47,4 +49,3 @@ extension PotionDetailViewController {
         }
     }
 }
-

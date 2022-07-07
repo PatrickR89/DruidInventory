@@ -23,9 +23,10 @@ class PotionDetailViewController: UIViewController {
     lazy var nameTextField = UITextField()
     lazy var imageView = UIImageView()
     lazy var amountTextField = UITextField()
-    var buttonPlus = UIButton(type: .custom)
-    var buttonMinus = UIButton(type: .custom)
-    var buttonAdd = UIButton(type: .custom)
+
+    lazy var buttonPlus = UIButton(type: .custom)
+    lazy var buttonMinus = UIButton(type: .custom)
+    lazy var buttonAdd = UIButton(type: .custom)
 
     required init (potion: Potion, indexPath: IndexPath) {
         self.potion = potion

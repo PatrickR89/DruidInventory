@@ -9,9 +9,9 @@ import UIKit
 
 class PotionCell: UITableViewCell {
 
-    var nameLabel = UILabel()
-    var image = UIImageView()
-    var amountLabel = UILabel()
+    lazy var nameLabel = UILabel()
+    lazy var image = UIImageView()
+    lazy var amountLabel = UILabel()
     var amount = 0 {
         didSet {
             amountLabel.text = "Qty: \(amount)"
