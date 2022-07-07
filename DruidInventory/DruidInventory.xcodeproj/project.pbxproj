@@ -97,6 +97,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		CD963DCE2876C2B100CBB25B /* ImageSelector */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */,
+				CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */,
+			);
+			path = ImageSelector;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +125,7 @@
 		CDF89E2028643AFF00F083A9 /* DruidInventory */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DCE2876C2B100CBB25B /* ImageSelector */,
 				CD9200BD286F32FA009E6499 /* Utils */,
 				CDF89E73286B1D8800F083A9 /* RecipeDetail */,
 				CDF89E72286B1D1D00F083A9 /* Recipes */,
@@ -137,8 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */,
-				CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */,
-				CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */,
 				CDF89E402864D5B000F083A9 /* PotionCell.swift */,
 				CDF89E422864E82000F083A9 /* PotionDetailViewController.swift */,
 				CDF89E3E2864D43700F083A9 /* Potion.swift */,
