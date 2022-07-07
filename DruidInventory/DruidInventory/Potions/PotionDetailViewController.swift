@@ -14,7 +14,7 @@ class PotionDetailViewController: UIViewController {
             amountTextField.text = String(potion.amount)
         }
     }
-    
+
     var indexPath: IndexPath
     lazy var nameTextField = UITextField()
     lazy var image = UIImageView()
@@ -52,6 +52,11 @@ extension PotionDetailViewController {
     @objc func removeOnTap() {
         potion.amount -= 1
         PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+    }
+
+    @objc func imageTapped() {
+        let imageSelectorView = ImageSelectorViewController()
+        present(imageSelectorView, animated: true)
     }
 }
 

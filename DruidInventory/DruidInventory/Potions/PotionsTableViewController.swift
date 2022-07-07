@@ -9,19 +9,14 @@ import UIKit
 
 class PotionsTableViewController: UITableViewController {
 
-//    var potions = [Potion]()
-
     override func viewWillAppear(_ animated: Bool) {
         PotionSingleton.shared.delegate = self
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
-//        potions = [
-//            Potion(name: "Fast walk", image: "figure.walk", amount: 3),
-//            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0)]
     }
 }
 

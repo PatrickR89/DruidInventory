@@ -28,11 +28,15 @@ extension PotionDetailViewController {
 
     func configImageLayout() {
         view.addSubview(image)
+        let tapImage = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+
         image.image = UIImage(systemName: potion.image)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.borderWidth = 1.5
         image.layer.cornerRadius = 3
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(tapImage)
 
         NSLayoutConstraint.activate([
             image.heightAnchor.constraint(equalToConstant: 200),
