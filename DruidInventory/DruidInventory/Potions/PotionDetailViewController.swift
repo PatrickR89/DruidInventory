@@ -9,7 +9,12 @@ import UIKit
 
 class PotionDetailViewController: UIViewController {
 
-    var potion: Potion
+    var potion: Potion {
+        didSet {
+            amountTextField.text = String(potion.amount)
+        }
+    }
+    
     var indexPath: IndexPath
     lazy var nameTextField = UITextField()
     lazy var image = UIImageView()
@@ -35,6 +40,18 @@ class PotionDetailViewController: UIViewController {
         configAmountLayout()
         configButtonsLayout(button: buttonPlus)
         configButtonsLayout(button: buttonMinus)
+    }
+}
+
+extension PotionDetailViewController {
+    @objc func addOnTap() {
+        potion.amount += 1
+        PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+    }
+
+    @objc func removeOnTap() {
+        potion.amount -= 1
+        PotionSingleton.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
     }
 }
 

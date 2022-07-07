@@ -77,9 +77,11 @@ extension PotionDetailViewController {
         case buttonPlus:
             button.leadingAnchor.constraint(equalTo: amountTextField.trailingAnchor, constant: 20).isActive = true
             button.setImage(UIImage(systemName: "plus"), for: .normal)
+            button.addTarget(self, action: #selector(addOnTap), for: .touchUpInside)
         case buttonMinus:
             button.trailingAnchor.constraint(equalTo: amountTextField.leadingAnchor, constant: -20).isActive = true
             button.setImage(UIImage(systemName: "minus"), for: .normal)
+            button.addTarget(self, action: #selector(removeOnTap), for: .touchUpInside)
         default:
             button.titleLabel?.text = "default"
         }
