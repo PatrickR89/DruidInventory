@@ -114,7 +114,8 @@ extension RecipeDetailViewController {
     func addNewItem(type: RecipeComponentType, recipe: Recipe) {
         switch type {
         case .inputNew:
-            print("input items")
+            let recipeComponentSelector = RecipeComponentSelectorController()
+            present(recipeComponentSelector, animated: true)
         case .outputNew:
             print("output items")
         default:
