@@ -52,6 +52,7 @@ extension PotionCell {
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = "Potion"
+        nameLabel.textColor = .black
 
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -64,6 +65,7 @@ extension PotionCell {
 
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.text = "Qty: 0"
+        amountLabel.textColor = .black
 
         NSLayoutConstraint.activate([
             amountLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

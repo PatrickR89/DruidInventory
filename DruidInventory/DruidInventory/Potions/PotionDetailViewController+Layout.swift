@@ -18,6 +18,7 @@ extension PotionDetailViewController {
         nameTextField.layer.cornerRadius = 3
         nameTextField.textAlignment = .center
         nameTextField.delegate = self
+        nameTextField.textColor = .black
 
         NSLayoutConstraint.activate([
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -57,6 +58,8 @@ extension PotionDetailViewController {
         amountTextField.layer.cornerRadius = 3
         amountTextField.textAlignment = .center
         amountTextField.delegate = self
+        amountTextField.keyboardType = .numberPad
+        amountTextField.textColor = .black
 
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
