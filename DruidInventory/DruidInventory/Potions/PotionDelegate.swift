@@ -8,7 +8,5 @@
 import UIKit
 
 protocol PotionDelegate: AnyObject {
-    func changeName(name: String, indexPath: IndexPath)
-    func changeAmount(amount: Int, indexPath: IndexPath)
-    func changeImage(image: String, indexPath: IndexPath)
+    func reloadTableViewRow(indexPath: IndexPath)
 }

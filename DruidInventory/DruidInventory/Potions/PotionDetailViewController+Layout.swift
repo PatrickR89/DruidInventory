@@ -17,6 +17,7 @@ extension PotionDetailViewController {
         nameTextField.layer.borderWidth = 1.5
         nameTextField.layer.cornerRadius = 3
         nameTextField.textAlignment = .center
+        nameTextField.delegate = self
 
         NSLayoutConstraint.activate([
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),

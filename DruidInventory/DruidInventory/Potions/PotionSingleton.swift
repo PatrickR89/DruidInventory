@@ -26,4 +26,9 @@ class PotionSingleton {
 
     }
 
+    func changePotionName(name: String, indexPath: IndexPath) {
+        PotionSingleton.shared.potions[indexPath.row].name = name
+        delegate?.reloadTableViewRow(indexPath: indexPath)
+    }
+
 }

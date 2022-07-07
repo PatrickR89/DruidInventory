@@ -38,6 +38,10 @@ class PotionDetailViewController: UIViewController {
     }
 }
 
-extension PotionDetailViewController {
-
+extension PotionDetailViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let nameText = nameTextField.text else {return}
+        potion.name = nameText
+        PotionSingleton.shared.changePotionName(name: nameText, indexPath: indexPath)
+    }
 }

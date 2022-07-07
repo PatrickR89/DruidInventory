@@ -11,6 +11,10 @@ class PotionsTableViewController: UITableViewController {
 
 //    var potions = [Potion]()
 
+    override func viewWillAppear(_ animated: Bool) {
+        PotionSingleton.shared.delegate = self
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,5 +69,11 @@ extension PotionsTableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         PotionCell.register(in: tableView)
+    }
+}
+
+extension PotionsTableViewController: PotionDelegate {
+    func reloadTableViewRow(indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
