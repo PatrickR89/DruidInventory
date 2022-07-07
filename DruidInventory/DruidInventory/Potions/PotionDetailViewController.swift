@@ -40,8 +40,34 @@ class PotionDetailViewController: UIViewController {
 
 extension PotionDetailViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let nameText = nameTextField.text else {return}
-        potion.name = nameText
-        PotionSingleton.shared.changePotionName(name: nameText, indexPath: indexPath)
+
+        if textField == self.nameTextField {
+            guard let nameText = nameTextField.text else {return}
+            potion.name = nameText
+            PotionSingleton.shared.changePotionName(name: nameText, indexPath: indexPath)
+        }
+
+        if textField == self.amountTextField {
+            guard let amountText = amountTextField.text else {return}
+            guard let amount = Int(amountText) else {return}
+            potion.amount = amount
+            PotionSingleton.shared.changePotionAmount(amount: amount, indexPath: indexPath)
+        }
+    }
+
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String) -> Bool {
+        if textField == self.amountTextField {
+            guard let currentAmount = amountTextField.text else {return false}
+            guard let stringRange = Range(range, in: currentAmount) else {return false}
+            let updatedString = currentAmount.replacingCharacters(in: stringRange, with: string)
+
+            return (
+                updatedString.count <= 2 &&
+                string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
+        }
+        return true
     }
 }

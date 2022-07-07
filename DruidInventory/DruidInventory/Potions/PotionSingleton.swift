@@ -31,4 +31,8 @@ class PotionSingleton {
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
+    func changePotionAmount(amount: Int, indexPath: IndexPath) {
+        PotionSingleton.shared.potions[indexPath.row].amount = amount
+        delegate?.reloadTableViewRow(indexPath: indexPath)
+    }
 }
