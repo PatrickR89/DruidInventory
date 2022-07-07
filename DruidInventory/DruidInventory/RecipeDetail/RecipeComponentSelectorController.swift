@@ -10,7 +10,7 @@ import UIKit
 class RecipeComponentSelectorController: UIViewController {
 
     var potionIndex = 0
-    var potion = PotionSingleton.shared.potions[0] {
+    var potion: Potion {
         didSet {
             newPotion.image = potion.image
             newPotion.name = potion.name
@@ -27,10 +27,19 @@ class RecipeComponentSelectorController: UIViewController {
             image.image = UIImage(systemName: newPotion.image)
             nameLabel.text = newPotion.name
             amountTextField.text = String(newPotion.amount)
+
+            switch componentType {
+
+            case .inputChange, .outputChange:
+                editComponentOnChange()
+            case .inputNew, .outputNew:
+                return
+            }
         }
     }
 
-    var ingredientIndexPath: IndexPath
+    var componentIndexPath: IndexPath
+    var componentRecipeIndex = 0
 
     weak var delegate: RecipeComponentSelectorDelegate?
 
@@ -44,9 +53,10 @@ class RecipeComponentSelectorController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
-    required init(ingredientIndexPath: IndexPath, type: RecipeComponentType) {
-        self.ingredientIndexPath = ingredientIndexPath
+    required init(componentIndexPath: IndexPath, type: RecipeComponentType, potion: Potion) {
+        self.componentIndexPath = componentIndexPath
         self.componentType = type
+        self.potion = potion
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -64,10 +74,32 @@ class RecipeComponentSelectorController: UIViewController {
         configPrevNextButtonLayout(button: buttonPrevious)
         configAmountButtonsLayout(button: buttonPlus)
         configAmountButtonsLayout(button: buttonMinus)
-        configAddButtonLayout()
+
+        switch componentType {
+        case .inputNew, .outputNew:
+            configAddButtonLayout()
+            potion = PotionSingleton.shared.potions[0]
+        case .inputChange, .outputChange:
+            newPotion.amount = potion.amount
+        }
 
         newPotion.name = potion.name
         newPotion.image = potion.image
+    }
+
+    func setupRecipe(recipe: Recipe, potion: Potion) {
+        switch componentType {
+        case .inputNew, .outputNew:
+            print("case setup")
+        case .inputChange:
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+                componentRecipeIndex = index
+            }
+        case .outputChange:
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+                componentRecipeIndex = index
+            }
+        }
     }
 }
 

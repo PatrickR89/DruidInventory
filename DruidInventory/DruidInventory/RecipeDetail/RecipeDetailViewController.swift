@@ -86,13 +86,35 @@ extension RecipeDetailViewController {
         switch content {
         case .plusButton(let type):
             print("add \(type) at \(indexPath)")
-            addNewItem(type: type, recipe: recipe, ingredientIndexPath: indexPath)
+            let tempComponent = Potion(name: "", image: "", amount: 0)
+            recipeComponentManipulation(
+                type: type,
+                recipe: recipe,
+                component: tempComponent,
+                componentIndexPath: indexPath)
         case .downArrow:
             print("down arrow \(indexPath)")
         case .makeButton:
             print("make button \(indexPath)")
-        case .component(let name):
+        case .component(let name, let image, let count):
             print("component \(name) at \(indexPath)")
+
+            if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
+                }
+
+                let tempComponent = Potion(name: name, image: image, amount: count)
+                recipeComponentManipulation(
+                    type: type,
+                    recipe: recipe,
+                    component: tempComponent,
+                    componentIndexPath: indexPath)
+            }
+
         }
     }
 
@@ -114,17 +136,49 @@ extension RecipeDetailViewController {
         }
     }
 
-    func addNewItem(type: RecipeComponentType, recipe: Recipe, ingredientIndexPath: IndexPath) {
+    func recipeComponentManipulation(
+        type: RecipeComponentType,
+        recipe: Recipe,
+        component: Potion,
+        componentIndexPath: IndexPath) {
 
         let recipeComponentSelector = RecipeComponentSelectorController(
-            ingredientIndexPath: ingredientIndexPath,
-            type: type)
+            componentIndexPath: componentIndexPath,
+            type: type, potion: component)
         recipeComponentSelector.delegate = self
+
+        switch type {
+        case .inputNew, .outputNew:
+            print("componentManipulation")
+        case .inputChange, .outputChange:
+            recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)
+        }
         present(recipeComponentSelector, animated: true)
     }
 }
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
+    func editExistingComponent(
+        component: Potion,
+        componentType: RecipeComponentType,
+        componentIndexPath: IndexPath,
+        componentRecipeIndex: Int) {
+        switch componentType {
+        case .inputNew, .outputNew:
+            return
+        case .inputChange:
+            recipe.ingredientsInRecipe[componentRecipeIndex] = component
+        case .outputChange:
+            recipe.potionsInRecipe[componentRecipeIndex] = component
+        }
+        tableContents[componentIndexPath.row] = RecipeDetailViewController.TableRowContent.component(
+            name: component.name,
+            image: component.image,
+            count: component.amount)
+        tableView.reloadRows(at: [componentIndexPath], with: .none)
+
+    }
+
     func appendNewIngredient(component: Potion, componentType: RecipeComponentType, componentIndexPath: IndexPath) {
 
         switch componentType {

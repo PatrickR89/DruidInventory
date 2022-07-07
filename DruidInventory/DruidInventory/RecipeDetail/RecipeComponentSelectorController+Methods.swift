@@ -38,7 +38,16 @@ extension RecipeComponentSelectorController {
         delegate?.appendNewIngredient(
             component: newPotion,
             componentType: componentType,
-            componentIndexPath: ingredientIndexPath)
+            componentIndexPath: componentIndexPath)
         self.dismiss(animated: true)
+    }
+
+    func editComponentOnChange() {
+        delegate?.editExistingComponent(
+            component: newPotion,
+            componentType: componentType,
+            componentIndexPath: componentIndexPath,
+            componentRecipeIndex: componentRecipeIndex
+            )
     }
 }
