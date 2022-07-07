@@ -48,6 +48,21 @@ extension RecipeComponentSelectorController {
             componentType: componentType,
             componentIndexPath: componentIndexPath,
             componentRecipeIndex: componentRecipeIndex
-            )
+        )
+    }
+
+    func setupRecipe(recipe: Recipe, potion: Potion) {
+        switch componentType {
+        case .inputNew, .outputNew:
+            print("case setup")
+        case .inputChange:
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+                componentRecipeIndex = index
+            }
+        case .outputChange:
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+                componentRecipeIndex = index
+            }
+        }
     }
 }

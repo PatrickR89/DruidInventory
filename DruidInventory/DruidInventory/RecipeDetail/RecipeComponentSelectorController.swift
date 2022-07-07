@@ -86,21 +86,6 @@ class RecipeComponentSelectorController: UIViewController {
         newPotion.name = potion.name
         newPotion.image = potion.image
     }
-
-    func setupRecipe(recipe: Recipe, potion: Potion) {
-        switch componentType {
-        case .inputNew, .outputNew:
-            print("case setup")
-        case .inputChange:
-            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == potion.name}) {
-                componentRecipeIndex = index
-            }
-        case .outputChange:
-            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == potion.name}) {
-                componentRecipeIndex = index
-            }
-        }
-    }
 }
 
 extension RecipeComponentSelectorController: UITextFieldDelegate {
@@ -117,15 +102,15 @@ extension RecipeComponentSelectorController: UITextFieldDelegate {
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
         replacementString string: String) -> Bool {
-        if textField == self.amountTextField {
-            guard let currentAmount = amountTextField.text else {return false}
-            guard let stringRange = Range(range, in: currentAmount) else {return false}
-            let updatedString = currentAmount.replacingCharacters(in: stringRange, with: string)
+            if textField == self.amountTextField {
+                guard let currentAmount = amountTextField.text else {return false}
+                guard let stringRange = Range(range, in: currentAmount) else {return false}
+                let updatedString = currentAmount.replacingCharacters(in: stringRange, with: string)
 
-            return (
-                updatedString.count <= 2 &&
-                string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
+                return (
+                    updatedString.count <= 2 &&
+                    string.rangeOfCharacter(from: NSCharacterSet.decimalDigits.inverted) == nil)
+            }
+            return true
         }
-        return true
-    }
 }

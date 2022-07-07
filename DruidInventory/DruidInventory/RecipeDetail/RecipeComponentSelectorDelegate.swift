@@ -17,5 +17,4 @@ protocol RecipeComponentSelectorDelegate: AnyObject {
         componentType: RecipeComponentType,
         componentIndexPath: IndexPath,
         componentRecipeIndex: Int)
-
 }
