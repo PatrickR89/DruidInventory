@@ -46,17 +46,17 @@ extension PotionsTableViewController {
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             PotionSingleton.shared.potions[indexPath.row].amount -= 1
-        tableView.reloadRows(at: [indexPath], with: .none)
-        return nil
-    }
+            tableView.reloadRows(at: [indexPath], with: .none)
+            return nil
+        }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             PotionSingleton.shared.potions[indexPath.row].amount += 1
-        tableView.reloadRows(at: [indexPath], with: .none)
-        return nil
-    }
+            tableView.reloadRows(at: [indexPath], with: .none)
+            return nil
+        }
 }
 
 extension PotionsTableViewController {
