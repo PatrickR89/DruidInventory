@@ -76,6 +76,23 @@ extension RecipeDetailViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let content = tableContents[indexPath.row]
+
+        switch content {
+        case .plusButton(let type):
+            print("add \(type) at \(indexPath)")
+            addNewItem(type: type, recipe: recipe)
+        case .downArrow:
+            print("down arrow \(indexPath)")
+        case .makeButton:
+            print("make button \(indexPath)")
+        case .component(let name):
+            print("component \(name) at \(indexPath)")
+        }
+    }
+
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
@@ -93,4 +110,16 @@ extension RecipeDetailViewController {
             }
         }
     }
+
+    func addNewItem(type: RecipeComponentType, recipe: Recipe) {
+        switch type {
+        case .inputNew:
+            print("input items")
+        case .outputNew:
+            print("output items")
+        default:
+            print("no other type")
+        }
+    }
+
 }
