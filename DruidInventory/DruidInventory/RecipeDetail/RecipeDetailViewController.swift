@@ -131,17 +131,16 @@ extension RecipeDetailViewController {
 }
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
-    func appendNewIngredient(name: String, image: String, amount: Int, ingredientIndexPath: IndexPath) {
-        let newIngredient = Potion(name: name, image: image, amount: amount)
-        recipe.ingredientsInRecipe.append(newIngredient)
+    func appendNewIngredient(component: Potion, componentType: RecipeComponentType, componentIndexPath: IndexPath) {
+        recipe.ingredientsInRecipe.append(component)
         tableContents.insert( RecipeDetailViewController.TableRowContent.component(
-            name: newIngredient.name,
-            image: newIngredient.image,
-            count: newIngredient.amount), at: ingredientIndexPath.row)
-        tableView.insertRows(at: [ingredientIndexPath], with: .none)
+            name: component.name,
+            image: component.image,
+            count: component.amount), at: componentIndexPath.row)
+        tableView.insertRows(at: [componentIndexPath], with: .none)
 
         if recipe.ingredientsInRecipe.count >= 4 {
-            let tempIndexPath = IndexPath(row: ingredientIndexPath.row + 1, section: ingredientIndexPath.section)
+            let tempIndexPath = IndexPath(row: componentIndexPath.row + 1, section: componentIndexPath.section)
             tableContents.remove(at: tempIndexPath.row)
             tableView.deleteRows(at: [tempIndexPath], with: .none)
         }

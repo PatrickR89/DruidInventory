@@ -17,8 +17,8 @@ class RecipeComponentSelectorController: UIViewController {
         }
     }
 
-    var type: RecipeComponentType
-    
+    var componentType: RecipeComponentType
+
     var newPotion = Potion(name: "", image: "", amount: 1) {
         didSet {
             if newPotion.amount <= 1 {
@@ -46,7 +46,7 @@ class RecipeComponentSelectorController: UIViewController {
 
     required init(ingredientIndexPath: IndexPath, type: RecipeComponentType) {
         self.ingredientIndexPath = ingredientIndexPath
-        self.type = type
+        self.componentType = type
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -145,10 +145,9 @@ extension RecipeComponentSelectorController {
 
     @objc func addNewOnTap() {
         delegate?.appendNewIngredient(
-            name: potion.name,
-            image: potion.image,
-            amount: newPotion.amount,
-            ingredientIndexPath: ingredientIndexPath)
+            component: newPotion,
+            componentType: componentType,
+            componentIndexPath: ingredientIndexPath)
         self.dismiss(animated: true)
     }
 }

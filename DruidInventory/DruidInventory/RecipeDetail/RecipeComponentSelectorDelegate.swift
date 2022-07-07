@@ -8,5 +8,5 @@
 import UIKit
 
 protocol RecipeComponentSelectorDelegate: AnyObject {
-    func appendNewIngredient(name: String, image: String, amount: Int, ingredientIndexPath: IndexPath)
+    func appendNewIngredient(component: Potion, componentType: RecipeComponentType, componentIndexPath: IndexPath)
 }
