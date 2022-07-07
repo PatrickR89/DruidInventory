@@ -8,6 +8,6 @@
 import UIKit
 
 struct Recipe {
-    var ingredientsInRecipe: [Ingredient]
+    var ingredientsInRecipe: [Potion]
     var potionsInRecipe: [Potion]
 }

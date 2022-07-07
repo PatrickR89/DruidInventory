@@ -10,7 +10,7 @@ import UIKit
 class RecipesTableViewController: UITableViewController {
 
 //    var RecipesSingleton.shared.recipes = [Recipe]()
-    var ingredients = [Ingredient]()
+    var ingredients = [Potion]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

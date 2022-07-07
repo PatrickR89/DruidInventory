@@ -131,7 +131,7 @@ extension RecipeDetailViewController {
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
     func appendNewIngredient(name: String, image: String, amount: Int, ingredientIndexPath: IndexPath) {
-        let newIngredient = Ingredient(name: name, image: image, amount: amount)
+        let newIngredient = Potion(name: name, image: image, amount: amount)
         recipe.ingredientsInRecipe.append(newIngredient)
         tableContents.insert( RecipeDetailViewController.TableRowContent.component(
             name: newIngredient.name,
