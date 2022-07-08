@@ -27,6 +27,13 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
             configButtonBackground()
         }
     }
+
+    var enoughIngredients = true {
+        didSet {
+            configButtonBackground()
+        }
+    }
+
     var width = 100
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -59,17 +66,19 @@ extension RecipeDetailMakeButtonCell {
         ])
     }
 
-    func setupCell(isNewRecipe: Bool, isRecipeValid: Bool) {
+    func setupCell(isNewRecipe: Bool, isRecipeValid: Bool, enoughIngredients: Bool) {
         self.isNewRecipe = isNewRecipe
         self.isRecipeValid = isRecipeValid
+        self.enoughIngredients = enoughIngredients
     }
 
     func configButtonBackground() {
         if !isRecipeValid && isNewRecipe {
             makeButton.backgroundColor = .systemGray
+        } else if !isNewRecipe && !enoughIngredients {
+            makeButton.backgroundColor = .systemGray
         } else {
             makeButton.backgroundColor = .systemBlue
-
         }
     }
 }

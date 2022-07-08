@@ -31,7 +31,10 @@ extension RecipeDetailViewController {
 
         case .makeButton:
             let cell = RecipeDetailMakeButtonCell.dequeue(in: tableView, for: indexPath)
-            cell.setupCell(isNewRecipe: isNewRecipe, isRecipeValid: isRecipeValid)
+            cell.setupCell(
+                isNewRecipe: isNewRecipe,
+                isRecipeValid: isRecipeValid,
+                enoughIngredients: checkIngredients(indexPath: recipeIndexPath))
             return cell
 
         case .component(let name, let image, let count):
@@ -65,11 +68,11 @@ extension RecipeDetailViewController {
         case .makeButton:
             if isNewRecipe && isRecipeValid {
                 RecipesSingleton.shared.addRecipe(recipe: recipe)
-            } else if !isNewRecipe && isRecipeValid {
+                self.dismiss(animated: true)
+            } else if !isNewRecipe && isRecipeValid && checkIngredients(indexPath: recipeIndexPath) {
                 createPotion()
+                self.dismiss(animated: true)
             }
-
-            self.dismiss(animated: true)
 
         case .component(let name, let image, let count):
 
