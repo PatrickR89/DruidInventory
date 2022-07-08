@@ -51,7 +51,24 @@ class RecipesTableViewController: UITableViewController {
 }
 
 extension RecipesTableViewController: RecipeDelegate {
+    func appendToTableView() {
+        let section = tableView.numberOfSections - 1
+        let row = tableView.numberOfRows(inSection: section)
+        let indexPath = IndexPath(row: row, section: section)
+        tableView.insertRows(at: [indexPath], with: .none)
+    }
+
     func reloadTableViewRow(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
+extension RecipesTableViewController: HomeTabBarNavActionProvider {
+    func addNew() {
+        let recipe = Recipe(ingredientsInRecipe: [], potionsInRecipe: [])
+        let indexPath = IndexPath(row: 0, section: 0)
+        let recipeDetailViewController = RecipeDetailViewController(recipe: recipe, recipeIndexPath: indexPath)
+        recipeDetailViewController.isNewRecipe = true
+        present(recipeDetailViewController, animated: true)
     }
 }

@@ -8,5 +8,6 @@
 import UIKit
 
 protocol RecipeDelegate: AnyObject {
+    func appendToTableView()
     func reloadTableViewRow(indexPath: IndexPath)
 }

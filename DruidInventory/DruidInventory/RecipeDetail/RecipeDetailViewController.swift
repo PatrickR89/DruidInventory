@@ -11,9 +11,13 @@ class RecipeDetailViewController: UITableViewController {
 
     var recipe: Recipe {
         didSet {
-            RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
+            if !isNewRecipe {
+                RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
+            }
         }
     }
+
+    var isNewRecipe = false
     var recipeIndexPath: IndexPath
 
     enum TableRowContent {
