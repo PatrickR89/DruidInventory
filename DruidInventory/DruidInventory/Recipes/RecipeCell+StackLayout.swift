@@ -11,6 +11,7 @@ extension RecipeCell {
 
     func configStackView(stackView: UIStackView, array: [RecipeDetails]) {
 
+        stackView.removeFromSuperview()
         contentView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -18,6 +19,10 @@ extension RecipeCell {
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.spacing = CGFloat(20)
+
+        for subview in stackView.subviews {
+            subview.removeFromSuperview()
+        }
 
         switch stackView {
 
