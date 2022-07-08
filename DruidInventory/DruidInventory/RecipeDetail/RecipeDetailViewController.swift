@@ -14,10 +14,18 @@ class RecipeDetailViewController: UITableViewController {
             if !isNewRecipe {
                 RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
             }
+
+            validateRecipe()
         }
     }
 
     var isNewRecipe = false
+    var isRecipeValid = false {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     var recipeIndexPath: IndexPath
 
     enum TableRowContent {
@@ -47,6 +55,13 @@ class RecipeDetailViewController: UITableViewController {
         configTableViewLayout()
         appendItemsToContent()
     }
+
+    func validateRecipe() {
+
+        print(recipe.ingredientsInRecipe.count >= 2 && recipe.potionsInRecipe.count >= 1)
+        isRecipeValid = recipe.ingredientsInRecipe.count >= 2 && recipe.potionsInRecipe.count >= 1
+    }
+
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
