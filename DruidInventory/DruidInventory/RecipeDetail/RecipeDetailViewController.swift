@@ -9,7 +9,11 @@ import UIKit
 
 class RecipeDetailViewController: UITableViewController {
 
-    var recipe: Recipe
+    var recipe: Recipe {
+        didSet {
+            RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
+        }
+    }
     var recipeIndexPath: IndexPath
 
     enum TableRowContent {

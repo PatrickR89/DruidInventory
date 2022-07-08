@@ -12,6 +12,10 @@ class RecipesTableViewController: UITableViewController {
 //    var RecipesSingleton.shared.recipes = [Recipe]()
     var ingredients = [Potion]()
 
+    override func viewWillAppear(_ animated: Bool) {
+        RecipesSingleton.shared.delegate = self
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,5 +47,11 @@ class RecipesTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         RecipeCell.register(in: tableView)
+    }
+}
+
+extension RecipesTableViewController: RecipeDelegate {
+    func reloadTableViewRow(indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }
