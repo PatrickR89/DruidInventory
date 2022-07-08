@@ -54,6 +54,21 @@ class RecipeDetailViewController: UITableViewController {
         appendPlusButtons()
         configTableViewLayout()
         appendItemsToContent()
+        validateRecipe()
+    }
+
+    func createPotion() {
+        for potion in recipe.potionsInRecipe {
+            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == potion.name}) {
+                PotionSingleton.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
+            }
+        }
+
+        for ingredient in recipe.ingredientsInRecipe {
+            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                PotionSingleton.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
+            }
+        }
     }
 }
 

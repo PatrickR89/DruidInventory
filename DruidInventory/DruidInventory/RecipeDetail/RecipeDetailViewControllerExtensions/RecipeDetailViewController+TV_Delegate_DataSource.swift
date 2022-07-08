@@ -65,8 +65,12 @@ extension RecipeDetailViewController {
         case .makeButton:
             if isNewRecipe && isRecipeValid {
                 RecipesSingleton.shared.addRecipe(recipe: recipe)
-                self.dismiss(animated: true)
+            } else if !isNewRecipe && isRecipeValid {
+                createPotion()
             }
+
+            self.dismiss(animated: true)
+
         case .component(let name, let image, let count):
 
             if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
