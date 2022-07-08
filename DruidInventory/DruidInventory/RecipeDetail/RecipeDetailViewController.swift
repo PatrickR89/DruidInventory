@@ -55,13 +55,6 @@ class RecipeDetailViewController: UITableViewController {
         configTableViewLayout()
         appendItemsToContent()
     }
-
-    func validateRecipe() {
-
-        print(recipe.ingredientsInRecipe.count >= 2 && recipe.potionsInRecipe.count >= 1)
-        isRecipeValid = recipe.ingredientsInRecipe.count >= 2 && recipe.potionsInRecipe.count >= 1
-    }
-
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {

@@ -51,22 +51,23 @@ extension RecipeDetailViewController {
 
         switch content {
         case .plusButton(let type):
-            print("add \(type) at \(indexPath)")
             let tempComponent = Potion(name: "", image: "", amount: 0)
+
             recipeComponentManipulation(
                 type: type,
                 recipe: recipe,
                 component: tempComponent,
                 componentIndexPath: indexPath)
+
         case .downArrow:
             print("down arrow \(indexPath)")
+
         case .makeButton:
             if isNewRecipe && isRecipeValid {
                 RecipesSingleton.shared.addRecipe(recipe: recipe)
                 self.dismiss(animated: true)
             }
         case .component(let name, let image, let count):
-            print("component \(name) at \(indexPath)")
 
             if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
                 let type: RecipeComponentType
@@ -77,6 +78,7 @@ extension RecipeDetailViewController {
                 }
 
                 let tempComponent = Potion(name: name, image: image, amount: count)
+
                 recipeComponentManipulation(
                     type: type,
                     recipe: recipe,

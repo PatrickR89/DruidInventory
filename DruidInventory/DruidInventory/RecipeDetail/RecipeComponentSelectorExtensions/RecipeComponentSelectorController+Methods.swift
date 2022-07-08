@@ -54,7 +54,7 @@ extension RecipeComponentSelectorController {
     func setupRecipe(recipe: Recipe, potion: Potion) {
         switch componentType {
         case .inputNew, .outputNew:
-            print("case setup")
+            componentRecipeIndex = 0
         case .inputChange:
             if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == potion.name}) {
                 componentRecipeIndex = index

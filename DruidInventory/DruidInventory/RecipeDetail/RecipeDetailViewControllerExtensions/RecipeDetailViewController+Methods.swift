@@ -65,12 +65,11 @@ extension RecipeDetailViewController {
                 type: type, potion: component)
             recipeComponentSelector.delegate = self
 
-            switch type {
-            case .inputNew, .outputNew:
-                print("componentManipulation")
-            case .inputChange, .outputChange:
-                recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)
-            }
+            recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)
             present(recipeComponentSelector, animated: true)
         }
+
+    func validateRecipe() {
+        isRecipeValid = recipe.ingredientsInRecipe.count >= 2 && recipe.potionsInRecipe.count >= 1
+    }
 }

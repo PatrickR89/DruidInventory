@@ -8,6 +8,7 @@
 import UIKit
 
 extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
+
     func editExistingComponent(
         component: Potion,
         componentType: RecipeComponentType,
