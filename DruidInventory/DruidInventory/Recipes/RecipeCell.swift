@@ -48,4 +48,20 @@ class RecipeCell: UITableViewCell {
         potions  = recipe.potionsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image) }
         configStackView(stackView: potionsStack, array: potions)
     }
+
+    func validateRecipe(ingredients: [Potion]) {
+        var validationArray = [Bool]()
+        for ingredient in ingredients {
+            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
+            } else {
+                validationArray.append(false)
+            }
+        }
+        if validationArray.contains(false) {
+            contentView.backgroundColor = .lightGray
+        } else {
+            contentView.backgroundColor = .white
+        }
+    }
 }

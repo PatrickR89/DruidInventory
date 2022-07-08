@@ -9,7 +9,6 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-//    var RecipesSingleton.shared.recipes = [Recipe]()
     var ingredients = [Potion]()
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +29,7 @@ class RecipesTableViewController: UITableViewController {
 
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(recipe: RecipesSingleton.shared.recipes[indexPath.row])
+        cell.validateRecipe(ingredients: RecipesSingleton.shared.recipes[indexPath.row].ingredientsInRecipe)
 
         return cell
     }
