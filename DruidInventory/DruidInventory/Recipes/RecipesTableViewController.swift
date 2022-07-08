@@ -19,6 +19,7 @@ class RecipesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         configTableViewLayout()
+        view.backgroundColor = .white
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

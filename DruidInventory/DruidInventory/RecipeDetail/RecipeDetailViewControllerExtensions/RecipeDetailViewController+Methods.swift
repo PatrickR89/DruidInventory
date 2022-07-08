@@ -12,6 +12,7 @@ extension RecipeDetailViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = .white
 
         RecipeDetailComponentCell.register(in: tableView)
         RecipeDetailPlusCell.register(in: tableView)
@@ -83,8 +84,6 @@ extension RecipeDetailViewController {
                 validationArray.append(false)
             }
         }
-
-        print(validationArray)
 
         if validationArray.contains(false) {
             return false

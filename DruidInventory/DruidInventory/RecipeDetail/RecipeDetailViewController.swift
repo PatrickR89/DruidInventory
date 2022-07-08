@@ -55,6 +55,7 @@ class RecipeDetailViewController: UITableViewController {
         configTableViewLayout()
         appendItemsToContent()
         validateRecipe()
+        view.backgroundColor = .white
     }
 
     func createPotion() {

@@ -16,6 +16,7 @@ class RecipeDetailResultsInCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configResultsInView()
+        contentView.backgroundColor = .white
     }
 
     required init?(coder: NSCoder) {

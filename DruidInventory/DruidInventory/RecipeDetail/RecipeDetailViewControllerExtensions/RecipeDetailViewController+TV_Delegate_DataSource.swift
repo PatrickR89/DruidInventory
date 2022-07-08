@@ -63,8 +63,7 @@ extension RecipeDetailViewController {
                 componentIndexPath: indexPath)
 
         case .downArrow:
-            print("down arrow \(indexPath)")
-
+            return
         case .makeButton:
             if isNewRecipe && isRecipeValid {
                 RecipesSingleton.shared.addRecipe(recipe: recipe)

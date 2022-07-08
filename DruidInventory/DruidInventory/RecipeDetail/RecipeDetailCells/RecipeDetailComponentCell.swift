@@ -16,6 +16,7 @@ class RecipeDetailComponentCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configItemViewLayout()
+        contentView.backgroundColor = .white
     }
 
     required init?(coder: NSCoder) {
@@ -33,6 +34,7 @@ extension RecipeDetailComponentCell {
     func configItemViewLayout() {
         contentView.addSubview(amount)
         amount.translatesAutoresizingMaskIntoConstraints = false
+        amount.textColor = .black
         contentView.addSubview(imageDisplay)
         imageDisplay.translatesAutoresizingMaskIntoConstraints = false
 
