@@ -94,6 +94,7 @@ extension RecipeComponentSelectorController {
         amountTextField.textAlignment = .center
         amountTextField.textColor = .black
         amountTextField.delegate = self
+        amountTextField.keyboardType = .numberPad
 
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
