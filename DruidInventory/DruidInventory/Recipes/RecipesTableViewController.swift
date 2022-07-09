@@ -51,7 +51,7 @@ class RecipesTableViewController: UITableViewController {
     }
 }
 
-extension RecipesTableViewController: RecipeDelegate {
+extension RecipesTableViewController: RecipesDelegate {
     func appendToTableView() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section)

@@ -10,7 +10,7 @@ import UIKit
 class RecipesSingleton {
     static let shared = RecipesSingleton()
 
-    weak var delegate: RecipeDelegate?
+    weak var delegate: RecipesDelegate?
 
     var recipes = [Recipe]()
 

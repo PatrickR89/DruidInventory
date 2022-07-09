@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RecipeDelegate: AnyObject {
+protocol RecipesDelegate: AnyObject {
     func appendToTableView()
     func reloadTableViewRow(indexPath: IndexPath)
 }
