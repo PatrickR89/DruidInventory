@@ -9,6 +9,8 @@ import UIKit
 
 extension RecipeDetailViewController {
 
+    // MARK: tableView DataSource
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContents.count
     }
@@ -48,6 +50,8 @@ extension RecipeDetailViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+
+    // MARK: tableView Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let content = tableContents[indexPath.row]
@@ -102,7 +106,6 @@ extension RecipeDetailViewController {
 
         switch content {
         case .component(let name, let image, let count):
-            print("\(name) \(count)")
 
             if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
                 let type: RecipeComponentType
