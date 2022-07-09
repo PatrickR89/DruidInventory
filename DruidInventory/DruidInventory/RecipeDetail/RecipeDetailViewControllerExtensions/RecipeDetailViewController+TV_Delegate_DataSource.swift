@@ -93,4 +93,89 @@ extension RecipeDetailViewController {
             }
         }
     }
+
+    override func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+
+        let content = tableContents[indexPath.row]
+
+        switch content {
+        case .component(let name, let image, let count):
+            print("\(name) \(count)")
+
+            if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
+                }
+
+                let tempComponent = Potion(name: name, image: image, amount: count)
+
+                removeComponent(
+                    type: type,
+                    component: tempComponent,
+                    recipeIndexPath: recipeIndexPath,
+                    componentIndexPath: indexPath)
+            }
+        default:
+            return nil
+        }
+
+        return nil
+    }
+
+    func removeComponent(
+        type: RecipeComponentType,
+        component: Potion,
+        recipeIndexPath: IndexPath,
+        componentIndexPath: IndexPath) {
+
+        if type == RecipeComponentType.inputChange {
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == component.name}) {
+                recipe.ingredientsInRecipe.remove(at: index)
+            }
+            if let index = tableContents.firstIndex(
+                where: {$0.self == TableRowContent.component(
+                    name: component.name,
+                    image: component.image,
+                    count: component.amount)}) {
+
+                tableContents.remove(at: index)
+                tableView.deleteRows(at: [componentIndexPath], with: .none)
+            }
+
+            if recipe.ingredientsInRecipe.count == 3 {
+                if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+                    tableContents.insert(.plusButton(type: .inputNew), at: index)
+                    let indexPath = IndexPath(row: index, section: tableView.numberOfSections - 1)
+                    tableView.insertRows(at: [indexPath], with: .none)
+                }
+            }
+        } else if type == RecipeComponentType.outputChange {
+
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == component.name}) {
+                recipe.potionsInRecipe.remove(at: index)
+            }
+            if let index = tableContents.firstIndex(
+                where: {$0.self == TableRowContent.component(
+                    name: component.name,
+                    image: component.image,
+                    count: component.amount)}) {
+
+                tableContents.remove(at: index)
+                tableView.deleteRows(at: [componentIndexPath], with: .none)
+            }
+
+            if recipe.potionsInRecipe.count == 1 {
+                if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.makeButton) {
+                    tableContents.insert(.plusButton(type: .inputNew), at: index)
+                    let indexPath = IndexPath(row: index, section: tableView.numberOfSections - 1)
+                    tableView.insertRows(at: [indexPath], with: .none)
+                }
+            }
+        }
+    }
 }
