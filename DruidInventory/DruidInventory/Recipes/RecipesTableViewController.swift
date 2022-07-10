@@ -31,7 +31,6 @@ class RecipesTableViewController: UITableViewController {
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(recipe: RecipesSingleton.shared.recipes[indexPath.row])
         cell.validateRecipe(ingredients: RecipesSingleton.shared.recipes[indexPath.row].ingredientsInRecipe)
-
         return cell
     }
 
@@ -44,7 +43,9 @@ class RecipesTableViewController: UITableViewController {
 
     }
 
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    override func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         RecipesSingleton.shared.deleteRecipe(indexPath: indexPath)
 
         return nil

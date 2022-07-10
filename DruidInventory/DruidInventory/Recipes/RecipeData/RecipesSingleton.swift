@@ -32,4 +32,8 @@ class RecipesSingleton {
         RecipesSingleton.shared.recipes.remove(at: indexPath.row)
         delegate?.deleteTableRow(indexPath: indexPath)
     }
+
+    func reloadRecipe(indexPath: IndexPath) {
+        delegate?.reloadTableViewRow(indexPath: indexPath)
+    }
 }

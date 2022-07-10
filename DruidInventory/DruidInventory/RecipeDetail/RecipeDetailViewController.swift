@@ -70,6 +70,8 @@ class RecipeDetailViewController: UITableViewController {
                 PotionSingleton.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
             }
         }
+
+        RecipesSingleton.shared.reloadRecipe(indexPath: recipeIndexPath)
     }
 }
 

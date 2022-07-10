@@ -58,7 +58,7 @@ class RecipeCell: UITableViewCell {
                 validationArray.append(false)
             }
         }
-        if validationArray.contains(false) || validationArray.count < 1 {
+        if validationArray.contains(false) || validationArray.isEmpty {
             contentView.backgroundColor = .lightGray
         } else {
             contentView.backgroundColor = .white
