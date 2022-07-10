@@ -51,7 +51,7 @@ class RecipeCell: UITableViewCell {
 
     func validateRecipe(ingredients: [Potion]) {
 
-        if RecipesSingleton.shared.validateRecipe(ingredients: ingredients) {
+        if RecipesSingleton.shared.checkIngredients(ingredients: ingredients) {
             contentView.backgroundColor = .white
         } else {
             contentView.backgroundColor = .lightGray

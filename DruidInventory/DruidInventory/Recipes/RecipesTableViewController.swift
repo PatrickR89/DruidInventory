@@ -56,7 +56,7 @@ class RecipesTableViewController: UITableViewController {
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let recipe = RecipesSingleton.shared.recipes[indexPath.row]
             let ingredients = recipe.ingredientsInRecipe
-            if RecipesSingleton.shared.validateRecipe(ingredients: ingredients) {
+            if RecipesSingleton.shared.checkIngredients(ingredients: ingredients) {
                 RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
 
             }

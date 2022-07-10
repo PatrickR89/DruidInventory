@@ -57,6 +57,7 @@ class RecipeDetailViewController: UITableViewController {
         validateRecipe()
         view.backgroundColor = .white
     }
+
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
