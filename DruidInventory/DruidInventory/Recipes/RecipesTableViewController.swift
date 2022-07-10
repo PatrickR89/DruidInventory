@@ -44,6 +44,12 @@ class RecipesTableViewController: UITableViewController {
 
     }
 
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        RecipesSingleton.shared.deleteRecipe(indexPath: indexPath)
+
+        return nil
+    }
+
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,6 +58,10 @@ class RecipesTableViewController: UITableViewController {
 }
 
 extension RecipesTableViewController: RecipesDelegate {
+    func deleteTableRow(indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .none)
+    }
+
     func appendToTableView() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section)

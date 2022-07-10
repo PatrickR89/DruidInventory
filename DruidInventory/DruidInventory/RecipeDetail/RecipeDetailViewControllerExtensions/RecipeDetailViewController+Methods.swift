@@ -38,12 +38,13 @@ extension RecipeDetailViewController {
 
     func checkIngredients(indexPath: IndexPath) -> Bool {
         var validationArray = [Bool]()
-
-        for ingredient in RecipesSingleton.shared.recipes[indexPath.row].ingredientsInRecipe {
-            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
-            } else {
-                validationArray.append(false)
+        if !RecipesSingleton.shared.recipes.isEmpty {
+            for ingredient in RecipesSingleton.shared.recipes[indexPath.row].ingredientsInRecipe {
+                if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                    validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
+                } else {
+                    validationArray.append(false)
+                }
             }
         }
 
@@ -54,7 +55,7 @@ extension RecipeDetailViewController {
         }
     }
 
-    //MARK: tableContents & recipe components manipulation
+    // MARK: tableContents & recipe components manipulation
 
     func appendItemsToContent() {
 

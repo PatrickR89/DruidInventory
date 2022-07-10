@@ -10,4 +10,5 @@ import UIKit
 protocol RecipesDelegate: AnyObject {
     func appendToTableView()
     func reloadTableViewRow(indexPath: IndexPath)
+    func deleteTableRow(indexPath: IndexPath)
 }
