@@ -46,20 +46,23 @@ class RecipesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        RecipesSingleton.shared.deleteRecipe(indexPath: indexPath)
+            RecipesSingleton.shared.deleteRecipe(indexPath: indexPath)
 
-        return nil
-    }
+            return nil
+        }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let recipe = RecipesSingleton.shared.recipes[indexPath.row]
+            let recipe = RecipesSingleton.shared.recipes[indexPath.row]
+            let ingredients = recipe.ingredientsInRecipe
+            if RecipesSingleton.shared.validateRecipe(ingredients: ingredients) {
+                RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
 
-        RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
+            }
 
-        return nil
-    }
+            return nil
+        }
 
     func configTableViewLayout() {
         tableView.delegate = self

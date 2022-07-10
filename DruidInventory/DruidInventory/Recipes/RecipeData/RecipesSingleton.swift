@@ -51,4 +51,20 @@ class RecipesSingleton {
         }
         delegate?.reloadTableViewRow(indexPath: recipeIndexPath)
     }
+
+    func validateRecipe(ingredients: [Potion]) -> Bool {
+        var validationArray = [Bool]()
+        for ingredient in ingredients {
+            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
+            } else {
+                validationArray.append(false)
+            }
+        }
+        if validationArray.contains(false) || validationArray.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
 }

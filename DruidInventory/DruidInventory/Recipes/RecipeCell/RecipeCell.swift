@@ -50,18 +50,11 @@ class RecipeCell: UITableViewCell {
     }
 
     func validateRecipe(ingredients: [Potion]) {
-        var validationArray = [Bool]()
-        for ingredient in ingredients {
-            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
-            } else {
-                validationArray.append(false)
-            }
-        }
-        if validationArray.contains(false) || validationArray.isEmpty {
-            contentView.backgroundColor = .lightGray
-        } else {
+
+        if RecipesSingleton.shared.validateRecipe(ingredients: ingredients) {
             contentView.backgroundColor = .white
+        } else {
+            contentView.backgroundColor = .lightGray
         }
     }
 }
