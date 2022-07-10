@@ -51,6 +51,16 @@ class RecipesTableViewController: UITableViewController {
         return nil
     }
 
+    override func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let recipe = RecipesSingleton.shared.recipes[indexPath.row]
+
+        RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
+
+        return nil
+    }
+
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
