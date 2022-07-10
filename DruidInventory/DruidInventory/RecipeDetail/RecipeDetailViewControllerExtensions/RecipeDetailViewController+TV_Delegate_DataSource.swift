@@ -73,7 +73,7 @@ extension RecipeDetailViewController {
                 RecipesSingleton.shared.addRecipe(recipe: recipe)
                 self.dismiss(animated: true)
             } else if !isNewRecipe && isRecipeValid && checkIngredients(indexPath: recipeIndexPath) {
-                createPotion()
+                RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: recipeIndexPath)
                 self.dismiss(animated: true)
             }
 
