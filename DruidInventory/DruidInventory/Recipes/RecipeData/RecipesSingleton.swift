@@ -20,7 +20,7 @@ class RecipesSingleton {
 
     private init() {
         self.recipes = testArray()
-        self.filteredComponents = PotionSingleton.shared.potions
+        self.filteredComponents = PotionContainer.shared.potions
     }
 
     func addRecipe(recipe: Recipe) {
@@ -44,14 +44,14 @@ class RecipesSingleton {
 
     func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
         for potion in recipe.potionsInRecipe {
-            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == potion.name}) {
-                PotionSingleton.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == potion.name}) {
+                PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
             }
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                PotionSingleton.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
             }
         }
         delegate?.reloadTableViewRow(indexPath: recipeIndexPath)
@@ -60,8 +60,8 @@ class RecipesSingleton {
     func checkIngredients(ingredients: [Potion]) -> Bool {
         var validationArray = [Bool]()
         for ingredient in ingredients {
-            if let index = PotionSingleton.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                validationArray.append( PotionSingleton.shared.potions[index].amount >= ingredient.amount )
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+                validationArray.append( PotionContainer.shared.potions[index].amount >= ingredient.amount )
             } else {
                 validationArray.append(false)
             }
@@ -84,6 +84,6 @@ class RecipesSingleton {
             usedComponents.append(potion.name)
         }
 
-        filteredComponents = PotionSingleton.shared.potions.filter {!usedComponents.contains($0.name)}
+        filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.name)}
     }
 }
