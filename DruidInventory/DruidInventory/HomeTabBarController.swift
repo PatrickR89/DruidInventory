@@ -43,7 +43,8 @@ extension HomeTabBarController: UITabBarControllerDelegate {
 
 extension HomeTabBarController {
     @objc func addItem() {
-
+        let actionProvider = selectedViewController as? HomeTabBarNavActionProvider
+        actionProvider?.addNew()
     }
 
     func fetchSymbols() {
