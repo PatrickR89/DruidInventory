@@ -8,6 +8,7 @@
 import UIKit
 
 extension PotionDetailViewController {
+
     func configTextFieldLayout() {
         view.addSubview(nameTextField)
         nameTextField.text = potion.name
@@ -20,11 +21,15 @@ extension PotionDetailViewController {
         nameTextField.delegate = self
         nameTextField.textColor = .black
 
+        let centerYConstraint = nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+
         NSLayoutConstraint.activate([
             nameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            centerYConstraint,
             nameTextField.widthAnchor.constraint(equalToConstant: 200)
         ])
+
+        self.nameTextFieldYConstraint = centerYConstraint
     }
 
     func configImageLayout() {

@@ -20,6 +20,8 @@ class PotionDetailViewController: UIViewController {
     var indexPath: IndexPath
     var newPotion = false
 
+    var nameTextFieldYConstraint: NSLayoutConstraint?
+
     lazy var nameTextField = UITextField()
     lazy var imageView = UIImageView()
     lazy var amountTextField = UITextField()
@@ -41,7 +43,7 @@ class PotionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        configTextFieldLayout()
+        self.configTextFieldLayout()
         configImageLayout()
         configAmountLayout()
         configButtonsLayout(button: buttonPlus)
