@@ -35,20 +35,28 @@ extension PotionDetailViewController {
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
+
         guard let keyboardSize = (
             notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
 
         nameTextFieldYConstraint?.constant = -(keyboardSize.height / 3)
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }
 
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+
+            UIView.animate(withDuration: duration) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 
     @objc func keyboardWillHide(notification: NSNotification) {
         nameTextFieldYConstraint?.constant = 0
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+
+            UIView.animate(withDuration: duration) {
+                self.view.layoutIfNeeded()
+            }
         }
     }
 }
