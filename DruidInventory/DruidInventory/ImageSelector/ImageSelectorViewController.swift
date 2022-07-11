@@ -40,7 +40,7 @@ class ImageSelectorViewController: UIViewController {
     }
 
     func filterUsedImages() {
-        for potion in PotionSingleton.shared.potions {
+        for potion in PotionContainer.shared.potions {
             usedImages.append(potion.image)
         }
 

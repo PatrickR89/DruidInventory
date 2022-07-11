@@ -10,7 +10,7 @@ import UIKit
 class PotionsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
-        PotionSingleton.shared.delegate = self
+        PotionContainer.shared.delegate = self
     }
 
     override func viewDidLoad() {

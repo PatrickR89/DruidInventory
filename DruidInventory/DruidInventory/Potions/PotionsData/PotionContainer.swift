@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PotionSingleton {
-    static let shared = PotionSingleton()
+class PotionContainer {
+    static let shared = PotionContainer()
 
     var potions: [Potion]
 
@@ -27,32 +27,32 @@ class PotionSingleton {
     }
 
     func changePotionName(name: String, indexPath: IndexPath) {
-        PotionSingleton.shared.potions[indexPath.row].name = name
+        PotionContainer.shared.potions[indexPath.row].name = name
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
     func changePotionAmount(amount: Int, indexPath: IndexPath) {
-        PotionSingleton.shared.potions[indexPath.row].amount = amount
+        PotionContainer.shared.potions[indexPath.row].amount = amount
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
     func changePotionImage(image: String, indexPath: IndexPath) {
-        PotionSingleton.shared.potions[indexPath.row].image = image
+        PotionContainer.shared.potions[indexPath.row].image = image
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
     func addNewPotion(potion: Potion) {
-        PotionSingleton.shared.potions.append(potion)
+        PotionContainer.shared.potions.append(potion)
         delegate?.appendToTableView()
     }
 
     func addToPotionAmount(indexPath: IndexPath) {
-        PotionSingleton.shared.potions[indexPath.row].amount += 1
+        PotionContainer.shared.potions[indexPath.row].amount += 1
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
     func reduceFromPotionAmount(indexPath: IndexPath) {
-        PotionSingleton.shared.potions[indexPath.row].amount -= 1
+        PotionContainer.shared.potions[indexPath.row].amount -= 1
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 }
