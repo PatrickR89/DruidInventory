@@ -104,31 +104,31 @@ extension RecipeDetailViewController {
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        let content = tableContents[indexPath.row]
+            let content = tableContents[indexPath.row]
 
-        switch content {
-        case .component(let name, let image, let count):
+            switch content {
+            case .component(let name, let image, let count):
 
-            if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
-                let type: RecipeComponentType
-                if indexPath.row < index {
-                    type = RecipeComponentType.inputChange
-                } else {
-                    type = RecipeComponentType.outputChange
+                if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
+                    let type: RecipeComponentType
+                    if indexPath.row < index {
+                        type = RecipeComponentType.inputChange
+                    } else {
+                        type = RecipeComponentType.outputChange
+                    }
+
+                    let tempComponent = Potion(name: name, image: image, amount: count)
+
+                    removeComponent(
+                        type: type,
+                        component: tempComponent,
+                        recipeIndexPath: recipeIndexPath,
+                        componentIndexPath: indexPath)
                 }
-
-                let tempComponent = Potion(name: name, image: image, amount: count)
-
-                removeComponent(
-                    type: type,
-                    component: tempComponent,
-                    recipeIndexPath: recipeIndexPath,
-                    componentIndexPath: indexPath)
+            default:
+                return nil
             }
-        default:
+
             return nil
         }
-
-        return nil
-    }
 }

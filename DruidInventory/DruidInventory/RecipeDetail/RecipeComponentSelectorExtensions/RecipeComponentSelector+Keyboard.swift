@@ -35,16 +35,17 @@ extension RecipeComponentSelectorController {
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
+        guard let keyboardSize = (
+            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {return}
 
-    nameLabelYConstraint?.constant = -(keyboardSize.height / 3)
+        nameLabelYConstraint?.constant = -(keyboardSize.height / 3)
 
-    if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
 
-        UIView.animate(withDuration: duration) {
-            self.view.layoutIfNeeded()
-        }
-    }    }
+            UIView.animate(withDuration: duration) {
+                self.view.layoutIfNeeded()
+            }
+        }    }
 
     @objc func keyboardWillHide(notification: NSNotification) {
         nameLabelYConstraint?.constant = 0
