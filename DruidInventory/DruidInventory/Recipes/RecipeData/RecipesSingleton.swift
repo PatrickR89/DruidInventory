@@ -14,8 +14,13 @@ class RecipesSingleton {
 
     var recipes = [Recipe]()
 
+    var usedComponents = [String]()
+
+    var filteredComponents = [Potion]()
+
     private init() {
         self.recipes = testArray()
+        self.filteredComponents = PotionSingleton.shared.potions
     }
 
     func addRecipe(recipe: Recipe) {
@@ -66,5 +71,19 @@ class RecipesSingleton {
         } else {
             return true
         }
+    }
+
+    func filterComponents(recipe: Recipe) {
+        usedComponents = []
+
+        for ingredient in recipe.ingredientsInRecipe {
+            usedComponents.append(ingredient.name)
+        }
+
+        for potion in recipe.potionsInRecipe {
+            usedComponents.append(potion.name)
+        }
+
+        filteredComponents = PotionSingleton.shared.potions.filter {!usedComponents.contains($0.name)}
     }
 }

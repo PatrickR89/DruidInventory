@@ -78,7 +78,7 @@ class RecipeComponentSelectorController: UIViewController {
         switch componentType {
         case .inputNew, .outputNew:
             configAddButtonLayout()
-            potion = PotionSingleton.shared.potions[0]
+            potion = RecipesSingleton.shared.filteredComponents[0]
         case .inputChange, .outputChange:
             newPotion.amount = potion.amount
         }

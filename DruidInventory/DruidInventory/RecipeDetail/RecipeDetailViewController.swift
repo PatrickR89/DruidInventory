@@ -14,7 +14,7 @@ class RecipeDetailViewController: UITableViewController {
             if !isNewRecipe {
                 RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
             }
-
+            RecipesSingleton.shared.filterComponents(recipe: recipe)
             validateRecipe()
         }
     }

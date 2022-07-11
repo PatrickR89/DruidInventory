@@ -89,6 +89,7 @@ extension RecipeDetailViewController {
                 }
 
                 let tempComponent = Potion(name: name, image: image, amount: count)
+                RecipesSingleton.shared.filterComponents(recipe: recipe)
 
                 recipeComponentManipulation(
                     type: type,
