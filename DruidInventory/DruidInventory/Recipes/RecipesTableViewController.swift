@@ -12,7 +12,7 @@ class RecipesTableViewController: UITableViewController {
     var ingredients = [Potion]()
 
     override func viewWillAppear(_ animated: Bool) {
-        RecipesSingleton.shared.delegate = self
+        RecipesContainer.shared.delegate = self
     }
 
     override func viewDidLoad() {
@@ -23,20 +23,20 @@ class RecipesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        RecipesSingleton.shared.recipes.count
+        RecipesContainer.shared.recipes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
-        cell.setupCell(recipe: RecipesSingleton.shared.recipes[indexPath.row])
-        cell.validateRecipe(ingredients: RecipesSingleton.shared.recipes[indexPath.row].ingredientsInRecipe)
+        cell.setupCell(recipe: RecipesContainer.shared.recipes[indexPath.row])
+        cell.validateRecipe(ingredients: RecipesContainer.shared.recipes[indexPath.row].ingredientsInRecipe)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeDetailView = RecipeDetailViewController(
-            recipe: RecipesSingleton.shared.recipes[indexPath.row],
+            recipe: RecipesContainer.shared.recipes[indexPath.row],
             recipeIndexPath: indexPath)
 
         self.present(recipeDetailView, animated: true)
@@ -46,7 +46,7 @@ class RecipesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            RecipesSingleton.shared.deleteRecipe(indexPath: indexPath)
+            RecipesContainer.shared.deleteRecipe(indexPath: indexPath)
 
             return nil
         }
@@ -54,10 +54,10 @@ class RecipesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let recipe = RecipesSingleton.shared.recipes[indexPath.row]
+            let recipe = RecipesContainer.shared.recipes[indexPath.row]
             let ingredients = recipe.ingredientsInRecipe
-            if RecipesSingleton.shared.checkIngredients(ingredients: ingredients) {
-                RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
+            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                RecipesContainer.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
 
             }
 

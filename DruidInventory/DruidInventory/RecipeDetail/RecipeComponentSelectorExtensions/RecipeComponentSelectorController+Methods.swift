@@ -11,19 +11,19 @@ extension RecipeComponentSelectorController {
 
     @objc func nextOnTap() {
         potionIndex += 1
-        if potionIndex > RecipesSingleton.shared.filteredComponents.count - 1 {
+        if potionIndex > RecipesContainer.shared.filteredComponents.count - 1 {
             potionIndex = 0
         }
-        potion = RecipesSingleton.shared.filteredComponents[potionIndex]
+        potion = RecipesContainer.shared.filteredComponents[potionIndex]
     }
 
     @objc func previousOnTap() {
         potionIndex -= 1
         if potionIndex < 0 {
-            potionIndex = RecipesSingleton.shared.filteredComponents.count - 1
+            potionIndex = RecipesContainer.shared.filteredComponents.count - 1
         }
 
-        potion = RecipesSingleton.shared.filteredComponents[potionIndex]
+        potion = RecipesContainer.shared.filteredComponents[potionIndex]
     }
 
     @objc func addOnTap() {

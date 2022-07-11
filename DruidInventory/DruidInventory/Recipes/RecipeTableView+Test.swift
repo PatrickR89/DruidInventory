@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension RecipesSingleton {
+extension RecipesContainer {
     func testArray() -> [Recipe] {
         var recipes = [Recipe]()
 

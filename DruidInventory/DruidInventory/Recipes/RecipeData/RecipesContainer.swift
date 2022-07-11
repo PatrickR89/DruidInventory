@@ -7,8 +7,8 @@
 
 import UIKit
 
-class RecipesSingleton {
-    static let shared = RecipesSingleton()
+class RecipesContainer {
+    static let shared = RecipesContainer()
 
     weak var delegate: RecipesDelegate?
 
@@ -24,17 +24,17 @@ class RecipesSingleton {
     }
 
     func addRecipe(recipe: Recipe) {
-        RecipesSingleton.shared.recipes.append(recipe)
+        RecipesContainer.shared.recipes.append(recipe)
         delegate?.appendToTableView()
     }
 
     func changeRecipe(recipe: Recipe, indexPath: IndexPath) {
-        RecipesSingleton.shared.recipes[indexPath.row] = recipe
+        RecipesContainer.shared.recipes[indexPath.row] = recipe
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
     func deleteRecipe(indexPath: IndexPath) {
-        RecipesSingleton.shared.recipes.remove(at: indexPath.row)
+        RecipesContainer.shared.recipes.remove(at: indexPath.row)
         delegate?.deleteTableRow(indexPath: indexPath)
     }
 

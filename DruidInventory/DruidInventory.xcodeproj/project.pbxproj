@@ -21,7 +21,7 @@
 		CD963DD82876CD6600CBB25B /* PotionDetailViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */; };
 		CD963DDA2876CDB000CBB25B /* PotionDetailViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */; };
 		CD963DDD2876E87900CBB25B /* RecipeComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */; };
-		CD963DDF2876ED8900CBB25B /* RecipesSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DDE2876ED8900CBB25B /* RecipesSingleton.swift */; };
+		CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */; };
 		CD963DE12876EFA100CBB25B /* RecipeComponentSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE02876EFA100CBB25B /* RecipeComponentSelectorController.swift */; };
 		CD963DE32876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */; };
 		CD963DE528770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */; };
@@ -69,7 +69,7 @@
 		CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Delegates.swift"; sourceTree = "<group>"; };
 		CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Methods.swift"; sourceTree = "<group>"; };
 		CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentType.swift; sourceTree = "<group>"; };
-		CD963DDE2876ED8900CBB25B /* RecipesSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesSingleton.swift; sourceTree = "<group>"; };
+		CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesContainer.swift; sourceTree = "<group>"; };
 		CD963DE02876EFA100CBB25B /* RecipeComponentSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentSelectorController.swift; sourceTree = "<group>"; };
 		CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentSelectorDelegate.swift; sourceTree = "<group>"; };
 		CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelectorController+Layout.swift"; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9200C0286F38ED009E6499 /* RecipeContentView.swift */,
-				CD963DDE2876ED8900CBB25B /* RecipesSingleton.swift */,
+				CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */,
 				CD963DEF287838F100CBB25B /* RecipesDelegate.swift */,
 				CDF89E5D286B1C2B00F083A9 /* Recipe.swift */,
 				CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */,
@@ -430,7 +430,7 @@
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
 				CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */,
-				CD963DDF2876ED8900CBB25B /* RecipesSingleton.swift in Sources */,
+				CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

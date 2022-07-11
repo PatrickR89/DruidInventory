@@ -36,7 +36,7 @@ extension RecipeDetailViewController {
             cell.setupCell(
                 isNewRecipe: isNewRecipe,
                 isRecipeValid: isRecipeValid,
-                enoughIngredients: RecipesSingleton.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
+                enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
 
         case .component(let name, let image, let count):
@@ -70,11 +70,11 @@ extension RecipeDetailViewController {
             return
         case .makeButton:
             if isNewRecipe && isRecipeValid {
-                RecipesSingleton.shared.addRecipe(recipe: recipe)
+                RecipesContainer.shared.addRecipe(recipe: recipe)
                 self.dismiss(animated: true)
-            } else if !isNewRecipe && isRecipeValid && RecipesSingleton.shared.checkIngredients(
+            } else if !isNewRecipe && isRecipeValid && RecipesContainer.shared.checkIngredients(
                 ingredients: recipe.ingredientsInRecipe) {
-                RecipesSingleton.shared.createPotion(recipe: recipe, recipeIndexPath: recipeIndexPath)
+                RecipesContainer.shared.createPotion(recipe: recipe, recipeIndexPath: recipeIndexPath)
                 self.dismiss(animated: true)
             }
 
@@ -89,7 +89,7 @@ extension RecipeDetailViewController {
                 }
 
                 let tempComponent = Potion(name: name, image: image, amount: count)
-                RecipesSingleton.shared.filterComponents(recipe: recipe)
+                RecipesContainer.shared.filterComponents(recipe: recipe)
 
                 recipeComponentManipulation(
                     type: type,

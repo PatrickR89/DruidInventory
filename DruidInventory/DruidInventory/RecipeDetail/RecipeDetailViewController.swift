@@ -12,9 +12,9 @@ class RecipeDetailViewController: UITableViewController {
     var recipe: Recipe {
         didSet {
             if !isNewRecipe {
-                RecipesSingleton.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
+                RecipesContainer.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
             }
-            RecipesSingleton.shared.filterComponents(recipe: recipe)
+            RecipesContainer.shared.filterComponents(recipe: recipe)
             validateRecipe()
         }
     }
