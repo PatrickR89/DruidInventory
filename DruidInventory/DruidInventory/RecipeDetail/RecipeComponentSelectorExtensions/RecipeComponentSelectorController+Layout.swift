@@ -62,11 +62,15 @@ extension RecipeComponentSelectorController {
         nameLabel.textAlignment = .center
         nameLabel.textColor = .black
 
+        let centerYConstraint = nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            centerYConstraint,
             nameLabel.widthAnchor.constraint(equalToConstant: 200)
         ])
+
+        self.nameLabelYConstraint = centerYConstraint
     }
 
     func configImageLayout() {
