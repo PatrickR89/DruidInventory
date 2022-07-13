@@ -12,7 +12,7 @@ class PotionContainer {
 
     var potions: [Potion]
 
-    weak var delegate: PotionDelegate?
+    weak var delegate: PotionContainerDelegate?
 
     private init() {
         self.potions = [
@@ -55,4 +55,15 @@ class PotionContainer {
         PotionContainer.shared.potions[indexPath.row].amount -= 1
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
+
+    func addToPotionsByRecipe(amount: Int, index: Int) {
+        PotionContainer.shared.potions[index].amount += amount
+        delegate?.reloadTableViewRowByRow(row: index)
+    }
+
+    func removeFromPotionsByRecipe(amount: Int, index: Int) {
+        PotionContainer.shared.potions[index].amount -= amount
+        delegate?.reloadTableViewRowByRow(row: index)
+    }
+
 }

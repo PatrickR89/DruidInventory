@@ -10,11 +10,13 @@ import UIKit
 class RecipeDetailPlusCell: UITableViewCell {
 
     var imageDisplay = UIImageView()
+    var componentType: RecipeComponentType = .inputNew
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configPlusViewLayout()
+        contentView.backgroundColor = .white
     }
 
     required init?(coder: NSCoder) {
@@ -24,8 +26,9 @@ class RecipeDetailPlusCell: UITableViewCell {
 
 extension RecipeDetailPlusCell {
 
-    func setupCell() {
-        imageDisplay.image = UIImage(systemName: "plus")
+    func setupCell(typeOfComponent: RecipeComponentType) {
+        imageDisplay.image = ButtonIcons.plusButton
+        componentType = typeOfComponent
     }
 
     func configPlusViewLayout() {

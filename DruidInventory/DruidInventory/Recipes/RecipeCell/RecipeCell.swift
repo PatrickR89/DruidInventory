@@ -48,4 +48,13 @@ class RecipeCell: UITableViewCell {
         potions  = recipe.potionsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image) }
         configStackView(stackView: potionsStack, array: potions)
     }
+
+    func validateRecipe(ingredients: [Potion]) {
+
+        if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+            contentView.backgroundColor = .white
+        } else {
+            contentView.backgroundColor = .lightGray
+        }
+    }
 }

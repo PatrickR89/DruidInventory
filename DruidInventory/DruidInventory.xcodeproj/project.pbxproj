@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		CD9200BF286F332F009E6499 /* TableViewCell+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */; };
 		CD9200C1286F38ED009E6499 /* RecipeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9200C0286F38ED009E6499 /* RecipeContentView.swift */; };
-		CD963DC128769E6500CBB25B /* PotionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC028769E6500CBB25B /* PotionDelegate.swift */; };
+		CD963DC128769E6500CBB25B /* PotionContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC028769E6500CBB25B /* PotionContainerDelegate.swift */; };
 		CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */; };
-		CD963DC528769FD700CBB25B /* PotionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC428769FD700CBB25B /* PotionContainer.swift */; };
 		CD963DC72876A75800CBB25B /* ImageSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */; };
 		CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */; };
 		CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */; };
@@ -21,6 +20,18 @@
 		CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD52876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift */; };
 		CD963DD82876CD6600CBB25B /* PotionDetailViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */; };
 		CD963DDA2876CDB000CBB25B /* PotionDetailViewController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */; };
+		CD963DDD2876E87900CBB25B /* RecipeComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */; };
+		CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */; };
+		CD963DE12876EFA100CBB25B /* RecipeComponentSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE02876EFA100CBB25B /* RecipeComponentSelectorViewController.swift */; };
+		CD963DE32876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */; };
+		CD963DE528770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */; };
+		CD963DE728770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */; };
+		CD963DE92877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */; };
+		CD963DEB2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */; };
+		CD963DF0287838F100CBB25B /* RecipesContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */; };
+		CD963DF8287C955E00CBB25B /* PotionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF7287C955E00CBB25B /* PotionContainer.swift */; };
+		CD963DFA287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */; };
+		CD963E6B287EB7B300CBB25B /* ButtonIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -35,7 +46,6 @@
 		CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E5D286B1C2B00F083A9 /* Recipe.swift */; };
 		CDF89E69286B1C2C00F083A9 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E5E286B1C2B00F083A9 /* RecipeDetailViewController.swift */; };
 		CDF89E6A286B1C2C00F083A9 /* RecipeDetailComponentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */; };
-		CDF89E6C286B1C2C00F083A9 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E61286B1C2B00F083A9 /* Ingredient.swift */; };
 		CDF89E6E286B1C2C00F083A9 /* RecipeCell+StackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E63286B1C2B00F083A9 /* RecipeCell+StackLayout.swift */; };
 		CDF89E6F286B1C2C00F083A9 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */; };
 		CDF89E70286B1C2C00F083A9 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */; };
@@ -49,9 +59,8 @@
 /* Begin PBXFileReference section */
 		CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Dequeue.swift"; sourceTree = "<group>"; };
 		CD9200C0286F38ED009E6499 /* RecipeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeContentView.swift; sourceTree = "<group>"; };
-		CD963DC028769E6500CBB25B /* PotionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionDelegate.swift; sourceTree = "<group>"; };
+		CD963DC028769E6500CBB25B /* PotionContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionContainerDelegate.swift; sourceTree = "<group>"; };
 		CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Layout.swift"; sourceTree = "<group>"; };
-		CD963DC428769FD700CBB25B /* PotionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionContainer.swift; sourceTree = "<group>"; };
 		CD963DC62876A75800CBB25B /* ImageSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorViewController.swift; sourceTree = "<group>"; };
 		CD963DC82876A78800CBB25B /* ImageSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorCell.swift; sourceTree = "<group>"; };
 		CD963DCA2876B45800CBB25B /* ImageSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +70,18 @@
 		CD963DD52876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		CD963DD72876CD6600CBB25B /* PotionDetailViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Delegates.swift"; sourceTree = "<group>"; };
 		CD963DD92876CDB000CBB25B /* PotionDetailViewController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PotionDetailViewController+Methods.swift"; sourceTree = "<group>"; };
+		CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentType.swift; sourceTree = "<group>"; };
+		CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesContainer.swift; sourceTree = "<group>"; };
+		CD963DE02876EFA100CBB25B /* RecipeComponentSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentSelectorViewController.swift; sourceTree = "<group>"; };
+		CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeComponentSelectorDelegate.swift; sourceTree = "<group>"; };
+		CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelectorController+Layout.swift"; sourceTree = "<group>"; };
+		CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelectorController+Methods.swift"; sourceTree = "<group>"; };
+		CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+ComponentSelectorDelegate.swift"; sourceTree = "<group>"; };
+		CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
+		CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesContainerDelegate.swift; sourceTree = "<group>"; };
+		CD963DF7287C955E00CBB25B /* PotionContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotionContainer.swift; sourceTree = "<group>"; };
+		CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelector+Keyboard.swift"; sourceTree = "<group>"; };
+		CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcons.swift; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +98,6 @@
 		CDF89E5D286B1C2B00F083A9 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		CDF89E5E286B1C2B00F083A9 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailComponentCell.swift; sourceTree = "<group>"; };
-		CDF89E61286B1C2B00F083A9 /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		CDF89E63286B1C2B00F083A9 /* RecipeCell+StackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecipeCell+StackLayout.swift"; sourceTree = "<group>"; };
 		CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetails.swift; sourceTree = "<group>"; };
 		CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
@@ -103,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */,
+				CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -130,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				CDF89E3E2864D43700F083A9 /* Potion.swift */,
-				CD963DC028769E6500CBB25B /* PotionDelegate.swift */,
-				CD963DC428769FD700CBB25B /* PotionContainer.swift */,
+				CD963DF7287C955E00CBB25B /* PotionContainer.swift */,
+				CD963DC028769E6500CBB25B /* PotionContainerDelegate.swift */,
 			);
 			path = PotionsData;
 			sourceTree = "<group>";
@@ -145,6 +166,59 @@
 				CD963DC228769EFE00CBB25B /* PotionDetailViewController+Layout.swift */,
 			);
 			path = PotionDetailViewControllerExtensions;
+			sourceTree = "<group>";
+		};
+		CD963DEC28773A6100CBB25B /* RecipeDetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */,
+				CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */,
+				CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */,
+				CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */,
+			);
+			path = RecipeDetailCells;
+			sourceTree = "<group>";
+		};
+		CD963DED28773AE700CBB25B /* RecipeComponentSelectorExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DE22876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift */,
+				CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */,
+				CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */,
+				CD963DE428770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift */,
+			);
+			path = RecipeComponentSelectorExtensions;
+			sourceTree = "<group>";
+		};
+		CD963DEE28773BD400CBB25B /* RecipeDetailViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */,
+				CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */,
+				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
+			);
+			path = RecipeDetailViewControllerExtensions;
+			sourceTree = "<group>";
+		};
+		CD963DF52879584900CBB25B /* RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */,
+				CDF89E63286B1C2B00F083A9 /* RecipeCell+StackLayout.swift */,
+			);
+			path = RecipeCell;
+			sourceTree = "<group>";
+		};
+		CD963DF62879586E00CBB25B /* RecipeData */ = {
+			isa = PBXGroup;
+			children = (
+				CD9200C0286F38ED009E6499 /* RecipeContentView.swift */,
+				CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */,
+				CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */,
+				CDF89E5D286B1C2B00F083A9 /* Recipe.swift */,
+				CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */,
+			);
+			path = RecipeData;
 			sourceTree = "<group>";
 		};
 		CDF89E1528643AFF00F083A9 = {
@@ -176,7 +250,6 @@
 				CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */,
 				CDF89E362864438700F083A9 /* HomeTabBarController.swift */,
 				CD963DCC2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift */,
-				CDF89E61286B1C2B00F083A9 /* Ingredient.swift */,
 				CDF89E2A28643B0100F083A9 /* Assets.xcassets */,
 				CDF89E2C28643B0100F083A9 /* LaunchScreen.storyboard */,
 				CDF89E2F28643B0100F083A9 /* Info.plist */,
@@ -208,13 +281,10 @@
 		CDF89E72286B1D1D00F083A9 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DF62879586E00CBB25B /* RecipeData */,
+				CD963DF52879584900CBB25B /* RecipeCell */,
 				CDF89E78286B200C00F083A9 /* RecipesTableViewController.swift */,
-				CDF89E65286B1C2B00F083A9 /* RecipeCell.swift */,
-				CDF89E63286B1C2B00F083A9 /* RecipeCell+StackLayout.swift */,
-				CDF89E5D286B1C2B00F083A9 /* Recipe.swift */,
-				CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */,
 				CDF89E5C286B1C2B00F083A9 /* RecipeTableView+Test.swift */,
-				CD9200C0286F38ED009E6499 /* RecipeContentView.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -222,12 +292,12 @@
 		CDF89E73286B1D8800F083A9 /* RecipeDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CD963DEE28773BD400CBB25B /* RecipeDetailViewControllerExtensions */,
+				CD963DED28773AE700CBB25B /* RecipeComponentSelectorExtensions */,
+				CD963DEC28773A6100CBB25B /* RecipeDetailCells */,
 				CDF89E5E286B1C2B00F083A9 /* RecipeDetailViewController.swift */,
-				CDF89E5F286B1C2B00F083A9 /* RecipeDetailComponentCell.swift */,
-				CDF89E7A286B43D100F083A9 /* RecipeDetailViewController+Methods.swift */,
-				CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */,
-				CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */,
-				CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */,
+				CD963DDC2876E87900CBB25B /* RecipeComponentType.swift */,
+				CD963DE02876EFA100CBB25B /* RecipeComponentSelectorViewController.swift */,
 			);
 			path = RecipeDetail;
 			sourceTree = "<group>";
@@ -329,36 +399,46 @@
 				CDF89E79286B200C00F083A9 /* RecipesTableViewController.swift in Sources */,
 				CDF89E432864E82000F083A9 /* PotionDetailViewController.swift in Sources */,
 				CDF89E94286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift in Sources */,
+				CD963DF0287838F100CBB25B /* RecipesContainerDelegate.swift in Sources */,
 				CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */,
 				CDF89E6E286B1C2C00F083A9 /* RecipeCell+StackLayout.swift in Sources */,
 				CDF89E70286B1C2C00F083A9 /* RecipeCell.swift in Sources */,
-				CDF89E6C286B1C2C00F083A9 /* Ingredient.swift in Sources */,
 				CDF89E6F286B1C2C00F083A9 /* RecipeDetails.swift in Sources */,
+				CD963DEB2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift in Sources */,
 				CDF89E92286DA32A00F083A9 /* RecipeDetailResultsInCell.swift in Sources */,
+				CD963DE92877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift in Sources */,
 				CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */,
 				CD963DD22876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift in Sources */,
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
 				CDF89E6A286B1C2C00F083A9 /* RecipeDetailComponentCell.swift in Sources */,
 				CDF89E90286DA2D900F083A9 /* RecipeDetailPlusCell.swift in Sources */,
 				CDF89E7B286B43D100F083A9 /* RecipeDetailViewController+Methods.swift in Sources */,
+				CD963DE728770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift in Sources */,
 				CD963DD82876CD6600CBB25B /* PotionDetailViewController+Delegates.swift in Sources */,
+				CD963DE528770B6800CBB25B /* RecipeComponentSelectorController+Layout.swift in Sources */,
 				CDF89E412864D5B000F083A9 /* PotionCell.swift in Sources */,
 				CD9200BF286F332F009E6499 /* TableViewCell+Dequeue.swift in Sources */,
 				CD963DC72876A75800CBB25B /* ImageSelectorViewController.swift in Sources */,
 				CD963DCD2876B72F00CBB25B /* HomeTabBarNavActionProvide.swift in Sources */,
+				CD963DDD2876E87900CBB25B /* RecipeComponentType.swift in Sources */,
+				CD963DF8287C955E00CBB25B /* PotionContainer.swift in Sources */,
 				CD963DD02876C9C300CBB25B /* PotionsTableViewController+Delegates.swift in Sources */,
-				CD963DC128769E6500CBB25B /* PotionDelegate.swift in Sources */,
+				CD963DC128769E6500CBB25B /* PotionContainerDelegate.swift in Sources */,
 				CDF89E372864438700F083A9 /* HomeTabBarController.swift in Sources */,
 				CD963DC92876A78800CBB25B /* ImageSelectorCell.swift in Sources */,
+				CD963DFA287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift in Sources */,
 				CD963DDA2876CDB000CBB25B /* PotionDetailViewController+Methods.swift in Sources */,
-				CD963DC528769FD700CBB25B /* PotionContainer.swift in Sources */,
+				CD963DE12876EFA100CBB25B /* RecipeComponentSelectorViewController.swift in Sources */,
 				CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */,
 				CDF89E69286B1C2C00F083A9 /* RecipeDetailViewController.swift in Sources */,
 				CDF89E67286B1C2C00F083A9 /* RecipeTableView+Test.swift in Sources */,
 				CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */,
+				CD963DE32876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift in Sources */,
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
+				CD963E6B287EB7B300CBB25B /* ButtonIcons.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
 				CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */,
+				CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,19 +7,20 @@
 
 import UIKit
 
-extension RecipesTableViewController {
+extension RecipesContainer {
+    func testArray() -> [Recipe] {
+        var recipes = [Recipe]()
 
-    func testArray() {
-        let ingredient1 = Ingredient(name: "Cocoa", image: "hourglass.bottomhalf.filled", amount: 5)
-        let ingredient2 = Ingredient(name: "Saw Dust", image: "paperplane.circle", amount: 2)
-        let ingredient3 = Ingredient(name: "Fairy blood", image: "drop.triangle", amount: 1)
+        let ingredient1 = Potion(name: "Cocoa", image: "hourglass.bottomhalf.filled", amount: 5)
+        let ingredient2 = Potion(name: "Saw Dust", image: "paperplane.circle", amount: 2)
+        let ingredient3 = Potion(name: "Fairy blood", image: "drop.triangle", amount: 1)
         let potion1 = Potion(name: "Unseen", image: "eyeglasses", amount: 1)
         recipes.append(Recipe(ingredientsInRecipe: [ingredient1, ingredient2, ingredient3], potionsInRecipe: [potion1]))
 
-        let ingredientAd = Ingredient(name: "Nightshade", image: "staroflife.fill", amount: 2)
-        let ingredientAa = Ingredient(name: "Bamboocha", image: "zzz", amount: 1)
-        let ingredientAb = Ingredient(name: "Iron dust", image: "square.stack.3d.forward.dottedline", amount: 1)
-        let ingredientAc = Ingredient(
+        let ingredientAd = Potion(name: "Nightshade", image: "staroflife.fill", amount: 2)
+        let ingredientAa = Potion(name: "Bamboocha", image: "zzz", amount: 1)
+        let ingredientAb = Potion(name: "Iron dust", image: "square.stack.3d.forward.dottedline", amount: 1)
+        let ingredientAc = Potion(
             name: "Mushroom juice",
             image: "eye.trianglebadge.exclamationmark.fill",
             amount: 6)
@@ -31,5 +32,7 @@ extension RecipesTableViewController {
                 potionsInRecipe: [potionAa, potionAb]))
         recipes.append(Recipe(ingredientsInRecipe: [ingredientAa, ingredientAb], potionsInRecipe: [potionAa, potionAb]))
         recipes.append(Recipe(ingredientsInRecipe: [ ingredientAc, ingredientAd], potionsInRecipe: [potionAb]))
+
+        return recipes
     }
 }

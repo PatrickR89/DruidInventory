@@ -9,11 +9,28 @@ import UIKit
 
 class RecipeDetailViewController: UITableViewController {
 
-    var recipe: Recipe
+    var recipe: Recipe {
+        didSet {
+            if !isNewRecipe {
+                RecipesContainer.shared.changeRecipe(recipe: recipe, indexPath: recipeIndexPath)
+            }
+            RecipesContainer.shared.filterComponents(recipe: recipe)
+            validateRecipe()
+        }
+    }
+
+    var isNewRecipe = false
+    var isRecipeValid = false {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    var recipeIndexPath: IndexPath
 
     enum TableRowContent {
 
-        case plusButton
+        case plusButton(type: RecipeComponentType)
         case downArrow
         case makeButton
         case component(name: String, image: String, count: Int)
@@ -23,6 +40,8 @@ class RecipeDetailViewController: UITableViewController {
 
     required init(recipe: Recipe, recipeIndexPath: IndexPath) {
         self.recipe = recipe
+        self.recipeIndexPath = recipeIndexPath
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -35,62 +54,11 @@ class RecipeDetailViewController: UITableViewController {
         appendPlusButtons()
         configTableViewLayout()
         appendItemsToContent()
-    }
-}
-
-extension RecipeDetailViewController {
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableContents.count
+        validateRecipe()
+        view.backgroundColor = .white
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let content = tableContents[indexPath.row]
-
-        switch content {
-        case .plusButton:
-            let cell = RecipeDetailPlusCell.dequeue(in: tableView, for: indexPath)
-            cell.setupCell()
-            return cell
-
-        case .downArrow:
-            let cell = RecipeDetailResultsInCell.dequeue(in: tableView, for: indexPath)
-
-            cell.setupCell()
-            return cell
-
-        case .makeButton:
-            let cell = RecipeDetailMakeButtonCell.dequeue(in: tableView, for: indexPath)
-
-            return cell
-
-        case .component(let name, let image, let count):
-            let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
-
-            cell.setupCell(name: name, image: image, count: count)
-            return cell
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {
-}
-
-extension RecipeDetailViewController {
-    func appendPlusButtons() {
-        if recipe.ingredientsInRecipe.count < 4 {
-            tableContents.insert(.plusButton, at: 0)
-        }
-
-        if recipe.potionsInRecipe.count < 2 {
-            if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
-                tableContents.insert(.plusButton, at: index + 1)
-            }
-        }
-    }
 }
