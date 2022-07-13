@@ -14,6 +14,8 @@ class PotionContainer {
 
     weak var delegate: PotionContainerDelegate?
 
+    var potionsOrder = [UUID: IndexPath]()
+
     private init() {
         self.potions = [
             Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
@@ -56,13 +58,19 @@ class PotionContainer {
     }
 
     func addToPotionAmount(indexPath: IndexPath) {
-        PotionContainer.shared.potions[indexPath.row].amount += 1
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        let key = potionsOrder.keyForValue(value: indexPath)[0]
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
+            PotionContainer.shared.potions[index].amount += 1
+            delegate?.reloadTableViewById(id: key)
+        }
     }
 
     func reduceFromPotionAmount(indexPath: IndexPath) {
-        PotionContainer.shared.potions[indexPath.row].amount -= 1
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        let key = potionsOrder.keyForValue(value: indexPath)[0]
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
+            PotionContainer.shared.potions[index].amount -= 1
+            delegate?.reloadTableViewById(id: key)
+        }
     }
 
     func addToPotionsByRecipe(amount: Int, id: UUID) {
@@ -81,4 +89,12 @@ class PotionContainer {
         }
     }
 
+}
+
+extension Dictionary where Value: Equatable {
+    func keyForValue(value: Value) -> [Key] {
+        return compactMap { (key: Key, val: Value) -> Key? in
+            value == val ? key : nil
+        }
+    }
 }
