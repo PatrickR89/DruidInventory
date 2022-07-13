@@ -12,15 +12,21 @@ class RecipesContainer {
 
     weak var delegate: RecipesContainerDelegate?
 
-    var recipes = [Recipe]()
+    var recipes = [Recipe]() {
+        didSet {
+            encodeAndSave()
+        }
+    }
 
     var usedComponents = [UUID]()
 
     var filteredComponents = [Potion]()
 
+    let recipesFile = FileManager().getFilePath("recipesJSON.txt")
+
     private init() {
-        self.recipes = testArray()
         self.filteredComponents = PotionContainer.shared.potions
+        loadAndDecode()
     }
 
     func addRecipe(recipe: Recipe) {
@@ -82,4 +88,25 @@ class RecipesContainer {
 
         filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.id)}
     }
+
+    func encodeAndSave() {
+        do {
+            let recipesJSON = try JSONEncoder().encode(recipes)
+            try recipesJSON.write(to: recipesFile, options: .atomic)
+        } catch {
+            print("Error occured during saving file")
+        }
+    }
+
+    func loadAndDecode() {
+        do {
+        let response = try String(contentsOf: recipesFile)
+        let data = Data(response.utf8)
+            self.recipes = try JSONDecoder().decode([Recipe].self, from: data)
+        } catch {
+            print("Error occured during loading file")
+            self.recipes = testArray()
+        }
+    }
+
 }

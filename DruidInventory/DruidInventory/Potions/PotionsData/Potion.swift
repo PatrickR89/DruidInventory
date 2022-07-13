@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Potion {
+struct Potion: Codable {
     var name: String
     var image: String
     var amount: Int {

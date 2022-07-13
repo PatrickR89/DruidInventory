@@ -10,22 +10,20 @@ import UIKit
 class PotionContainer {
     static let shared = PotionContainer()
 
-    var potions: [Potion]
+    var potions = [Potion]() {
+        didSet {
+            encodeAndSave()
+        }
+    }
 
     weak var delegate: PotionContainerDelegate?
 
     var potionsOrder = [UUID: IndexPath]()
 
-    private init() {
-        self.potions = [
-            Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
-            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
-            Potion(name: "Healing", image: "cross.vial", amount: 5, id: UUID()),
-            Potion(name: "Stanmina", image: "line.3.crossed.swirl.circle.fill", amount: 7, id: UUID()),
-            Potion(name: "Invisibility", image: "person", amount: 3, id: UUID()),
-            Potion(name: "Temporary strength", image: "hand.point.up", amount: 2, id: UUID())
-        ]
+    let potionsFile = FileManager().getFilePath("potionsJSON.txt")
 
+    private init() {
+        loadAndDecode()
     }
 
     func changePotionName(name: String, id: UUID) {
@@ -89,6 +87,32 @@ class PotionContainer {
         }
     }
 
+    func encodeAndSave() {
+        do {
+            let potionsJSON = try JSONEncoder().encode(potions)
+            try potionsJSON.write(to: potionsFile, options: .atomic)
+        } catch {
+            print("Error occured during saving file")
+        }
+    }
+
+    func loadAndDecode() {
+        do {
+        let response = try String(contentsOf: potionsFile)
+        let data = Data(response.utf8)
+            self.potions = try JSONDecoder().decode([Potion].self, from: data)
+        } catch {
+            print("Error occured during loading file")
+            self.potions = [
+                Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
+                Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
+                Potion(name: "Healing", image: "cross.vial", amount: 5, id: UUID()),
+                Potion(name: "", image: "line.3.crossed.swirl.circle.fill", amount: 7, id: UUID()),
+                Potion(name: "Invisibility", image: "", amount: 3, id: UUID()),
+                Potion(name: "Temporary strength", image: "hand.point.up", amount: 2, id: UUID())
+            ]
+        }
+    }
 }
 
 extension Dictionary where Value: Equatable {
