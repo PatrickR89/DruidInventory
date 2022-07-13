@@ -8,6 +8,12 @@
 import UIKit
 
 extension PotionsTableViewController: PotionContainerDelegate {
+
+    func reloadTableViewById(id: UUID) {
+        guard let indexPath = potionsOrder[id] else {return}
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+
     func reloadTableViewRowByRow(row: Int) {
         let section = tableView.numberOfSections - 1
         let indexPath = IndexPath(row: row, section: section)

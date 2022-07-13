@@ -8,31 +8,40 @@
 import UIKit
 
 extension RecipesContainer {
-//    func testArray() -> [Recipe] {
-//        var recipes = [Recipe]()
-//
-//        let ingredient1 = Potion(name: "Cocoa", image: "hourglass.bottomhalf.filled", amount: 5)
-//        let ingredient2 = Potion(name: "Saw Dust", image: "paperplane.circle", amount: 2)
-//        let ingredient3 = Potion(name: "Fairy blood", image: "drop.triangle", amount: 1)
-//        let potion1 = Potion(name: "Unseen", image: "eyeglasses", amount: 1)
-//        recipes.append(Recipe(ingredientsInRecipe: [ingredient1, ingredient2, ingredient3], potionsInRecipe: [potion1]))
-//
-//        let ingredientAd = Potion(name: "Nightshade", image: "staroflife.fill", amount: 2)
-//        let ingredientAa = Potion(name: "Bamboocha", image: "zzz", amount: 1)
-//        let ingredientAb = Potion(name: "Iron dust", image: "square.stack.3d.forward.dottedline", amount: 1)
-//        let ingredientAc = Potion(
-//            name: "Mushroom juice",
-//            image: "eye.trianglebadge.exclamationmark.fill",
-//            amount: 6)
-//        let potionAa = Potion(name: "Night Walk", image: "eye", amount: 1)
-//        let potionAb = Potion(name: "Bear Poison", image: "exclamationmark.octagon.fill", amount: 1)
-//        recipes.append(
-//            Recipe(
-//                ingredientsInRecipe: [ingredientAa, ingredientAb, ingredientAc, ingredientAd],
-//                potionsInRecipe: [potionAa, potionAb]))
-//        recipes.append(Recipe(ingredientsInRecipe: [ingredientAa, ingredientAb], potionsInRecipe: [potionAa, potionAb]))
-//        recipes.append(Recipe(ingredientsInRecipe: [ ingredientAc, ingredientAd], potionsInRecipe: [potionAb]))
-//
-//        return recipes
-//    }
+    func testArray() -> [Recipe] {
+        var recipes = [Recipe]()
+
+        var potion1 = PotionContainer.shared.potions[0]
+        potion1.amount = 1
+        var potion2 = PotionContainer.shared.potions[1]
+        potion2.amount = 2
+        var potion3 = PotionContainer.shared.potions[2]
+        potion3.amount = 1
+        var potion4 = PotionContainer.shared.potions[3]
+        potion4.amount = 3
+        var potion5 = PotionContainer.shared.potions[4]
+        potion5.amount = 2
+        var potion6 = PotionContainer.shared.potions[5]
+        potion6.amount = 1
+
+        recipes.append( Recipe(
+            ingredientsInRecipe:
+                [potion1,
+                 potion3],
+            potionsInRecipe:
+                [potion2]))
+
+        recipes.append(
+            Recipe(
+                ingredientsInRecipe:
+                    [potion2,
+                     potion5,
+                     potion4,
+                     potion3],
+                potionsInRecipe:
+                    [potion1,
+                     potion6]))
+
+        return recipes
+    }
 }

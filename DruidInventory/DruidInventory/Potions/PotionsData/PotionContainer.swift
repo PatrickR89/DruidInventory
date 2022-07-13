@@ -26,19 +26,28 @@ class PotionContainer {
 
     }
 
-    func changePotionName(name: String, indexPath: IndexPath) {
-        PotionContainer.shared.potions[indexPath.row].name = name
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+    func changePotionName(name: String, id: UUID) {
+
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
+            PotionContainer.shared.potions[index].name = name
+            delegate?.reloadTableViewById(id: id)
+        }
     }
 
-    func changePotionAmount(amount: Int, indexPath: IndexPath) {
-        PotionContainer.shared.potions[indexPath.row].amount = amount
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+    func changePotionAmount(amount: Int, id: UUID) {
+
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
+            PotionContainer.shared.potions[index].amount = amount
+            delegate?.reloadTableViewById(id: id)
+        }
     }
 
-    func changePotionImage(image: String, indexPath: IndexPath) {
-        PotionContainer.shared.potions[indexPath.row].image = image
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+    func changePotionImage(image: String, id: UUID) {
+
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
+            PotionContainer.shared.potions[index].image = image
+            delegate?.reloadTableViewById(id: id)
+        }
     }
 
     func addNewPotion(potion: Potion) {

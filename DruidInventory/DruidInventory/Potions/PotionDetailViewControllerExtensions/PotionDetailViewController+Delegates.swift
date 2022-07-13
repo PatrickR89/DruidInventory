@@ -15,7 +15,7 @@ extension PotionDetailViewController: UITextFieldDelegate {
             guard let nameText = nameTextField.text else {return}
             potion.name = nameText
             if !newPotion {
-                PotionContainer.shared.changePotionName(name: nameText, indexPath: indexPath)
+                PotionContainer.shared.changePotionName(name: nameText, id: potion.id)
             }
         }
 
@@ -24,7 +24,7 @@ extension PotionDetailViewController: UITextFieldDelegate {
             guard let amount = Int(amountText) else {return}
             potion.amount = amount
             if !newPotion {
-                PotionContainer.shared.changePotionAmount(amount: amount, indexPath: indexPath)
+                PotionContainer.shared.changePotionAmount(amount: amount, id: potion.id)
             }
         }
     }
@@ -50,7 +50,7 @@ extension PotionDetailViewController: ImageSelectorDelegate {
     func changeImage(image: String) {
         potion.image = image
         if !newPotion {
-            PotionContainer.shared.changePotionImage(image: image, indexPath: indexPath)
+            PotionContainer.shared.changePotionImage(image: image, id: potion.id)
         }
     }
 }

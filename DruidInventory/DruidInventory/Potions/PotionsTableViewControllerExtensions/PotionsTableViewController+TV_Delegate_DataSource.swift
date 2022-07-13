@@ -16,6 +16,8 @@ extension PotionsTableViewController {
 
         let cell = PotionCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(with: PotionContainer.shared.potions[indexPath.row])
+        potionsOrder[PotionContainer.shared.potions[indexPath.row].id] = indexPath
+
         return cell
     }
 }

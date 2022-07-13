@@ -19,7 +19,7 @@ class RecipesContainer {
     var filteredComponents = [Potion]()
 
     private init() {
-//        self.recipes = testArray()
+        self.recipes = testArray()
         self.filteredComponents = PotionContainer.shared.potions
     }
 

@@ -19,14 +19,14 @@ extension PotionDetailViewController {
     @objc func addOnTap() {
         potion.amount += 1
         if !newPotion {
-            PotionContainer.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+            PotionContainer.shared.changePotionAmount(amount: potion.amount, id: potion.id)
         }
     }
 
     @objc func removeOnTap() {
         potion.amount -= 1
         if !newPotion {
-            PotionContainer.shared.changePotionAmount(amount: potion.amount, indexPath: indexPath)
+            PotionContainer.shared.changePotionAmount(amount: potion.amount, id: potion.id)
         }
     }
 
