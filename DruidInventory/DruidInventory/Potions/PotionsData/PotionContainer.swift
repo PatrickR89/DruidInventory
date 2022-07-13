@@ -114,11 +114,3 @@ class PotionContainer {
         }
     }
 }
-
-extension Dictionary where Value: Equatable {
-    func keyForValue(value: Value) -> [Key] {
-        return compactMap { (key: Key, val: Value) -> Key? in
-            value == val ? key : nil
-        }
-    }
-}
