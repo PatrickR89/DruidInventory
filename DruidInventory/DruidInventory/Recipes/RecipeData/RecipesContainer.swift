@@ -14,12 +14,12 @@ class RecipesContainer {
 
     var recipes = [Recipe]()
 
-    var usedComponents = [String]()
+    var usedComponents = [UUID]()
 
     var filteredComponents = [Potion]()
 
     private init() {
-        self.recipes = testArray()
+//        self.recipes = testArray()
         self.filteredComponents = PotionContainer.shared.potions
     }
 
@@ -44,13 +44,13 @@ class RecipesContainer {
 
     func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
         for potion in recipe.potionsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == potion.name}) {
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == potion.id}) {
                 PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
             }
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) {
                 PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
             }
         }
@@ -60,7 +60,7 @@ class RecipesContainer {
     func checkIngredients(ingredients: [Potion]) -> Bool {
         var validationArray = [Bool]()
         for ingredient in ingredients {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
+            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) {
                 validationArray.append( PotionContainer.shared.potions[index].amount >= ingredient.amount )
             } else {
                 validationArray.append(false)
@@ -77,13 +77,13 @@ class RecipesContainer {
         usedComponents = []
 
         for ingredient in recipe.ingredientsInRecipe {
-            usedComponents.append(ingredient.name)
+            usedComponents.append(ingredient.id)
         }
 
         for potion in recipe.potionsInRecipe {
-            usedComponents.append(potion.name)
+            usedComponents.append(potion.id)
         }
 
-        filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.name)}
+        filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.id)}
     }
 }

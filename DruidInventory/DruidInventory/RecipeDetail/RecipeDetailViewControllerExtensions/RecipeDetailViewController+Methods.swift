@@ -45,7 +45,8 @@ extension RecipeDetailViewController {
                 RecipeDetailViewController.TableRowContent.component(
                     name: ingredient.name,
                     image: ingredient.image,
-                    count: ingredient.amount),
+                    count: ingredient.amount,
+                    id: ingredient.id),
                 at: 0)
         }
 
@@ -55,7 +56,8 @@ extension RecipeDetailViewController {
                     RecipeDetailViewController.TableRowContent.component(
                         name: potion.name,
                         image: potion.image,
-                        count: potion.amount),
+                        count: potion.amount,
+                        id: potion.id),
                     at: index + 1)
             }
         }
@@ -88,7 +90,8 @@ extension RecipeDetailViewController {
                 where: {$0.self == TableRowContent.component(
                     name: component.name,
                     image: component.image,
-                    count: component.amount)}) {
+                    count: component.amount,
+                    id: component.id)}) {
 
                 tableContents.remove(at: index)
                 tableView.deleteRows(at: [componentIndexPath], with: .none)

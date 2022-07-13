@@ -33,7 +33,7 @@ class RecipeDetailViewController: UITableViewController {
         case plusButton(type: RecipeComponentType)
         case downArrow
         case makeButton
-        case component(name: String, image: String, count: Int)
+        case component(name: String, image: String, count: Int, id: UUID)
     }
 
     var tableContents: [TableRowContent] = [.downArrow, .makeButton]

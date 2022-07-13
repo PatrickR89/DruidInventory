@@ -18,9 +18,12 @@ struct Potion {
         }
     }
 
-    init ( name: String, image: String, amount: Int) {
+    var id: UUID
+
+    init ( name: String, image: String, amount: Int, id: UUID) {
         self.name = name
         self.image = image
         self.amount = amount
+        self.id = id
     }
 }

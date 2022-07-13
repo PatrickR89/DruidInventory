@@ -14,6 +14,7 @@ class RecipeComponentSelectorViewController: UIViewController {
         didSet {
             newPotion.image = potion.image
             newPotion.name = potion.name
+            newPotion.id = potion.id
         }
     }
 
@@ -21,7 +22,7 @@ class RecipeComponentSelectorViewController: UIViewController {
 
     var nameLabelYConstraint: NSLayoutConstraint?
 
-    var newPotion = Potion(name: "", image: "", amount: 1) {
+    var newPotion = Potion(name: "", image: "", amount: 1, id: UUID()) {
         didSet {
             if newPotion.amount <= 1 {
                 newPotion.amount = 1
@@ -87,6 +88,7 @@ class RecipeComponentSelectorViewController: UIViewController {
 
         newPotion.name = potion.name
         newPotion.image = potion.image
+        newPotion.id = potion.id
 
         hideKeyboardOnTap()
         enableKeyboardObserver()

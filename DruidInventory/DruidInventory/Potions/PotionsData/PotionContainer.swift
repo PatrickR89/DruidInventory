@@ -16,12 +16,12 @@ class PotionContainer {
 
     private init() {
         self.potions = [
-            Potion(name: "Fast walk", image: "figure.walk", amount: 3),
-            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0),
-            Potion(name: "Healing", image: "cross.vial", amount: 5),
-            Potion(name: "Stanmina", image: "line.3.crossed.swirl.circle.fill", amount: 7),
-            Potion(name: "Invisibility", image: "person", amount: 3),
-            Potion(name: "Temporary strength", image: "hand.point.up", amount: 2)
+            Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
+            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
+            Potion(name: "Healing", image: "cross.vial", amount: 5, id: UUID()),
+            Potion(name: "Stanmina", image: "line.3.crossed.swirl.circle.fill", amount: 7, id: UUID()),
+            Potion(name: "Invisibility", image: "person", amount: 3, id: UUID()),
+            Potion(name: "Temporary strength", image: "hand.point.up", amount: 2, id: UUID())
         ]
 
     }
