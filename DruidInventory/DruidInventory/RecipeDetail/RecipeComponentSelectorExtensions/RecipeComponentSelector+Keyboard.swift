@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension RecipeComponentSelectorController {
+extension RecipeComponentSelectorViewController {
 
     func hideKeyboardOnTap() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardOnTap))

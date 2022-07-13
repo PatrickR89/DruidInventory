@@ -67,7 +67,7 @@ extension RecipeDetailViewController {
         component: Potion,
         componentIndexPath: IndexPath) {
 
-            let recipeComponentSelector = RecipeComponentSelectorController(
+            let recipeComponentSelector = RecipeComponentSelectorViewController(
                 componentIndexPath: componentIndexPath,
                 type: type, potion: component)
             recipeComponentSelector.delegate = self

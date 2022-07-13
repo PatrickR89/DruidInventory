@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension RecipeComponentSelectorController {
+extension RecipeComponentSelectorViewController {
 
     func configPrevNextButtonLayout(button: UIButton) {
         view.addSubview(button)

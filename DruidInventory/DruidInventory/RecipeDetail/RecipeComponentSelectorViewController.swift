@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeComponentSelectorController: UIViewController {
+class RecipeComponentSelectorViewController: UIViewController {
 
     var potionIndex = 0
     var potion: Potion {
@@ -93,7 +93,7 @@ class RecipeComponentSelectorController: UIViewController {
     }
 }
 
-extension RecipeComponentSelectorController: UITextFieldDelegate {
+extension RecipeComponentSelectorViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
 
         if textField == self.amountTextField {

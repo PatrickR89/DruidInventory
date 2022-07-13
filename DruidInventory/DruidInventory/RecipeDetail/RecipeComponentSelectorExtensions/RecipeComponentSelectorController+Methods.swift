@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension RecipeComponentSelectorController {
+extension RecipeComponentSelectorViewController {
 
     @objc func nextOnTap() {
         potionIndex += 1
