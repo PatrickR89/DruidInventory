@@ -13,11 +13,11 @@ class RecipesTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         RecipesContainer.shared.delegate = self
+        tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configTableViewLayout()
         view.backgroundColor = .white
     }
@@ -60,7 +60,7 @@ class RecipesTableViewController: UITableViewController {
                 RecipesContainer.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
 
             }
-
+            reloadTableViewOnIngredients(ingredients: ingredients)
             return nil
         }
 
@@ -68,6 +68,17 @@ class RecipesTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         RecipeCell.register(in: tableView)
+    }
+
+    func reloadTableViewOnIngredients(ingredients: [Potion]) {
+        for ingredient in ingredients {
+            guard let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) else {return}
+            let potion = PotionContainer.shared.potions[index]
+
+            if potion.amount < ingredient.amount {
+                tableView.reloadData()
+            }
+        }
     }
 }
 
