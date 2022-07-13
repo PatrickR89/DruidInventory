@@ -11,7 +11,7 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
 
     var makeButton = UIButton()
 
-    var isNewRecipe = false {
+    var isNewRecipe: Bool = false {
         didSet {
             if !isNewRecipe {
                 width = 100
@@ -39,6 +39,7 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
+        setupMakeButtonLayout()
     }
 
     required init?(coder: NSCoder) {
@@ -48,29 +49,33 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
 
 extension RecipeDetailMakeButtonCell {
 
-    func configMakeButtonLayout() {
+    func setupMakeButtonLayout() {
         contentView.addSubview(makeButton)
         makeButton.translatesAutoresizingMaskIntoConstraints = false
         makeButton.backgroundColor = .systemBlue
         makeButton.isUserInteractionEnabled = false
 
+        NSLayoutConstraint.activate([
+            makeButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            makeButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+
+        ])
+    }
+
+    func configMakeButtonLayout() {
         if !isNewRecipe {
             makeButton.setTitle("MAKE", for: .normal)
         } else {
             makeButton.setTitle("CREATE RECIPE", for: .normal)
         }
 
-        NSLayoutConstraint.activate([
-            makeButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            makeButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            makeButton.widthAnchor.constraint(equalToConstant: CGFloat(width))
-        ])
+        makeButton.widthAnchor.constraint(equalToConstant: CGFloat(width)).isActive = true
     }
 
     func setupCell(isNewRecipe: Bool, isRecipeValid: Bool, enoughIngredients: Bool) {
-        self.isNewRecipe = isNewRecipe
         self.isRecipeValid = isRecipeValid
         self.enoughIngredients = enoughIngredients
+        self.isNewRecipe = isNewRecipe
     }
 
     func configButtonBackground() {
