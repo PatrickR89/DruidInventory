@@ -45,7 +45,8 @@ extension RecipeComponentSelectorViewController {
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
             }
-        }    }
+        }
+    }
 
     @objc func keyboardWillHide(notification: NSNotification) {
         nameLabelYConstraint?.constant = 0
