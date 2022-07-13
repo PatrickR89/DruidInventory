@@ -97,6 +97,8 @@ extension PotionDetailViewController {
         default:
             button.titleLabel?.text = "default"
         }
+
+        ButtonIcons.configButtonIcon(button: button)
     }
 
     func configAddButtonLayout() {
