@@ -71,7 +71,7 @@ class RecipesTableViewController: UITableViewController {
     }
 }
 
-extension RecipesTableViewController: RecipesDelegate {
+extension RecipesTableViewController: RecipesContainerDelegate {
     func deleteTableRow(indexPath: IndexPath) {
         tableView.deleteRows(at: [indexPath], with: .none)
     }

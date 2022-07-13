@@ -28,7 +28,7 @@
 		CD963DE728770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */; };
 		CD963DE92877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */; };
 		CD963DEB2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */; };
-		CD963DF0287838F100CBB25B /* RecipesDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEF287838F100CBB25B /* RecipesDelegate.swift */; };
+		CD963DF0287838F100CBB25B /* RecipesContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */; };
 		CD963DF8287C955E00CBB25B /* PotionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF7287C955E00CBB25B /* PotionContainer.swift */; };
 		CD963DFA287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
@@ -77,7 +77,7 @@
 		CD963DE628770BF500CBB25B /* RecipeComponentSelectorController+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelectorController+Methods.swift"; sourceTree = "<group>"; };
 		CD963DE82877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+ComponentSelectorDelegate.swift"; sourceTree = "<group>"; };
 		CD963DEA2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeDetailViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
-		CD963DEF287838F100CBB25B /* RecipesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDelegate.swift; sourceTree = "<group>"; };
+		CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesContainerDelegate.swift; sourceTree = "<group>"; };
 		CD963DF7287C955E00CBB25B /* PotionContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotionContainer.swift; sourceTree = "<group>"; };
 		CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelector+Keyboard.swift"; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,7 +211,7 @@
 			children = (
 				CD9200C0286F38ED009E6499 /* RecipeContentView.swift */,
 				CD963DDE2876ED8900CBB25B /* RecipesContainer.swift */,
-				CD963DEF287838F100CBB25B /* RecipesDelegate.swift */,
+				CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */,
 				CDF89E5D286B1C2B00F083A9 /* Recipe.swift */,
 				CDF89E64286B1C2B00F083A9 /* RecipeDetails.swift */,
 			);
@@ -396,7 +396,7 @@
 				CDF89E79286B200C00F083A9 /* RecipesTableViewController.swift in Sources */,
 				CDF89E432864E82000F083A9 /* PotionDetailViewController.swift in Sources */,
 				CDF89E94286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift in Sources */,
-				CD963DF0287838F100CBB25B /* RecipesDelegate.swift in Sources */,
+				CD963DF0287838F100CBB25B /* RecipesContainerDelegate.swift in Sources */,
 				CDF89E3F2864D43700F083A9 /* Potion.swift in Sources */,
 				CDF89E6E286B1C2C00F083A9 /* RecipeCell+StackLayout.swift in Sources */,
 				CDF89E70286B1C2C00F083A9 /* RecipeCell.swift in Sources */,

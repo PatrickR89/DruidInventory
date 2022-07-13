@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RecipesDelegate: AnyObject {
+protocol RecipesContainerDelegate: AnyObject {
     func appendToTableView()
     func reloadTableViewRow(indexPath: IndexPath)
     func deleteTableRow(indexPath: IndexPath)

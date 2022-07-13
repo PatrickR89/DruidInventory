@@ -10,7 +10,7 @@ import UIKit
 class RecipesContainer {
     static let shared = RecipesContainer()
 
-    weak var delegate: RecipesDelegate?
+    weak var delegate: RecipesContainerDelegate?
 
     var recipes = [Recipe]()
 
