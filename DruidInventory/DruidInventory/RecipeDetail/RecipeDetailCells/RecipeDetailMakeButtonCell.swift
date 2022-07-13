@@ -14,11 +14,10 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
     var isNewRecipe: Bool = false {
         didSet {
             if !isNewRecipe {
-                width = 100
+                configMakeButtonLayout(buttonTitle: "MAKE", width: 100)
             } else {
-                width = 200
+                configMakeButtonLayout(buttonTitle: "ADD RECIPE", width: 200)
             }
-            configMakeButtonLayout()
         }
     }
 
@@ -33,8 +32,6 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
             configButtonBackground()
         }
     }
-
-    var width = 100
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -62,13 +59,8 @@ extension RecipeDetailMakeButtonCell {
         ])
     }
 
-    func configMakeButtonLayout() {
-        if !isNewRecipe {
-            makeButton.setTitle("MAKE", for: .normal)
-        } else {
-            makeButton.setTitle("CREATE RECIPE", for: .normal)
-        }
-
+    func configMakeButtonLayout(buttonTitle: String, width: Int) {
+        makeButton.setTitle(buttonTitle, for: .normal)
         makeButton.widthAnchor.constraint(equalToConstant: CGFloat(width)).isActive = true
     }
 
