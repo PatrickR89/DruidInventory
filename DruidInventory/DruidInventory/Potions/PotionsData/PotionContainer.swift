@@ -58,16 +58,12 @@ class PotionContainer {
 
     func addToPotionsByRecipe(amount: Int, index: Int) {
         PotionContainer.shared.potions[index].amount += amount
-        let section = PotionsTableViewController().tableView.numberOfSections - 1
-        let indexPath = IndexPath(row: index, section: section)
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        delegate?.reloadTableViewRowByRow(row: index)
     }
 
     func removeFromPotionsByRecipe(amount: Int, index: Int) {
         PotionContainer.shared.potions[index].amount -= amount
-        let section = PotionsTableViewController().tableView.numberOfSections - 1
-        let indexPath = IndexPath(row: index, section: section)
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        delegate?.reloadTableViewRowByRow(row: index)
     }
 
 }
