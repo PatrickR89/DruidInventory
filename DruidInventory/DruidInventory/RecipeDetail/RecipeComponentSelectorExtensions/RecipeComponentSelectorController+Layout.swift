@@ -21,11 +21,11 @@ extension RecipeComponentSelectorViewController {
         switch button {
         case buttonNext:
             button.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 20).isActive = true
-            button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+            button.setImage(ButtonIcons.nextButton, for: .normal)
             button.addTarget(self, action: #selector(nextOnTap), for: .touchUpInside)
         case buttonPrevious:
             button.trailingAnchor.constraint(equalTo: image.leadingAnchor, constant: -20).isActive = true
-            button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+            button.setImage(ButtonIcons.previousButton, for: .normal)
             button.addTarget(self, action: #selector(previousOnTap), for: .touchUpInside)
         default:
             button.titleLabel?.text = "default"
@@ -43,11 +43,11 @@ extension RecipeComponentSelectorViewController {
         switch button {
         case buttonPlus:
             button.leadingAnchor.constraint(equalTo: amountTextField.trailingAnchor, constant: 20).isActive = true
-            button.setImage(UIImage(systemName: "plus"), for: .normal)
+            button.setImage(ButtonIcons.plusButton, for: .normal)
             button.addTarget(self, action: #selector(addOnTap), for: .touchUpInside)
         case buttonMinus:
             button.trailingAnchor.constraint(equalTo: amountTextField.leadingAnchor, constant: -20).isActive = true
-            button.setImage(UIImage(systemName: "minus"), for: .normal)
+            button.setImage(ButtonIcons.minusButton, for: .normal)
             button.addTarget(self, action: #selector(removeOnTap), for: .touchUpInside)
         default:
             button.titleLabel?.text = "default"

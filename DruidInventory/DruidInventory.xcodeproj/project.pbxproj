@@ -31,6 +31,7 @@
 		CD963DF0287838F100CBB25B /* RecipesContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */; };
 		CD963DF8287C955E00CBB25B /* PotionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF7287C955E00CBB25B /* PotionContainer.swift */; };
 		CD963DFA287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */; };
+		CD963E6B287EB7B300CBB25B /* ButtonIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -80,6 +81,7 @@
 		CD963DEF287838F100CBB25B /* RecipesContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesContainerDelegate.swift; sourceTree = "<group>"; };
 		CD963DF7287C955E00CBB25B /* PotionContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PotionContainer.swift; sourceTree = "<group>"; };
 		CD963DF9287C96D100CBB25B /* RecipeComponentSelector+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeComponentSelector+Keyboard.swift"; sourceTree = "<group>"; };
+		CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonIcons.swift; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */,
+				CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				CD963DCB2876B45800CBB25B /* ImageSelectorDelegate.swift in Sources */,
 				CD963DE32876F7FC00CBB25B /* RecipeComponentSelectorDelegate.swift in Sources */,
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
+				CD963E6B287EB7B300CBB25B /* ButtonIcons.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
 				CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */,
 				CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */,

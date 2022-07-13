@@ -27,7 +27,7 @@ class RecipeDetailPlusCell: UITableViewCell {
 extension RecipeDetailPlusCell {
 
     func setupCell(typeOfComponent: RecipeComponentType) {
-        imageDisplay.image = UIImage(systemName: "plus")
+        imageDisplay.image = ButtonIcons.plusButton
         componentType = typeOfComponent
     }
 
