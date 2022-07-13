@@ -31,33 +31,36 @@ class RecipesContainer {
 
     func addRecipe(recipe: Recipe) {
         RecipesContainer.shared.recipes.append(recipe)
-        delegate?.appendToTableView()
+        delegate?.addNewRecipe()
     }
 
     func changeRecipe(recipe: Recipe, indexPath: IndexPath) {
         RecipesContainer.shared.recipes[indexPath.row] = recipe
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        delegate?.editRecipe(indexPath: indexPath)
     }
 
     func deleteRecipe(indexPath: IndexPath) {
         RecipesContainer.shared.recipes.remove(at: indexPath.row)
-        delegate?.deleteTableRow(indexPath: indexPath)
+        delegate?.deleteRecipe(indexPath: indexPath)
     }
 
     func reloadRecipe(indexPath: IndexPath) {
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+        delegate?.editRecipe(indexPath: indexPath)
     }
 
     func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
         for potion in recipe.potionsInRecipe {
-                PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, id: potion.id)
+                PotionContainer.shared.createFromRecipe(amount: potion.amount, id: potion.id)
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-                PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, id: ingredient.id)
+                PotionContainer.shared.spendOnRecipe(amount: ingredient.amount, id: ingredient.id)
         }
-        delegate?.reloadTableViewRow(indexPath: recipeIndexPath)
+        delegate?.editRecipe(indexPath: recipeIndexPath)
     }
+}
+
+extension RecipesContainer {
 
     func checkIngredients(ingredients: [Potion]) -> Bool {
         var validationArray = [Bool]()
@@ -105,7 +108,7 @@ class RecipesContainer {
             self.recipes = try JSONDecoder().decode([Recipe].self, from: data)
         } catch {
             print("Error occured during loading file")
-            self.recipes = testArray()
+            self.recipes = initialRecipes()
         }
     }
 

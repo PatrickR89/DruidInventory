@@ -28,18 +28,18 @@ extension RecipesTableViewController {
 }
 
 extension RecipesTableViewController: RecipesContainerDelegate {
-    func deleteTableRow(indexPath: IndexPath) {
+    func deleteRecipe(indexPath: IndexPath) {
         tableView.deleteRows(at: [indexPath], with: .none)
     }
 
-    func appendToTableView() {
+    func addNewRecipe() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section)
         let indexPath = IndexPath(row: row, section: section)
         tableView.insertRows(at: [indexPath], with: .none)
     }
 
-    func reloadTableViewRow(indexPath: IndexPath) {
+    func editRecipe(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

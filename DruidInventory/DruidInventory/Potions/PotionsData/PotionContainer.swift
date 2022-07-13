@@ -30,7 +30,7 @@ class PotionContainer {
 
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].name = name
-            delegate?.reloadTableViewById(id: id)
+            delegate?.editPotion(id: id)
         }
     }
 
@@ -38,7 +38,7 @@ class PotionContainer {
 
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].amount = amount
-            delegate?.reloadTableViewById(id: id)
+            delegate?.editPotion(id: id)
         }
     }
 
@@ -46,44 +46,44 @@ class PotionContainer {
 
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].image = image
-            delegate?.reloadTableViewById(id: id)
+            delegate?.editPotion(id: id)
         }
     }
 
     func addNewPotion(potion: Potion) {
         PotionContainer.shared.potions.append(potion)
-        delegate?.appendToTableView()
+        delegate?.addNewPotion()
     }
 
-    func addToPotionAmount(indexPath: IndexPath) {
+    func addOnSwipe(indexPath: IndexPath) {
         let key = potionsOrder.keyForValue(value: indexPath)[0]
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
             PotionContainer.shared.potions[index].amount += 1
-            delegate?.reloadTableViewById(id: key)
+            delegate?.editPotion(id: key)
         }
     }
 
-    func reduceFromPotionAmount(indexPath: IndexPath) {
+    func reduceOnSwipe(indexPath: IndexPath) {
         let key = potionsOrder.keyForValue(value: indexPath)[0]
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
             PotionContainer.shared.potions[index].amount -= 1
-            delegate?.reloadTableViewById(id: key)
+            delegate?.editPotion(id: key)
         }
     }
 
-    func addToPotionsByRecipe(amount: Int, id: UUID) {
+    func createFromRecipe(amount: Int, id: UUID) {
 
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].amount += amount
-            delegate?.reloadTableViewById(id: id)
+            delegate?.editPotion(id: id)
         }
     }
 
-    func removeFromPotionsByRecipe(amount: Int, id: UUID) {
+    func spendOnRecipe(amount: Int, id: UUID) {
 
         if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].amount -= amount
-            delegate?.reloadTableViewById(id: id)
+            delegate?.editPotion(id: id)
         }
     }
 

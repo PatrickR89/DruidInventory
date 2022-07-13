@@ -35,14 +35,14 @@ extension PotionsTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionContainer.shared.reduceFromPotionAmount(indexPath: indexPath)
+            PotionContainer.shared.reduceOnSwipe(indexPath: indexPath)
             return nil
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionContainer.shared.addToPotionAmount(indexPath: indexPath)
+            PotionContainer.shared.addOnSwipe(indexPath: indexPath)
             return nil
         }
 }

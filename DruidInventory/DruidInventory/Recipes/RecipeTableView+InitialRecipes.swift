@@ -1,5 +1,5 @@
 //
-//  RecipeTableView+Test.swift
+//  RecipeTableView+InitialRecipes.swift
 //  DruidInventory
 //
 //  Created by Patrick on 28.06.2022..
@@ -8,7 +8,7 @@
 import UIKit
 
 extension RecipesContainer {
-    func testArray() -> [Recipe] {
+    func initialRecipes() -> [Recipe] {
         var recipes = [Recipe]()
 
         var potion1 = PotionContainer.shared.potions[0]
