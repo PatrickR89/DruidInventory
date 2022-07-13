@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension PotionsTableViewController: PotionDelegate {
+extension PotionsTableViewController: PotionContainerDelegate {
     func reloadTableViewRow(indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
     }

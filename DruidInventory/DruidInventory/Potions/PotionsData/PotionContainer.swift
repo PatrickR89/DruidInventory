@@ -12,7 +12,7 @@ class PotionContainer {
 
     var potions: [Potion]
 
-    weak var delegate: PotionDelegate?
+    weak var delegate: PotionContainerDelegate?
 
     private init() {
         self.potions = [
