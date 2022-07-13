@@ -65,14 +65,20 @@ class PotionContainer {
         delegate?.reloadTableViewRow(indexPath: indexPath)
     }
 
-    func addToPotionsByRecipe(amount: Int, index: Int) {
-        PotionContainer.shared.potions[index].amount += amount
-        delegate?.reloadTableViewRowByRow(row: index)
+    func addToPotionsByRecipe(amount: Int, id: UUID) {
+
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
+            PotionContainer.shared.potions[index].amount += amount
+            delegate?.reloadTableViewById(id: id)
+        }
     }
 
-    func removeFromPotionsByRecipe(amount: Int, index: Int) {
-        PotionContainer.shared.potions[index].amount -= amount
-        delegate?.reloadTableViewRowByRow(row: index)
+    func removeFromPotionsByRecipe(amount: Int, id: UUID) {
+
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
+            PotionContainer.shared.potions[index].amount -= amount
+            delegate?.reloadTableViewById(id: id)
+        }
     }
 
 }

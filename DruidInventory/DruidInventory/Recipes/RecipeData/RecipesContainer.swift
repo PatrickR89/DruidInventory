@@ -44,15 +44,11 @@ class RecipesContainer {
 
     func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
         for potion in recipe.potionsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == potion.id}) {
-                PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
-            }
+                PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, id: potion.id)
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) {
-                PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
-            }
+                PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, id: ingredient.id)
         }
         delegate?.reloadTableViewRow(indexPath: recipeIndexPath)
     }
