@@ -24,28 +24,30 @@ class PotionContainer {
         loadAndDecode()
     }
 
+    func findPotion(id: UUID) -> Int {
+        guard let index = PotionContainer.shared.potions.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+        return index
+    }
+
     func changePotionName(name: String, id: UUID) {
 
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].name = name
-            delegate?.editPotion(id: id)
-        }
+        potions[findPotion(id: id)].name = name
+        delegate?.editPotion(id: id)
     }
 
     func changePotionAmount(amount: Int, id: UUID) {
 
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].amount = amount
-            delegate?.editPotion(id: id)
-        }
+        potions[findPotion(id: id)].amount = amount
+        delegate?.editPotion(id: id)
     }
 
     func changePotionImage(image: String, id: UUID) {
 
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].image = image
-            delegate?.editPotion(id: id)
-        }
+        potions[findPotion(id: id)].image = image
+        delegate?.editPotion(id: id)
     }
 
     func addNewPotion(potion: Potion) {
@@ -54,33 +56,27 @@ class PotionContainer {
     }
 
     func addOnSwipe(id: UUID) {
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].amount += 1
-            delegate?.editPotion(id: id)
-        }
+
+        potions[findPotion(id: id)].amount += 1
+        delegate?.editPotion(id: id)
     }
 
     func reduceOnSwipe(id: UUID) {
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].amount -= 1
-            delegate?.editPotion(id: id)
-        }
+
+        potions[findPotion(id: id)].amount -= 1
+        delegate?.editPotion(id: id)
     }
 
     func createFromRecipe(amount: Int, id: UUID) {
 
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].amount += amount
-            delegate?.editPotion(id: id)
-        }
+        potions[findPotion(id: id)].amount += amount
+        delegate?.editPotion(id: id)
     }
 
     func spendOnRecipe(amount: Int, id: UUID) {
 
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
-            PotionContainer.shared.potions[index].amount -= amount
-            delegate?.editPotion(id: id)
-        }
+        potions[findPotion(id: id)].amount -= amount
+        delegate?.editPotion(id: id)
     }
 
     func encodeAndSave() {
@@ -94,8 +90,8 @@ class PotionContainer {
 
     func loadAndDecode() {
         do {
-        let response = try String(contentsOf: potionsFile)
-        let data = Data(response.utf8)
+            let response = try String(contentsOf: potionsFile)
+            let data = Data(response.utf8)
             self.potions = try JSONDecoder().decode([Potion].self, from: data)
         } catch {
             print("Error occured during loading file")
