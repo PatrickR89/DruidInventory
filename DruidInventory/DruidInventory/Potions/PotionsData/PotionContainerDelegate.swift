@@ -8,6 +8,6 @@
 import UIKit
 
 protocol PotionContainerDelegate: AnyObject {
-    func editPotion(id: UUID)
-    func addNewPotion()
+    func editedPotion(id: UUID)
+    func addedNewPotion()
 }

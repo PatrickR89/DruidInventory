@@ -47,7 +47,7 @@ extension PotionDetailViewController: UITextFieldDelegate {
 }
 
 extension PotionDetailViewController: ImageSelectorDelegate {
-    func changeImage(image: String) {
+    func changedImage(image: String) {
         potion.image = image
         if !newPotion {
             PotionContainer.shared.changePotionImage(image: image, id: potion.id)

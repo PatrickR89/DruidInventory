@@ -31,21 +31,21 @@ class RecipesContainer {
 
     func addRecipe(recipe: Recipe) {
         RecipesContainer.shared.recipes.append(recipe)
-        delegate?.addNewRecipe()
+        delegate?.addedNewRecipe()
     }
 
     func changeRecipe(recipe: Recipe, indexPath: IndexPath) {
         RecipesContainer.shared.recipes[indexPath.row] = recipe
-        delegate?.editRecipe(indexPath: indexPath)
+        delegate?.editedRecipe(indexPath: indexPath)
     }
 
     func deleteRecipe(indexPath: IndexPath) {
         RecipesContainer.shared.recipes.remove(at: indexPath.row)
-        delegate?.deleteRecipe(indexPath: indexPath)
+        delegate?.deletedRecipe(indexPath: indexPath)
     }
 
     func reloadRecipe(indexPath: IndexPath) {
-        delegate?.editRecipe(indexPath: indexPath)
+        delegate?.editedRecipe(indexPath: indexPath)
     }
 
     func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
@@ -56,7 +56,7 @@ class RecipesContainer {
         for ingredient in recipe.ingredientsInRecipe {
                 PotionContainer.shared.spendOnRecipe(amount: ingredient.amount, id: ingredient.id)
         }
-        delegate?.editRecipe(indexPath: recipeIndexPath)
+        delegate?.editedRecipe(indexPath: recipeIndexPath)
     }
 }
 

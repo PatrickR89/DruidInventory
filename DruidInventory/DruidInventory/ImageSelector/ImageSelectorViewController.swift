@@ -84,7 +84,7 @@ extension ImageSelectorViewController: UICollectionViewDataSource {
 
 extension ImageSelectorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.changeImage(image: images[indexPath.item])
+        delegate?.changedImage(image: images[indexPath.item])
         self.dismiss(animated: true)
     }
 }

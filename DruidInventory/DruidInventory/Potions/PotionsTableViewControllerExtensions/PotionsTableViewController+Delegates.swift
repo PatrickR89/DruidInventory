@@ -9,7 +9,7 @@ import UIKit
 
 extension PotionsTableViewController: PotionContainerDelegate {
 
-    func editPotion(id: UUID) {
+    func editedPotion(id: UUID) {
 //        guard let indexPath = PotionContainer.shared.potionsOrder[id] else {return}
         let section = tableView.numberOfSections - 1
         guard let row = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) else {return}
@@ -17,7 +17,7 @@ extension PotionsTableViewController: PotionContainerDelegate {
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 
-    func addNewPotion() {
+    func addedNewPotion() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section)
         let indexPath = IndexPath(row: row, section: section)

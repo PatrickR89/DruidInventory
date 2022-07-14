@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RecipesContainerDelegate: AnyObject {
-    func addNewRecipe()
-    func editRecipe(indexPath: IndexPath)
-    func deleteRecipe(indexPath: IndexPath)
+    func addedNewRecipe()
+    func editedRecipe(indexPath: IndexPath)
+    func deletedRecipe(indexPath: IndexPath)
 }
