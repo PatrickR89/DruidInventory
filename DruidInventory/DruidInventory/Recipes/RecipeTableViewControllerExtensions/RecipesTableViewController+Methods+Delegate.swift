@@ -17,8 +17,8 @@ extension RecipesTableViewController {
 
     func reloadTableViewOnIngredients(ingredients: [Potion]) {
         for ingredient in ingredients {
-            guard let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) else {return}
-            let potion = PotionContainer.shared.potions[index]
+
+            guard let potion = PotionContainer.shared.findPotion(id: ingredient.id) else {return}
 
             if potion.amount < ingredient.amount {
                 tableView.reloadData()

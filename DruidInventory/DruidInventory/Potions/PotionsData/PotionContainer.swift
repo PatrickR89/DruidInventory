@@ -24,7 +24,7 @@ class PotionContainer {
         loadAndDecode()
     }
 
-    func findPotion(id: UUID) -> Int {
+    private func findPotionIndex(id: UUID) -> Int {
         guard let index = PotionContainer.shared.potions.firstIndex(
             where: {$0.id == id}) else {
             fatalError("No such potion found")
@@ -32,21 +32,30 @@ class PotionContainer {
         return index
     }
 
+    func findPotion(id: UUID) -> Potion? {
+        guard let index = PotionContainer.shared.potions.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+
+        return potions[index]
+    }
+
     func changePotionName(name: String, id: UUID) {
 
-        potions[findPotion(id: id)].name = name
+        potions[findPotionIndex(id: id)].name = name
         delegate?.editedPotion(id: id)
     }
 
     func changePotionAmount(amount: Int, id: UUID) {
 
-        potions[findPotion(id: id)].amount = amount
+        potions[findPotionIndex(id: id)].amount = amount
         delegate?.editedPotion(id: id)
     }
 
     func changePotionImage(image: String, id: UUID) {
 
-        potions[findPotion(id: id)].image = image
+        potions[findPotionIndex(id: id)].image = image
         delegate?.editedPotion(id: id)
     }
 
@@ -57,25 +66,25 @@ class PotionContainer {
 
     func addOnSwipe(id: UUID) {
 
-        potions[findPotion(id: id)].amount += 1
+        potions[findPotionIndex(id: id)].amount += 1
         delegate?.editedPotion(id: id)
     }
 
     func reduceOnSwipe(id: UUID) {
 
-        potions[findPotion(id: id)].amount -= 1
+        potions[findPotionIndex(id: id)].amount -= 1
         delegate?.editedPotion(id: id)
     }
 
     func createFromRecipe(amount: Int, id: UUID) {
 
-        potions[findPotion(id: id)].amount += amount
+        potions[findPotionIndex(id: id)].amount += amount
         delegate?.editedPotion(id: id)
     }
 
     func spendOnRecipe(amount: Int, id: UUID) {
 
-        potions[findPotion(id: id)].amount -= amount
+        potions[findPotionIndex(id: id)].amount -= amount
         delegate?.editedPotion(id: id)
     }
 

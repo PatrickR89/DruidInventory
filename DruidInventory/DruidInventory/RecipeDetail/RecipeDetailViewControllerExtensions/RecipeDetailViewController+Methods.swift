@@ -106,11 +106,11 @@ extension RecipeDetailViewController {
     func getIndex(type: RecipeComponentType, component: Potion) {
         switch type {
         case .inputChange:
-            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == component.name}) {
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == component.id}) {
                 recipe.ingredientsInRecipe.remove(at: index)
             }
         case .outputChange:
-            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == component.name}) {
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == component.id}) {
                 recipe.potionsInRecipe.remove(at: index)
             }
         default:
@@ -142,7 +142,5 @@ extension RecipeDetailViewController {
             return
         }
     }
-
     // MARK: removeComponent internal functions END
-
 }

@@ -25,8 +25,10 @@ extension PotionsTableViewController {
 extension PotionsTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = potionsOrder[indexPath.row]
+        guard let potion = PotionContainer.shared.findPotion(id: id) else {return}
         let potionDetailView = PotionDetailViewController(
-            potion: PotionContainer.shared.potions[indexPath.row],
+            potion: potion,
             indexPath: indexPath)
 
         self.present(potionDetailView, animated: true)

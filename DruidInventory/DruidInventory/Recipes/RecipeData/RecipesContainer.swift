@@ -61,12 +61,13 @@ extension RecipesContainer {
     func checkIngredients(ingredients: [Potion]) -> Bool {
         var validationArray = [Bool]()
         for ingredient in ingredients {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == ingredient.id}) {
-                validationArray.append( PotionContainer.shared.potions[index].amount >= ingredient.amount )
+            if let potion = PotionContainer.shared.findPotion(id: ingredient.id) {
+                validationArray.append( potion.amount >= ingredient.amount )
             } else {
                 validationArray.append(false)
             }
         }
+        
         if validationArray.contains(false) || validationArray.isEmpty {
             return false
         } else {
