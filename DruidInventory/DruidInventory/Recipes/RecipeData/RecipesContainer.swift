@@ -44,11 +44,7 @@ class RecipesContainer {
         delegate?.deletedRecipe(indexPath: indexPath)
     }
 
-    func reloadRecipe(indexPath: IndexPath) {
-        delegate?.editedRecipe(indexPath: indexPath)
-    }
-
-    func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
+    func createPotion(recipe: Recipe) {
         for potion in recipe.potionsInRecipe {
                 PotionContainer.shared.createFromRecipe(amount: potion.amount, id: potion.id)
         }
@@ -56,7 +52,7 @@ class RecipesContainer {
         for ingredient in recipe.ingredientsInRecipe {
                 PotionContainer.shared.spendOnRecipe(amount: ingredient.amount, id: ingredient.id)
         }
-        delegate?.editedRecipe(indexPath: recipeIndexPath)
+        delegate?.createdPotion(ingredients: recipe.ingredientsInRecipe)
     }
 }
 

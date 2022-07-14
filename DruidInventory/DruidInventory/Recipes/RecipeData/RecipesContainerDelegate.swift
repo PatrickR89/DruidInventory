@@ -11,4 +11,5 @@ protocol RecipesContainerDelegate: AnyObject {
     func addedNewRecipe()
     func editedRecipe(indexPath: IndexPath)
     func deletedRecipe(indexPath: IndexPath)
+    func createdPotion(ingredients: [Potion])
 }

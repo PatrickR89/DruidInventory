@@ -28,6 +28,10 @@ extension RecipesTableViewController {
 }
 
 extension RecipesTableViewController: RecipesContainerDelegate {
+    func createdPotion(ingredients: [Potion]) {
+        reloadTableViewOnIngredients(ingredients: ingredients)
+    }
+
     func deletedRecipe(indexPath: IndexPath) {
         tableView.deleteRows(at: [indexPath], with: .none)
     }

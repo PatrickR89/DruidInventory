@@ -44,7 +44,7 @@ extension RecipesTableViewController {
             let recipe = RecipesContainer.shared.recipes[indexPath.row]
             let ingredients = recipe.ingredientsInRecipe
             if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
-                RecipesContainer.shared.createPotion(recipe: recipe, recipeIndexPath: indexPath)
+                RecipesContainer.shared.createPotion(recipe: recipe)
 
             }
             reloadTableViewOnIngredients(ingredients: ingredients)
