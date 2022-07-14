@@ -51,8 +51,13 @@ class PotionContainer {
         delegate?.editedPotion(id: id)
     }
 
-    func changePotionAmount(amount: Int, id: UUID) {
+    func updatePotionAmount(id: UUID, amount: Int) {
 
+        potions[findPotionIndex(id: id)].amount += amount
+        delegate?.editedPotion(id: id)
+    }
+
+    func changePotionAmount(id: UUID, amount: Int) {
         potions[findPotionIndex(id: id)].amount = amount
         delegate?.editedPotion(id: id)
     }
@@ -66,30 +71,6 @@ class PotionContainer {
     func addNewPotion(potion: Potion) {
         PotionContainer.shared.potions.append(potion)
         delegate?.addedNewPotion()
-    }
-
-    func addOnSwipe(id: UUID) {
-
-        potions[findPotionIndex(id: id)].amount += 1
-        delegate?.editedPotion(id: id)
-    }
-
-    func reduceOnSwipe(id: UUID) {
-
-        potions[findPotionIndex(id: id)].amount -= 1
-        delegate?.editedPotion(id: id)
-    }
-
-    func createFromRecipe(amount: Int, id: UUID) {
-
-        potions[findPotionIndex(id: id)].amount += amount
-        delegate?.editedPotion(id: id)
-    }
-
-    func spendOnRecipe(amount: Int, id: UUID) {
-
-        potions[findPotionIndex(id: id)].amount -= amount
-        delegate?.editedPotion(id: id)
     }
 
     func encodeAndSave() {

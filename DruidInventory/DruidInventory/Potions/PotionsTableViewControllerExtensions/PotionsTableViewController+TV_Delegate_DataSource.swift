@@ -40,7 +40,7 @@ extension PotionsTableViewController {
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let id = potionsOrder[indexPath.row]
-            PotionContainer.shared.reduceOnSwipe(id: id)
+            PotionContainer.shared.updatePotionAmount(id: id, amount: -1)
             return nil
         }
 
@@ -48,7 +48,8 @@ extension PotionsTableViewController {
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let id = potionsOrder[indexPath.row]
-            PotionContainer.shared.addOnSwipe(id: id)
+            PotionContainer.shared.updatePotionAmount(id: id, amount: 1)
+
             return nil
         }
 }

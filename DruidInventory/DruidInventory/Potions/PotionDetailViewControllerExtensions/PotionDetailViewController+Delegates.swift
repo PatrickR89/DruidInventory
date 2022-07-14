@@ -24,7 +24,7 @@ extension PotionDetailViewController: UITextFieldDelegate {
             guard let amount = Int(amountText) else {return}
             potion.amount = amount
             if !newPotion {
-                PotionContainer.shared.changePotionAmount(amount: amount, id: potion.id)
+                PotionContainer.shared.changePotionAmount(id: potion.id, amount: amount)
             }
         }
     }
