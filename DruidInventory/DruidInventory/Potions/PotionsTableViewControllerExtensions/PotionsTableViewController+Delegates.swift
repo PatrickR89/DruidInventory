@@ -11,7 +11,7 @@ extension PotionsTableViewController: PotionContainerDelegate {
 
     func editedPotion(id: UUID) {
         let section = tableView.numberOfSections - 1
-        guard let row = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) else {return}
+        guard let row = PotionContainer.shared.getAllPotions().firstIndex(where: {$0.id == id}) else {return}
         let indexPath = IndexPath(row: row, section: section)
         tableView.reloadRows(at: [indexPath], with: .none)
     }

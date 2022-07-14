@@ -25,7 +25,7 @@ class RecipesContainer {
     let recipesFile = FileManager().getFilePath("recipesJSON.txt")
 
     private init() {
-        self.filteredComponents = PotionContainer.shared.potions
+        self.filteredComponents = PotionContainer.shared.getAllPotions()
         loadAndDecode()
     }
 
@@ -67,7 +67,7 @@ extension RecipesContainer {
                 validationArray.append(false)
             }
         }
-        
+
         if validationArray.contains(false) || validationArray.isEmpty {
             return false
         } else {
@@ -85,8 +85,8 @@ extension RecipesContainer {
         for potion in recipe.potionsInRecipe {
             usedComponents.append(potion.id)
         }
-
-        filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.id)}
+        let potions = PotionContainer.shared.getAllPotions()
+        filteredComponents = potions.filter {!usedComponents.contains($0.id)}
     }
 
     func encodeAndSave() {

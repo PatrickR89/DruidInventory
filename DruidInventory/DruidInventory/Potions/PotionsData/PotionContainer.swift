@@ -10,7 +10,7 @@ import UIKit
 class PotionContainer {
     static let shared = PotionContainer()
 
-    var potions = [Potion]() {
+    private var potions = [Potion]() {
         didSet {
             encodeAndSave()
         }
@@ -39,6 +39,10 @@ class PotionContainer {
         }
 
         return potions[index]
+    }
+
+    func getAllPotions() -> [Potion] {
+        return potions
     }
 
     func changePotionName(name: String, id: UUID) {

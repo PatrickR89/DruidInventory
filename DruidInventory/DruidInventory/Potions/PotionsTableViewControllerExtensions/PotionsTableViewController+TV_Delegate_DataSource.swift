@@ -9,14 +9,16 @@ import UIKit
 
 extension PotionsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        PotionContainer.shared.potions.count
+        let potions = PotionContainer.shared.getAllPotions()
+        return potions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = PotionCell.dequeue(in: tableView, for: indexPath)
-        cell.setupCell(with: PotionContainer.shared.potions[indexPath.row])
-        potionsOrder.append(PotionContainer.shared.potions[indexPath.row].id)
+        let potions = PotionContainer.shared.getAllPotions()
+        cell.setupCell(with: potions[indexPath.row])
+        potionsOrder.append(potions[indexPath.row].id)
 
         return cell
     }
