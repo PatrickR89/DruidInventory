@@ -84,7 +84,7 @@ class PotionContainer {
             let potionsJSON = try JSONEncoder().encode(potions)
             try potionsJSON.write(to: potionsFile, options: .atomic)
         } catch {
-            print("Error occured during saving file")
+            print("Error occured during saving file: \(error)")
         }
     }
 
@@ -94,7 +94,7 @@ class PotionContainer {
             let data = Data(response.utf8)
             self.potions = try JSONDecoder().decode([Potion].self, from: data)
         } catch {
-            print("Error occured during loading file")
+            print("Error occured during loading file: \(error)")
             self.potions = [
                 Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
                 Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
