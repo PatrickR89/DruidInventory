@@ -16,7 +16,7 @@ extension PotionsTableViewController {
 
         let cell = PotionCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(with: PotionContainer.shared.potions[indexPath.row])
-        PotionContainer.shared.potionsOrder[PotionContainer.shared.potions[indexPath.row].id] = indexPath
+        potionsOrder.append(PotionContainer.shared.potions[indexPath.row].id)
 
         return cell
     }
@@ -35,14 +35,16 @@ extension PotionsTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionContainer.shared.reduceOnSwipe(indexPath: indexPath)
+            let id = potionsOrder[indexPath.row]
+            PotionContainer.shared.reduceOnSwipe(id: id)
             return nil
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            PotionContainer.shared.addOnSwipe(indexPath: indexPath)
+            let id = potionsOrder[indexPath.row]
+            PotionContainer.shared.addOnSwipe(id: id)
             return nil
         }
 }

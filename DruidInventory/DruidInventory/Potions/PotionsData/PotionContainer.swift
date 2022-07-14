@@ -18,8 +18,6 @@ class PotionContainer {
 
     weak var delegate: PotionContainerDelegate?
 
-    var potionsOrder = [UUID: IndexPath]()
-
     let potionsFile = FileManager().getFilePath("potionsJSON.txt")
 
     private init() {
@@ -55,19 +53,17 @@ class PotionContainer {
         delegate?.addNewPotion()
     }
 
-    func addOnSwipe(indexPath: IndexPath) {
-        let key = potionsOrder.keyForValue(value: indexPath)[0]
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
+    func addOnSwipe(id: UUID) {
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].amount += 1
-            delegate?.editPotion(id: key)
+            delegate?.editPotion(id: id)
         }
     }
 
-    func reduceOnSwipe(indexPath: IndexPath) {
-        let key = potionsOrder.keyForValue(value: indexPath)[0]
-        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == key}) {
+    func reduceOnSwipe(id: UUID) {
+        if let index = PotionContainer.shared.potions.firstIndex(where: {$0.id == id}) {
             PotionContainer.shared.potions[index].amount -= 1
-            delegate?.editPotion(id: key)
+            delegate?.editPotion(id: id)
         }
     }
 

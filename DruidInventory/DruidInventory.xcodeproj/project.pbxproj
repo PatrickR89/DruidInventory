@@ -10,7 +10,6 @@
 		CD8BBEFE287EF88300685B67 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBEFD287EF88300685B67 /* FileManager.swift */; };
 		CD8BBF01287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBF00287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift */; };
 		CD8BBF03287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBF02287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift */; };
-		CD8BBF05287EFF9000685B67 /* Dictionary+EquatableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBF04287EFF9000685B67 /* Dictionary+EquatableValue.swift */; };
 		CD9200BF286F332F009E6499 /* TableViewCell+Dequeue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */; };
 		CD9200C1286F38ED009E6499 /* RecipeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9200C0286F38ED009E6499 /* RecipeContentView.swift */; };
 		CD963DC128769E6500CBB25B /* PotionContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD963DC028769E6500CBB25B /* PotionContainerDelegate.swift */; };
@@ -64,7 +63,6 @@
 		CD8BBEFD287EF88300685B67 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		CD8BBF00287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesTableViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		CD8BBF02287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesTableViewController+Methods+Delegate.swift"; sourceTree = "<group>"; };
-		CD8BBF04287EFF9000685B67 /* Dictionary+EquatableValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+EquatableValue.swift"; sourceTree = "<group>"; };
 		CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Dequeue.swift"; sourceTree = "<group>"; };
 		CD9200C0286F38ED009E6499 /* RecipeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeContentView.swift; sourceTree = "<group>"; };
 		CD963DC028769E6500CBB25B /* PotionContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotionContainerDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				CD9200BE286F332F009E6499 /* TableViewCell+Dequeue.swift */,
 				CD963E6A287EB7B300CBB25B /* ButtonIcons.swift */,
 				CD8BBEFD287EF88300685B67 /* FileManager.swift */,
-				CD8BBF04287EFF9000685B67 /* Dictionary+EquatableValue.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				CD963DC328769EFE00CBB25B /* PotionDetailViewController+Layout.swift in Sources */,
 				CD963E6B287EB7B300CBB25B /* ButtonIcons.swift in Sources */,
 				CD8BBF03287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift in Sources */,
-				CD8BBF05287EFF9000685B67 /* Dictionary+EquatableValue.swift in Sources */,
 				CDF89E68286B1C2C00F083A9 /* Recipe.swift in Sources */,
 				CD963DD62876CD1F00CBB25B /* PotionDetailViewController+Keyboard.swift in Sources */,
 				CD963DDF2876ED8900CBB25B /* RecipesContainer.swift in Sources */,
