@@ -35,7 +35,7 @@ class PotionContainer {
     func findPotion(id: UUID) -> Potion? {
         guard let index = potions.firstIndex(
             where: {$0.id == id}) else {
-            fatalError("No such potion found")
+            return potions[0]
         }
 
         return potions[index]

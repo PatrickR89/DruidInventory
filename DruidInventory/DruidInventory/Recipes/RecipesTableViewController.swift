@@ -20,7 +20,7 @@ class RecipesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableViewLayout()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
     }
 }
 

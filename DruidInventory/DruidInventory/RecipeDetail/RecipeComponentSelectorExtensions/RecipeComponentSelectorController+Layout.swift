@@ -64,7 +64,7 @@ extension RecipeComponentSelectorViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 30)
         nameLabel.textAlignment = .center
-        nameLabel.textColor = .black
+        nameLabel.textColor = UIColor(named: "textColor")
 
         let centerYConstraint = nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 
@@ -82,7 +82,7 @@ extension RecipeComponentSelectorViewController {
 
         image.image = UIImage(systemName: potion.image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.borderColor = UIColor(named: "textColor")?.cgColor
 
         NSLayoutConstraint.activate([
             image.heightAnchor.constraint(equalToConstant: 200),
@@ -100,7 +100,7 @@ extension RecipeComponentSelectorViewController {
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
         amountTextField.textAlignment = .center
-        amountTextField.textColor = .black
+        amountTextField.textColor = UIColor(named: "textColor")
         amountTextField.delegate = self
         amountTextField.keyboardType = .numberPad
 

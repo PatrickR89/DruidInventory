@@ -69,7 +69,7 @@ class RecipeComponentSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
         configTextFieldLayout()
         configImageLayout()
         configAmountLayout()

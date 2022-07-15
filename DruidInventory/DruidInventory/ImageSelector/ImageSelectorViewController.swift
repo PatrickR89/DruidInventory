@@ -32,7 +32,7 @@ class ImageSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "backgroundColor")
 
         filterUsedImages()
         configCollectionViewLayout()
@@ -55,7 +55,7 @@ class ImageSelectorViewController: UIViewController {
         collectionView.register(ImageSelectorCell.self, forCellWithReuseIdentifier: "image")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = UIColor(named: "backgroundColor")
 
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),

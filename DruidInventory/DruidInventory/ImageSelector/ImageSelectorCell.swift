@@ -19,7 +19,7 @@ class ImageSelectorCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = UIColor(named: "backgroundColor")
     }
 
     required init?(coder: NSCoder) {
