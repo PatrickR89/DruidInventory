@@ -41,6 +41,7 @@ extension RecipesTableViewController: RecipesContainerDelegate {
 
     func deletedRecipe(id: UUID) {
         guard let row = recipeOrder.firstIndex(where: {$0 == id}) else {return}
+        recipeOrder.remove(at: row)
         let section = tableView.numberOfSections - 1
         let indexPath = IndexPath(row: row, section: section)
         tableView.deleteRows(at: [indexPath], with: .none)

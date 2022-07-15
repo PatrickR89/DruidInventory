@@ -37,9 +37,7 @@ extension RecipesTableViewController {
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let id = recipeOrder[indexPath.row]
-            recipeOrder = []
             RecipesContainer.shared.deleteRecipe(id: id)
-            tableView.reloadData()
 
             return nil
         }
