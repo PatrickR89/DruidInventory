@@ -9,5 +9,5 @@ import UIKit
 
 protocol RecipeContainerAmountDelegate: AnyObject {
 
-    func changedPotionAmount(id: UUID, amount: Int)
+    func updatedPotionAmount(id: UUID, amount: Int)
 }

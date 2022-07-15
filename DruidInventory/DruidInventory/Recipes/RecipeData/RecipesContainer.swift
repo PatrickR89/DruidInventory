@@ -69,12 +69,12 @@ class RecipesContainer {
 
     func createPotion(recipe: Recipe) {
         for potion in recipe.potionsInRecipe {
-            delegateToPotions?.changedPotionAmount(id: potion.id, amount: potion.amount)
+            delegateToPotions?.updatedPotionAmount(id: potion.id, amount: potion.amount)
 
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            delegateToPotions?.changedPotionAmount(id: ingredient.id, amount: -ingredient.amount)
+            delegateToPotions?.updatedPotionAmount(id: ingredient.id, amount: -ingredient.amount)
         }
         delegate?.createdPotion(ingredients: recipe.ingredientsInRecipe)
     }
@@ -132,5 +132,4 @@ extension RecipesContainer {
             self.recipes = initialRecipes()
         }
     }
-
 }

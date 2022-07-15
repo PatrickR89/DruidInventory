@@ -102,8 +102,7 @@ class PotionContainer {
 }
 
 extension PotionContainer: RecipeContainerAmountDelegate {
-    func changedPotionAmount(id: UUID, amount: Int) {
-        potions[findPotionIndex(id: id)].amount += amount
-        delegate?.editedPotion(id: id)
+    func updatedPotionAmount(id: UUID, amount: Int) {
+        updatePotionAmount(id: id, amount: amount)
     }
 }
