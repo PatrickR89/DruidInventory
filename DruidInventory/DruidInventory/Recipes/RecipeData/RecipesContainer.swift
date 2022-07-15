@@ -11,6 +11,7 @@ class RecipesContainer {
     static let shared = RecipesContainer()
 
     weak var delegate: RecipesContainerDelegate?
+    weak var delegateToPotions: RecipeContainerAmountDelegate?
 
     private var recipes = [Recipe]() {
         didSet {
@@ -68,12 +69,12 @@ class RecipesContainer {
 
     func createPotion(recipe: Recipe) {
         for potion in recipe.potionsInRecipe {
-            PotionContainer.shared.updatePotionAmount(id: potion.id, amount: potion.amount)
+            delegateToPotions?.changedPotionAmount(id: potion.id, amount: potion.amount)
 
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            PotionContainer.shared.updatePotionAmount(id: ingredient.id, amount: -ingredient.amount)
+            delegateToPotions?.changedPotionAmount(id: ingredient.id, amount: -ingredient.amount)
         }
         delegate?.createdPotion(ingredients: recipe.ingredientsInRecipe)
     }

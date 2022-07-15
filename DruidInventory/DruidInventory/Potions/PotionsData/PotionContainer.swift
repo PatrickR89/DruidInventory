@@ -100,3 +100,10 @@ class PotionContainer {
         }
     }
 }
+
+extension PotionContainer: RecipeContainerAmountDelegate {
+    func changedPotionAmount(id: UUID, amount: Int) {
+        potions[findPotionIndex(id: id)].amount += amount
+        delegate?.editedPotion(id: id)
+    }
+}
