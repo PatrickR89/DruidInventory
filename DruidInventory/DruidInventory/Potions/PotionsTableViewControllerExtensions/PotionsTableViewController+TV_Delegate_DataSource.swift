@@ -30,8 +30,7 @@ extension PotionsTableViewController {
         let id = potionsOrder[indexPath.row]
         guard let potion = PotionContainer.shared.findPotion(id: id) else {return}
         let potionDetailView = PotionDetailViewController(
-            potion: potion,
-            indexPath: indexPath)
+            potion: potion)
 
         self.present(potionDetailView, animated: true)
     }

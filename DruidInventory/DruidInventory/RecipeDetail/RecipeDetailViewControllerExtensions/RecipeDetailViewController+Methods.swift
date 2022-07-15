@@ -81,7 +81,6 @@ extension RecipeDetailViewController {
     func removeComponent(
         type: RecipeComponentType,
         component: Potion,
-        recipeIndexPath: IndexPath,
         componentIndexPath: IndexPath) {
 
             getIndex(type: type, component: component)
@@ -98,7 +97,6 @@ extension RecipeDetailViewController {
             }
 
             appendPlusButton(type: type)
-
         }
 
     // MARK: removeComponent internal functions

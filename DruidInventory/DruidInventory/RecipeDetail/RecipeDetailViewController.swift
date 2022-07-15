@@ -26,8 +26,6 @@ class RecipeDetailViewController: UITableViewController {
         }
     }
 
-    var recipeIndexPath: IndexPath
-
     enum TableRowContent {
 
         case plusButton(type: RecipeComponentType)
@@ -38,10 +36,8 @@ class RecipeDetailViewController: UITableViewController {
 
     var tableContents: [TableRowContent] = [.downArrow, .makeButton]
 
-    required init(recipe: Recipe, recipeIndexPath: IndexPath) {
+    required init(recipe: Recipe) {
         self.recipe = recipe
-        self.recipeIndexPath = recipeIndexPath
-
         super.init(nibName: nil, bundle: nil)
     }
 

@@ -26,8 +26,7 @@ extension RecipesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return}
         let recipeDetailView = RecipeDetailViewController(
-            recipe: recipe,
-            recipeIndexPath: indexPath)
+            recipe: recipe)
 
         self.present(recipeDetailView, animated: true)
 

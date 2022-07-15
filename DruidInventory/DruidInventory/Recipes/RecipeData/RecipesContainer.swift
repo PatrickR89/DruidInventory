@@ -124,8 +124,8 @@ extension RecipesContainer {
 
     func loadAndDecode() {
         do {
-        let response = try String(contentsOf: recipesFile)
-        let data = Data(response.utf8)
+            let response = try String(contentsOf: recipesFile)
+            let data = Data(response.utf8)
             self.recipes = try JSONDecoder().decode([Recipe].self, from: data)
         } catch {
             print("Error occured during loading file")

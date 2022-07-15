@@ -27,8 +27,7 @@ class RecipesTableViewController: UITableViewController {
 extension RecipesTableViewController: HomeTabBarNavActionProvider {
     func addNew() {
         let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
-        let indexPath = IndexPath(row: 0, section: 0)
-        let recipeDetailViewController = RecipeDetailViewController(recipe: recipe, recipeIndexPath: indexPath)
+        let recipeDetailViewController = RecipeDetailViewController(recipe: recipe)
         recipeDetailViewController.isNewRecipe = true
         present(recipeDetailViewController, animated: true)
     }

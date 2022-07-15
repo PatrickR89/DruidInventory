@@ -17,7 +17,6 @@ class PotionDetailViewController: UIViewController {
         }
     }
 
-    var indexPath: IndexPath
     var newPotion = false
 
     var nameTextFieldYConstraint: NSLayoutConstraint?
@@ -30,9 +29,8 @@ class PotionDetailViewController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
-    required init (potion: Potion, indexPath: IndexPath) {
+    required init (potion: Potion) {
         self.potion = potion
-        self.indexPath = indexPath
         super.init(nibName: nil, bundle: nil)
     }
 

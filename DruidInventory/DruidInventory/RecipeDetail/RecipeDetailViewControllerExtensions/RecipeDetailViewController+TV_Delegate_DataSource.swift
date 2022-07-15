@@ -122,7 +122,6 @@ extension RecipeDetailViewController {
                     removeComponent(
                         type: type,
                         component: tempComponent,
-                        recipeIndexPath: recipeIndexPath,
                         componentIndexPath: indexPath)
                 }
             default:

@@ -10,6 +10,7 @@ import UIKit
 class PotionsTableViewController: UITableViewController {
 
     var potionsOrder = [UUID]()
+
     override func viewWillAppear(_ animated: Bool) {
         PotionContainer.shared.delegate = self
     }
