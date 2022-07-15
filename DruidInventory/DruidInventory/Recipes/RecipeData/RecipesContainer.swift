@@ -12,7 +12,7 @@ class RecipesContainer {
 
     weak var delegate: RecipesContainerDelegate?
 
-    var recipes = [Recipe]() {
+    private var recipes = [Recipe]() {
         didSet {
             encodeAndSave()
         }
@@ -37,6 +37,19 @@ class RecipesContainer {
         return index
     }
 
+    func findRecipe(id: UUID) -> Recipe? {
+        guard let index = recipes.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+
+        return recipes[index]
+    }
+
+    func getAllRecipes() -> [Recipe] {
+        return recipes
+    }
+
     func addRecipe(recipe: Recipe) {
         RecipesContainer.shared.recipes.append(recipe)
         delegate?.addedNewRecipe()
@@ -48,7 +61,8 @@ class RecipesContainer {
     }
 
     func deleteRecipe(id: UUID) {
-        RecipesContainer.shared.recipes.remove(at: findRecipeIndex(id: id))
+        let index = findRecipeIndex(id: id)
+        RecipesContainer.shared.recipes.remove(at: index)
         delegate?.deletedRecipe(id: id)
     }
 

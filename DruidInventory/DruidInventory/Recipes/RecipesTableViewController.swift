@@ -13,6 +13,7 @@ class RecipesTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         RecipesContainer.shared.delegate = self
+        recipeOrder = []
         tableView.reloadData()
     }
 
