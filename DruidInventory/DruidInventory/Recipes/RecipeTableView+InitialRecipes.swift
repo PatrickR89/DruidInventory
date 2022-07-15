@@ -26,6 +26,7 @@ extension RecipesContainer {
         potion6.amount = 1
 
         recipes.append( Recipe(
+            id: UUID(),
             ingredientsInRecipe:
                 [potion1,
                  potion3],
@@ -34,6 +35,7 @@ extension RecipesContainer {
 
         recipes.append(
             Recipe(
+                id: UUID(),
                 ingredientsInRecipe:
                     [potion2,
                      potion5,

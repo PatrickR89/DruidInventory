@@ -9,7 +9,7 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
 
-    var ingredients = [Potion]()
+    var recipeOrder = [UUID]()
 
     override func viewWillAppear(_ animated: Bool) {
         RecipesContainer.shared.delegate = self
@@ -25,7 +25,7 @@ class RecipesTableViewController: UITableViewController {
 
 extension RecipesTableViewController: HomeTabBarNavActionProvider {
     func addNew() {
-        let recipe = Recipe(ingredientsInRecipe: [], potionsInRecipe: [])
+        let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
         let indexPath = IndexPath(row: 0, section: 0)
         let recipeDetailViewController = RecipeDetailViewController(recipe: recipe, recipeIndexPath: indexPath)
         recipeDetailViewController.isNewRecipe = true

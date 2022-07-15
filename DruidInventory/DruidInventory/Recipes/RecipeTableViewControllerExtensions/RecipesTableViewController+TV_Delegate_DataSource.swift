@@ -18,6 +18,8 @@ extension RecipesTableViewController {
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
         cell.setupCell(recipe: RecipesContainer.shared.recipes[indexPath.row])
         cell.validateRecipe(ingredients: RecipesContainer.shared.recipes[indexPath.row].ingredientsInRecipe)
+        recipeOrder.append(RecipesContainer.shared.recipes[indexPath.row].id)
+        print(recipeOrder)
         return cell
     }
 

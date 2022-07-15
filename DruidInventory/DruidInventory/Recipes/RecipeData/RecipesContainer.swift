@@ -29,6 +29,14 @@ class RecipesContainer {
         loadAndDecode()
     }
 
+    private func findRecipeIndex(id: UUID) -> Int {
+        guard let index = recipes.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+        return index
+    }
+
     func addRecipe(recipe: Recipe) {
         RecipesContainer.shared.recipes.append(recipe)
         delegate?.addedNewRecipe()

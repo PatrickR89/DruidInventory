@@ -25,7 +25,7 @@ class PotionContainer {
     }
 
     private func findPotionIndex(id: UUID) -> Int {
-        guard let index = PotionContainer.shared.potions.firstIndex(
+        guard let index = potions.firstIndex(
             where: {$0.id == id}) else {
             fatalError("No such potion found")
         }
@@ -33,7 +33,7 @@ class PotionContainer {
     }
 
     func findPotion(id: UUID) -> Potion? {
-        guard let index = PotionContainer.shared.potions.firstIndex(
+        guard let index = potions.firstIndex(
             where: {$0.id == id}) else {
             fatalError("No such potion found")
         }
