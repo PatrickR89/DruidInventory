@@ -52,18 +52,18 @@ class RecipesContainer {
     }
 
     func addRecipe(recipe: Recipe) {
-        RecipesContainer.shared.recipes.append(recipe)
+        recipes.append(recipe)
         delegate?.addedNewRecipe()
     }
 
     func changeRecipe(recipe: Recipe) {
-        RecipesContainer.shared.recipes[findRecipeIndex(id: recipe.id)] = recipe
+        recipes[findRecipeIndex(id: recipe.id)] = recipe
         delegate?.editedRecipe(id: recipe.id)
     }
 
     func deleteRecipe(id: UUID) {
         let index = findRecipeIndex(id: id)
-        RecipesContainer.shared.recipes.remove(at: index)
+        recipes.remove(at: index)
         delegate?.deletedRecipe(id: id)
     }
 
