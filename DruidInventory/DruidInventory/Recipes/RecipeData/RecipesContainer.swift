@@ -12,60 +12,85 @@ class RecipesContainer {
 
     weak var delegate: RecipesContainerDelegate?
 
-    var recipes = [Recipe]()
+    private var recipes = [Recipe]() {
+        didSet {
+            encodeAndSave()
+        }
+    }
 
-    var usedComponents = [String]()
+    var usedComponents = [UUID]()
 
     var filteredComponents = [Potion]()
 
+    let recipesFile = FileManager().getFilePath("recipesJSON.txt")
+
     private init() {
-        self.recipes = testArray()
-        self.filteredComponents = PotionContainer.shared.potions
+        self.filteredComponents = PotionContainer.shared.getAllPotions()
+        loadAndDecode()
+    }
+
+    private func findRecipeIndex(id: UUID) -> Int {
+        guard let index = recipes.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+        return index
+    }
+
+    func findRecipe(id: UUID) -> Recipe? {
+        guard let index = recipes.firstIndex(
+            where: {$0.id == id}) else {
+            fatalError("No such potion found")
+        }
+
+        return recipes[index]
+    }
+
+    func getAllRecipes() -> [Recipe] {
+        return recipes
     }
 
     func addRecipe(recipe: Recipe) {
         RecipesContainer.shared.recipes.append(recipe)
-        delegate?.appendToTableView()
+        delegate?.addedNewRecipe()
     }
 
-    func changeRecipe(recipe: Recipe, indexPath: IndexPath) {
-        RecipesContainer.shared.recipes[indexPath.row] = recipe
-        delegate?.reloadTableViewRow(indexPath: indexPath)
+    func changeRecipe(recipe: Recipe) {
+        RecipesContainer.shared.recipes[findRecipeIndex(id: recipe.id)] = recipe
+        delegate?.editedRecipe(id: recipe.id)
     }
 
-    func deleteRecipe(indexPath: IndexPath) {
-        RecipesContainer.shared.recipes.remove(at: indexPath.row)
-        delegate?.deleteTableRow(indexPath: indexPath)
+    func deleteRecipe(id: UUID) {
+        let index = findRecipeIndex(id: id)
+        RecipesContainer.shared.recipes.remove(at: index)
+        delegate?.deletedRecipe(id: id)
     }
 
-    func reloadRecipe(indexPath: IndexPath) {
-        delegate?.reloadTableViewRow(indexPath: indexPath)
-    }
-
-    func createPotion(recipe: Recipe, recipeIndexPath: IndexPath) {
+    func createPotion(recipe: Recipe) {
         for potion in recipe.potionsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == potion.name}) {
-                PotionContainer.shared.addToPotionsByRecipe(amount: potion.amount, index: index)
-            }
+            PotionContainer.shared.updatePotionAmount(id: potion.id, amount: potion.amount)
+
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                PotionContainer.shared.removeFromPotionsByRecipe(amount: ingredient.amount, index: index)
-            }
+            PotionContainer.shared.updatePotionAmount(id: ingredient.id, amount: -ingredient.amount)
         }
-        delegate?.reloadTableViewRow(indexPath: recipeIndexPath)
+        delegate?.createdPotion(ingredients: recipe.ingredientsInRecipe)
     }
+}
+
+extension RecipesContainer {
 
     func checkIngredients(ingredients: [Potion]) -> Bool {
         var validationArray = [Bool]()
         for ingredient in ingredients {
-            if let index = PotionContainer.shared.potions.firstIndex(where: {$0.name == ingredient.name}) {
-                validationArray.append( PotionContainer.shared.potions[index].amount >= ingredient.amount )
+            if let potion = PotionContainer.shared.findPotion(id: ingredient.id) {
+                validationArray.append( potion.amount >= ingredient.amount )
             } else {
                 validationArray.append(false)
             }
         }
+
         if validationArray.contains(false) || validationArray.isEmpty {
             return false
         } else {
@@ -77,13 +102,34 @@ class RecipesContainer {
         usedComponents = []
 
         for ingredient in recipe.ingredientsInRecipe {
-            usedComponents.append(ingredient.name)
+            usedComponents.append(ingredient.id)
         }
 
         for potion in recipe.potionsInRecipe {
-            usedComponents.append(potion.name)
+            usedComponents.append(potion.id)
         }
-
-        filteredComponents = PotionContainer.shared.potions.filter {!usedComponents.contains($0.name)}
+        let potions = PotionContainer.shared.getAllPotions()
+        filteredComponents = potions.filter {!usedComponents.contains($0.id)}
     }
+
+    func encodeAndSave() {
+        do {
+            let recipesJSON = try JSONEncoder().encode(recipes)
+            try recipesJSON.write(to: recipesFile, options: .atomic)
+        } catch {
+            print("Error occured during saving file")
+        }
+    }
+
+    func loadAndDecode() {
+        do {
+        let response = try String(contentsOf: recipesFile)
+        let data = Data(response.utf8)
+            self.recipes = try JSONDecoder().decode([Recipe].self, from: data)
+        } catch {
+            print("Error occured during loading file")
+            self.recipes = initialRecipes()
+        }
+    }
+
 }

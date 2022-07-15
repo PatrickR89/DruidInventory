@@ -8,18 +8,15 @@
 import UIKit
 
 extension PotionsTableViewController: PotionContainerDelegate {
-    func reloadTableViewRowByRow(row: Int) {
+
+    func editedPotion(id: UUID) {
         let section = tableView.numberOfSections - 1
+        guard let row = PotionContainer.shared.getAllPotions().firstIndex(where: {$0.id == id}) else {return}
         let indexPath = IndexPath(row: row, section: section)
-
         tableView.reloadRows(at: [indexPath], with: .none)
     }
 
-    func reloadTableViewRow(indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .none)
-    }
-
-    func appendToTableView() {
+    func addedNewPotion() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section)
         let indexPath = IndexPath(row: row, section: section)
@@ -29,7 +26,7 @@ extension PotionsTableViewController: PotionContainerDelegate {
 
 extension PotionsTableViewController: HomeTabBarNavActionProvider {
     func addNew() {
-        let potion = Potion(name: "", image: "", amount: 0)
+        let potion = Potion(name: "", image: "", amount: 0, id: UUID())
         let indexPath = IndexPath(row: 0, section: 0)
         let potionDetailViewController = PotionDetailViewController(potion: potion, indexPath: indexPath)
         potionDetailViewController.newPotion = true

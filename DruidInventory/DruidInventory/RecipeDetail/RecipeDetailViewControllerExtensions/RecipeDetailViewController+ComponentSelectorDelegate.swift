@@ -25,7 +25,8 @@ extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
             tableContents[componentIndexPath.row] = RecipeDetailViewController.TableRowContent.component(
                 name: component.name,
                 image: component.image,
-                count: component.amount)
+                count: component.amount,
+                id: component.id)
             tableView.reloadRows(at: [componentIndexPath], with: .none)
 
         }
@@ -56,7 +57,8 @@ extension RecipeDetailViewController: RecipeComponentSelectorDelegate {
         tableContents.insert( RecipeDetailViewController.TableRowContent.component(
             name: component.name,
             image: component.image,
-            count: component.amount), at: componentIndexPath.row)
+            count: component.amount,
+            id: component.id), at: componentIndexPath.row)
         tableView.insertRows(at: [componentIndexPath], with: .none)
     }
 }

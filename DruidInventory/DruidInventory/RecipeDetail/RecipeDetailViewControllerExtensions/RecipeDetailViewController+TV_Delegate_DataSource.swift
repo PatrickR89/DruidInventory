@@ -39,7 +39,7 @@ extension RecipeDetailViewController {
                 enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
 
-        case .component(let name, let image, let count):
+        case .component(let name, let image, let count, _):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
             cell.setupCell(name: name, image: image, count: count)
@@ -58,7 +58,7 @@ extension RecipeDetailViewController {
 
         switch content {
         case .plusButton(let type):
-            let tempComponent = Potion(name: "", image: "", amount: 0)
+            let tempComponent = Potion(name: "", image: "", amount: 0, id: UUID())
 
             recipeComponentManipulation(
                 type: type,
@@ -74,11 +74,11 @@ extension RecipeDetailViewController {
                 self.dismiss(animated: true)
             } else if !isNewRecipe && isRecipeValid && RecipesContainer.shared.checkIngredients(
                 ingredients: recipe.ingredientsInRecipe) {
-                RecipesContainer.shared.createPotion(recipe: recipe, recipeIndexPath: recipeIndexPath)
+                RecipesContainer.shared.createPotion(recipe: recipe)
                 self.dismiss(animated: true)
             }
 
-        case .component(let name, let image, let count):
+        case .component(let name, let image, let count, let id):
 
             if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
                 let type: RecipeComponentType
@@ -88,7 +88,7 @@ extension RecipeDetailViewController {
                     type = RecipeComponentType.outputChange
                 }
 
-                let tempComponent = Potion(name: name, image: image, amount: count)
+                let tempComponent = Potion(name: name, image: image, amount: count, id: id)
                 RecipesContainer.shared.filterComponents(recipe: recipe)
 
                 recipeComponentManipulation(
@@ -107,7 +107,7 @@ extension RecipeDetailViewController {
             let content = tableContents[indexPath.row]
 
             switch content {
-            case .component(let name, let image, let count):
+            case .component(let name, let image, let count, let id):
 
                 if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
                     let type: RecipeComponentType
@@ -117,7 +117,7 @@ extension RecipeDetailViewController {
                         type = RecipeComponentType.outputChange
                     }
 
-                    let tempComponent = Potion(name: name, image: image, amount: count)
+                    let tempComponent = Potion(name: name, image: image, amount: count, id: id)
 
                     removeComponent(
                         type: type,

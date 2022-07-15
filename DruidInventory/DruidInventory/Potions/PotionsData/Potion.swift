@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Potion {
+struct Potion: Codable {
     var name: String
     var image: String
     var amount: Int {
@@ -18,9 +18,5 @@ struct Potion {
         }
     }
 
-    init ( name: String, image: String, amount: Int) {
-        self.name = name
-        self.image = image
-        self.amount = amount
-    }
+    var id: UUID
 }

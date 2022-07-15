@@ -40,7 +40,7 @@ class ImageSelectorViewController: UIViewController {
     }
 
     func filterUsedImages() {
-        for potion in PotionContainer.shared.potions {
+        for potion in PotionContainer.shared.getAllPotions() {
             usedImages.append(potion.image)
         }
 
@@ -84,7 +84,7 @@ extension ImageSelectorViewController: UICollectionViewDataSource {
 
 extension ImageSelectorViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.changeImage(image: images[indexPath.item])
+        delegate?.changedImage(image: images[indexPath.item])
         self.dismiss(animated: true)
     }
 }

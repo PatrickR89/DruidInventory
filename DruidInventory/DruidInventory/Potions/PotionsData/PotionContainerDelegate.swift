@@ -8,7 +8,6 @@
 import UIKit
 
 protocol PotionContainerDelegate: AnyObject {
-    func reloadTableViewRow(indexPath: IndexPath)
-    func reloadTableViewRowByRow(row: Int)
-    func appendToTableView()
+    func editedPotion(id: UUID)
+    func addedNewPotion()
 }

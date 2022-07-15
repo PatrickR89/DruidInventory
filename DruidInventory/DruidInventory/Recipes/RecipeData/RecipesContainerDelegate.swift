@@ -8,7 +8,8 @@
 import UIKit
 
 protocol RecipesContainerDelegate: AnyObject {
-    func appendToTableView()
-    func reloadTableViewRow(indexPath: IndexPath)
-    func deleteTableRow(indexPath: IndexPath)
+    func addedNewRecipe()
+    func editedRecipe(id: UUID)
+    func deletedRecipe(id: UUID)
+    func createdPotion(ingredients: [Potion])
 }

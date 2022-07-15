@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct Recipe {
+struct Recipe: Codable {
+    var id: UUID
     var ingredientsInRecipe: [Potion]
     var potionsInRecipe: [Potion]
 }

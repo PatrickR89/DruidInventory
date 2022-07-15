@@ -30,6 +30,8 @@ extension RecipeComponentSelectorViewController {
         default:
             button.titleLabel?.text = "default"
         }
+
+        ButtonIcons.configButtonIcon(button: button)
     }
 
     func configAmountButtonsLayout(button: UIButton) {
@@ -52,6 +54,8 @@ extension RecipeComponentSelectorViewController {
         default:
             button.titleLabel?.text = "default"
         }
+
+        ButtonIcons.configButtonIcon(button: button)
     }
 
     func configTextFieldLayout() {

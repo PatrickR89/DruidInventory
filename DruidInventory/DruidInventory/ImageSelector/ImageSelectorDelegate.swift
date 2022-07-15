@@ -8,5 +8,5 @@
 import UIKit
 
 protocol ImageSelectorDelegate: AnyObject {
-    func changeImage(image: String)
+    func changedImage(image: String)
 }

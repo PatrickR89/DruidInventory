@@ -56,11 +56,11 @@ extension RecipeComponentSelectorViewController {
         case .inputNew, .outputNew:
             componentRecipeIndex = 0
         case .inputChange:
-            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
         case .outputChange:
-            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.name == potion.name}) {
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
         }
