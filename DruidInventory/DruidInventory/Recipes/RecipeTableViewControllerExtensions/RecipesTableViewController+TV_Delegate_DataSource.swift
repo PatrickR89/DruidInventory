@@ -19,7 +19,6 @@ extension RecipesTableViewController {
         cell.setupCell(recipe: RecipesContainer.shared.recipes[indexPath.row])
         cell.validateRecipe(ingredients: RecipesContainer.shared.recipes[indexPath.row].ingredientsInRecipe)
         recipeOrder.append(RecipesContainer.shared.recipes[indexPath.row].id)
-        print(recipeOrder)
         return cell
     }
 
@@ -35,7 +34,8 @@ extension RecipesTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            RecipesContainer.shared.deleteRecipe(indexPath: indexPath)
+            let id = recipeOrder[indexPath.row]
+            RecipesContainer.shared.deleteRecipe(id: id)
 
             return nil
         }

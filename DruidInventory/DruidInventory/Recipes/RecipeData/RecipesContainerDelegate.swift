@@ -9,7 +9,7 @@ import UIKit
 
 protocol RecipesContainerDelegate: AnyObject {
     func addedNewRecipe()
-    func editedRecipe(indexPath: IndexPath)
-    func deletedRecipe(indexPath: IndexPath)
+    func editedRecipe(id: UUID)
+    func deletedRecipe(id: UUID)
     func createdPotion(ingredients: [Potion])
 }

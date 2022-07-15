@@ -28,11 +28,21 @@ extension RecipesTableViewController {
 }
 
 extension RecipesTableViewController: RecipesContainerDelegate {
+    func editedRecipe(id: UUID) {
+        guard let row = recipeOrder.firstIndex(where: {$0 == id}) else {return}
+        let section = tableView.numberOfSections - 1
+        let indexPath = IndexPath(row: row, section: section)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+
     func createdPotion(ingredients: [Potion]) {
         reloadTableViewOnIngredients(ingredients: ingredients)
     }
 
-    func deletedRecipe(indexPath: IndexPath) {
+    func deletedRecipe(id: UUID) {
+        guard let row = recipeOrder.firstIndex(where: {$0 == id}) else {return}
+        let section = tableView.numberOfSections - 1
+        let indexPath = IndexPath(row: row, section: section)
         tableView.deleteRows(at: [indexPath], with: .none)
     }
 
@@ -41,9 +51,5 @@ extension RecipesTableViewController: RecipesContainerDelegate {
         let row = tableView.numberOfRows(inSection: section)
         let indexPath = IndexPath(row: row, section: section)
         tableView.insertRows(at: [indexPath], with: .none)
-    }
-
-    func editedRecipe(indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

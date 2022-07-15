@@ -42,14 +42,14 @@ class RecipesContainer {
         delegate?.addedNewRecipe()
     }
 
-    func changeRecipe(recipe: Recipe, indexPath: IndexPath) {
-        RecipesContainer.shared.recipes[indexPath.row] = recipe
-        delegate?.editedRecipe(indexPath: indexPath)
+    func changeRecipe(recipe: Recipe) {
+        RecipesContainer.shared.recipes[findRecipeIndex(id: recipe.id)] = recipe
+        delegate?.editedRecipe(id: recipe.id)
     }
 
-    func deleteRecipe(indexPath: IndexPath) {
-        RecipesContainer.shared.recipes.remove(at: indexPath.row)
-        delegate?.deletedRecipe(indexPath: indexPath)
+    func deleteRecipe(id: UUID) {
+        RecipesContainer.shared.recipes.remove(at: findRecipeIndex(id: id))
+        delegate?.deletedRecipe(id: id)
     }
 
     func createPotion(recipe: Recipe) {
