@@ -9,8 +9,16 @@ import UIKit
 
 class RecipeDetailComponentCell: UITableViewCell {
 
-    var amount = UILabel()
+    var amountLabel = UILabel()
+    var type: RecipeComponentType?
+
+    var amount = 0 {
+        didSet {
+            configImageColor()
+        }
+    }
     var imageDisplay = UIImageView()
+    var id = UUID()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,23 +34,37 @@ class RecipeDetailComponentCell: UITableViewCell {
 
 extension RecipeDetailComponentCell {
 
-    func setupCell(name: String, image: String, count: Int) {
-        amount.text = "\(count)x"
+    func setupCell(id: UUID, image: String, count: Int, type: RecipeComponentType) {
+        amountLabel.text = "\(count)x"
+        self.amount = count
         imageDisplay.image = UIImage(systemName: image)
+        self.id = id
+        self.type = type
+        configImageColor()
     }
 
     func configItemViewLayout() {
-        contentView.addSubview(amount)
-        amount.translatesAutoresizingMaskIntoConstraints = false
-        amount.textColor = UIColor(named: "textColor")
+        contentView.addSubview(amountLabel)
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
+        amountLabel.textColor = UIColor(named: "textColor")
         contentView.addSubview(imageDisplay)
         imageDisplay.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            amount.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            amount.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -15),
+            amountLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            amountLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -15),
             imageDisplay.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imageDisplay.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 15)
         ])
+    }
+
+    func configImageColor() {
+        guard let potion = PotionContainer.shared.findPotion(id: id) else {return}
+
+        if potion.amount < amount && type == .inputChange {
+            imageDisplay.tintColor = .red
+        } else {
+            imageDisplay.tintColor = .systemBlue
+        }
     }
 }

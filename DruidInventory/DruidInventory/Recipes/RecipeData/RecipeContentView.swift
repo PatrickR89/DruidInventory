@@ -31,9 +31,9 @@ class RecipeContentView: UIView {
         ])
     }
 
-    func configImageColor(componentId: UUID) {
+    func configImageColor(componentId: UUID, componentAmount: Int) {
         guard let potion = PotionContainer.shared.findPotion(id: componentId) else {return}
-        if potion.amount <= 0 {
+        if potion.amount < componentAmount {
             imageView.tintColor = .red
         } else {
             imageView.tintColor = .systemBlue

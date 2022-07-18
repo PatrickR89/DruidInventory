@@ -39,10 +39,19 @@ extension RecipeDetailViewController {
                 enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
 
-        case .component(let name, let image, let count, _):
+        case .component(_, let image, let count, let id):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
-            cell.setupCell(name: name, image: image, count: count)
+            guard let index = tableContents.firstIndex(
+                of: RecipeDetailViewController.TableRowContent.downArrow) else {return cell}
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
+                }
+
+            cell.setupCell(id: id, image: image, count: count, type: type)
             return cell
         }
     }

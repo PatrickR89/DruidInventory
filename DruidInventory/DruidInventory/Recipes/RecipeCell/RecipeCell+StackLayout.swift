@@ -51,11 +51,14 @@ extension RecipeCell {
         for component in array {
             let itemView = RecipeContentView(image: component.image)
             itemView.configImageViewLayout()
-            itemView.configImageColor(componentId: component.id)
             stackView.addArrangedSubview(itemView)
             NSLayoutConstraint.activate([
                 itemView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
+
+            if stackView == ingredientsStack {
+                itemView.configImageColor(componentId: component.id, componentAmount: component.amount)
+            }
         }
     }
 }
