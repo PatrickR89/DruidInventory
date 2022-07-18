@@ -107,7 +107,8 @@ extension RecipeComponentSelectorViewController {
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             amountTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
-            amountTextField.widthAnchor.constraint(equalTo: amountTextField.heightAnchor)
+            amountTextField.widthAnchor.constraint(equalToConstant: 100),
+            amountTextField.heightAnchor.constraint(equalToConstant: 45)
         ])
 
     }

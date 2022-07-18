@@ -69,7 +69,8 @@ extension PotionDetailViewController {
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             amountTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
-            amountTextField.widthAnchor.constraint(equalTo: amountTextField.heightAnchor)
+            amountTextField.widthAnchor.constraint(equalToConstant: 100),
+            amountTextField.heightAnchor.constraint(equalToConstant: 45)
         ])
 
     }
