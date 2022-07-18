@@ -13,6 +13,10 @@ extension RecipesTableViewController {
         RecipesContainer.shared.getAllRecipes().count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
