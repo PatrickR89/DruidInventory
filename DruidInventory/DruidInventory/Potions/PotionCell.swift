@@ -15,11 +15,6 @@ class PotionCell: UITableViewCell {
     var amount = 0 {
         didSet {
             amountLabel.text = "Qty: \(amount)"
-            if amount <= 0 {
-                cellImageView.tintColor = .red
-            } else {
-                cellImageView.tintColor = .systemBlue
-            }
         }
     }
 
