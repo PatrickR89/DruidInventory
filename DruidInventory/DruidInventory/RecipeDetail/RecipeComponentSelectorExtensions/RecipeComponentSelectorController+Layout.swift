@@ -71,7 +71,8 @@ extension RecipeComponentSelectorViewController {
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             centerYConstraint,
-            nameLabel.widthAnchor.constraint(equalToConstant: 200)
+            nameLabel.widthAnchor.constraint(equalToConstant: 200),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
 
         self.nameLabelYConstraint = centerYConstraint
