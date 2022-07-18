@@ -80,11 +80,9 @@ extension PotionDetailViewController {
 
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalTo: amountTextField.widthAnchor),
-            button.heightAnchor.constraint(equalTo: button.widthAnchor),
-            button.centerYAnchor.constraint(equalTo: amountTextField.centerYAnchor)
+            button.centerYAnchor.constraint(equalTo: amountTextField.centerYAnchor),
+            button.heightAnchor.constraint(equalTo: amountTextField.heightAnchor)
         ])
-        button.contentMode = .scaleAspectFill
 
         switch button {
         case buttonPlus:
