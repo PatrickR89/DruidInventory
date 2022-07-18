@@ -13,7 +13,11 @@ class PotionDetailViewController: UIViewController {
         didSet {
             amountTextField.text = String(potion.amount)
             imageView.image = UIImage(systemName: potion.image)
-
+            if potion.amount == 0 {
+                imageView.tintColor = .red
+            } else {
+                imageView.tintColor = .systemBlue
+            }
         }
     }
 

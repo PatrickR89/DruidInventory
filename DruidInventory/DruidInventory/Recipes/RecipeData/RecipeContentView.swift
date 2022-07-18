@@ -30,4 +30,13 @@ class RecipeContentView: UIView {
             self.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
+
+    func configImageColor(componentId: UUID) {
+        guard let potion = PotionContainer.shared.findPotion(id: componentId) else {return}
+        if potion.amount <= 0 {
+            imageView.tintColor = .red
+        } else {
+            imageView.tintColor = .systemBlue
+        }
+    }
 }
