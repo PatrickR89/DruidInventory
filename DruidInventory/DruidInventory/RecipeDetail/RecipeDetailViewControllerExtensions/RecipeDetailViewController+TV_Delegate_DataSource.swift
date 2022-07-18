@@ -120,17 +120,18 @@ extension RecipeDetailViewController {
 
                 let tempComponent = Potion(name: name, image: image, amount: count, id: id)
 
-                let deleteRecipe = UIContextualAction(
+                let removeIngredient = UIContextualAction(
                     style: .normal,
-                    title: "DELETE") {_, _, completitionHandler in
+                    title: "REMOVE") {_, _, completitionHandler in
                         self.removeComponent(
                             type: type,
                             component: tempComponent,
                             componentIndexPath: indexPath)
                         completitionHandler(true)
                     }
+                removeIngredient.backgroundColor = UIColor(named: "swipeTrailingThree")
 
-                let swipeConfig = UISwipeActionsConfiguration(actions: [deleteRecipe])
+                let swipeConfig = UISwipeActionsConfiguration(actions: [removeIngredient])
 
                 swipeConfig.performsFirstActionWithFullSwipe = false
 

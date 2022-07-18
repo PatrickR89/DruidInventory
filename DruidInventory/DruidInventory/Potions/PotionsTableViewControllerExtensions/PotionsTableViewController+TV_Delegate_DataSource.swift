@@ -61,7 +61,11 @@ extension PotionsTableViewController {
                     completitionHandler(true)
                 }
 
-            let swipeConfig = UISwipeActionsConfiguration(actions: [addOneAction, addTwoAction, addFiveAction])
+            addOneAction.backgroundColor = UIColor(named: "swipeLeadingOne")
+            addTwoAction.backgroundColor = UIColor(named: "swipeLeadingTwo")
+            addFiveAction.backgroundColor = UIColor(named: "swipeLeadingThree")
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [addFiveAction, addTwoAction, addOneAction])
 
             swipeConfig.performsFirstActionWithFullSwipe = false
 
@@ -94,7 +98,11 @@ extension PotionsTableViewController {
                     completitionHandler(true)
                 }
 
-            let swipeConfig = UISwipeActionsConfiguration(actions: [reduceOneAction, reduceTwoAction, reduceFiveAction])
+            reduceOneAction.backgroundColor = UIColor(named: "swipeTrailingOne")
+            reduceTwoAction.backgroundColor = UIColor(named: "swipeTrailingTwo")
+            reduceFiveAction.backgroundColor = UIColor(named: "swipeTrailingThree")
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [reduceFiveAction, reduceTwoAction, reduceOneAction])
 
             swipeConfig.performsFirstActionWithFullSwipe = false
 
