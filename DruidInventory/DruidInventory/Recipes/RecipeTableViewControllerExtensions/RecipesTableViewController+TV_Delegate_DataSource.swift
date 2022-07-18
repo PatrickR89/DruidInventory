@@ -35,21 +35,42 @@ extension RecipesTableViewController {
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let id = recipeOrder[indexPath.row]
-            RecipesContainer.shared.deleteRecipe(id: id)
 
-            return nil
+            guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
+            let ingredients = recipe.ingredientsInRecipe
+
+            let makePotion = UIContextualAction(
+                style: .normal,
+                title: "MAKE") {_, _, completitionHandler in
+                    if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                        RecipesContainer.shared.createPotion(recipe: recipe)
+                    }
+                    completitionHandler(true)
+                }
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
-            let ingredients = recipe.ingredientsInRecipe
-            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
-                RecipesContainer.shared.createPotion(recipe: recipe)
-            }
-            reloadTableViewOnIngredients(ingredients: ingredients)
-            return nil
+            let id = recipeOrder[indexPath.row]
+
+            let deleteRecipe = UIContextualAction(
+                style: .normal,
+                title: "DELETE") {_, _, completitionHandler in
+                    RecipesContainer.shared.deleteRecipe(id: id)
+                    completitionHandler(true)
+                }
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [deleteRecipe])
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 }

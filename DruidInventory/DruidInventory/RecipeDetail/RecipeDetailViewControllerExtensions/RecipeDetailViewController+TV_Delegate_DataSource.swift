@@ -109,25 +109,35 @@ extension RecipeDetailViewController {
             switch content {
             case .component(let name, let image, let count, let id):
 
-                if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
-                    let type: RecipeComponentType
-                    if indexPath.row < index {
-                        type = RecipeComponentType.inputChange
-                    } else {
-                        type = RecipeComponentType.outputChange
+                guard let index = tableContents.firstIndex(
+                    of: RecipeDetailViewController.TableRowContent.downArrow) else {return nil}
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
+                }
+
+                let tempComponent = Potion(name: name, image: image, amount: count, id: id)
+
+                let deleteRecipe = UIContextualAction(
+                    style: .normal,
+                    title: "DELETE") {_, _, completitionHandler in
+                        self.removeComponent(
+                            type: type,
+                            component: tempComponent,
+                            componentIndexPath: indexPath)
+                        completitionHandler(true)
                     }
 
-                    let tempComponent = Potion(name: name, image: image, amount: count, id: id)
+                let swipeConfig = UISwipeActionsConfiguration(actions: [deleteRecipe])
 
-                    removeComponent(
-                        type: type,
-                        component: tempComponent,
-                        componentIndexPath: indexPath)
-                }
+                swipeConfig.performsFirstActionWithFullSwipe = false
+
+                return swipeConfig
+
             default:
                 return nil
             }
-
-            return nil
         }
 }

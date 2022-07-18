@@ -39,17 +39,66 @@ extension PotionsTableViewController {
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let id = potionsOrder[indexPath.row]
-            PotionContainer.shared.updatePotionAmount(id: id, amount: -1)
-            return nil
+
+            let addOneAction = UIContextualAction(
+                style: .normal,
+                title: "+1") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: 1)
+                    completitionHandler(true)
+                }
+
+            let addTwoAction = UIContextualAction(
+                style: .normal,
+                title: "+2") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: 2)
+                    completitionHandler(true)
+                }
+
+            let addFiveAction = UIContextualAction(
+                style: .normal,
+                title: "+5") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: 5)
+                    completitionHandler(true)
+                }
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [addOneAction, addTwoAction, addFiveAction])
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
             let id = potionsOrder[indexPath.row]
-            PotionContainer.shared.updatePotionAmount(id: id, amount: 1)
 
-            return nil
+            let reduceOneAction = UIContextualAction(
+                style: .normal,
+                title: "-1") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: -1)
+                    completitionHandler(true)
+                }
+
+            let reduceTwoAction = UIContextualAction(
+                style: .normal,
+                title: "-2") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: -2)
+                    completitionHandler(true)
+                }
+
+            let reduceFiveAction = UIContextualAction(
+                style: .normal,
+                title: "-5") {_, _, completitionHandler in
+                    PotionContainer.shared.updatePotionAmount(id: id, amount: -5)
+                    completitionHandler(true)
+                }
+
+            let swipeConfig = UISwipeActionsConfiguration(actions: [reduceOneAction, reduceTwoAction, reduceFiveAction])
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
