@@ -41,7 +41,6 @@ extension PotionCell {
         NSLayoutConstraint.activate([
             cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cellImageView.widthAnchor.constraint(equalToConstant: 30),
             cellImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
