@@ -13,10 +13,12 @@ class PotionContainer {
     private var potions = [Potion]() {
         didSet {
             encodeAndSave()
+            delegateToRecipes?.potionsUpdated(potions: potions)
         }
     }
 
     weak var delegate: PotionContainerDelegate?
+    weak var delegateToRecipes: PotionsContainerUpdateDelegate?
 
     let potionsFile = FileManager().getFilePath("potionsJSON.txt")
 

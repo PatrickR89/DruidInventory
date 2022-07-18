@@ -24,7 +24,6 @@ struct ButtonIcons {
                 btnImageView.widthAnchor.constraint(equalToConstant: image.size.width * 2 + 1),
                 btnImageView.heightAnchor.constraint(equalToConstant: image.size.height * 2 + 1)
             ])
-            print("width \(image.size.width) height \(image.size.height)")
         }
     }
 }

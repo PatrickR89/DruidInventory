@@ -133,3 +133,9 @@ extension RecipesContainer {
         }
     }
 }
+
+extension RecipesContainer: PotionsContainerUpdateDelegate {
+    func potionsUpdated(potions: [Potion]) {
+        self.filteredComponents = potions
+    }
+}

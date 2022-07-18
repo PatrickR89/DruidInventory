@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             RecipesContainer.shared.delegateToPotions = PotionContainer.shared.self
+            PotionContainer.shared.delegateToRecipes = RecipesContainer.shared.self
 
         return true
     }
