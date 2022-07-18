@@ -29,6 +29,8 @@ extension RecipesTableViewController: HomeTabBarNavActionProvider {
         let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
         let recipeDetailViewController = RecipeDetailViewController(recipe: recipe)
         recipeDetailViewController.isNewRecipe = true
-        present(recipeDetailViewController, animated: true)
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeDetailViewController]
+        present(navController, animated: true)
     }
 }

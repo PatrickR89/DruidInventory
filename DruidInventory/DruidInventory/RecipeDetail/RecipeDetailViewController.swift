@@ -18,7 +18,7 @@ class RecipeDetailViewController: UITableViewController {
             validateRecipe()
         }
     }
-
+    var buttonTitle = "DONE"
     var isNewRecipe = false
     var isRecipeValid = false {
         didSet {
@@ -38,6 +38,9 @@ class RecipeDetailViewController: UITableViewController {
 
     required init(recipe: Recipe) {
         self.recipe = recipe
+        if recipe.ingredientsInRecipe.count < 1 && recipe.potionsInRecipe.count < 1 {
+            buttonTitle = "BACK"
+        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -49,7 +52,7 @@ class RecipeDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "DONE",
+            title: buttonTitle,
             style: .done,
             target: self,
             action: #selector(dismissOnTap))

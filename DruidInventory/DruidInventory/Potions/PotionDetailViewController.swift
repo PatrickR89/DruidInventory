@@ -16,6 +16,8 @@ class PotionDetailViewController: UIViewController {
         }
     }
 
+    var buttonTitle = "DONE"
+
     var newPotion = false
 
     var nameTextFieldYConstraint: NSLayoutConstraint?
@@ -30,6 +32,9 @@ class PotionDetailViewController: UIViewController {
 
     required init (potion: Potion) {
         self.potion = potion
+        if potion.name == "" {
+            buttonTitle = "BACK"
+        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -41,7 +46,7 @@ class PotionDetailViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "DONE",
+            title: buttonTitle,
             style: .done,
             target: self,
             action: #selector(dismissOnTap))

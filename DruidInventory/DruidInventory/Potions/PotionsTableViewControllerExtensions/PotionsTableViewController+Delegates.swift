@@ -29,6 +29,8 @@ extension PotionsTableViewController: HomeTabBarNavActionProvider {
         let potion = Potion(name: "", image: "", amount: 0, id: UUID())
         let potionDetailViewController = PotionDetailViewController(potion: potion)
         potionDetailViewController.newPotion = true
-        present(potionDetailViewController, animated: true)
+        let navController = UINavigationController()
+        navController.viewControllers = [potionDetailViewController]
+        present(navController, animated: true)
     }
 }
