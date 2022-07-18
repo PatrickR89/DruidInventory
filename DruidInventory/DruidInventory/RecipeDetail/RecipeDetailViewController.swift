@@ -47,6 +47,13 @@ class RecipeDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "DONE",
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
         appendPlusButtons()
         configTableViewLayout()
         appendItemsToContent()
@@ -54,6 +61,9 @@ class RecipeDetailViewController: UITableViewController {
         view.backgroundColor = UIColor(named: "backgroundColor")
     }
 
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
+    }
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {

@@ -40,6 +40,13 @@ class PotionDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "DONE",
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
         view.backgroundColor = UIColor(named: "backgroundColor")
         self.configTextFieldLayout()
         configImageLayout()
@@ -51,5 +58,10 @@ class PotionDetailViewController: UIViewController {
         }
         enableKeyboardObserver()
         hideKeyboardOnTap()
+
+    }
+
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
     }
 }

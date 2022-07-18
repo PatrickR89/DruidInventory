@@ -27,8 +27,10 @@ extension RecipesTableViewController {
         guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return}
         let recipeDetailView = RecipeDetailViewController(
             recipe: recipe)
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeDetailView]
 
-        self.present(recipeDetailView, animated: true)
+        self.present(navController, animated: true)
 
     }
 

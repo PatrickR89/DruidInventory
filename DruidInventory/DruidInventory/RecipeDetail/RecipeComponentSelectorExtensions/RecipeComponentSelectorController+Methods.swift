@@ -55,14 +55,17 @@ extension RecipeComponentSelectorViewController {
         switch componentType {
         case .inputNew, .outputNew:
             componentRecipeIndex = 0
+            buttonTitle = "BACK"
         case .inputChange:
             if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
+            buttonTitle = "DONE"
         case .outputChange:
             if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
+            buttonTitle = "DONE"
         }
     }
 }

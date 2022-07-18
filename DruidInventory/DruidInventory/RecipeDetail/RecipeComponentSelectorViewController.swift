@@ -56,6 +56,8 @@ class RecipeComponentSelectorViewController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
+    var buttonTitle = "DONE"
+
     required init(componentIndexPath: IndexPath, type: RecipeComponentType, potion: Potion) {
         self.componentIndexPath = componentIndexPath
         self.componentType = type
@@ -69,6 +71,13 @@ class RecipeComponentSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: buttonTitle,
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
         view.backgroundColor = UIColor(named: "backgroundColor")
         configTextFieldLayout()
         configImageLayout()
@@ -92,6 +101,10 @@ class RecipeComponentSelectorViewController: UIViewController {
 
         hideKeyboardOnTap()
         enableKeyboardObserver()
+    }
+
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
     }
 }
 

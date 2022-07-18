@@ -69,13 +69,16 @@ extension RecipeDetailViewController {
         component: Potion,
         componentIndexPath: IndexPath) {
 
+            let navController = UINavigationController()
             let recipeComponentSelector = RecipeComponentSelectorViewController(
                 componentIndexPath: componentIndexPath,
                 type: type, potion: component)
             recipeComponentSelector.delegate = self
 
             recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)
-            present(recipeComponentSelector, animated: true)
+
+            navController.viewControllers = [recipeComponentSelector]
+            present(navController, animated: true)
         }
 
     func removeComponent(

@@ -31,8 +31,9 @@ extension PotionsTableViewController {
         guard let potion = PotionContainer.shared.findPotion(id: id) else {return}
         let potionDetailView = PotionDetailViewController(
             potion: potion)
-
-        self.present(potionDetailView, animated: true)
+        let navController = UINavigationController()
+        navController.viewControllers = [potionDetailView]
+        self.present(navController, animated: true, completion: nil)
     }
 
     override func tableView(
