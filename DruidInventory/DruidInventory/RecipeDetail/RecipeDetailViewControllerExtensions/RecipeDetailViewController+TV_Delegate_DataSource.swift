@@ -138,7 +138,7 @@ extension RecipeDetailViewController {
                             componentIndexPath: indexPath)
                         completitionHandler(true)
                     }
-                removeIngredient.backgroundColor = UIColor(named: "swipeTrailingThree")
+                removeIngredient.backgroundColor = ColorContainer.lightRedSwipe
 
                 let swipeConfig = UISwipeActionsConfiguration(actions: [removeIngredient])
 

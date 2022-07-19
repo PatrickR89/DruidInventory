@@ -12,7 +12,7 @@ extension RecipeDetailViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = ColorContainer.backgroundColor
 
         RecipeDetailComponentCell.register(in: tableView)
         RecipeDetailPlusCell.register(in: tableView)

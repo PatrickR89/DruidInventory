@@ -12,6 +12,8 @@ extension RecipeComponentSelectorViewController {
     func configPrevNextButtonLayout(button: UIButton) {
         view.addSubview(button)
 
+        button.imageView?.tintColor = ColorContainer.standardBlue
+
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.centerYAnchor.constraint(equalTo: image.centerYAnchor)
@@ -35,7 +37,7 @@ extension RecipeComponentSelectorViewController {
 
         if RecipesContainer.shared.filteredComponents.count <= 1 {
             button.isUserInteractionEnabled = false
-            button.imageView?.tintColor = .lightGray
+            button.imageView?.tintColor = ColorContainer.disabledItem
         }
     }
 
@@ -69,7 +71,7 @@ extension RecipeComponentSelectorViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 30)
         nameLabel.textAlignment = .center
-        nameLabel.textColor = UIColor(named: "textColor")
+        nameLabel.textColor = ColorContainer.textColor
 
         let centerYConstraint = nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 
@@ -88,7 +90,7 @@ extension RecipeComponentSelectorViewController {
 
         image.image = UIImage(systemName: potion.image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderColor = UIColor(named: "textColor")?.cgColor
+        image.layer.borderColor = ColorContainer.textColor.cgColor
 
         NSLayoutConstraint.activate([
             image.heightAnchor.constraint(equalToConstant: 200),
@@ -106,7 +108,7 @@ extension RecipeComponentSelectorViewController {
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
         amountTextField.textAlignment = .center
-        amountTextField.textColor = UIColor(named: "textColor")
+        amountTextField.textColor = ColorContainer.textColor
         amountTextField.delegate = self
         amountTextField.keyboardType = .numberPad
 
@@ -122,7 +124,7 @@ extension RecipeComponentSelectorViewController {
     func configAddButtonLayout() {
         view.addSubview(buttonAdd)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
-        buttonAdd.backgroundColor = .systemBlue
+        buttonAdd.backgroundColor = ColorContainer.standardBlue
         buttonAdd.addTarget(self, action: #selector(addNewOnTap), for: .touchUpInside)
 
         switch componentType {

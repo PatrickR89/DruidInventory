@@ -52,9 +52,9 @@ class RecipeCell: UITableViewCell {
     func validateRecipe(ingredients: [Potion]) {
 
         if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
-            contentView.backgroundColor = UIColor(named: "backgroundColor")
+            contentView.backgroundColor = ColorContainer.backgroundColor
         } else {
-            contentView.backgroundColor = UIColor(named: "disabled")
+            contentView.backgroundColor = ColorContainer.disabledBackground
         }
     }
 }

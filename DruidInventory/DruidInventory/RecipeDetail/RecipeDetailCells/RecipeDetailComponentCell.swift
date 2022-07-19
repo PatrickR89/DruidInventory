@@ -24,7 +24,7 @@ class RecipeDetailComponentCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configItemViewLayout()
-        contentView.backgroundColor = UIColor(named: "backgroundColor")
+        contentView.backgroundColor = ColorContainer.backgroundColor
     }
 
     required init?(coder: NSCoder) {
@@ -46,7 +46,7 @@ extension RecipeDetailComponentCell {
     func configItemViewLayout() {
         contentView.addSubview(amountLabel)
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
-        amountLabel.textColor = UIColor(named: "textColor")
+        amountLabel.textColor = ColorContainer.textColor
         contentView.addSubview(imageDisplay)
         imageDisplay.translatesAutoresizingMaskIntoConstraints = false
 
@@ -62,9 +62,9 @@ extension RecipeDetailComponentCell {
         guard let potion = PotionContainer.shared.findPotion(id: id) else {return}
 
         if potion.amount < amount && type == .inputChange {
-            imageDisplay.tintColor = .red
+            imageDisplay.tintColor = ColorContainer.standardRed
         } else {
-            imageDisplay.tintColor = .systemBlue
+            imageDisplay.tintColor = ColorContainer.standardBlue
         }
     }
 }

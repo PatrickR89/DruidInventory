@@ -51,7 +51,7 @@ class PotionDetailViewController: UIViewController {
             target: self,
             action: #selector(dismissOnTap))
 
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = ColorContainer.backgroundColor
         self.configTextFieldLayout()
         configImageLayout()
         configAmountLayout()

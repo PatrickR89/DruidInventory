@@ -78,7 +78,7 @@ class RecipeComponentSelectorViewController: UIViewController {
             target: self,
             action: #selector(dismissOnTap))
 
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = ColorContainer.backgroundColor
         configTextFieldLayout()
         configImageLayout()
         configAmountLayout()

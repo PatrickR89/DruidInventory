@@ -18,7 +18,7 @@ class PotionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = ColorContainer.backgroundColor
 
         setupTableView()
     }

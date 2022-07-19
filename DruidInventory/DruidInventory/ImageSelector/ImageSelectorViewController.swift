@@ -38,7 +38,7 @@ class ImageSelectorViewController: UIViewController {
             target: self,
             action: #selector(dismissOnTap))
 
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = ColorContainer.backgroundColor
 
         filterUsedImages()
         configCollectionViewLayout()
@@ -61,7 +61,7 @@ class ImageSelectorViewController: UIViewController {
         collectionView.register(ImageSelectorCell.self, forCellWithReuseIdentifier: "image")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor(named: "backgroundColor")
+        collectionView.backgroundColor = ColorContainer.backgroundColor
 
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),

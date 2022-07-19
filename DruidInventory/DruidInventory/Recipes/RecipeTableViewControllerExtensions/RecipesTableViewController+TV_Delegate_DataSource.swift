@@ -53,7 +53,7 @@ extension RecipesTableViewController {
                         }
                         completitionHandler(true)
                     }
-                makePotion.backgroundColor = UIColor(named: "swipeLeadingThree")
+                makePotion.backgroundColor = ColorContainer.lightGreenSwipe
                 let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
 
                 swipeConfig.performsFirstActionWithFullSwipe = false
@@ -77,7 +77,7 @@ extension RecipesTableViewController {
                     completitionHandler(true)
                 }
 
-            deleteRecipe.backgroundColor = UIColor(named: "swipeTrailingThree")
+            deleteRecipe.backgroundColor = ColorContainer.lightRedSwipe
             let swipeConfig = UISwipeActionsConfiguration(actions: [deleteRecipe])
 
             swipeConfig.performsFirstActionWithFullSwipe = false

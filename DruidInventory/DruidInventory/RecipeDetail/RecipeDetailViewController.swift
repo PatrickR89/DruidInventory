@@ -63,7 +63,7 @@ class RecipeDetailViewController: UITableViewController {
         configTableViewLayout()
         appendItemsToContent()
         validateRecipe()
-        view.backgroundColor = UIColor(named: "backgroundColor")
+        view.backgroundColor = ColorContainer.backgroundColor
     }
 
     @objc func dismissOnTap () {
