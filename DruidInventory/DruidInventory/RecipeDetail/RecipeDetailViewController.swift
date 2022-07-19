@@ -51,6 +51,8 @@ class RecipeDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        RecipesContainer.shared.filterComponents(recipe: recipe)
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: buttonTitle,
             style: .done,
