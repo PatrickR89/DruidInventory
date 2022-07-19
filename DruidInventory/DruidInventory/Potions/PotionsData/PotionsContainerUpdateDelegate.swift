@@ -9,4 +9,6 @@ import UIKit
 
 protocol PotionsContainerUpdateDelegate: AnyObject {
     func potionsUpdated(potions: [Potion])
+    func potionNameUpdated(id: UUID, name: String)
+    func potionImageUpdated(id: UUID, image: String)
 }

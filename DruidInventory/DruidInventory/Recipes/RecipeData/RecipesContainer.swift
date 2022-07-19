@@ -135,6 +135,32 @@ extension RecipesContainer {
 }
 
 extension RecipesContainer: PotionsContainerUpdateDelegate {
+    func potionNameUpdated(id: UUID, name: String) {
+        for (recipeIndex, recipe) in recipes.enumerated() {
+
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].ingredientsInRecipe[index].name = name
+            }
+
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].potionsInRecipe[index].name = name
+            }
+        }
+    }
+
+    func potionImageUpdated(id: UUID, image: String) {
+        for (recipeIndex, recipe) in recipes.enumerated() {
+
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].ingredientsInRecipe[index].image = image
+            }
+
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].potionsInRecipe[index].image = image
+            }
+        }
+    }
+
     func potionsUpdated(potions: [Potion]) {
         self.filteredComponents = potions
     }

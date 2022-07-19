@@ -51,6 +51,7 @@ class PotionContainer {
 
         potions[findPotionIndex(id: id)].name = name
         delegate?.editedPotion(id: id)
+        delegateToRecipes?.potionNameUpdated(id: id, name: name)
     }
 
     func updatePotionAmount(id: UUID, amount: Int) {
@@ -68,6 +69,7 @@ class PotionContainer {
 
         potions[findPotionIndex(id: id)].image = image
         delegate?.editedPotion(id: id)
+        delegateToRecipes?.potionImageUpdated(id: id, image: image)
     }
 
     func addNewPotion(potion: Potion) {
@@ -91,15 +93,19 @@ class PotionContainer {
             self.potions = try JSONDecoder().decode([Potion].self, from: data)
         } catch {
             print("Error occured during loading file: \(error)")
-            self.potions = [
-                Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
-                Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
-                Potion(name: "Healing", image: "cross.vial", amount: 5, id: UUID()),
-                Potion(name: "", image: "line.3.crossed.swirl.circle.fill", amount: 7, id: UUID()),
-                Potion(name: "Invisibility", image: "", amount: 3, id: UUID()),
-                Potion(name: "Temporary strength", image: "hand.point.up", amount: 2, id: UUID())
-            ]
+            self.potions = setupInitialPotions()
         }
+    }
+
+    func setupInitialPotions() -> [Potion] {
+        return [
+            Potion(name: "Fast walk", image: "figure.walk", amount: 3, id: UUID()),
+            Potion(name: "Shapeshift", image: "pawprint.fill", amount: 0, id: UUID()),
+            Potion(name: "Healing", image: "cross.vial", amount: 5, id: UUID()),
+            Potion(name: "", image: "line.3.crossed.swirl.circle.fill", amount: 7, id: UUID()),
+            Potion(name: "Invisibility", image: "", amount: 3, id: UUID()),
+            Potion(name: "Temporary strength", image: "hand.point.up", amount: 2, id: UUID())
+        ]
     }
 }
 
