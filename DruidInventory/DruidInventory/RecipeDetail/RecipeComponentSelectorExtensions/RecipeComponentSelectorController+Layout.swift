@@ -35,7 +35,7 @@ extension RecipeComponentSelectorViewController {
 
         ButtonIcons.configButtonIcon(button: button)
 
-        if RecipesContainer.shared.filteredComponents.count <= 1 {
+        if filteredComponents.count <= 1 {
             button.isUserInteractionEnabled = false
             button.imageView?.tintColor = ColorContainer.disabledItem
         }

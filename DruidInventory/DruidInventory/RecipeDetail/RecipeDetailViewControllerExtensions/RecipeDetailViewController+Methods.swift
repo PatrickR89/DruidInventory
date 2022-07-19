@@ -72,7 +72,7 @@ extension RecipeDetailViewController {
             let navController = UINavigationController()
             let recipeComponentSelector = RecipeComponentSelectorViewController(
                 componentIndexPath: componentIndexPath,
-                type: type, potion: component)
+                type: type, potion: component, filteredComponents: filterComponents(recipe: recipe))
             recipeComponentSelector.delegate = self
 
             recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)

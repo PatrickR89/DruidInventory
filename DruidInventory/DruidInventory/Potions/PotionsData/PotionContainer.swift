@@ -13,7 +13,6 @@ class PotionContainer {
     private var potions = [Potion]() {
         didSet {
             encodeAndSave()
-            delegateToRecipes?.potionsUpdated(potions: potions)
         }
     }
 

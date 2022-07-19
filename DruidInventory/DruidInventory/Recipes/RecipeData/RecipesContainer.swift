@@ -19,14 +19,9 @@ class RecipesContainer {
         }
     }
 
-    var usedComponents = [UUID]()
-
-    var filteredComponents = [Potion]()
-
     let recipesFile = FileManager().getFilePath("recipesJSON.txt")
 
     private init() {
-        self.filteredComponents = PotionContainer.shared.getAllPotions()
         loadAndDecode()
     }
 
@@ -99,20 +94,6 @@ extension RecipesContainer {
         }
     }
 
-    func filterComponents(recipe: Recipe) {
-        usedComponents = []
-
-        for ingredient in recipe.ingredientsInRecipe {
-            usedComponents.append(ingredient.id)
-        }
-
-        for potion in recipe.potionsInRecipe {
-            usedComponents.append(potion.id)
-        }
-        let potions = PotionContainer.shared.getAllPotions()
-        filteredComponents = potions.filter {!usedComponents.contains($0.id)}
-    }
-
     func encodeAndSave() {
         do {
             let recipesJSON = try JSONEncoder().encode(recipes)
@@ -135,6 +116,7 @@ extension RecipesContainer {
 }
 
 extension RecipesContainer: PotionsContainerUpdateDelegate {
+
     func potionNameUpdated(id: UUID, name: String) {
         for (recipeIndex, recipe) in recipes.enumerated() {
 
@@ -159,9 +141,5 @@ extension RecipesContainer: PotionsContainerUpdateDelegate {
                 self.recipes[recipeIndex].potionsInRecipe[index].image = image
             }
         }
-    }
-
-    func potionsUpdated(potions: [Potion]) {
-        self.filteredComponents = potions
     }
 }

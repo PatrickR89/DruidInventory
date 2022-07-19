@@ -14,10 +14,10 @@ class RecipeDetailViewController: UITableViewController {
             if !isNewRecipe {
                 RecipesContainer.shared.changeRecipe(recipe: recipe)
             }
-            RecipesContainer.shared.filterComponents(recipe: recipe)
             validateRecipe()
         }
     }
+
     var buttonTitle = "DONE"
     var isNewRecipe = false
     var isRecipeValid = false {
@@ -51,8 +51,6 @@ class RecipeDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        RecipesContainer.shared.filterComponents(recipe: recipe)
-
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: buttonTitle,
             style: .done,
@@ -68,6 +66,20 @@ class RecipeDetailViewController: UITableViewController {
 
     @objc func dismissOnTap () {
         dismiss(animated: true)
+    }
+
+    func filterComponents(recipe: Recipe) -> [Potion] {
+        var usedComponents = [UUID]()
+
+        for ingredient in recipe.ingredientsInRecipe {
+            usedComponents.append(ingredient.id)
+        }
+
+        for potion in recipe.potionsInRecipe {
+            usedComponents.append(potion.id)
+        }
+        let potions = PotionContainer.shared.getAllPotions()
+        return  potions.filter {!usedComponents.contains($0.id)}
     }
 }
 
