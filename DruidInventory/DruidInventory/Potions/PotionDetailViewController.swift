@@ -13,11 +13,11 @@ class PotionDetailViewController: UIViewController {
         didSet {
             amountTextField.text = String(potion.amount)
             imageView.image = UIImage(systemName: potion.image)
-
         }
     }
 
-    var indexPath: IndexPath
+    var buttonTitle = "DONE"
+
     var newPotion = false
 
     var nameTextFieldYConstraint: NSLayoutConstraint?
@@ -30,9 +30,11 @@ class PotionDetailViewController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
-    required init (potion: Potion, indexPath: IndexPath) {
+    required init (potion: Potion) {
         self.potion = potion
-        self.indexPath = indexPath
+        if potion.name == "" {
+            buttonTitle = "BACK"
+        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -42,7 +44,14 @@ class PotionDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: buttonTitle,
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
+        view.backgroundColor = ColorContainer.backgroundColor
         self.configTextFieldLayout()
         configImageLayout()
         configAmountLayout()
@@ -53,5 +62,10 @@ class PotionDetailViewController: UIViewController {
         }
         enableKeyboardObserver()
         hideKeyboardOnTap()
+
+    }
+
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
     }
 }

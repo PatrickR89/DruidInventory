@@ -32,7 +32,13 @@ class ImageSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "BACK",
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
+        view.backgroundColor = ColorContainer.backgroundColor
 
         filterUsedImages()
         configCollectionViewLayout()
@@ -55,7 +61,7 @@ class ImageSelectorViewController: UIViewController {
         collectionView.register(ImageSelectorCell.self, forCellWithReuseIdentifier: "image")
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = ColorContainer.backgroundColor
 
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -63,6 +69,10 @@ class ImageSelectorViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
+    }
+
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
     }
 }
 

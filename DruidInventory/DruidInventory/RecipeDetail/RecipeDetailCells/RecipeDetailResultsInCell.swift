@@ -16,7 +16,7 @@ class RecipeDetailResultsInCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configResultsInView()
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = ColorContainer.backgroundColor
     }
 
     required init?(coder: NSCoder) {
@@ -37,6 +37,9 @@ extension RecipeDetailResultsInCell {
 
         image1Display.translatesAutoresizingMaskIntoConstraints = false
         image2Display.translatesAutoresizingMaskIntoConstraints = false
+
+        image1Display.tintColor = ColorContainer.standardBlue
+        image2Display.tintColor = ColorContainer.standardBlue
 
         NSLayoutConstraint.activate([
             image1Display.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

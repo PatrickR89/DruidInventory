@@ -33,6 +33,8 @@ extension PotionDetailViewController {
     @objc func imageTapped() {
         let imageSelectorView = ImageSelectorViewController()
         imageSelectorView.delegate = self
-        present(imageSelectorView, animated: true)
+        let navController = UINavigationController()
+        navController.viewControllers = [imageSelectorView]
+        present(navController, animated: true)
     }
 }

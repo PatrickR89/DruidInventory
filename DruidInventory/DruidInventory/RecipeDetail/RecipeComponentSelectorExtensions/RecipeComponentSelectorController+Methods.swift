@@ -10,20 +10,24 @@ import UIKit
 extension RecipeComponentSelectorViewController {
 
     @objc func nextOnTap() {
-        potionIndex += 1
-        if potionIndex > RecipesContainer.shared.filteredComponents.count - 1 {
-            potionIndex = 0
+        if filteredComponents.count > 1 {
+            potionIndex += 1
+            if potionIndex > filteredComponents.count - 1 {
+                potionIndex = 0
+            }
+            potion = filteredComponents[potionIndex]
         }
-        potion = RecipesContainer.shared.filteredComponents[potionIndex]
     }
 
     @objc func previousOnTap() {
-        potionIndex -= 1
-        if potionIndex < 0 {
-            potionIndex = RecipesContainer.shared.filteredComponents.count - 1
-        }
+        if filteredComponents.count > 1 {
+            potionIndex -= 1
+            if potionIndex < 0 {
+                potionIndex = filteredComponents.count - 1
+            }
 
-        potion = RecipesContainer.shared.filteredComponents[potionIndex]
+            potion = filteredComponents[potionIndex]
+        }
     }
 
     @objc func addOnTap() {
@@ -55,14 +59,17 @@ extension RecipeComponentSelectorViewController {
         switch componentType {
         case .inputNew, .outputNew:
             componentRecipeIndex = 0
+            buttonTitle = "BACK"
         case .inputChange:
             if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
+            buttonTitle = "DONE"
         case .outputChange:
             if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == potion.id}) {
                 componentRecipeIndex = index
             }
+            buttonTitle = "DONE"
         }
     }
 }

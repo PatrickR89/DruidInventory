@@ -11,6 +11,7 @@ class RecipesContainer {
     static let shared = RecipesContainer()
 
     weak var delegate: RecipesContainerDelegate?
+    weak var delegateToPotions: RecipeContainerAmountDelegate?
 
     private var recipes = [Recipe]() {
         didSet {
@@ -18,14 +19,9 @@ class RecipesContainer {
         }
     }
 
-    var usedComponents = [UUID]()
-
-    var filteredComponents = [Potion]()
-
     let recipesFile = FileManager().getFilePath("recipesJSON.txt")
 
     private init() {
-        self.filteredComponents = PotionContainer.shared.getAllPotions()
         loadAndDecode()
     }
 
@@ -51,29 +47,29 @@ class RecipesContainer {
     }
 
     func addRecipe(recipe: Recipe) {
-        RecipesContainer.shared.recipes.append(recipe)
+        recipes.append(recipe)
         delegate?.addedNewRecipe()
     }
 
     func changeRecipe(recipe: Recipe) {
-        RecipesContainer.shared.recipes[findRecipeIndex(id: recipe.id)] = recipe
+        recipes[findRecipeIndex(id: recipe.id)] = recipe
         delegate?.editedRecipe(id: recipe.id)
     }
 
     func deleteRecipe(id: UUID) {
         let index = findRecipeIndex(id: id)
-        RecipesContainer.shared.recipes.remove(at: index)
+        recipes.remove(at: index)
         delegate?.deletedRecipe(id: id)
     }
 
     func createPotion(recipe: Recipe) {
         for potion in recipe.potionsInRecipe {
-            PotionContainer.shared.updatePotionAmount(id: potion.id, amount: potion.amount)
+            delegateToPotions?.updatedPotionAmount(id: potion.id, amount: potion.amount)
 
         }
 
         for ingredient in recipe.ingredientsInRecipe {
-            PotionContainer.shared.updatePotionAmount(id: ingredient.id, amount: -ingredient.amount)
+            delegateToPotions?.updatedPotionAmount(id: ingredient.id, amount: -ingredient.amount)
         }
         delegate?.createdPotion(ingredients: recipe.ingredientsInRecipe)
     }
@@ -98,20 +94,6 @@ extension RecipesContainer {
         }
     }
 
-    func filterComponents(recipe: Recipe) {
-        usedComponents = []
-
-        for ingredient in recipe.ingredientsInRecipe {
-            usedComponents.append(ingredient.id)
-        }
-
-        for potion in recipe.potionsInRecipe {
-            usedComponents.append(potion.id)
-        }
-        let potions = PotionContainer.shared.getAllPotions()
-        filteredComponents = potions.filter {!usedComponents.contains($0.id)}
-    }
-
     func encodeAndSave() {
         do {
             let recipesJSON = try JSONEncoder().encode(recipes)
@@ -123,13 +105,41 @@ extension RecipesContainer {
 
     func loadAndDecode() {
         do {
-        let response = try String(contentsOf: recipesFile)
-        let data = Data(response.utf8)
+            let response = try String(contentsOf: recipesFile)
+            let data = Data(response.utf8)
             self.recipes = try JSONDecoder().decode([Recipe].self, from: data)
         } catch {
             print("Error occured during loading file")
             self.recipes = initialRecipes()
         }
     }
+}
 
+extension RecipesContainer: PotionsContainerUpdateDelegate {
+
+    func potionNameUpdated(id: UUID, name: String) {
+        for (recipeIndex, recipe) in recipes.enumerated() {
+
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].ingredientsInRecipe[index].name = name
+            }
+
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].potionsInRecipe[index].name = name
+            }
+        }
+    }
+
+    func potionImageUpdated(id: UUID, image: String) {
+        for (recipeIndex, recipe) in recipes.enumerated() {
+
+            if let index = recipe.ingredientsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].ingredientsInRecipe[index].image = image
+            }
+
+            if let index = recipe.potionsInRecipe.firstIndex(where: {$0.id == id}) {
+                self.recipes[recipeIndex].potionsInRecipe[index].image = image
+            }
+        }
+    }
 }

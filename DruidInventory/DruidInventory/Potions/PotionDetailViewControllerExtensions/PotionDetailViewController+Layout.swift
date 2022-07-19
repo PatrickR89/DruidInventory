@@ -14,12 +14,12 @@ extension PotionDetailViewController {
         nameTextField.text = potion.name
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.font = UIFont.systemFont(ofSize: 30)
-        nameTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.layer.borderColor = ColorContainer.textColor.cgColor
         nameTextField.layer.borderWidth = 1.5
         nameTextField.layer.cornerRadius = 3
         nameTextField.textAlignment = .center
         nameTextField.delegate = self
-        nameTextField.textColor = .black
+        nameTextField.textColor = ColorContainer.textColor
 
         let centerYConstraint = nameTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 
@@ -38,7 +38,7 @@ extension PotionDetailViewController {
 
         imageView.image = UIImage(systemName: potion.image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = ColorContainer.textColor.cgColor
         imageView.layer.borderWidth = 1.5
         imageView.layer.cornerRadius = 3
         imageView.isUserInteractionEnabled = true
@@ -58,18 +58,19 @@ extension PotionDetailViewController {
         amountTextField.text = String(potion.amount)
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
-        amountTextField.layer.borderColor = UIColor.black.cgColor
+        amountTextField.layer.borderColor = ColorContainer.textColor.cgColor
         amountTextField.layer.borderWidth = 2
         amountTextField.layer.cornerRadius = 3
         amountTextField.textAlignment = .center
         amountTextField.delegate = self
         amountTextField.keyboardType = .numberPad
-        amountTextField.textColor = .black
+        amountTextField.textColor = ColorContainer.textColor
 
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             amountTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 50),
-            amountTextField.widthAnchor.constraint(equalTo: amountTextField.heightAnchor)
+            amountTextField.widthAnchor.constraint(equalToConstant: 100),
+            amountTextField.heightAnchor.constraint(equalToConstant: 45)
         ])
 
     }
@@ -79,11 +80,9 @@ extension PotionDetailViewController {
 
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalTo: amountTextField.widthAnchor),
-            button.heightAnchor.constraint(equalTo: button.widthAnchor),
-            button.centerYAnchor.constraint(equalTo: amountTextField.centerYAnchor)
+            button.centerYAnchor.constraint(equalTo: amountTextField.centerYAnchor),
+            button.heightAnchor.constraint(equalTo: amountTextField.heightAnchor)
         ])
-        button.contentMode = .scaleAspectFill
 
         switch button {
         case buttonPlus:
@@ -105,7 +104,7 @@ extension PotionDetailViewController {
         view.addSubview(buttonAdd)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
         buttonAdd.setTitle("ADD", for: .normal)
-        buttonAdd.backgroundColor = .systemBlue
+        buttonAdd.backgroundColor = ColorContainer.standardBlue
         buttonAdd.addTarget(self, action: #selector(addNewOnTap), for: .touchUpInside)
 
         NSLayoutConstraint.activate([

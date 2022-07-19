@@ -12,6 +12,8 @@ extension RecipeComponentSelectorViewController {
     func configPrevNextButtonLayout(button: UIButton) {
         view.addSubview(button)
 
+        button.imageView?.tintColor = ColorContainer.standardBlue
+
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             button.centerYAnchor.constraint(equalTo: image.centerYAnchor)
@@ -32,6 +34,11 @@ extension RecipeComponentSelectorViewController {
         }
 
         ButtonIcons.configButtonIcon(button: button)
+
+        if filteredComponents.count <= 1 {
+            button.isUserInteractionEnabled = false
+            button.imageView?.tintColor = ColorContainer.disabledItem
+        }
     }
 
     func configAmountButtonsLayout(button: UIButton) {
@@ -64,14 +71,15 @@ extension RecipeComponentSelectorViewController {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.systemFont(ofSize: 30)
         nameLabel.textAlignment = .center
-        nameLabel.textColor = .black
+        nameLabel.textColor = ColorContainer.textColor
 
         let centerYConstraint = nameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
 
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             centerYConstraint,
-            nameLabel.widthAnchor.constraint(equalToConstant: 200)
+            nameLabel.widthAnchor.constraint(equalToConstant: 200),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
 
         self.nameLabelYConstraint = centerYConstraint
@@ -82,7 +90,7 @@ extension RecipeComponentSelectorViewController {
 
         image.image = UIImage(systemName: potion.image)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.borderColor = ColorContainer.textColor.cgColor
 
         NSLayoutConstraint.activate([
             image.heightAnchor.constraint(equalToConstant: 200),
@@ -100,14 +108,15 @@ extension RecipeComponentSelectorViewController {
         amountTextField.translatesAutoresizingMaskIntoConstraints = false
         amountTextField.font = UIFont.systemFont(ofSize: 50)
         amountTextField.textAlignment = .center
-        amountTextField.textColor = .black
+        amountTextField.textColor = ColorContainer.textColor
         amountTextField.delegate = self
         amountTextField.keyboardType = .numberPad
 
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             amountTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),
-            amountTextField.widthAnchor.constraint(equalTo: amountTextField.heightAnchor)
+            amountTextField.widthAnchor.constraint(equalToConstant: 100),
+            amountTextField.heightAnchor.constraint(equalToConstant: 45)
         ])
 
     }
@@ -115,7 +124,7 @@ extension RecipeComponentSelectorViewController {
     func configAddButtonLayout() {
         view.addSubview(buttonAdd)
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
-        buttonAdd.backgroundColor = .systemBlue
+        buttonAdd.backgroundColor = ColorContainer.standardBlue
         buttonAdd.addTarget(self, action: #selector(addNewOnTap), for: .touchUpInside)
 
         switch componentType {

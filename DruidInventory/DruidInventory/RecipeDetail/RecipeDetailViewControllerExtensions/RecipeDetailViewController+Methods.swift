@@ -12,7 +12,7 @@ extension RecipeDetailViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = ColorContainer.backgroundColor
 
         RecipeDetailComponentCell.register(in: tableView)
         RecipeDetailPlusCell.register(in: tableView)
@@ -69,19 +69,21 @@ extension RecipeDetailViewController {
         component: Potion,
         componentIndexPath: IndexPath) {
 
+            let navController = UINavigationController()
             let recipeComponentSelector = RecipeComponentSelectorViewController(
                 componentIndexPath: componentIndexPath,
-                type: type, potion: component)
+                type: type, potion: component, filteredComponents: filterComponents(recipe: recipe))
             recipeComponentSelector.delegate = self
 
             recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)
-            present(recipeComponentSelector, animated: true)
+
+            navController.viewControllers = [recipeComponentSelector]
+            present(navController, animated: true)
         }
 
     func removeComponent(
         type: RecipeComponentType,
         component: Potion,
-        recipeIndexPath: IndexPath,
         componentIndexPath: IndexPath) {
 
             getIndex(type: type, component: component)
@@ -98,7 +100,6 @@ extension RecipeDetailViewController {
             }
 
             appendPlusButton(type: type)
-
         }
 
     // MARK: removeComponent internal functions

@@ -10,6 +10,7 @@ import UIKit
 class PotionsTableViewController: UITableViewController {
 
     var potionsOrder = [UUID]()
+
     override func viewWillAppear(_ animated: Bool) {
         PotionContainer.shared.delegate = self
     }
@@ -17,7 +18,7 @@ class PotionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        view.backgroundColor = ColorContainer.backgroundColor
 
         setupTableView()
     }

@@ -41,7 +41,6 @@ extension PotionCell {
         NSLayoutConstraint.activate([
             cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             cellImageView.widthAnchor.constraint(equalToConstant: 30),
             cellImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -52,7 +51,7 @@ extension PotionCell {
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = "Potion"
-        nameLabel.textColor = .black
+        nameLabel.textColor = ColorContainer.textColor
 
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -65,7 +64,7 @@ extension PotionCell {
 
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.text = "Qty: 0"
-        amountLabel.textColor = .black
+        amountLabel.textColor = ColorContainer.textColor
 
         NSLayoutConstraint.activate([
             amountLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -78,9 +77,9 @@ extension PotionCell {
         nameLabel.text = potion.name
         amount = potion.amount
         if potion.amount == 0 {
-            contentView.backgroundColor = .lightGray
+            contentView.backgroundColor = ColorContainer.disabledBackground
         } else {
-            contentView.backgroundColor = .white
+            contentView.backgroundColor = ColorContainer.backgroundColor
         }
     }
 }

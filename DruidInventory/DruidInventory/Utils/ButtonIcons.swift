@@ -18,9 +18,11 @@ struct ButtonIcons {
         if let btnImageView = button.imageView {
             btnImageView.translatesAutoresizingMaskIntoConstraints = false
 
+            guard let image = btnImageView.image else {return}
+
             NSLayoutConstraint.activate([
-                btnImageView.widthAnchor.constraint(equalToConstant: 30),
-                btnImageView.heightAnchor.constraint(equalToConstant: 30)
+                btnImageView.widthAnchor.constraint(equalToConstant: image.size.width * 2 + 1),
+                btnImageView.heightAnchor.constraint(equalToConstant: image.size.height * 2 + 1)
             ])
         }
     }

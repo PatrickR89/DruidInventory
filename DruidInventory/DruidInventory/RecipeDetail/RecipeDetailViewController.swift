@@ -14,19 +14,17 @@ class RecipeDetailViewController: UITableViewController {
             if !isNewRecipe {
                 RecipesContainer.shared.changeRecipe(recipe: recipe)
             }
-            RecipesContainer.shared.filterComponents(recipe: recipe)
             validateRecipe()
         }
     }
 
+    var buttonTitle = "DONE"
     var isNewRecipe = false
     var isRecipeValid = false {
         didSet {
             tableView.reloadData()
         }
     }
-
-    var recipeIndexPath: IndexPath
 
     enum TableRowContent {
 
@@ -38,10 +36,11 @@ class RecipeDetailViewController: UITableViewController {
 
     var tableContents: [TableRowContent] = [.downArrow, .makeButton]
 
-    required init(recipe: Recipe, recipeIndexPath: IndexPath) {
+    required init(recipe: Recipe) {
         self.recipe = recipe
-        self.recipeIndexPath = recipeIndexPath
-
+        if recipe.ingredientsInRecipe.count < 1 && recipe.potionsInRecipe.count < 1 {
+            buttonTitle = "BACK"
+        }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -51,13 +50,37 @@ class RecipeDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: buttonTitle,
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
         appendPlusButtons()
         configTableViewLayout()
         appendItemsToContent()
         validateRecipe()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorContainer.backgroundColor
     }
 
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
+    }
+
+    func filterComponents(recipe: Recipe) -> [Potion] {
+        var usedComponents = [UUID]()
+
+        for ingredient in recipe.ingredientsInRecipe {
+            usedComponents.append(ingredient.id)
+        }
+
+        for potion in recipe.potionsInRecipe {
+            usedComponents.append(potion.id)
+        }
+        let potions = PotionContainer.shared.getAllPotions()
+        return  potions.filter {!usedComponents.contains($0.id)}
+    }
 }
 
 extension RecipeDetailViewController.TableRowContent: Equatable {

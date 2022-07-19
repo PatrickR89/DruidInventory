@@ -20,16 +20,17 @@ class RecipesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableViewLayout()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorContainer.backgroundColor
     }
 }
 
 extension RecipesTableViewController: HomeTabBarNavActionProvider {
     func addNew() {
         let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
-        let indexPath = IndexPath(row: 0, section: 0)
-        let recipeDetailViewController = RecipeDetailViewController(recipe: recipe, recipeIndexPath: indexPath)
+        let recipeDetailViewController = RecipeDetailViewController(recipe: recipe)
         recipeDetailViewController.isNewRecipe = true
-        present(recipeDetailViewController, animated: true)
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeDetailViewController]
+        present(navController, animated: true)
     }
 }

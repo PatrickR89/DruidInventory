@@ -35,7 +35,7 @@ class RecipeDetailMakeButtonCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = ColorContainer.backgroundColor
         setupMakeButtonLayout()
     }
 
@@ -49,7 +49,7 @@ extension RecipeDetailMakeButtonCell {
     func setupMakeButtonLayout() {
         contentView.addSubview(makeButton)
         makeButton.translatesAutoresizingMaskIntoConstraints = false
-        makeButton.backgroundColor = .systemBlue
+        makeButton.backgroundColor = ColorContainer.standardBlue
         makeButton.isUserInteractionEnabled = false
 
         NSLayoutConstraint.activate([
@@ -72,11 +72,11 @@ extension RecipeDetailMakeButtonCell {
 
     func configButtonBackground() {
         if !isRecipeValid && isNewRecipe {
-            makeButton.backgroundColor = .systemGray
+            makeButton.backgroundColor = ColorContainer.disabledItem
         } else if !isNewRecipe && !enoughIngredients {
-            makeButton.backgroundColor = .systemGray
+            makeButton.backgroundColor = ColorContainer.disabledItem
         } else {
-            makeButton.backgroundColor = .systemBlue
+            makeButton.backgroundColor = ColorContainer.standardBlue
         }
     }
 }

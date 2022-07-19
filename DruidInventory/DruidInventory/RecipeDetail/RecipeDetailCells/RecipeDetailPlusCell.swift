@@ -16,7 +16,7 @@ class RecipeDetailPlusCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configPlusViewLayout()
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = ColorContainer.backgroundColor
     }
 
     required init?(coder: NSCoder) {
@@ -34,6 +34,7 @@ extension RecipeDetailPlusCell {
     func configPlusViewLayout() {
         contentView.addSubview(imageDisplay)
         imageDisplay.translatesAutoresizingMaskIntoConstraints = false
+        imageDisplay.tintColor = ColorContainer.standardBlue
 
         NSLayoutConstraint.activate([
             imageDisplay.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

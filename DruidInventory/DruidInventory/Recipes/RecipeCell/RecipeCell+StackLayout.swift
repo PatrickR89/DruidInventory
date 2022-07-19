@@ -55,6 +55,10 @@ extension RecipeCell {
             NSLayoutConstraint.activate([
                 itemView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
             ])
+
+            if stackView == ingredientsStack {
+                itemView.configImageColor(componentId: component.id, componentAmount: component.amount)
+            }
         }
     }
 }

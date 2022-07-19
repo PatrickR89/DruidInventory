@@ -19,7 +19,7 @@ class ImageSelectorCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = ColorContainer.backgroundColor
     }
 
     required init?(coder: NSCoder) {
@@ -35,6 +35,7 @@ class ImageSelectorCell: UICollectionViewCell {
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: imageName)
+        imageView.tintColor = ColorContainer.standardBlue
 
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),

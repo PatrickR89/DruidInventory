@@ -17,7 +17,7 @@ class RecipeComponentSelectorViewController: UIViewController {
             newPotion.id = potion.id
         }
     }
-
+    var filteredComponents: [Potion]
     var componentType: RecipeComponentType
 
     var nameLabelYConstraint: NSLayoutConstraint?
@@ -56,12 +56,19 @@ class RecipeComponentSelectorViewController: UIViewController {
     lazy var buttonMinus = UIButton(type: .custom)
     lazy var buttonAdd = UIButton(type: .custom)
 
-    required init(componentIndexPath: IndexPath, type: RecipeComponentType, potion: Potion) {
-        self.componentIndexPath = componentIndexPath
-        self.componentType = type
-        self.potion = potion
-        super.init(nibName: nil, bundle: nil)
-    }
+    var buttonTitle = "DONE"
+
+    required init(
+        componentIndexPath: IndexPath,
+        type: RecipeComponentType,
+        potion: Potion,
+        filteredComponents: [Potion]) {
+            self.componentIndexPath = componentIndexPath
+            self.componentType = type
+            self.potion = potion
+            self.filteredComponents = filteredComponents
+            super.init(nibName: nil, bundle: nil)
+        }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -69,7 +76,14 @@ class RecipeComponentSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: buttonTitle,
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
+
+        view.backgroundColor = ColorContainer.backgroundColor
         configTextFieldLayout()
         configImageLayout()
         configAmountLayout()
@@ -81,7 +95,7 @@ class RecipeComponentSelectorViewController: UIViewController {
         switch componentType {
         case .inputNew, .outputNew:
             configAddButtonLayout()
-            potion = RecipesContainer.shared.filteredComponents[0]
+            potion = filteredComponents[0]
         case .inputChange, .outputChange:
             newPotion.amount = potion.amount
         }
@@ -92,6 +106,10 @@ class RecipeComponentSelectorViewController: UIViewController {
 
         hideKeyboardOnTap()
         enableKeyboardObserver()
+    }
+
+    @objc func dismissOnTap () {
+        dismiss(animated: true)
     }
 }
 

@@ -13,6 +13,10 @@ extension RecipesTableViewController {
         RecipesContainer.shared.getAllRecipes().count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
@@ -26,31 +30,58 @@ extension RecipesTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return}
         let recipeDetailView = RecipeDetailViewController(
-            recipe: recipe,
-            recipeIndexPath: indexPath)
+            recipe: recipe)
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeDetailView]
 
-        self.present(recipeDetailView, animated: true)
+        self.present(navController, animated: true)
 
     }
 
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            let id = recipeOrder[indexPath.row]
-            RecipesContainer.shared.deleteRecipe(id: id)
 
-            return nil
+            guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
+            let ingredients = recipe.ingredientsInRecipe
+            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                let makePotion = UIContextualAction(
+                    style: .normal,
+                    title: "MAKE") {_, _, completitionHandler in
+                        if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                            RecipesContainer.shared.createPotion(recipe: recipe)
+                        }
+                        completitionHandler(true)
+                    }
+                makePotion.backgroundColor = ColorContainer.lightGreenSwipe
+                let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
+
+                swipeConfig.performsFirstActionWithFullSwipe = false
+
+                return swipeConfig
+            } else {
+                return nil
+            }
+
         }
 
     override func tableView(
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-            guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
-            let ingredients = recipe.ingredientsInRecipe
-            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
-                RecipesContainer.shared.createPotion(recipe: recipe)
-            }
-            reloadTableViewOnIngredients(ingredients: ingredients)
-            return nil
+            let id = recipeOrder[indexPath.row]
+
+            let deleteRecipe = UIContextualAction(
+                style: .normal,
+                title: "DELETE") {_, _, completitionHandler in
+                    RecipesContainer.shared.deleteRecipe(id: id)
+                    completitionHandler(true)
+                }
+
+            deleteRecipe.backgroundColor = ColorContainer.lightRedSwipe
+            let swipeConfig = UISwipeActionsConfiguration(actions: [deleteRecipe])
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 }

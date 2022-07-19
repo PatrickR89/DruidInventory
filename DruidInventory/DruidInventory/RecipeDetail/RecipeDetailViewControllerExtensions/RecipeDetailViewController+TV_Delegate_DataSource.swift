@@ -39,10 +39,19 @@ extension RecipeDetailViewController {
                 enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
 
-        case .component(let name, let image, let count, _):
+        case .component(_, let image, let count, let id):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
-            cell.setupCell(name: name, image: image, count: count)
+            guard let index = tableContents.firstIndex(
+                of: RecipeDetailViewController.TableRowContent.downArrow) else {return cell}
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
+                }
+
+            cell.setupCell(id: id, image: image, count: count, type: type)
             return cell
         }
     }
@@ -89,7 +98,6 @@ extension RecipeDetailViewController {
                 }
 
                 let tempComponent = Potion(name: name, image: image, amount: count, id: id)
-                RecipesContainer.shared.filterComponents(recipe: recipe)
 
                 recipeComponentManipulation(
                     type: type,
@@ -109,26 +117,36 @@ extension RecipeDetailViewController {
             switch content {
             case .component(let name, let image, let count, let id):
 
-                if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
-                    let type: RecipeComponentType
-                    if indexPath.row < index {
-                        type = RecipeComponentType.inputChange
-                    } else {
-                        type = RecipeComponentType.outputChange
-                    }
-
-                    let tempComponent = Potion(name: name, image: image, amount: count, id: id)
-
-                    removeComponent(
-                        type: type,
-                        component: tempComponent,
-                        recipeIndexPath: recipeIndexPath,
-                        componentIndexPath: indexPath)
+                guard let index = tableContents.firstIndex(
+                    of: RecipeDetailViewController.TableRowContent.downArrow) else {return nil}
+                let type: RecipeComponentType
+                if indexPath.row < index {
+                    type = RecipeComponentType.inputChange
+                } else {
+                    type = RecipeComponentType.outputChange
                 }
+
+                let tempComponent = Potion(name: name, image: image, amount: count, id: id)
+
+                let removeIngredient = UIContextualAction(
+                    style: .normal,
+                    title: "REMOVE") {_, _, completitionHandler in
+                        self.removeComponent(
+                            type: type,
+                            component: tempComponent,
+                            componentIndexPath: indexPath)
+                        completitionHandler(true)
+                    }
+                removeIngredient.backgroundColor = ColorContainer.lightRedSwipe
+
+                let swipeConfig = UISwipeActionsConfiguration(actions: [removeIngredient])
+
+                swipeConfig.performsFirstActionWithFullSwipe = false
+
+                return swipeConfig
+
             default:
                 return nil
             }
-
-            return nil
         }
 }
