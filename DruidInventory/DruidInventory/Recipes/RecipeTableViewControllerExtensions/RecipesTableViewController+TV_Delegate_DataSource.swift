@@ -44,21 +44,25 @@ extension RecipesTableViewController {
 
             guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
             let ingredients = recipe.ingredientsInRecipe
-
-            let makePotion = UIContextualAction(
-                style: .normal,
-                title: "MAKE") {_, _, completitionHandler in
-                    if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
-                        RecipesContainer.shared.createPotion(recipe: recipe)
+            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                let makePotion = UIContextualAction(
+                    style: .normal,
+                    title: "MAKE") {_, _, completitionHandler in
+                        if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+                            RecipesContainer.shared.createPotion(recipe: recipe)
+                        }
+                        completitionHandler(true)
                     }
-                    completitionHandler(true)
-                }
-            makePotion.backgroundColor = UIColor(named: "swipeLeadingThree")
-            let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
+                makePotion.backgroundColor = UIColor(named: "swipeLeadingThree")
+                let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
 
-            swipeConfig.performsFirstActionWithFullSwipe = false
+                swipeConfig.performsFirstActionWithFullSwipe = false
 
-            return swipeConfig
+                return swipeConfig
+            } else {
+                return nil
+            }
+
         }
 
     override func tableView(
