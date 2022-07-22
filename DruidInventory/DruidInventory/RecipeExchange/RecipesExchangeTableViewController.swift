@@ -15,5 +15,16 @@ class RecipesExchangeTableViewController: UITableViewController {
         super.viewDidLoad()
         configTableViewLayout()
         view.backgroundColor = ColorContainer.backgroundColor
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "DONE",
+            style: .done,
+            target: self,
+            action: #selector(dismissOnTap))
     }
+
+    @objc func dismissOnTap() {
+        self.dismiss(animated: true)
+    }
+
 }

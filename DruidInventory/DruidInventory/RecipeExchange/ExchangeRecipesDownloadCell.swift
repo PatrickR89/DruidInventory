@@ -37,7 +37,6 @@ extension ExchangeRecipesDownloadCell {
         downloadBtn.isUserInteractionEnabled = false
         downloadBtn.setTitle("DOWNLOAD", for: .normal)
 
-
         NSLayoutConstraint.activate([
             downloadBtn.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             downloadBtn.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -51,9 +50,9 @@ extension ExchangeRecipesDownloadCell {
     }
 
     func configButtonBackground() {
-        if !isRecipeValid  {
+        if !isRecipeValid {
             downloadBtn.backgroundColor = ColorContainer.disabledItem
-        }  else {
+        } else {
             downloadBtn.backgroundColor = ColorContainer.standardBlue
         }
     }

@@ -53,4 +53,3 @@ class ExchangeRecipeDetailTableViewController: UITableViewController {
 
 extension ExchangeRecipeDetailTableViewController.TableRowContent: Equatable {
 }
-
