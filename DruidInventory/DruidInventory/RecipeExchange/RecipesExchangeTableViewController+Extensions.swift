@@ -26,16 +26,16 @@ extension RecipesExchangeTableViewController {
         return cell
     }
 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let recipe = RecipesContainer.shared.findRecipe(id: onlineRecipesOrder[indexPath.row]) else {return}
-//        let recipeDetailView = RecipeDetailViewController(
-//            recipe: recipe)
-//        let navController = UINavigationController()
-//        navController.viewControllers = [recipeDetailView]
-//
-//        self.present(navController, animated: true)
-//
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let recipe = OnlineRecipesContainer.shared.findRecipe(id: onlineRecipesOrder[indexPath.row]) else {return}
+        let recipeDetailView = ExchangeRecipeDetailTableViewController(
+            recipe: recipe)
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeDetailView]
+
+        self.present(navController, animated: true)
+
+    }
 
     override func tableView(
         _ tableView: UITableView,
