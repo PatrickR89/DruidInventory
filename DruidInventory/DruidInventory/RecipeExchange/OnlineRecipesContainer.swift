@@ -30,17 +30,15 @@ class OnlineRecipesContainer {
         return onlineRecipes[index]
     }
 
-    func validateRecipe(recipe: Recipe) -> Bool {
-        let localRecipes = RecipesContainer.shared.getAllRecipes()
+    func validateRecipe(recipe: Recipe, validationRecipes: [Recipe]) -> Bool {
         var validationArray = [Bool]()
 
-        for localRecipe in localRecipes {
+        for validationRecipe in validationRecipes {
             var validateByRecipe = [Bool]()
             for ingredient in recipe.ingredientsInRecipe {
-                validateByRecipe.append( localRecipe.ingredientsInRecipe.contains(
+                validateByRecipe.append( validationRecipe.ingredientsInRecipe.contains(
                     where: {$0.name == ingredient.name && $0.image == ingredient.image}))
             }
-
             if validateByRecipe.contains(false) {
                 validationArray.append(false)
             } else {
@@ -84,5 +82,9 @@ class OnlineRecipesContainer {
 
         RecipesContainer.shared.addRecipe(recipe: tempRecipe)
         delegate?.recipeDidDownload(id: tempRecipe.id)
+    }
+
+    func uploadRecipe(recipe: Recipe) {
+
     }
 }

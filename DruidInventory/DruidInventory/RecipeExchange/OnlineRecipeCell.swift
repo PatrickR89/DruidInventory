@@ -51,7 +51,9 @@ class OnlineRecipeCell: UITableViewCell {
 
     func validateRecipe(recipe: Recipe) {
 
-        if OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
+        if OnlineRecipesContainer.shared.validateRecipe(
+            recipe: recipe,
+            validationRecipes: RecipesContainer.shared.getAllRecipes()) {
             contentView.backgroundColor = ColorContainer.disabledBackground
         } else {
             contentView.backgroundColor = ColorContainer.backgroundColor

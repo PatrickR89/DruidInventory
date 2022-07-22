@@ -43,7 +43,9 @@ extension RecipesExchangeTableViewController {
 
             guard let recipe = OnlineRecipesContainer.shared.findRecipe(
                 id: onlineRecipesOrder[indexPath.row]) else {return nil}
-            if !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
+            if !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: RecipesContainer.shared.getAllRecipes()) {
                 let downloadRecipe = UIContextualAction(
                     style: .normal,
                     title: "DOWNLOAD") {_, _, completitionHandler in

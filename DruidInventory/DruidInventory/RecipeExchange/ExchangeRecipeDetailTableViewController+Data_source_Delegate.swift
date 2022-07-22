@@ -28,7 +28,9 @@ extension ExchangeRecipeDetailTableViewController {
 
         case .downloadBtn:
             let cell = ExchangeRecipesDownloadCell.dequeue(in: tableView, for: indexPath)
-            let validRecipe = !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe)
+            let validRecipe = !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: RecipesContainer.shared.getAllRecipes())
             cell.setupCell(isRecipeValid: validRecipe)
             return cell
 
@@ -62,7 +64,9 @@ extension ExchangeRecipeDetailTableViewController {
         case .downArrow:
             return
         case .downloadBtn:
-            if !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
+            if !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: RecipesContainer.shared.getAllRecipes()) {
                 OnlineRecipesContainer.shared.downloadRecipe(recipe: recipe)
                 self.dismiss(animated: true)
             }
