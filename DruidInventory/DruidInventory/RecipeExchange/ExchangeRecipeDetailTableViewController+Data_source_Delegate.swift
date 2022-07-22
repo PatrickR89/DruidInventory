@@ -63,7 +63,7 @@ extension ExchangeRecipeDetailTableViewController {
             return
         case .downloadBtn:
             if !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
-                print("download \(recipe)")
+                OnlineRecipesContainer.shared.downloadRecipe(recipe: recipe)
             }
 
         case .component(let name, let image, let count, let id):

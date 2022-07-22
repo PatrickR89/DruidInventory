@@ -47,7 +47,7 @@ extension RecipesExchangeTableViewController {
                 let downloadRecipe = UIContextualAction(
                     style: .normal,
                     title: "DOWNLOAD") {_, _, completitionHandler in
-
+                        OnlineRecipesContainer.shared.downloadRecipe(recipe: recipe)
                         completitionHandler(true)
                     }
                 downloadRecipe.image = UIImage(systemName: "arrow.up.arrow.down")
