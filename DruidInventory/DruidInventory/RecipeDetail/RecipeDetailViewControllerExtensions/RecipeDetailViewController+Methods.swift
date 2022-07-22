@@ -18,6 +18,7 @@ extension RecipeDetailViewController {
         RecipeDetailPlusCell.register(in: tableView)
         RecipeDetailResultsInCell.register(in: tableView)
         RecipeDetailMakeButtonCell.register(in: tableView)
+        RecipeDetailUploadButtonCell.register(in: tableView)
     }
 
     func appendPlusButtons() {

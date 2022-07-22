@@ -38,6 +38,13 @@ extension RecipeDetailViewController {
                 isRecipeValid: isRecipeValid,
                 enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
+        case .sendButton:
+            let cell = RecipeDetailUploadButtonCell.dequeue(in: tableView, for: indexPath)
+            let validation = !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: OnlineRecipesContainer.shared.getAllOnlineRecipes())
+            cell.setupCell(isRecipeValid: validation)
+            return cell
 
         case .component(_, let image, let count, let id):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
@@ -86,6 +93,14 @@ extension RecipeDetailViewController {
                 ingredients: recipe.ingredientsInRecipe) {
                 RecipesContainer.shared.createPotion(recipe: recipe)
                 self.dismiss(animated: true)
+            }
+        case .sendButton:
+            let validation = !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: OnlineRecipesContainer.shared.getAllOnlineRecipes())
+            if validation {
+                OnlineRecipesContainer.shared.addOnlineRecipe(recipe: recipe)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
             }
 
         case .component(let name, let image, let count, let id):
