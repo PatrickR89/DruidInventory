@@ -9,4 +9,5 @@ import UIKit
 
 protocol OnlineRecipeDelegate: AnyObject {
     func recipeDidDownload(id: UUID)
+    func recipeDidUpload()
 }

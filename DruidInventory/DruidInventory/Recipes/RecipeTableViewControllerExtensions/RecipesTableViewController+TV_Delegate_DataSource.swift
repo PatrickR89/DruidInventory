@@ -54,6 +54,7 @@ extension RecipesTableViewController {
                 let uploadRecipe = UIContextualAction(
                     style: .normal,
                     title: "UPLOAD") {_, _, completitionHandler in
+                        OnlineRecipesContainer.shared.addOnlineRecipe(recipe: recipe)
                         completitionHandler(true)
                     }
                 uploadRecipe.image = UIImage(systemName: "arrow.up.arrow.down")

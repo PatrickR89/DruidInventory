@@ -30,6 +30,13 @@ class OnlineRecipesContainer {
         return onlineRecipes[index]
     }
 
+    func addOnlineRecipe(recipe: Recipe) {
+        var tempRecipe = recipe
+        tempRecipe.local = false
+        onlineRecipes.append(tempRecipe)
+        delegate?.recipeDidUpload()
+    }
+
     func validateRecipe(recipe: Recipe, validationRecipes: [Recipe]) -> Bool {
         var validationArray = [Bool]()
 
@@ -82,9 +89,5 @@ class OnlineRecipesContainer {
 
         RecipesContainer.shared.addRecipe(recipe: tempRecipe)
         delegate?.recipeDidDownload(id: tempRecipe.id)
-    }
-
-    func uploadRecipe(recipe: Recipe) {
-
     }
 }

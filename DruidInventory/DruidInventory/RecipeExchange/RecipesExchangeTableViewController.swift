@@ -34,6 +34,13 @@ class RecipesExchangeTableViewController: UITableViewController {
 }
 
 extension RecipesExchangeTableViewController: OnlineRecipeDelegate {
+    func recipeDidUpload() {
+        let section = tableView.numberOfSections - 1
+        let row = tableView.numberOfRows(inSection: section) - 1
+        let indexPath = IndexPath(row: row, section: section)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
     func recipeDidDownload(id: UUID) {
         guard let index = onlineRecipesOrder.firstIndex(where: {$0 == id}) else {return}
         let section = tableView.numberOfSections - 1
