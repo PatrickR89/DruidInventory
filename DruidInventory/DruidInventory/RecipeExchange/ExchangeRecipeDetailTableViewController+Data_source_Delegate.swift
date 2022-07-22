@@ -64,6 +64,7 @@ extension ExchangeRecipeDetailTableViewController {
         case .downloadBtn:
             if !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
                 OnlineRecipesContainer.shared.downloadRecipe(recipe: recipe)
+                self.dismiss(animated: true)
             }
 
         case .component(let name, let image, let count, let id):

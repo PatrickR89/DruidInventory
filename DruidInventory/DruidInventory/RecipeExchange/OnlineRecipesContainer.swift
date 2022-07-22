@@ -11,6 +11,7 @@ class OnlineRecipesContainer {
     static let shared = OnlineRecipesContainer()
 
     private var onlineRecipes = [Recipe]()
+    weak var delegate: OnlineRecipeDelegate?
 
     private init () {
         onlineRecipes = setupBasicRecipes()
@@ -80,5 +81,8 @@ class OnlineRecipesContainer {
             }
             return tempPotion
         }
+
+        RecipesContainer.shared.addRecipe(recipe: tempRecipe)
+        delegate?.recipeDidDownload(id: tempRecipe.id)
     }
 }

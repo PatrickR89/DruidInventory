@@ -11,6 +11,10 @@ class RecipesExchangeTableViewController: UITableViewController {
 
     var onlineRecipesOrder = [UUID]()
 
+    override func viewWillAppear(_ animated: Bool) {
+        OnlineRecipesContainer.shared.delegate = self
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableViewLayout()
@@ -27,4 +31,13 @@ class RecipesExchangeTableViewController: UITableViewController {
         self.dismiss(animated: true)
     }
 
+}
+
+extension RecipesExchangeTableViewController: OnlineRecipeDelegate {
+    func recipeDidDownload(id: UUID) {
+        guard let index = onlineRecipesOrder.firstIndex(where: {$0 == id}) else {return}
+        let section = tableView.numberOfSections - 1
+        let indexPath = IndexPath(row: index, section: section)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }

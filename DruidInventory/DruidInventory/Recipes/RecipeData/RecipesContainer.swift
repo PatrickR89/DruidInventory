@@ -15,7 +15,7 @@ class RecipesContainer {
 
     private var recipes = [Recipe]() {
         didSet {
-            encodeAndSave()
+//            encodeAndSave()
         }
     }
 
