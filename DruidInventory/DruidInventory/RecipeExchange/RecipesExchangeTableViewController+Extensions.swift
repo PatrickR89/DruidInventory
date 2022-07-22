@@ -18,10 +18,10 @@ extension RecipesExchangeTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = RecipeCell.dequeue(in: tableView, for: indexPath)
+        let cell = OnlineRecipeCell.dequeue(in: tableView, for: indexPath)
         let recipes = OnlineRecipesContainer.shared.getAllOnlineRecipes()
         cell.setupCell(recipe: recipes[indexPath.row])
-        cell.validateRecipe(ingredients: recipes[indexPath.row].ingredientsInRecipe)
+        cell.validateRecipe(recipe: recipes[indexPath.row])
         onlineRecipesOrder.append(recipes[indexPath.row].id)
         return cell
     }
@@ -43,8 +43,7 @@ extension RecipesExchangeTableViewController {
 
             guard let recipe = OnlineRecipesContainer.shared.findRecipe(
                 id: onlineRecipesOrder[indexPath.row]) else {return nil}
-            let ingredients = recipe.ingredientsInRecipe
-            if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
+            if !OnlineRecipesContainer.shared.validateRecipe(recipe: recipe) {
                 let downloadRecipe = UIContextualAction(
                     style: .normal,
                     title: "DOWNLOAD") {_, _, completitionHandler in
@@ -67,6 +66,6 @@ extension RecipesExchangeTableViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
-        RecipeCell.register(in: tableView)
+        OnlineRecipeCell.register(in: tableView)
     }
 }

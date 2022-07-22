@@ -30,9 +30,6 @@ extension OnlineRecipesContainer {
         let onlinePotion4 = Potion(name: "Guardian", image: "shield.righthalf.filled", amount: 3, id: UUID())
         let onlinePotion5 = Potion(name: "Fire resistance", image: "flame", amount: 2, id: UUID())
 
-
-
-
         recipes.append( Recipe(
             id: UUID(),
             ingredientsInRecipe:
