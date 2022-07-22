@@ -72,7 +72,16 @@ extension ExchangeRecipeDetailTableViewController {
             }
 
         case .component(let name, let image, let count, let id):
-            return
+            let potion = Potion(name: name, image: image, amount: count, id: id)
+            let componentView = RecipeComponentSelectorViewController(
+                componentIndexPath: indexPath,
+                type: .inputChange,
+                potion: potion,
+                filteredComponents: [],
+                isLocal: false)
+            let navController = UINavigationController()
+            navController.viewControllers = [componentView]
+            present(navController, animated: true)
         }
     }
 }
