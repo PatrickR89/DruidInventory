@@ -44,12 +44,13 @@ extension RecipeDetailViewController {
 
             guard let index = tableContents.firstIndex(
                 of: RecipeDetailViewController.TableRowContent.downArrow) else {return cell}
-                let type: RecipeComponentType
-                if indexPath.row < index {
-                    type = RecipeComponentType.inputChange
-                } else {
-                    type = RecipeComponentType.outputChange
-                }
+
+            let type: RecipeComponentType
+            if indexPath.row < index {
+                type = RecipeComponentType.inputChange
+            } else {
+                type = RecipeComponentType.outputChange
+            }
 
             cell.setupCell(id: id, image: image, count: count, type: type)
             return cell
@@ -117,6 +118,7 @@ extension RecipeDetailViewController {
             switch content {
             case .component(let name, let image, let count, let id):
 
+                if !recipe.local {return nil}
                 guard let index = tableContents.firstIndex(
                     of: RecipeDetailViewController.TableRowContent.downArrow) else {return nil}
                 let type: RecipeComponentType

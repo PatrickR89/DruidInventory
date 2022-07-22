@@ -112,6 +112,10 @@ extension RecipeComponentSelectorViewController {
         amountTextField.delegate = self
         amountTextField.keyboardType = .numberPad
 
+        if !isLocal {
+            amountTextField.isUserInteractionEnabled = false
+        }
+
         NSLayoutConstraint.activate([
             amountTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             amountTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 50),

@@ -37,12 +37,12 @@ extension ExchangeRecipeDetailTableViewController {
 
             guard let index = tableContents.firstIndex(
                 of: ExchangeRecipeDetailTableViewController.TableRowContent.downArrow) else {return cell}
-                let type: RecipeComponentType
-                if indexPath.row < index {
-                    type = RecipeComponentType.inputChange
-                } else {
-                    type = RecipeComponentType.outputChange
-                }
+            let type: RecipeComponentType
+            if indexPath.row < index {
+                type = RecipeComponentType.inputChange
+            } else {
+                type = RecipeComponentType.outputChange
+            }
 
             cell.setupCell(id: id, image: image, count: count, type: type)
             return cell

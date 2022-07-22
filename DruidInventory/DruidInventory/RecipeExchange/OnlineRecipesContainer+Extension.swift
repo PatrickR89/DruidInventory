@@ -65,7 +65,7 @@ extension OnlineRecipesContainer {
                     [potion2,
                      potion5,
                      onlinePotion3,
-                    onlinePotion5],
+                     onlinePotion5],
                 potionsInRecipe:
                     [potion1,
                      potion6]))

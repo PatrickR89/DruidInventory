@@ -57,7 +57,10 @@ class RecipeDetailViewController: UITableViewController {
             target: self,
             action: #selector(dismissOnTap))
 
-        appendPlusButtons()
+        if recipe.local {
+            appendPlusButtons()
+        }
+
         configTableViewLayout()
         appendItemsToContent()
         validateRecipe()
