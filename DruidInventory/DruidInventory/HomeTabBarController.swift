@@ -32,6 +32,21 @@ class HomeTabBarController: UITabBarController {
         recipesTableController.tabBarItem = recipesBarItem
 
         self.setViewControllers([potionsTableController, recipesTableController], animated: true)
+        print(self.selectedIndex)
+
+    }
+
+    override var selectedViewController: UIViewController? {
+        didSet {
+            print(selectedIndex)
+            if selectedIndex == 1 {
+                navigationItem.leftBarButtonItem = UIBarButtonItem(
+                    image: UIImage(systemName: "arrow.up.arrow.down"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(exchangeRecipes))
+            }
+        }
     }
 }
 
@@ -63,5 +78,9 @@ extension HomeTabBarController {
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             present(alertController, animated: true)
         }
+    }
+
+    @objc func exchangeRecipes() {
+
     }
 }
