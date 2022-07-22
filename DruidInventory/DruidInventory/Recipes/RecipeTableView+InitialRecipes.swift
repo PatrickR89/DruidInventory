@@ -27,6 +27,7 @@ extension RecipesContainer {
 
         recipes.append( Recipe(
             id: UUID(),
+            local: true,
             ingredientsInRecipe:
                 [potion1,
                  potion3],
@@ -36,6 +37,7 @@ extension RecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: true,
                 ingredientsInRecipe:
                     [potion2,
                      potion5,

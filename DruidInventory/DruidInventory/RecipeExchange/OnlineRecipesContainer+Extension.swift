@@ -32,6 +32,7 @@ extension OnlineRecipesContainer {
 
         recipes.append( Recipe(
             id: UUID(),
+            local: false,
             ingredientsInRecipe:
                 [potion1,
                  potion3],
@@ -41,6 +42,7 @@ extension OnlineRecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: false,
                 ingredientsInRecipe:
                     [potion2,
                      potion5,
@@ -52,6 +54,7 @@ extension OnlineRecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: false,
                 ingredientsInRecipe:
                     [potion2,
                      potion5,
@@ -63,6 +66,7 @@ extension OnlineRecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: false,
                 ingredientsInRecipe:
                     [onlinePotion2,
                      onlinePotion4,
@@ -72,6 +76,7 @@ extension OnlineRecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: false,
                 ingredientsInRecipe:
                     [potion1,
                      potion4,
@@ -81,6 +86,7 @@ extension OnlineRecipesContainer {
         recipes.append(
             Recipe(
                 id: UUID(),
+                local: false,
                 ingredientsInRecipe:
                     [potion2,
                      onlinePotion1,

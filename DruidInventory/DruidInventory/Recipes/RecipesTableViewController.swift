@@ -33,7 +33,7 @@ extension RecipesTableViewController: HomeTabBarNavActionProvider {
     }
 
     func addNew() {
-        let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
+        let recipe = Recipe(id: UUID(), local: true, ingredientsInRecipe: [], potionsInRecipe: [])
         let recipeDetailViewController = RecipeDetailViewController(recipe: recipe)
         recipeDetailViewController.isNewRecipe = true
         let navController = UINavigationController()
