@@ -46,7 +46,8 @@ class OnlineRecipesContainer {
                 validateByRecipe.append( validationRecipe.ingredientsInRecipe.contains(
                     where: {$0.name == ingredient.name && $0.image == ingredient.image}))
             }
-            if validateByRecipe.contains(false) || validateByRecipe.count != validationRecipe.ingredientsInRecipe.count  {
+            if validateByRecipe.contains(false) ||
+                validateByRecipe.count != validationRecipe.ingredientsInRecipe.count {
                 validationArray.append(false)
             } else {
                 validationArray.append(true)
