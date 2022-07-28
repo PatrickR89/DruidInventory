@@ -50,6 +50,8 @@
 		CDA39C71288ACFD000300AA7 /* ExchangeRecipesDownloadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA39C70288ACFD000300AA7 /* ExchangeRecipesDownloadCell.swift */; };
 		CDA39C73288AE9B100300AA7 /* OnlineRecipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA39C72288AE9B100300AA7 /* OnlineRecipeDelegate.swift */; };
 		CDA39C75288AFB5700300AA7 /* RecipeDetailUploadButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA39C74288AFB5700300AA7 /* RecipeDetailUploadButtonCell.swift */; };
+		CDA6BCF02892948C003482F6 /* MockRecipesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6BCEF2892948C003482F6 /* MockRecipesContainer.swift */; };
+		CDA6BCF2289295B0003482F6 /* MockRecipesContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA6BCF1289295B0003482F6 /* MockRecipesContainer+Extension.swift */; };
 		CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2128643AFF00F083A9 /* AppDelegate.swift */; };
 		CDF89E2428643AFF00F083A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */; };
 		CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF89E2528643AFF00F083A9 /* PotionsTableViewController.swift */; };
@@ -118,6 +120,8 @@
 		CDA39C70288ACFD000300AA7 /* ExchangeRecipesDownloadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRecipesDownloadCell.swift; sourceTree = "<group>"; };
 		CDA39C72288AE9B100300AA7 /* OnlineRecipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineRecipeDelegate.swift; sourceTree = "<group>"; };
 		CDA39C74288AFB5700300AA7 /* RecipeDetailUploadButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailUploadButtonCell.swift; sourceTree = "<group>"; };
+		CDA6BCEF2892948C003482F6 /* MockRecipesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipesContainer.swift; sourceTree = "<group>"; };
+		CDA6BCF1289295B0003482F6 /* MockRecipesContainer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockRecipesContainer+Extension.swift"; sourceTree = "<group>"; };
 		CDF89E1E28643AFF00F083A9 /* DruidInventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DruidInventory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF89E2128643AFF00F083A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDF89E2328643AFF00F083A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +293,15 @@
 			path = RecipeExchange;
 			sourceTree = "<group>";
 		};
+		CDA6BCEE2892945E003482F6 /* MockOnlineDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				CDA6BCEF2892948C003482F6 /* MockRecipesContainer.swift */,
+				CDA6BCF1289295B0003482F6 /* MockRecipesContainer+Extension.swift */,
+			);
+			path = MockOnlineDatabase;
+			sourceTree = "<group>";
+		};
 		CDF89E1528643AFF00F083A9 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +321,7 @@
 		CDF89E2028643AFF00F083A9 /* DruidInventory */ = {
 			isa = PBXGroup;
 			children = (
+				CDA6BCEE2892945E003482F6 /* MockOnlineDatabase */,
 				CDA39C5D288A885700300AA7 /* RecipeExchange */,
 				CD963DCE2876C2B100CBB25B /* ImageSelector */,
 				CD9200BD286F32FA009E6499 /* Utils */,
@@ -480,7 +494,9 @@
 				CD963DEB2877392B00CBB25B /* RecipeDetailViewController+TV_Delegate_DataSource.swift in Sources */,
 				CDF89E92286DA32A00F083A9 /* RecipeDetailResultsInCell.swift in Sources */,
 				CD963DE92877385D00CBB25B /* RecipeDetailViewController+ComponentSelectorDelegate.swift in Sources */,
+				CDA6BCF2289295B0003482F6 /* MockRecipesContainer+Extension.swift in Sources */,
 				CDF89E2628643AFF00F083A9 /* PotionsTableViewController.swift in Sources */,
+				CDA6BCF02892948C003482F6 /* MockRecipesContainer.swift in Sources */,
 				CDA39C69288ABE9700300AA7 /* OnlineRecipeCell+Layout.swift in Sources */,
 				CD963DD22876CAA300CBB25B /* PotionsTableViewController+TV_Delegate_DataSource.swift in Sources */,
 				CDF89E2228643AFF00F083A9 /* AppDelegate.swift in Sources */,
