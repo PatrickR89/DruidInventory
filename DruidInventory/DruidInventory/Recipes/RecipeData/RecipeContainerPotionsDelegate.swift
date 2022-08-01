@@ -7,7 +7,8 @@
 
 import UIKit
 
-protocol RecipeContainerAmountDelegate: AnyObject {
+protocol RecipeContainerPotionsDelegate: AnyObject {
 
     func updatedPotionAmount(id: UUID, amount: Int)
+    func createdNewPotion(potion: Potion)
 }
