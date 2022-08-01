@@ -1,5 +1,5 @@
 //
-//  ExchangeRecipesDownloadCell.swift
+//  RecipeExchangeDownloadCell.swift
 //  DruidInventory
 //
 //  Created by Patrick on 22.07.2022..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExchangeRecipesDownloadCell: UITableViewCell {
+class RecipeExchangeDownloadCell: UITableViewCell {
 
     var downloadBtn = UIButton()
 
@@ -28,7 +28,7 @@ class ExchangeRecipesDownloadCell: UITableViewCell {
     }
 }
 
-extension ExchangeRecipesDownloadCell {
+extension RecipeExchangeDownloadCell {
 
     func setupMakeButtonLayout() {
         contentView.addSubview(downloadBtn)

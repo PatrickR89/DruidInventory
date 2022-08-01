@@ -1,5 +1,5 @@
 //
-//  ExchangeRecipeDetailViewController.swift
+//  RecipeExchangeDetailTableViewController.swift
 //  DruidInventory
 //
 //  Created by Patrick on 22.07.2022..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExchangeRecipeDetailTableViewController: UITableViewController {
+class RecipeExchangeDetailTableViewController: UITableViewController {
 
     var recipe: Recipe
 
@@ -51,5 +51,5 @@ class ExchangeRecipeDetailTableViewController: UITableViewController {
     }
 }
 
-extension ExchangeRecipeDetailTableViewController.TableRowContent: Equatable {
+extension RecipeExchangeDetailTableViewController.TableRowContent: Equatable {
 }

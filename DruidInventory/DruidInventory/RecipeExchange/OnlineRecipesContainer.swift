@@ -14,7 +14,7 @@ class OnlineRecipesContainer {
     weak var delegate: OnlineRecipeDelegate?
 
     private init () {
-        cachedRecipes = MockRecipesContainer.shared.sendRecipes()
+        cachedRecipes = setupBasicRecipes()
     }
 
     func getAllOnlineRecipes() -> [Recipe] {
@@ -31,9 +31,16 @@ class OnlineRecipesContainer {
     }
 
     func addOnlineRecipe(recipe: Recipe) {
-        var tempRecipe = recipe
-        tempRecipe.local = false
-        cachedRecipes.append(tempRecipe)
-        delegate?.recipeDidUpload()
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            var tempRecipe = recipe
+            tempRecipe.local = false
+            self?.cachedRecipes.append(tempRecipe)
+            
+            DispatchQueue.main.async {
+                self?.delegate?.recipeDidUpload()
+            }
+
+            return
+        }
     }
 }

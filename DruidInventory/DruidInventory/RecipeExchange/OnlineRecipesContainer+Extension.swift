@@ -28,38 +28,45 @@ extension OnlineRecipesContainer {
     }
 
     func downloadRecipe(recipe: Recipe) {
-        let potions = PotionContainer.shared.getAllPotions()
-        var tempRecipe = Recipe(
-            id: recipe.id,
-            local: recipe.local,
-            ingredientsInRecipe: recipe.ingredientsInRecipe,
-            potionsInRecipe: recipe.potionsInRecipe)
 
-        tempRecipe.ingredientsInRecipe = recipe.ingredientsInRecipe.map { (ingredient) -> Potion in
-            var tempIngredient = Potion(
-                name: ingredient.name,
-                image: ingredient.image,
-                amount: ingredient.amount,
-                id: ingredient.id )
-            if let index = potions.firstIndex(where: {$0.name == ingredient.name && $0.image == ingredient.image}) {
-                tempIngredient.id = potions[index].id
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let potions = PotionContainer.shared.getAllPotions()
+            var tempRecipe = Recipe(
+                id: recipe.id,
+                local: recipe.local,
+                ingredientsInRecipe: recipe.ingredientsInRecipe,
+                potionsInRecipe: recipe.potionsInRecipe)
+
+            tempRecipe.ingredientsInRecipe = recipe.ingredientsInRecipe.map { (ingredient) -> Potion in
+                var tempIngredient = Potion(
+                    name: ingredient.name,
+                    image: ingredient.image,
+                    amount: ingredient.amount,
+                    id: ingredient.id )
+                if let index = potions.firstIndex(where: {$0.name == ingredient.name && $0.image == ingredient.image}) {
+                    tempIngredient.id = potions[index].id
+                }
+                return tempIngredient
             }
-            return tempIngredient
-        }
 
-        tempRecipe.potionsInRecipe = recipe.potionsInRecipe.map { (potion) -> Potion in
-            var tempPotion = Potion(
-                name: potion.name,
-                image: potion.image,
-                amount: potion.amount,
-                id: potion.id )
-            if let index = potions.firstIndex(where: {$0.name == potion.name && $0.image == potion.image}) {
-                tempPotion.id = potions[index].id
+            tempRecipe.potionsInRecipe = recipe.potionsInRecipe.map { (potion) -> Potion in
+                var tempPotion = Potion(
+                    name: potion.name,
+                    image: potion.image,
+                    amount: potion.amount,
+                    id: potion.id )
+                if let index = potions.firstIndex(where: {$0.name == potion.name && $0.image == potion.image}) {
+                    tempPotion.id = potions[index].id
+                }
+                return tempPotion
             }
-            return tempPotion
-        }
 
-        RecipesContainer.shared.addRecipe(recipe: tempRecipe)
-        delegate?.recipeDidDownload(id: tempRecipe.id)
+            DispatchQueue.main.async {
+                RecipesContainer.shared.addRecipe(recipe: tempRecipe)
+                self?.delegate?.recipeDidDownload(id: tempRecipe.id)
+            }
+
+            return
+        }
     }
 }

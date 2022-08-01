@@ -1,5 +1,5 @@
 //
-//  ExchangeRecipeDetailViewTableViewController+Layout.swift
+//  RecipeExchangeDetailViewTableViewController+Layout.swift
 //  DruidInventory
 //
 //  Created by Patrick on 22.07.2022..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ExchangeRecipeDetailTableViewController {
+extension RecipeExchangeDetailTableViewController {
     func configTableViewLayout() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -15,14 +15,14 @@ extension ExchangeRecipeDetailTableViewController {
 
         RecipeDetailComponentCell.register(in: tableView)
         RecipeDetailResultsInCell.register(in: tableView)
-        ExchangeRecipesDownloadCell.register(in: tableView)
+        RecipeExchangeDownloadCell.register(in: tableView)
     }
 
     func appendItemsToContent() {
 
         for ingredient in recipe.ingredientsInRecipe {
             tableContents.insert(
-                ExchangeRecipeDetailTableViewController.TableRowContent.component(
+                RecipeExchangeDetailTableViewController.TableRowContent.component(
                     name: ingredient.name,
                     image: ingredient.image,
                     count: ingredient.amount,
@@ -30,10 +30,10 @@ extension ExchangeRecipeDetailTableViewController {
                 at: 0)
         }
 
-        if let index = tableContents.firstIndex(of: ExchangeRecipeDetailTableViewController.TableRowContent.downArrow) {
+        if let index = tableContents.firstIndex(of: RecipeExchangeDetailTableViewController.TableRowContent.downArrow) {
             for potion in recipe.potionsInRecipe {
                 tableContents.insert(
-                    ExchangeRecipeDetailTableViewController.TableRowContent.component(
+                    RecipeExchangeDetailTableViewController.TableRowContent.component(
                         name: potion.name,
                         image: potion.image,
                         count: potion.amount,

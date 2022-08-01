@@ -1,5 +1,5 @@
 //
-//  ExchangeRecipeDetailTableViewController+Extensions.swift
+//  RecipeExchangeDetailTableViewController+Extensions.swift
 //  DruidInventory
 //
 //  Created by Patrick on 22.07.2022..
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ExchangeRecipeDetailTableViewController {
+extension RecipeExchangeDetailTableViewController {
     // MARK: tableView DataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,7 +27,7 @@ extension ExchangeRecipeDetailTableViewController {
             return cell
 
         case .downloadBtn:
-            let cell = ExchangeRecipesDownloadCell.dequeue(in: tableView, for: indexPath)
+            let cell = RecipeExchangeDownloadCell.dequeue(in: tableView, for: indexPath)
             let validRecipe = !OnlineRecipesContainer.shared.validateRecipe(
                 recipe: recipe,
                 validationRecipes: RecipesContainer.shared.getAllRecipes())
@@ -38,7 +38,7 @@ extension ExchangeRecipeDetailTableViewController {
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
             guard let index = tableContents.firstIndex(
-                of: ExchangeRecipeDetailTableViewController.TableRowContent.downArrow) else {return cell}
+                of: RecipeExchangeDetailTableViewController.TableRowContent.downArrow) else {return cell}
             let type: RecipeComponentType
             if indexPath.row < index {
                 type = RecipeComponentType.inputChange

@@ -1,13 +1,13 @@
 //
-//  MockRecipesContainer+Extension.swift
+//  OnlineRecipes+InitialRecipes.swift
 //  DruidInventory
 //
-//  Created by Patrick on 28.07.2022..
+//  Created by Patrick on 01.08.2022..
 //
 
 import UIKit
 
-extension MockRecipesContainer {
+extension OnlineRecipesContainer {
     func setupBasicRecipes() -> [Recipe] {
         var recipes = [Recipe]()
 
