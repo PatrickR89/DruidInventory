@@ -42,23 +42,26 @@ extension RecipeDetailViewController {
     func appendItemsToContent() {
 
         for ingredient in recipe.ingredientsInRecipe {
+            let tempIngredient = UnknownPotionsFilter.shared.identifyPotion(potion: ingredient)
             tableContents.insert(
                 RecipeDetailViewController.TableRowContent.component(
-                    name: ingredient.name,
-                    image: ingredient.image,
-                    count: ingredient.amount,
-                    id: ingredient.id),
+                    name: tempIngredient.name,
+                    image: tempIngredient.image,
+                    count: tempIngredient.amount,
+                    id: tempIngredient.id),
                 at: 0)
         }
 
         if let index = tableContents.firstIndex(of: RecipeDetailViewController.TableRowContent.downArrow) {
             for potion in recipe.potionsInRecipe {
+                let tempPotion = UnknownPotionsFilter.shared.identifyPotion(potion: potion)
+
                 tableContents.insert(
                     RecipeDetailViewController.TableRowContent.component(
-                        name: potion.name,
-                        image: potion.image,
-                        count: potion.amount,
-                        id: potion.id),
+                        name: tempPotion.name,
+                        image: tempPotion.image,
+                        count: tempPotion.amount,
+                        id: tempPotion.id),
                     at: index + 1)
             }
         }
