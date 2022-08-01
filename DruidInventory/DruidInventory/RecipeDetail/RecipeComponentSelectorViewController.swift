@@ -27,8 +27,9 @@ class RecipeComponentSelectorViewController: UIViewController {
             if newPotion.amount <= 1 {
                 newPotion.amount = 1
             }
-            image.image = UIImage(systemName: newPotion.image)
-            nameLabel.text = newPotion.name
+            let tempPotion = UnknownPotionsFilter.shared.identifyPotion(potion: newPotion)
+            image.image = UIImage(systemName: tempPotion.image)
+            nameLabel.text = tempPotion.name
             amountTextField.text = String(newPotion.amount)
 
             switch componentType {

@@ -34,7 +34,7 @@ extension RecipeExchangeDetailTableViewController {
             cell.setupCell(isRecipeValid: validRecipe)
             return cell
 
-        case .component(_, let image, let count, let id):
+        case .component(let name, let image, let count, let id):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
             guard let index = tableContents.firstIndex(
@@ -45,8 +45,8 @@ extension RecipeExchangeDetailTableViewController {
             } else {
                 type = RecipeComponentType.outputChange
             }
-
-            cell.setupCell(id: id, image: image, count: count, type: type)
+            let tempComponent = Potion(name: name, image: image, amount: count, id: id)
+            cell.setupCell(potion: tempComponent, type: type)
             return cell
         }
     }

@@ -34,11 +34,12 @@ class RecipeDetailComponentCell: UITableViewCell {
 
 extension RecipeDetailComponentCell {
 
-    func setupCell(id: UUID, image: String, count: Int, type: RecipeComponentType) {
-        amountLabel.text = "\(count)x"
-        self.amount = count
-        imageDisplay.image = UIImage(systemName: image)
-        self.id = id
+    func setupCell(potion: Potion, type: RecipeComponentType) {
+        let tempComponent = UnknownPotionsFilter.shared.identifyPotion(potion: potion)
+        amountLabel.text = "\(potion.amount)x"
+        self.amount = potion.amount
+        imageDisplay.image = UIImage(systemName: tempComponent.image)
+        self.id = potion.id
         self.type = type
         configImageColor()
     }
