@@ -35,7 +35,7 @@ class OnlineRecipesContainer {
             var tempRecipe = recipe
             tempRecipe.local = false
             self?.cachedRecipes.append(tempRecipe)
-            
+
             DispatchQueue.main.async {
                 self?.delegate?.recipeDidUpload()
             }
