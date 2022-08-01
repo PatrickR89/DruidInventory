@@ -22,14 +22,6 @@ class UnknownPotionsFilter {
             amount: potion.amount,
             id: potion.id )
 
-//        if let index = potions.firstIndex(where: {$0.name == potion.name && $0.image == potion.image}) {
-//            return tempPotion
-//        } else {
-//            tempPotion.name = self.name
-//            tempPotion.image = self.image
-//        }
-//        return tempPotion
-
         if potions.contains(where: {$0.name == potion.name && $0.image == potion.image}) {
             return tempPotion
         } else {
