@@ -41,11 +41,12 @@ class OnlineRecipeCell: UITableViewCell {
     }
 
     func setupCell(recipe: Recipe) {
-
-        ingredients = recipe.ingredientsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image, id: $0.id) }
+        let tempIngredients = recipe.ingredientsInRecipe.map {UnknownPotionsFilter.shared.identifyPotion(potion: $0)}
+        ingredients = tempIngredients.map { RecipeDetails(amount: $0.amount, image: $0.image, id: $0.id) }
         configStackView(stackView: ingredientsStack, array: ingredients)
 
-        potions  = recipe.potionsInRecipe.map { RecipeDetails(amount: $0.amount, image: $0.image, id: $0.id) }
+        let tempPotions = recipe.potionsInRecipe.map {UnknownPotionsFilter.shared.identifyPotion(potion: $0)}
+        potions  = tempPotions.map { RecipeDetails(amount: $0.amount, image: $0.image, id: $0.id) }
         configStackView(stackView: potionsStack, array: potions)
     }
 
