@@ -47,8 +47,20 @@ extension OnlineRecipesContainer {
         recipes.append( Recipe(
             id: UUID(),
             local: false,
-            ingredientsInRecipe: [potion4, potion2],
-            potionsInRecipe: [onlinePotion3]))
+            ingredientsInRecipe:
+                [potion4,
+                 potion2],
+            potionsInRecipe:
+                [onlinePotion3]))
+
+        recipes.append( Recipe(
+            id: UUID(),
+            local: false,
+            ingredientsInRecipe:
+                [potion2,
+                 potion6],
+            potionsInRecipe:
+                [onlinePotion4]))
 
         recipes.append(
             Recipe(
@@ -94,16 +106,16 @@ extension OnlineRecipesContainer {
                      onlinePotion4],
                 potionsInRecipe:
                     [onlinePotion2]))
-        recipes.append(
-            Recipe(
-                id: UUID(),
-                local: false,
-                ingredientsInRecipe:
-                    [potion2,
-                     onlinePotion1,
-                     potion3],
-                potionsInRecipe:
-                    [potion1]))
+//        recipes.append(
+//            Recipe(
+//                id: UUID(),
+//                local: false,
+//                ingredientsInRecipe:
+//                    [potion2,
+//                     onlinePotion1,
+//                     potion3],
+//                potionsInRecipe:
+//                    [potion1]))
 
         return recipes
     }
