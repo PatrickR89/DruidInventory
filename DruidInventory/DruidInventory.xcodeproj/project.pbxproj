@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		964B7107675EC426228762E1 /* Pods_DruidInventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF4F0D485B4F83A54C87AF /* Pods_DruidInventory.framework */; };
 		CD8BBEFE287EF88300685B67 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBEFD287EF88300685B67 /* FileManager.swift */; };
 		CD8BBF01287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBF00287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift */; };
 		CD8BBF03287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BBF02287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift */; };
@@ -77,6 +78,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		085BBF75E2F7DC3D205E9102 /* Pods-DruidInventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DruidInventory.release.xcconfig"; path = "Target Support Files/Pods-DruidInventory/Pods-DruidInventory.release.xcconfig"; sourceTree = "<group>"; };
+		0CCF4F0D485B4F83A54C87AF /* Pods_DruidInventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DruidInventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8BBEFD287EF88300685B67 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		CD8BBF00287EFC5800685B67 /* RecipesTableViewController+TV_Delegate_DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesTableViewController+TV_Delegate_DataSource.swift"; sourceTree = "<group>"; };
 		CD8BBF02287EFCAA00685B67 /* RecipesTableViewController+Methods+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipesTableViewController+Methods+Delegate.swift"; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		CDF89E8F286DA2D900F083A9 /* RecipeDetailPlusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailPlusCell.swift; sourceTree = "<group>"; };
 		CDF89E91286DA32A00F083A9 /* RecipeDetailResultsInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailResultsInCell.swift; sourceTree = "<group>"; };
 		CDF89E93286DAA5900F083A9 /* RecipeDetailMakeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailMakeButtonCell.swift; sourceTree = "<group>"; };
+		FC06E5B71D42289E2FE8585F /* Pods-DruidInventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DruidInventory.debug.xcconfig"; path = "Target Support Files/Pods-DruidInventory/Pods-DruidInventory.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,12 +157,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964B7107675EC426228762E1 /* Pods_DruidInventory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16777E90047542552F064DFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC06E5B71D42289E2FE8585F /* Pods-DruidInventory.debug.xcconfig */,
+				085BBF75E2F7DC3D205E9102 /* Pods-DruidInventory.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		1809C64C5EF352B41B14BD6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF4F0D485B4F83A54C87AF /* Pods_DruidInventory.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CD8BBEFF287EFC1800685B67 /* RecipeTableViewControllerExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +330,8 @@
 			children = (
 				CDF89E2028643AFF00F083A9 /* DruidInventory */,
 				CDF89E1F28643AFF00F083A9 /* Products */,
+				16777E90047542552F064DFD /* Pods */,
+				1809C64C5EF352B41B14BD6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,10 +418,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDF89E3228643B0100F083A9 /* Build configuration list for PBXNativeTarget "DruidInventory" */;
 			buildPhases = (
+				AF9E11A16CE4390BA79DE98F /* [CP] Check Pods Manifest.lock */,
 				CDF89E1A28643AFF00F083A9 /* Sources */,
 				CDF89E1B28643AFF00F083A9 /* Frameworks */,
 				CDF89E1C28643AFF00F083A9 /* Resources */,
 				CDF89E3528643C1200F083A9 /* Lint Source */,
+				2EACAA2BF9B5A0ABB243074E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -454,6 +481,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2EACAA2BF9B5A0ABB243074E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF9E11A16CE4390BA79DE98F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DruidInventory-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CDF89E3528643C1200F083A9 /* Lint Source */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -676,6 +742,7 @@
 		};
 		CDF89E3328643B0100F083A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC06E5B71D42289E2FE8585F /* Pods-DruidInventory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,6 +770,7 @@
 		};
 		CDF89E3428643B0100F083A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 085BBF75E2F7DC3D205E9102 /* Pods-DruidInventory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
