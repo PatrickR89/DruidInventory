@@ -48,3 +48,64 @@ Thumbs.db
 *.mov
 *.wmv
 
+DruidInventory/Pods/Alamofire/README.md
+DruidInventory/Pods/Alamofire/Source/AFError.swift
+DruidInventory/Pods/Alamofire/Source/Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/AlamofireExtended.swift
+DruidInventory/Pods/Alamofire/Source/AuthenticationInterceptor.swift
+DruidInventory/Pods/Alamofire/Source/CachedResponseHandler.swift
+DruidInventory/Pods/Alamofire/Source/Combine.swift
+DruidInventory/Pods/Alamofire/Source/Concurrency.swift
+DruidInventory/Pods/Alamofire/Source/DispatchQueue+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/EventMonitor.swift
+DruidInventory/Pods/Alamofire/Source/HTTPHeaders.swift
+DruidInventory/Pods/Alamofire/Source/HTTPMethod.swift
+DruidInventory/Pods/Alamofire/Source/MultipartFormData.swift
+DruidInventory/Pods/Alamofire/Source/MultipartUpload.swift
+DruidInventory/Pods/Alamofire/Source/NetworkReachabilityManager.swift
+DruidInventory/Pods/Alamofire/Source/Notifications.swift
+DruidInventory/Pods/Alamofire/Source/OperationQueue+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/ParameterEncoder.swift
+DruidInventory/Pods/Alamofire/Source/ParameterEncoding.swift
+DruidInventory/Pods/Alamofire/Source/Protected.swift
+DruidInventory/Pods/Alamofire/Source/RedirectHandler.swift
+DruidInventory/Pods/Alamofire/Source/Request.swift
+DruidInventory/Pods/Alamofire/Source/RequestInterceptor.swift
+DruidInventory/Pods/Alamofire/Source/RequestTaskMap.swift
+DruidInventory/Pods/Alamofire/Source/Response.swift
+DruidInventory/Pods/Alamofire/Source/ResponseSerialization.swift
+DruidInventory/Pods/Alamofire/Source/Result+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/RetryPolicy.swift
+DruidInventory/Pods/Alamofire/Source/ServerTrustEvaluation.swift
+DruidInventory/Pods/Alamofire/Source/Session.swift
+DruidInventory/Pods/Alamofire/Source/SessionDelegate.swift
+DruidInventory/Pods/Alamofire/Source/StringEncoding+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/URLConvertible+URLRequestConvertible.swift
+DruidInventory/Pods/Alamofire/Source/URLEncodedFormEncoder.swift
+DruidInventory/Pods/Alamofire/Source/URLRequest+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/URLSessionConfiguration+Alamofire.swift
+DruidInventory/Pods/Alamofire/Source/Validation.swift
+DruidInventory/Pods/Pods.xcodeproj/project.pbxproj
+DruidInventory/Pods/Pods.xcodeproj/xcuserdata/patrick.xcuserdatad/xcschemes/Alamofire.xcscheme
+DruidInventory/Pods/Pods.xcodeproj/xcuserdata/patrick.xcuserdatad/xcschemes/Pods-DruidInventory.xcscheme
+DruidInventory/Pods/Pods.xcodeproj/xcuserdata/patrick.xcuserdatad/xcschemes/xcschememanagement.plist
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire-dummy.m
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire-Info.plist
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire-prefix.pch
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire-umbrella.h
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire.debug.xcconfig
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire.modulemap
+DruidInventory/Pods/Target Support Files/Alamofire/Alamofire.release.xcconfig
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-acknowledgements.markdown
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-acknowledgements.plist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-dummy.m
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-Debug-input-files.xcfilelist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-Debug-output-files.xcfilelist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-Release-input-files.xcfilelist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks-Release-output-files.xcfilelist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-frameworks.sh
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-Info.plist
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory-umbrella.h
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory.debug.xcconfig
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory.modulemap
+DruidInventory/Pods/Target Support Files/Pods-DruidInventory/Pods-DruidInventory.release.xcconfig
