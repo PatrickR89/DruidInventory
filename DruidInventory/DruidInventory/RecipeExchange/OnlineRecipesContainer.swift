@@ -11,13 +11,16 @@ import Alamofire
 class OnlineRecipesContainer {
     static let shared = OnlineRecipesContainer()
 
-    private var cachedRecipes = [Recipe]()
-    private var cache2 = [Recipe]()
+    private var cachedRecipes = [Recipe]() {
+        didSet {
+            delegate?.recipesDidUpdate()
+        }
+    }
     private var cachedIds = [UUID: String]()
     weak var delegate: OnlineRecipeDelegate?
 
     private init () {
-        cachedRecipes = setupBasicRecipes()
+//        cachedRecipes = setupBasicRecipes()
         //        postAllPotions()
         fetchData()
     }
@@ -27,6 +30,8 @@ class OnlineRecipesContainer {
     }
 
     func findRecipe(id: UUID) -> Recipe? {
+        print(id)
+        print(cachedRecipes.map{$0.id})
         guard let index = cachedRecipes.firstIndex(
             where: {$0.id == id}) else {
             fatalError("No such potion found")
@@ -40,6 +45,16 @@ class OnlineRecipesContainer {
             var tempRecipe = recipe
             tempRecipe.local = false
             self?.cachedRecipes.append(tempRecipe)
+
+            AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes", method: .post, parameters: tempRecipe, encoder: .json, headers: ["Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Methods": "*"]).validate(statusCode: 200 ..< 299).responseData {response in
+                switch response.result {
+                case .success(_):
+                    print("Success")
+
+                case .failure(let error):
+                    print(error)
+                }
+            }
 
             DispatchQueue.main.async {
                 self?.delegate?.recipeDidUpload()
@@ -84,7 +99,7 @@ class OnlineRecipesContainer {
                 switch response.result {
                 case .success(_):
                     print("Success")
-                    
+
                 case .failure(let error):
                     print(error)
                 }

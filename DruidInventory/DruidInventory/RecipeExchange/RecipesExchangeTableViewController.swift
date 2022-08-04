@@ -25,10 +25,20 @@ class RecipesExchangeTableViewController: UITableViewController {
             style: .done,
             target: self,
             action: #selector(dismissOnTap))
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.triangle.2.circlepath"),
+            style: .done,
+            target: self,
+            action: #selector(refreshRecipes))
     }
 
     @objc func dismissOnTap() {
         self.dismiss(animated: true)
+    }
+
+    @objc func refreshRecipes() {
+        OnlineRecipesContainer.shared.fetchData()
     }
 
 }
