@@ -13,6 +13,7 @@ class OnlineRecipesContainer {
 
     private var cachedRecipes = [Recipe]()
     private var cache2 = [Recipe]()
+    private var cachedIds = [UUID: String]()
     weak var delegate: OnlineRecipeDelegate?
 
     private init () {
@@ -50,14 +51,17 @@ class OnlineRecipesContainer {
 
     func fetchData() {
 
-        AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes/").validate(statusCode: 200 ..< 299).responseData {response in
+        AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes/").validate(statusCode: 200 ..< 299).responseData { response in
             switch response.result {
             case .success(let data):
                 do {
+                     let decoded = try JSONDecoder().decode([OnlineRecipe].self, from: data)
+                    print(decoded)
 
-                    guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [AnyObject] else {
-                        print("Error: Cannot convert data to JSON object")
-                        return
+                    self.cachedRecipes = decoded.map { return Recipe(id: $0.id, local: $0.local, ingredientsInRecipe: $0.ingredientsInRecipe, potionsInRecipe: $0.potionsInRecipe) }
+
+                    for recipe in decoded {
+                        self.cachedIds[recipe.id] = recipe._id
                     }
 
                 } catch {
@@ -82,4 +86,12 @@ class OnlineRecipesContainer {
             }
         }
     }
+}
+
+struct OnlineRecipe: Codable {
+    var id: UUID
+    var _id: String
+    var local: Bool
+    var ingredientsInRecipe: [Potion]
+    var potionsInRecipe: [Potion]
 }
