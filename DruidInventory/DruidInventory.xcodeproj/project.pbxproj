@@ -170,7 +170,6 @@
 				FC06E5B71D42289E2FE8585F /* Pods-DruidInventory.debug.xcconfig */,
 				085BBF75E2F7DC3D205E9102 /* Pods-DruidInventory.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -522,7 +521,7 @@
 		};
 		CDF89E3528643C1200F083A9 /* Lint Source */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
@@ -534,9 +533,9 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint lint\nelse\n    echo \"warning: SwiftLint not installed\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint lint\nelse\n   echo \"warning: SwiftLint not installed\"\nfi \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -733,6 +732,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -760,6 +760,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PODS_XCFRAMEWORKS_BUILD_DIR = "$(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myorganization.DruidInventory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
