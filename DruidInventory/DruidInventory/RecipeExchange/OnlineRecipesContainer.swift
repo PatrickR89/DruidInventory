@@ -50,36 +50,41 @@ class OnlineRecipesContainer {
     }
 
     func fetchData() {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes/").validate(statusCode: 200 ..< 299).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let decoded = try JSONDecoder().decode([OnlineRecipe].self, from: data)
 
-        AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes/").validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                     let decoded = try JSONDecoder().decode([OnlineRecipe].self, from: data)
-                    print(decoded)
+                        self?.cachedRecipes = decoded.map { return Recipe(id: $0.id, local: $0.local, ingredientsInRecipe: $0.ingredientsInRecipe, potionsInRecipe: $0.potionsInRecipe) }
 
-                    self.cachedRecipes = decoded.map { return Recipe(id: $0.id, local: $0.local, ingredientsInRecipe: $0.ingredientsInRecipe, potionsInRecipe: $0.potionsInRecipe) }
+                        for recipe in decoded {
+                            self?.cachedIds[recipe.id] = recipe._id
+                        }
 
-                    for recipe in decoded {
-                        self.cachedIds[recipe.id] = recipe._id
+                    } catch {
+                        print("Error: Trying to convert JSON data to string")
+                        return
                     }
-
-                } catch {
-                    print("Error: Trying to convert JSON data to string")
-                    return
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
+            }
+
+            DispatchQueue.main.async {
+                self?.delegate?.recipesDidUpdate()
             }
         }
     }
+
     func postAllPotions () {
         for recipe in cachedRecipes {
             AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes", method: .post, parameters: recipe, encoder: .json, headers: ["Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Methods": "*"]).validate(statusCode: 200 ..< 299).responseData {response in
                 switch response.result {
                 case .success(_):
-                        print("Success")
-
+                    print("Success")
+                    
                 case .failure(let error):
                     print(error)
                 }

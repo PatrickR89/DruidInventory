@@ -34,6 +34,10 @@ class RecipesExchangeTableViewController: UITableViewController {
 }
 
 extension RecipesExchangeTableViewController: OnlineRecipeDelegate {
+    func recipesDidUpdate() {
+        tableView.reloadData()
+    }
+
     func recipeDidUpload() {
         let section = tableView.numberOfSections - 1
         let row = tableView.numberOfRows(inSection: section) - 1
