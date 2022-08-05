@@ -98,8 +98,9 @@ class OnlineRecipesContainer {
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
         print("\(error) occured during fetching recipes")
         self.cachedRecipes = setupBasicRecipes()
-        DispatchQueue.main.async {
-            self.delegate?.alertDidPopup(alertController: alertController)
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.alertDidPopup(alertController: alertController)
+            self?.delegate?.recipesDidUpdate()
         }
     }
 
