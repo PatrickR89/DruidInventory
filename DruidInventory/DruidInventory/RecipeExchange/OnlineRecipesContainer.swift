@@ -11,11 +11,7 @@ import Alamofire
 class OnlineRecipesContainer {
     static let shared = OnlineRecipesContainer()
 
-    private var cachedRecipes = [Recipe]() {
-        didSet {
-            delegate?.recipesDidUpdate()
-        }
-    }
+    private var cachedRecipes = [Recipe]()
     private var cachedIds = [UUID: String]()
     weak var delegate: OnlineRecipeDelegate?
 
@@ -52,6 +48,8 @@ class OnlineRecipesContainer {
                     print("Success")
 
                 case .failure(let error):
+                    let alertController = UIAlertController(title: "ERROR uploading recipes", message: "Error occured during recipe upload, please try again", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default))
                     print(error)
                 }
             }
@@ -78,17 +76,23 @@ class OnlineRecipesContainer {
                             self?.cachedIds[recipe.id] = recipe._id
                         }
 
+                        DispatchQueue.main.async {
+                            self?.delegate?.recipesDidUpdate()
+                        }
+
                     } catch {
-                        print("Error: Trying to convert JSON data to string")
+                        let alertController = UIAlertController(title: "ERROR loading recipes", message: "Error occured during fetching recipes, test recipes will be loaded", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                        print("\(error) occured during fetching recipes")
+                        self?.cachedRecipes = (self?.setupBasicRecipes())!
                         return
                     }
                 case .failure(let error):
-                    print(error)
+                    let alertController = UIAlertController(title: "ERROR loading recipes", message: "Error occured during fetching recipes, test recipes will be loaded", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                    print("\(error) occured during fetching recipes")
+                    self?.cachedRecipes = (self?.setupBasicRecipes())!
                 }
-            }
-
-            DispatchQueue.main.async {
-                self?.delegate?.recipesDidUpdate()
             }
         }
     }
