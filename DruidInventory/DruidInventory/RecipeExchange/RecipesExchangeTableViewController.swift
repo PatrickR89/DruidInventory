@@ -44,6 +44,10 @@ class RecipesExchangeTableViewController: UITableViewController {
 }
 
 extension RecipesExchangeTableViewController: OnlineRecipeDelegate {
+    func alertDidPopup(alertController: UIAlertController) {
+        present(alertController, animated: true)
+    }
+
     func recipesDidUpdate() {
         tableView.reloadData()
     }

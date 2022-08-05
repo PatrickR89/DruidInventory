@@ -11,4 +11,5 @@ protocol OnlineRecipeDelegate: AnyObject {
     func recipeDidDownload(id: UUID)
     func recipeDidUpload()
     func recipesDidUpdate()
+    func alertDidPopup(alertController: UIAlertController)
 }

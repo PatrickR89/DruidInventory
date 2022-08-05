@@ -16,7 +16,7 @@ class OnlineRecipesContainer {
     weak var delegate: OnlineRecipeDelegate?
 
     private init () {
-//        cachedRecipes = setupBasicRecipes()
+        //        cachedRecipes = setupBasicRecipes()
         //        postAllPotions()
         fetchData()
     }
@@ -45,17 +45,19 @@ class OnlineRecipesContainer {
             AF.request("https://crudcrud.com/api/f1f20c79aaba4ac7a5630adc85950882/recipes", method: .post, parameters: tempRecipe, encoder: .json, headers: ["Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Methods": "*"]).validate(statusCode: 200 ..< 299).responseData {response in
                 switch response.result {
                 case .success(_):
+                    DispatchQueue.main.async {
+                        self?.delegate?.recipeDidUpload()
+                    }
                     print("Success")
 
                 case .failure(let error):
                     let alertController = UIAlertController(title: "ERROR uploading recipes", message: "Error occured during recipe upload, please try again", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                    DispatchQueue.main.async {
+                        self?.delegate?.alertDidPopup(alertController: alertController)
+                    }
                     print(error)
                 }
-            }
-
-            DispatchQueue.main.async {
-                self?.delegate?.recipeDidUpload()
             }
 
             return
@@ -81,19 +83,23 @@ class OnlineRecipesContainer {
                         }
 
                     } catch {
-                        let alertController = UIAlertController(title: "ERROR loading recipes", message: "Error occured during fetching recipes, test recipes will be loaded", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-                        print("\(error) occured during fetching recipes")
-                        self?.cachedRecipes = (self?.setupBasicRecipes())!
+                        self?.popupAlertOnError(error: error)
                         return
                     }
                 case .failure(let error):
-                    let alertController = UIAlertController(title: "ERROR loading recipes", message: "Error occured during fetching recipes, test recipes will be loaded", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default))
-                    print("\(error) occured during fetching recipes")
-                    self?.cachedRecipes = (self?.setupBasicRecipes())!
+                    self?.popupAlertOnError(error: error)
                 }
             }
+        }
+    }
+
+    func popupAlertOnError(error: Error) {
+        let alertController = UIAlertController(title: "ERROR loading recipes", message: "Error occured during fetching recipes, test recipes will be loaded", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        print("\(error) occured during fetching recipes")
+        self.cachedRecipes = setupBasicRecipes()
+        DispatchQueue.main.async {
+            self.delegate?.alertDidPopup(alertController: alertController)
         }
     }
 
