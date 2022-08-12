@@ -44,6 +44,24 @@ extension RecipesTableViewController {
 
             guard let recipe = RecipesContainer.shared.findRecipe(id: recipeOrder[indexPath.row]) else {return nil}
             let ingredients = recipe.ingredientsInRecipe
+
+            var actions = [UIContextualAction]()
+
+            if !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: OnlineRecipesContainer.shared.getAllOnlineRecipes()) {
+
+                let uploadRecipe = UIContextualAction(
+                    style: .normal,
+                    title: "UPLOAD") {_, _, completitionHandler in
+                        OnlineRecipesContainer.shared.addOnlineRecipe(recipe: recipe)
+                        completitionHandler(true)
+                    }
+                uploadRecipe.image = UIImage(systemName: "arrow.up.arrow.down")
+                uploadRecipe.backgroundColor = ColorContainer.lightGreenSwipe
+                actions.append(uploadRecipe)
+            }
+
             if RecipesContainer.shared.checkIngredients(ingredients: ingredients) {
                 let makePotion = UIContextualAction(
                     style: .normal,
@@ -53,16 +71,15 @@ extension RecipesTableViewController {
                         }
                         completitionHandler(true)
                     }
-                makePotion.backgroundColor = ColorContainer.lightGreenSwipe
-                let swipeConfig = UISwipeActionsConfiguration(actions: [makePotion])
-
-                swipeConfig.performsFirstActionWithFullSwipe = false
-
-                return swipeConfig
-            } else {
-                return nil
+                makePotion.backgroundColor = ColorContainer.greenSwipe
+                actions.append(makePotion)
             }
 
+            let swipeConfig = UISwipeActionsConfiguration(actions: actions)
+
+            swipeConfig.performsFirstActionWithFullSwipe = false
+
+            return swipeConfig
         }
 
     override func tableView(

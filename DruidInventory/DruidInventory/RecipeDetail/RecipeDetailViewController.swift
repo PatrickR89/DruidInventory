@@ -32,6 +32,7 @@ class RecipeDetailViewController: UITableViewController {
         case downArrow
         case makeButton
         case component(name: String, image: String, count: Int, id: UUID)
+        case sendButton
     }
 
     var tableContents: [TableRowContent] = [.downArrow, .makeButton]
@@ -57,7 +58,14 @@ class RecipeDetailViewController: UITableViewController {
             target: self,
             action: #selector(dismissOnTap))
 
-        appendPlusButtons()
+        if recipe.local {
+            appendPlusButtons()
+        }
+
+        if !isNewRecipe {
+            tableContents.append(.sendButton)
+        }
+
         configTableViewLayout()
         appendItemsToContent()
         validateRecipe()

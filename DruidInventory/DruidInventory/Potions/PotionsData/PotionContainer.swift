@@ -108,7 +108,11 @@ class PotionContainer {
     }
 }
 
-extension PotionContainer: RecipeContainerAmountDelegate {
+extension PotionContainer: RecipeContainerPotionsDelegate {
+    func createdNewPotion(potion: Potion) {
+        addNewPotion(potion: potion)
+    }
+
     func updatedPotionAmount(id: UUID, amount: Int) {
         updatePotionAmount(id: id, amount: amount)
     }

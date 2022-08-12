@@ -43,6 +43,7 @@ class RecipeComponentSelectorViewController: UIViewController {
 
     var componentIndexPath: IndexPath
     var componentRecipeIndex = 0
+    var isLocal: Bool
 
     weak var delegate: RecipeComponentSelectorDelegate?
 
@@ -62,11 +63,13 @@ class RecipeComponentSelectorViewController: UIViewController {
         componentIndexPath: IndexPath,
         type: RecipeComponentType,
         potion: Potion,
-        filteredComponents: [Potion]) {
+        filteredComponents: [Potion],
+        isLocal: Bool) {
             self.componentIndexPath = componentIndexPath
             self.componentType = type
             self.potion = potion
             self.filteredComponents = filteredComponents
+            self.isLocal = isLocal
             super.init(nibName: nil, bundle: nil)
         }
 
@@ -87,10 +90,13 @@ class RecipeComponentSelectorViewController: UIViewController {
         configTextFieldLayout()
         configImageLayout()
         configAmountLayout()
-        configPrevNextButtonLayout(button: buttonNext)
-        configPrevNextButtonLayout(button: buttonPrevious)
-        configAmountButtonsLayout(button: buttonPlus)
-        configAmountButtonsLayout(button: buttonMinus)
+
+        if isLocal {
+            configPrevNextButtonLayout(button: buttonNext)
+            configPrevNextButtonLayout(button: buttonPrevious)
+            configAmountButtonsLayout(button: buttonPlus)
+            configAmountButtonsLayout(button: buttonMinus)
+        }
 
         switch componentType {
         case .inputNew, .outputNew:

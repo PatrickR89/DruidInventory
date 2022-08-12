@@ -9,6 +9,7 @@ import UIKit
 
 struct Recipe: Codable {
     var id: UUID
+    var local: Bool
     var ingredientsInRecipe: [Potion]
     var potionsInRecipe: [Potion]
 }

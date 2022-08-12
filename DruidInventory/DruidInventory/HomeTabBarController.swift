@@ -33,6 +33,20 @@ class HomeTabBarController: UITabBarController {
 
         self.setViewControllers([potionsTableController, recipesTableController], animated: true)
     }
+
+    override var selectedViewController: UIViewController? {
+        didSet {
+            if selectedIndex == 1 {
+                navigationItem.leftBarButtonItem = UIBarButtonItem(
+                    image: UIImage(systemName: "arrow.up.arrow.down"),
+                    style: .plain,
+                    target: self,
+                    action: #selector(exchangeRecipes))
+            } else {
+                navigationItem.leftBarButtonItem = nil
+            }
+        }
+    }
 }
 
 extension HomeTabBarController: UITabBarControllerDelegate {
@@ -45,6 +59,11 @@ extension HomeTabBarController {
     @objc func addItem() {
         let actionProvider = selectedViewController as? HomeTabBarNavActionProvider
         actionProvider?.addNew()
+    }
+
+    @objc func exchangeRecipes() {
+        let actionProvider = selectedViewController as? HomeTabBarNavActionProvider
+        actionProvider?.exchangeRecipes()
     }
 
     func fetchSymbols() {

@@ -38,18 +38,26 @@ extension RecipeDetailViewController {
                 isRecipeValid: isRecipeValid,
                 enoughIngredients: RecipesContainer.shared.checkIngredients(ingredients: recipe.ingredientsInRecipe))
             return cell
+        case .sendButton:
+            let cell = RecipeDetailUploadButtonCell.dequeue(in: tableView, for: indexPath)
+            let validation = !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: OnlineRecipesContainer.shared.getAllOnlineRecipes())
+            cell.setupCell(isRecipeValid: validation)
+            return cell
 
         case .component(_, let image, let count, let id):
             let cell = RecipeDetailComponentCell.dequeue(in: tableView, for: indexPath)
 
             guard let index = tableContents.firstIndex(
                 of: RecipeDetailViewController.TableRowContent.downArrow) else {return cell}
-                let type: RecipeComponentType
-                if indexPath.row < index {
-                    type = RecipeComponentType.inputChange
-                } else {
-                    type = RecipeComponentType.outputChange
-                }
+
+            let type: RecipeComponentType
+            if indexPath.row < index {
+                type = RecipeComponentType.inputChange
+            } else {
+                type = RecipeComponentType.outputChange
+            }
 
             cell.setupCell(id: id, image: image, count: count, type: type)
             return cell
@@ -86,6 +94,14 @@ extension RecipeDetailViewController {
                 RecipesContainer.shared.createPotion(recipe: recipe)
                 self.dismiss(animated: true)
             }
+        case .sendButton:
+            let validation = !OnlineRecipesContainer.shared.validateRecipe(
+                recipe: recipe,
+                validationRecipes: OnlineRecipesContainer.shared.getAllOnlineRecipes())
+            if validation {
+                OnlineRecipesContainer.shared.addOnlineRecipe(recipe: recipe)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
 
         case .component(let name, let image, let count, let id):
 
@@ -117,6 +133,7 @@ extension RecipeDetailViewController {
             switch content {
             case .component(let name, let image, let count, let id):
 
+                if !recipe.local {return nil}
                 guard let index = tableContents.firstIndex(
                     of: RecipeDetailViewController.TableRowContent.downArrow) else {return nil}
                 let type: RecipeComponentType

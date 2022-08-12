@@ -9,4 +9,5 @@ import UIKit
 
 protocol HomeTabBarNavActionProvider {
     func addNew()
+    func exchangeRecipes()
 }

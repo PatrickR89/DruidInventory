@@ -18,6 +18,7 @@ extension RecipeDetailViewController {
         RecipeDetailPlusCell.register(in: tableView)
         RecipeDetailResultsInCell.register(in: tableView)
         RecipeDetailMakeButtonCell.register(in: tableView)
+        RecipeDetailUploadButtonCell.register(in: tableView)
     }
 
     func appendPlusButtons() {
@@ -72,7 +73,10 @@ extension RecipeDetailViewController {
             let navController = UINavigationController()
             let recipeComponentSelector = RecipeComponentSelectorViewController(
                 componentIndexPath: componentIndexPath,
-                type: type, potion: component, filteredComponents: filterComponents(recipe: recipe))
+                type: type,
+                potion: component,
+                filteredComponents: filterComponents(recipe: recipe),
+                isLocal: recipe.local)
             recipeComponentSelector.delegate = self
 
             recipeComponentSelector.setupRecipe(recipe: recipe, potion: component)

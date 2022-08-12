@@ -25,8 +25,15 @@ class RecipesTableViewController: UITableViewController {
 }
 
 extension RecipesTableViewController: HomeTabBarNavActionProvider {
+    func exchangeRecipes() {
+        let recipeExchangeView = RecipesExchangeTableViewController()
+        let navController = UINavigationController()
+        navController.viewControllers = [recipeExchangeView]
+        present(navController, animated: true)
+    }
+
     func addNew() {
-        let recipe = Recipe(id: UUID(), ingredientsInRecipe: [], potionsInRecipe: [])
+        let recipe = Recipe(id: UUID(), local: true, ingredientsInRecipe: [], potionsInRecipe: [])
         let recipeDetailViewController = RecipeDetailViewController(recipe: recipe)
         recipeDetailViewController.isNewRecipe = true
         let navController = UINavigationController()

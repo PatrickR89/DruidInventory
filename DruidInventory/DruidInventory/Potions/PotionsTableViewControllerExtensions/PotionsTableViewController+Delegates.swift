@@ -25,6 +25,9 @@ extension PotionsTableViewController: PotionContainerDelegate {
 }
 
 extension PotionsTableViewController: HomeTabBarNavActionProvider {
+    func exchangeRecipes() {
+    }
+
     func addNew() {
         let potion = Potion(name: "", image: "", amount: 0, id: UUID())
         let potionDetailViewController = PotionDetailViewController(potion: potion)
